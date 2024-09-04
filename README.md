@@ -1,2 +1,1 @@
-# williams-bhs.github.io
-quarter 4 project
+[Introduction to Computer Science](https://williams-bhs.github.io/compsci/)
