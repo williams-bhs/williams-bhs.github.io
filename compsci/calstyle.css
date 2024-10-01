@@ -9,6 +9,15 @@ body {
     font-style: normal;
 }
 
+a {
+  text-decoration: none; 
+  color: #77b; 
+} 
+a:hover {
+  color: #b77; 
+  text-decoration: underline; 
+}
+
 .calendar {
     width: 95%;
     max-width: 900px;
