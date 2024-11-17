@@ -1,0 +1,247 @@
+<html>
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!-- Syntax highlighting for code samples, from https://prismjs.com/ -->
+<link href="prism.css" rel="stylesheet" />
+<script src="prism.js"></script>
+
+<style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+
+
+</head>
+
+<body>
+<br> 
+<h1>Things to know after Q1</h1>
+
+<p>
+  Expand the topics below to review the things that you should know how to do from scratch off the top of your head.
+  Knowing these things will make learning new things much easier. 
+  Not knowing these things will make everything harder. 
+</p>
+
+
+
+<button class="accordion">HTML Template</button>
+<div class="panel">
+  <p>The fundamental basic HTML template.</p>
+  <pre><code class="language-html">&lt;!DOCTYPE html&gt; 
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;A title&lt;/title&gt;
+  &lt;/head&gt;  
+  &lt;body&gt;
+    &lt;div&gt;      
+      &lt;h1&gt;Header&lt;/h1&gt;
+      &lt;p&gt;
+        Here is a paragraph.
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+
+<button class="accordion">Link to a CSS file and modify basic style</button>
+<div class="panel">
+  <p>Link to a CSS stylesheet with:</p>
+  <pre><code class="language-html">&lt;!DOCTYPE html&gt; 
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;A title&lt;/title&gt;
+      &lt;link rel="stylesheet" href="mystyle.css"&gt; 
+    &lt;/head&gt;  
+    &lt;body&gt;
+      ...</code></pre>
+
+    <p>
+      Here are some basic stylings!
+      </p>
+      <pre><code class="language-css">body {
+  background-color: #ddd; 
+  font-family: 'Courier New', monospace; 
+}
+
+h1 {
+  color: #dcc; 
+}
+
+p {
+  background-color: #fff; 
+  border: 1px solid black; 
+  border-radius: 7px; 
+  width: 600 px; 
+  margin: auto; 
+} </code></pre>
+    
+</div>
+
+<button class="accordion">Apply style using a class or an id</button>
+<div class="panel">
+  <p>CSS classes are a great way to modify any number of elements at once. </p>
+  <pre><code class="language-html">&lt;img class="profile-pic" src="picture.png"&gt;
+    &lt;div class="bio"&gt; ... &lt;/div&gt;</code></pre>
+
+    <p>
+      The classes above can be styled with 
+    </p>
+      <pre><code class="language-css">.profile-pic{
+  width: 150px; 
+  border-radius: 50%; 
+}
+.bio {
+  margin: 15px; 
+  padding: 10px; 
+  font-style: italic;  
+}</code></pre>
+  <p>
+    HTML Ids are uniuqe to an element. For example, there might be one primary container:
+  </p>
+    <pre><code class="language-html">&lt;div id="body-container"&gt; ... </code></pre>
+      <p>
+        Which you can style with 
+      </p>
+        <pre><code class="language-css">#body-container {
+  width: 800px; 
+  margin: auto; 
+  background-color: #fff; 
+} </code></pre>    
+<p>
+  Note that classes use the dot selector and ids use the # selector. 
+</p>
+  
+</div>
+
+<button class="accordion">Connect to a JavaScript file</button>
+<div class="panel">
+  <p>You connect an HTML document to a JavaScript file with:</p>
+  <pre><code class="language-html">&lt;script src="filename.js"&gt;&lt;/script&gt;</code></pre>
+</div>
+
+<button class="accordion">Access and update an element using its Id</button>
+<div class="panel">
+  <p>
+    Given the following HTML elements:
+  </p>
+  <pre><code class="language-html">&lt;input type="text" id="input-box"&gt;&lt;/input&gt;
+&lt;div id="display-div"&gt;&lt;/div&gt;</code></pre>
+  <p>
+    We can get the text in the textbox and udpate the div with:
+  </p>
+  <pre><code class="language-javascript">let input_box = document.getElementById("input-box");
+let output_div = document.getElementById("display-div"); 
+
+let text = input_box.value; 
+let message = "You entered: " + text; 
+output_div.innerHTML = message; </code></pre>
+</div>
+
+<button class="accordion">Create, modify, and use variables</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Write a JavaScript function </button>
+<div class="panel">
+  <p>A JavaScript function requires the 'function' keyword, a function name, and parentheses around any parameters the function takes as input. Here are several examples: </p>
+  <pre><code class="language-javascript">function triple(num) {
+  return 3*num; 
+}
+
+function absolute_value(x) {
+  if (x < 0) {
+    return -x; 
+  }
+  return x; 
+}
+
+function update_div_from_text() {
+  let input_box = document.getElementById("input-box");
+  let output_div = document.getElementById("display-div"); 
+  
+  let text = input_box.value; 
+  let message = "You entered: " + text; 
+  output_div.innerHTML = message;  
+}  </code></pre>
+</div>
+
+<button class="accordion">Write basic loops</button>
+<div class="panel">
+  <p></p>
+  <pre><code class="language-javascript">// Numbers from 10 to 19
+for (let i=10; i<20; i++) {
+    document.write("The number is: " + i + "&lt;br&gt;"); 
+}
+
+// Odd numbers from 101 to 199
+for (let num=101; num <= 199; num++) {
+  console.log( num );
+}
+
+  </code></pre>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br>
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+  </script>
+
+</body>
+</html>
