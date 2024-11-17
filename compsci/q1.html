@@ -182,11 +182,15 @@ output_div.innerHTML = message; </code></pre>
   <p>You know from the very first lesson in CodeCademy JavaScript, that three ways to declare variables include:</p>
   <pre><code class="language-javascript">const username = "Jed"; 
 var num = 15.2; 
-let output_div = document.getElementById("screen"); 
-  </code></pre>
+let output_div = document.getElementById("screen"); </code></pre>
   <p>
-    In these cases, username, num, and output_div are all variable names with different values. 
+    In these cases, username, num, and output_div are all variable names with different values. It is also useful to be able to get input from a user. It is a good idea to do this through a text box, but we can also use our familiar prompt:
   </p>
+  <pre><code class="language-javascript">let adj1 = prompt("Enter an adjective"); 
+let noun1 = prompt("Enter a noun"); 
+let name1 = prompt("Enter a name"); 
+let sentence = "The " + adj + noun1 + " went to the store with " + name + ". "
+document.write( sentence ); </code></pre>
 </div>
 
 <button class="accordion">Write a JavaScript function </button>
