@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+	<title>CDS</title>
+
+	<link rel="stylesheet" href="reveal.js-master/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
+
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+	<style>
+		.reveal img {
+			margin: 0;
+		}
+	</style>
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- TITLE SLIDE -->
+			<section>
+				<h1>Number</h1>
+				<img src="../img/rock_100.png" style="width:35px;"><img src="../img/rock_100.png"
+					style="width:35px;"><img src="../img/rock_100.png" style="width:35px;">
+				<h4>Computing and Data Science</h4>
+			</section>
+
+			<section>
+				<h4>Pattern 1</h4>
+				<div style="height:100px;"></div>
+				<div style="text-align: center;">
+					<div style="display: inline-block;"><img src="../img/rock.png" style="width:35px;"></div>
+					\(\dots\)
+					<div style="display: inline-block;text-align: right;line-height: 0;">
+						<img src="../img/rock.png" style="width:35px;"><span
+							style="display:block; line-height: 0.0em;">&nbsp;</span>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;">
+					</div>
+					\(\dots\)
+					<div style="display: inline-block;text-align: right; line-height: 0;">
+						<img src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;">
+					</div>
+					\(\dots\)
+					<div style="display: inline-block;text-align: right; line-height: 0;">
+						<img src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;">
+					</div>
+				</div>
+				<p>
+				<div style="height:100px;"></div>
+				<aside class="notes">
+					Imagine living ten thousand years ago. Among your hobbies, you enjoy collecting rocks. It isn't long
+					before you
+					start to notice patterns in various arrangements of your rocks.
+					You don't yet have a number system to talk about these patterns, but you have a sense of quantity.
+					You notice
+					that only certain quantities of rocks can form this nice pattern.
+					What are some questions we can ask about this pattern?
+				</aside>
+			</section>
+
+
+
+			<section>
+				<h4>Pattern 2</h4>
+				<div style="height:100px;"></div>
+				<div style="text-align: center;">
+					<div style="display: inline-block;">
+						<img src="../img/rock.png" style="width:35px;">
+					</div>
+					\(\dots\)
+					<div style="display: inline-block;text-align: right;line-height: 0;">
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;">
+					</div>
+					\(\dots\)
+					<div style="display: inline-block;text-align: right;line-height: 0;">
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;">
+					</div>
+					\(\dots\)
+					<div style="display: inline-block;text-align: right;line-height: 0;">
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;">
+					</div>
+				</div>
+				<div style="height:100px;"></div>
+			</section>
+
+			<section>
+
+				<div style="display: inline-block;text-align: right;line-height: 0;">
+					<div style="display: inline-block;text-align: right;">
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;">
+					</div>
+					&nbsp;&nbsp;&nbsp;with &nbsp;&nbsp;&nbsp;
+					<div style="display: inline-block;text-align: right;">
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;">
+					</div>
+					&nbsp;&nbsp;&nbsp;makes &nbsp;&nbsp;&nbsp;
+					<div style="display: inline-block;text-align: right;">
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><br>
+						<img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+							src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+							style="width:35px;"><br>
+					</div>
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Pattern 3</h4>
+				<div style="height:100px;"></div>
+				<div style="text-align: center">
+					<img src="../img/rock_3d1.png" style="width:45px;"> \(\dots\)
+					<img src="../img/rock_3d2.png" style="width:90px;"> \(\dots\)
+					<img src="../img/rock_3d3.png" style="width:150px;">
+				</div>
+				<div style="height:100px;"></div>
+			</section>
+
+
+			<section>
+				<style>
+					.rock-tables table {
+						border: 1px solid red;
+						border-collapse: collapse;
+					}
+
+					.rock-tables td {
+						padding: 2px;
+					}
+				</style>
+				<div style="text-align: center;" class="rock-tables">
+					One
+					<br>
+					<div>
+						<div style="display:inline-block;">
+
+							<table style="margin:auto;">
+								<tr style="border:2px solid gray;">
+									<td><img src="../img/rock.png" style="display:block;"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+
+					Two
+					<div>
+						<div style="display:inline-block;">
+							<table style="margin:auto;">
+								<tr style="border:2px solid gray;">
+									<td><img src="../img/rock.png" style="display:block;"></td>
+									<td><img src="../img/rock.png" style="display:block;"></td>
+								</tr>
+							</table>
+						</div>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div style="display:inline-block;">
+							<table style="margin:auto;">
+								<tr style="border:2px solid gray;">
+									<td><img src="../img/rock.png" style="display:block;"></td>
+								</tr>
+								<tr style="border:2px solid gray;">
+									<td><img src="../img/rock.png" style="display:block;"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+
+					Three
+					<div>
+						<div style="display:inline-block;">
+							<table style="margin:auto;">
+								<tr style="border:2px solid gray;">
+									<td><img src="../img/rock.png" style="display:block;"></td>
+									<td><img src="../img/rock.png" style="display:block;"></td>
+									<td><img src="../img/rock.png" style="display:block;"></td>
+								</tr>
+							</table>
+						</div>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div style="display:inline-block;">
+							<table style="margin:auto;">
+								<tr style="border:2px solid gray;">
+									<td><img src="../img/rock.png" style="display:block;"></td>
+								</tr>
+								<tr style="border:2px solid gray;">
+									<td><img src="../img/rock.png" style="display:block;"></td>
+								</tr>
+								<tr style="border:2px solid gray;">
+									<td><img src="../img/rock.png" style="display:block;"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+
+			</section>
+
+			<section>
+
+				Four
+				<div>
+					<div style="display:inline-block;">
+						<table style="margin:auto;">
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+								<td><img src="../img/rock.png" style="display:block;"></td>
+								<td><img src="../img/rock.png" style="display:block;"></td>
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+						</table>
+					</div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div style="display:inline-block;">
+						<table style="margin:auto;">
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+						</table>
+					</div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div style="display:inline-block;">
+						<table style="margin:auto;">
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				Five
+				<div>
+					<div style="display:inline-block;">
+						<table style="margin:auto;">
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+								<td><img src="../img/rock.png" style="display:block;"></td>
+								<td><img src="../img/rock.png" style="display:block;"></td>
+								<td><img src="../img/rock.png" style="display:block;"></td>
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+						</table>
+					</div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div style="display:inline-block;">
+						<table style="margin:auto;">
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+							<tr style="border:2px solid gray;">
+								<td><img src="../img/rock.png" style="display:block;"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</section>
+
+
+
+			<section>
+				<h4>Exercises</h4>
+				<ol>
+					<li>Rock Patterns - Check the OEIS</li>
+					<li>Rock Constructions</li>
+
+				</ol>
+			</section>
+
+
+
+
+		</div>
+	</div>
+
+	<script src="reveal.js-master/dist/reveal.js"></script>
+	<script src="reveal.js-master/plugin/notes/notes.js"></script>
+	<script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+	<script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
