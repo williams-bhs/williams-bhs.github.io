@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing and Data Science</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="header.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="header-title">
+      <svg class="header-img" viewBox="0 0 1024 1024" fill="currentColor" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m 712,294 a 56,56 0 1 0 112,0 56,56 0 1 0 -112,0 z" id="path5" />
+        <path d="m 564,608 a 96,96 0 1 0 192,0 96,96 0 1 0 -192,0 z" id="path4" />
+        <path d="m 406,380 a 48,48 0 1 0 96,0 48,48 0 1 0 -96,0 z" id="path3" />
+        <path d="m 288,604 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z" id="path2" />
+        <path
+          d="M 888,792 H 200 V 168 c 0,-4.4 -3.6,-8 -8,-8 h -56 c -4.4,0 -8,3.6 -8,8 v 688 c 0,4.4 3.6,8 8,8 h 752 c 4.4,0 8,-3.6 8,-8 v -56 c 0,-4.4 -3.6,-8 -8,-8 z"
+          id="path1" />
+      </svg>
+      <span>Computing and Data Science</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Welcome to Computing and Data Science</h1>
+      <p>This course is about applied mathematics and leveraging computing to solve problems.</p>
+    </section>
+
+
+    <h2>Applied Mathematics</h2>
+    <p>
+      <strong>Mathematical modeling</strong> is the process of translating a real-world problem into an idealized
+      reprsentation, working on the idealized problem, then translating the results back into real-world insights.
+    </p>
+    <p>
+    <div class="tikz-container" style="display:flex; justify-content: center;margin-top:2em;margin-bottom:2em;">
+      <script type="text/tikz">
+          \begin{tikzpicture}[thick, >=Stealth]
+
+          \definecolor{softred}{RGB}{255, 204, 204}
+          \definecolor{softorange}{RGB}{255, 229, 204}
+          \definecolor{softyellow}{RGB}{255, 255, 204}
+          \definecolor{softgreen}{RGB}{204, 255, 204}
+          \definecolor{softblue}{RGB}{204, 229, 255}
+          \definecolor{softpurple}{RGB}{230, 190, 220}
+
+          % Big rectangles
+          \node[draw, fill=softblue, minimum width=4.5cm, minimum height=7cm, label=above:{\Large Real World}] (realworld) at (0, 0) {};
+          \node[draw, fill=softgreen, minimum width=4.5cm, minimum height=7cm, label=above:{\Large Idealized World}] (abstractworld) at (7.5, 0) {};  % Abstract World
+          
+          % Boxes inside Real World
+          \node[draw, fill=softorange, minimum width=3cm, minimum height=1.75cm, align=center] (phenomenon) at (0, 1.85) {\large Phenomenon};
+          \node[draw, fill=softorange, minimum width=3cm, minimum height=1.75cm, align=center] (validation) at (0, -1.85) {\large Insight};
+          
+          % Boxes inside Abstract World
+          \node[draw, fill=softorange, minimum width=3cm, minimum height=1.75cm, align=center] (model) at (7.5, 1.85) {\large Model};
+          \node[draw, fill=softorange, minimum width=3cm, minimum height=1.75cm, align=center] (results) at (7.5, -1.85) {\large Implications};  % Implications
+          
+          % Arrows between boxes
+          \draw[->] (phenomenon.east) -- node[above]{\large Abstraction} (model.west);
+          \draw[->] (model.south) -- node[right]{\large Analysis} (results.north);
+          \draw[->] (results.west) -- node[below]{\large Interpretation} (validation.east);
+          \draw[<->] (validation.north) -- node[left]{\large Validation} (phenomenon.south);
+          
+          \end{tikzpicture}
+        </script>
+    </div>
+    </p>
+
+    <p>
+      Real-world problems include all of the complexities and nuance of context.
+      <strong>Abstraction</strong> is the de-contextualization of problems. This involves making
+      <strong>assumptions</strong> about what to include and what to ignore in our representations, which gives us
+      "nice" idealized versions of reality that are easier to work with. George Box frequently reiterated that:
+    <blockquote style="max-width: 600px;">"Essentially, all models are wrong, but some are useful."
+      <br>
+      <div class="quote-by">&mdash; Box &amp; Draper, Empirical Model-Building and Response Surfaces, p. 424</div>
+    </blockquote>
+    highlighting that when we model a phenomenon, our models are a tool of analysis and not the phenomenon itself. We
+    cannot capture the full complexity of the real world, but we can model the behavior of some things to a level of
+    accuracy that is sometimes useful.
+    </p>
+    <p>
+      Many seemingly unrelated problems have similar underlying structure. Scheduling of flights, placing packages into
+      containers, and prioritizing processor threads for computer applications can be modeled with similar mathematical
+      representations. Because the mathematics of the representation is common to all of the models, insights into one
+      phenomenon can offer insights into other phenomena. The real world can inform the idealized world and vice versa,
+      fueling a reciprocal process of discovery.
+    </p>
+
+    <h2>Data Science</h2>
+    <p>
+      Data Science is a broad field. If you want to write a definition of data science, then you might look at job
+      postings to see what it looks like in industry. Or you might look at university programs to see how academia views
+      it. However you try, you will run into conflicting views.
+    <blockquote>"In fact, some data scientists are &mdash; for all practical purposes &mdash; statisticians, while
+      others are pretty much indistinguishable from software engineers. Some are machine-learning experts, while others
+      couldn't machine-learn their way out of kindergarten...<br><br> In short, pretty much no matter how you define
+      data science, you'll find practitioners for whom the definition is totally, absolutely wrong." <br>
+      <div class="quote-by">&mdash; Joel Grus, Data Science from Scratch, p. 20</div>
+    </blockquote>
+    </p>
+    <p>
+      In our course of study, we will build our skills from first principles and work toward developing projects with the following data-modeling pipeline:
+    <div>
+      <div class="tikz-container" style="display:flex; justify-content: center;margin-top:2em;margin-bottom:2em;">
+        <script type="text/tikz">
+
+              \begin{tikzpicture}[thick, block/.style={rectangle, draw, minimum width=2.5cm, minimum height=1.2cm, align=center}, >=Stealth, node distance=1.5cm and 0.8cm
+              ]
+
+              % Define colors
+              \definecolor{softred}{RGB}{255, 204, 204}
+              \definecolor{softorange}{RGB}{255, 229, 204}
+              \definecolor{softyellow}{RGB}{255, 255, 204}
+              \definecolor{softgreen}{RGB}{204, 255, 204}
+              \definecolor{softblue}{RGB}{204, 229, 255}
+              
+              % Nodes with background colors
+              \node[block, fill=softred] (data) {\large Data};
+              \node[block, fill=softorange, right=of data] (preprocess) {\large Preprocess};
+              \node[block, fill=softyellow, right=of preprocess] (explore) {\large Explore};
+              \node[block, fill=softgreen, right=of explore] (model) {\large Model};
+              \node[block, fill=softblue, right=of model] (communicate) {\large Communicate};
+              
+              % Arrows
+              \draw[->] ([xshift=-1cm]data.west) -- (data);
+              \draw[->] (data) -- (preprocess);
+              \draw[->] (preprocess) -- (explore);
+              \draw[->] (explore) -- (model);
+              \draw[->] (model) -- (communicate);
+              \draw[->] (communicate) -- ([xshift=1cm]communicate.east);
+            
+            \end{tikzpicture}
+            </script>
+      </div>
+    </div>
+    This is a common workflow that has developed over decades as multiple disciplines converged on data-modeling
+    processes (Chapman 1999, Han 2012 Figure P.1, Schutt 2013 p. 41, Estrellado 2020 Chp. 3, Nantasenamat 2020, Kolter
+    2021).
+    </p>
+    <p>
+      This framework offers a structure for doing data science, but also a structure for critically analyzing data
+      projects. Each stage in the framework highlights points where choices are made, offering opportunities to reflect
+      on potential consequences in the development and deployment of our models.
+    </p>
+    <p>
+    <h4 data-id="dmp-h4">A framework for critical analysis</h4>
+    <table style="max-width:650px; margin:auto;text-align: left;">
+      <tr style="border:0px;padding:0px;vertical-align: top;">
+        <td style="border:0px;padding:0px;">
+          <div style="min-width:84px;text-align:center;font-family: 'Times New Roman', Times, serif; padding:8px; border: 1px solid black; border-radius:2px; background-color:var(--dsp-red);float:right;margin-right:20px;">
+            Data</div>
+        </td>
+        <td style="border:0px;padding:0px;vertical-align: top;">
+          &bull; Harmful data collection, lack of consent, insecure / lack of privacy, historical, representational, or measurement bias, ...
+          <br><br>
+        </td>
+      </tr>
+      <tr style="border:0px;padding:0px;vertical-align: top;">
+        <td style="border:0px;padding:0px;">
+          <div style="min-width:84px;text-align:center;font-family: 'Times New Roman', Times, serif; padding:8px; border: 1px solid black; border-radius:2px; background-color:var(--dsp-orange);float:right;margin-right:20px;">
+            Preprocess</div>
+        </td>
+        <td style="font-size:100%;border:0px;padding:0px;vertical-align: top;">
+          &bull; Labor exploitation, labeling by non-experts, incorrect labeling, trauma experienced by labelers, ...
+          <br><br>
+        </td>
+      </tr>
+      <tr style="border:0px;padding:0px;vertical-align: top;">
+        <td style="border:0px;padding:0px;">
+          <div style="min-width:84px;text-align:center;font-family: 'Times New Roman', Times, serif; padding:8px; border: 1px solid black; border-radius:2px; background-color:var(--dsp-yellow);float:right;margin-right:20px;">
+            Explore</div>
+        </td>
+        <td style="font-size:100%;border:0px;padding:0px;vertical-align: top;">
+          &bull; Feature selection bias, bias in interpretation of data visualization, data manipulation, feature hacking, ...
+          <br><br>
+        </td>
+      </tr>
+      <tr style="border:0px;padding:0px;vertical-align: top;">
+        <td style="border:0px;padding:0px;">
+          <div style="min-width:84px;text-align:center;font-family: 'Times New Roman', Times, serif; padding:8px; border: 1px solid black; border-radius:2px; background-color:var(--dsp-green);float:right;margin-right:20px;">
+            Model</div>
+        </td>
+        <td style="font-size:100%;border:0px;padding:0px;vertical-align: top;">
+          &bull; Bias in model choice, model-amplified bias, environmental impact, learning bias, evaluation bias, peripheral modeling, ...
+          <br><br>
+        </td>
+      </tr>
+      <tr style="border:0px;padding:0px;vertical-align: top;">
+        <td style="border:0px;padding:0px;">
+          <div style="min-width:84px;text-align:center;font-family: 'Times New Roman', Times, serif; padding:8px; border: 1px solid black; border-radius:2px; background-color:var(--dsp-blue);float:right;margin-right:20px;">
+            Communicate</div>
+        </td>
+        <td style="font-size:100%;border:0px;padding:0px;vertical-align: top;">
+          &bull; Biased model interpretation, ignoring variance, rejecting model, deploying harmful products, deployment bias, ...
+          <br><br>
+        </td>
+      </tr>
+      <tr style="border:0px;padding:0px;vertical-align: top;">
+        <td style="border:0px;padding:0px;">
+          <div style="min-width:84px;text-align:center;font-family: 'Times New Roman', Times, serif; padding:8px; border: 1px solid black; border-radius:2px; background-color:var(--dsp-gray);float:right;margin-right:20px;">
+            Meta</div>
+        </td>
+        <td style="font-size:100%;border:0px;padding:0px;vertical-align: top;">
+          &bull; "Pernicious feedback loops", runaway homogeneity<!-- https://arxiv.org/abs/1710.11214 -->,
+          susceptability to adversarial attack, lack of oversight or auditing, ...
+          <br><br>
+        </td>
+      </tr>
+    </table>
+    </p>
+    <p>
+      A critical look at the modeling process reveals that it is riddled with choices. Many of the technical issues along the way become ethical issues down the pipeline, and many ethical issues are fundamentally technical issues. A necessary but insufficient condition for avoiding harm with math-based technologies is: understand what you're doing. 
+    </p>
+
+
+
+    <h2>Academic Integrity</h2>
+    <p>
+      Academic integrity is paramount. The work that you submit must be your original work. It should be an expression
+      of your understanding and a product of your problem solving. Never submit work that is not your own, and do not
+      submit work that in any way misrepresents your contribution. Do not support others in submitting work that is not their own. Instead, support
+      one another through collaborative curiosity and building understanding.
+    </p>
+    <p>
+      Use of generative AI can be particularly detrimental to an education. While there may be times later in the year
+      where we experiment with generative AI, the use of such technologies in the completion of our work is otherwise
+      unacceptable. 
+    </p>
+    <p>
+      Learning is a process, and if you skip the process then you skip the learning. Learning takes work, and if you do that
+      work you will be educated.
+    </p>
+
+    <h2>References</h2>
+    <div class="reference">
+      Box, G. E. P., & Draper, N. R. (1986). <em>Empirical model-building and response surfaces</em>. John Wiley & Sons, Inc.
+    </div>
+    <div class="reference">
+      Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., & Wirth, R. (1999).  
+      <em>CRISP-DM 1.0: Step-by-step Data Mining Guide</em>. https://www.the-modeling-agency.com/crisp-dm.pdf.
+    </div>
+    <div class="reference">
+      Han, J., Kamber, M., & Pei, J. (2012). <em>Data Mining, Concepts and Techniques</em>. The Morgan Kaufmann Series in
+      Data Management Systems.
+    </div>
+    <div class="reference">
+      Schutt, R., & O'Neil, C. (2014). <em>Doing data science: Straight talk from the frontline</em>. O'Reilly Media, Inc.
+    </div>
+    <div class="reference">
+      Estrellado, R. A., Freer, E. A., Mostipak, J., Rosenberg, J. M., & Velázquez, I. C. (2020). <em>Data
+      Science in Education Using R</em>. New York, NY: Routledge.
+    </div>
+    <div class="reference">
+      Nantasenamat, C. (2020). <em>The Data Science Process</em>. Towards Data Science.
+      https://towardsdatascience.com/the-data-science-process-a19eb7ebc41b.
+    </div>
+    <div class="reference">
+      Kolter, Z. (2021). <em>Practical Data Science: Introduction</em>. Practical Data Science. http://www.datasciencecourse.org/notes/intro/.
+    </div>
+  </main>
+</body>
+
+</html>

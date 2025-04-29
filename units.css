@@ -1,0 +1,65 @@
+
+
+.unit-table {
+  counter-reset: unit-counter;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);     
+  border-left: 1px solid #ddd; 
+  border-right: 1px solid #ddd; 
+}
+
+.unit-table th, td {
+  padding: 0.75em;
+  text-align: left;
+  border-bottom: 1px solid #ddd; 
+}
+
+.unit-table th {
+  background-color: #2c3e50; 
+  color: #eee; 
+}
+
+.unit-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.unit-number::before {
+  content: counter(unit-counter) ". ";
+  counter-increment: unit-counter;
+}
+
+
+
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+      display: block;
+      border: none; 
+    }
+
+    thead {
+      display: none;
+    }
+
+    tr {
+      margin-bottom: 1em;
+      background: #fff;
+      padding: 1em;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    td {
+      border: none;
+      padding: 0.5em 0;
+      position: relative;
+    }
+
+    td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      display: block;
+      color: #555;
+    }
+}
