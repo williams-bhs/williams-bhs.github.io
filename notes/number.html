@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing and Data Science</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../header.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../boxes.css" />
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script> -->
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="header-title">
+      <svg class="header-img" viewBox="0 0 1024 1024" fill="currentColor" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m 712,294 a 56,56 0 1 0 112,0 56,56 0 1 0 -112,0 z" id="path5" />
+        <path d="m 564,608 a 96,96 0 1 0 192,0 96,96 0 1 0 -192,0 z" id="path4" />
+        <path d="m 406,380 a 48,48 0 1 0 96,0 48,48 0 1 0 -96,0 z" id="path3" />
+        <path d="m 288,604 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z" id="path2" />
+        <path
+          d="M 888,792 H 200 V 168 c 0,-4.4 -3.6,-8 -8,-8 h -56 c -4.4,0 -8,3.6 -8,8 v 688 c 0,4.4 3.6,8 8,8 h 752 c 4.4,0 8,-3.6 8,-8 v -56 c 0,-4.4 -3.6,-8 -8,-8 z"
+          id="path1" />
+      </svg>
+      <span>Computing and Data Science</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Number</h1>
+      <p>Humans are very good at recognizing patterns. We are often too good at it, finding patterns where there aren't
+        any, but more on that later.</p>
+
+      <div class="table-of-contents">
+        On this page: <a href="#calculus">Calculus</a>, <a href="#algorithm">Algorithm</a>, <a href="#decimal">Decimal</a>, <a href="#binary">Binary</a>.
+      </div>
+    </section>
+
+    <section class="content">
+
+      <a id="calculus"></a>
+      <h2>Calculus</h2>
+      <p>
+        Imagine living ten thousand years ago. Among your hobbies, you enjoy collecting rocks. It isn't long before you
+        start to notice patterns in various arrangements of your rocks.
+      </p>
+      <p>
+        You don't yet have a number system to talk about these patterns, but you have a sense of quantity. You notice
+        that only certain quantities of rocks can form this nice pattern:
+      </p>
+      <h4>Pattern 1</h4>
+      <div style="text-align: center;">
+        <div style="display: inline-block;"><img src="../img/rock.png" style="width:35px;"></div>
+        \(\dots\)
+        <div style="display: inline-block;text-align: right;">
+          <img src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;">
+        </div>
+        \(\dots\)
+        <div style="display: inline-block;text-align: right;">
+          <img src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;">
+        </div>
+        \(\dots\)
+        <div style="display: inline-block;text-align: right;">
+          <img src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;">
+        </div>
+      </div>
+      <p>
+        and only certain quantities of rocks can form this other nice pattern:
+      </p>
+      <h4>Pattern 2</h4>
+      <div style="text-align: center;">
+        <div style="display: inline-block;">
+          <img src="../img/rock.png" style="width:35px;">
+        </div>
+        \(\dots\)
+        <div style="display: inline-block;text-align: right;">
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;">
+        </div>
+        \(\dots\)
+        <div style="display: inline-block;text-align: right;">
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;">
+        </div>
+        \(\dots\)
+        <div style="display: inline-block;text-align: right;">
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;">
+        </div>
+      </div>
+      <p>
+        Moreover, you notice that you can combine adjacent arangements from Pattern 1 to get arrangements from Pattern
+        2. Pretty
+        neat! Good thing cell phones don't exist...
+      </p>
+      <p>
+        Then your friend Chelsea, also from ten thousand years ago, notices another connection: sometimes she can
+        combine two arrangements from Pattern 2 to get a bigger arrangement also in Pattern 2, but it doesn't always work.
+        She finds this one:
+      </p>
+      <div style="text-align: center;vertical-align:middle;">
+        <div style="display: inline-block;text-align: right;">
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;">
+        </div>
+        &nbsp;&nbsp;&nbsp;with &nbsp;&nbsp;&nbsp;
+        <div style="display: inline-block;text-align: right;">
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;">
+        </div>
+        &nbsp;&nbsp;&nbsp;makes &nbsp;&nbsp;&nbsp;
+        <div style="display: inline-block;text-align: right;">
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+            style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+            style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+            style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+            style="width:35px;"><br>
+          <img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img
+            src="../img/rock.png" style="width:35px;"><img src="../img/rock.png" style="width:35px;"><img src="../img/rock.png"
+            style="width:35px;"><br>
+        </div>
+      </div>
+
+      <p>
+        Pretty soon your whole village is obsessed with these amazing patterns. They find some nice
+        rocks that stack into towers and begin to make arrangements of towers in patterns like this one:
+      </p>
+      <h4>Pattern 3</h4>
+      <div style="text-align: center">
+        <img src="../img/rock_3d1.png" style="width:45px;"> \(\dots\)
+        <img src="../img/rock_3d2.png" style="width:90px;"> \(\dots\)
+        <img src="../img/rock_3d3.png" style="width:150px;">
+      </div>
+      <p>
+        Chelsea, who is rightly proud of her discovery about combinations in Pattern 2, searches for similar
+        combinations in Pattern 3. She wants to find two piles in Pattern 3 that can combine together to get another pile
+        in Pattern 3, but this last format is challenging and it will be quite a wile before someone
+        figures it out. <!-- Y'all, I am not proud of this. -->
+      </p>
+
+      <h3>Factors</h3>
+      <p>
+        In modern times, rocks still exist. You can even find your own in nature. Let's build some numbers with rows
+        of rocks:
+      </p>
+      <style>
+        .rock-tables table {
+          border: 1px solid red; 
+          border-collapse: collapse;
+        }
+        .rock-tables td {
+          padding: 5px; 
+        }
+      </style>
+      <div style="text-align: center;" class="rock-tables">
+        One
+        <br>
+        <div>
+          <div style="display:inline-block;">
+
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <br><br>
+
+        Two
+        <div>
+          <div style="display:inline-block;">
+
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div style="display:inline-block;">
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <br><br>
+        Three
+        <div>
+          <div style="display:inline-block;">
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div style="display:inline-block;">
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <br><br>
+        Four
+        <div>
+          <div style="display:inline-block;">
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div style="display:inline-block;">
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div style="display:inline-block;">
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <br><br>
+        Five
+        <div>
+          <div style="display:inline-block;">
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div style="display:inline-block;">
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <br><br>
+        Six
+        <div style="vertical-align: top;">
+          <div style="display:inline-block;">
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div style="display:inline-block;border-collapse: collapse;">
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div style="display:inline-block;">
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div style="display:inline-block;">
+            <table style="margin:auto;">
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+              <tr style="border:2px solid gray;">
+                <td><img src="../img/rock.png" style="display:block;"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <p>
+        These are all the ways that you can construct the numbers one through six with equally sized rows. In each
+        construction, a row represents a <strong>factor</strong> or <strong>divisor</strong> of the number. Four
+        example, \(4\) is a factor of \(12\) because we can construct 12 with rows of size \(4\). Another way to think
+        about this is that \(12\) can be dividied into rows of size \(4\).
+      </p>
+      <p>
+        <!-- So this is the first definition I'm writing here and there are already like 20 caveats that are killing me inside. -->
+      <div class="definition-box">
+        <h4>Definition</h4>
+        <p> A <strong>factor</strong> or <strong>divisor</strong> is a number that divides a larger number into whole
+          parts. We write \[d | n \] and say "\(d\) divides \(n\)" to mean that \(d\) is a divisor of \(n\). </p>
+      </div>
+      </p>
+      <p>
+        We haven't yet talked about negative rocks, which could be viewed as factors, but when we say "\(d\) divides
+        \(n\)", we mean for positive integer values of \(d\).
+      </p>
+
+
+      <div class="inline-exercise">
+        <h4>Exercise</h4>
+        <p>
+          For \(n=1\) to \(15\), how many "rock constructions" can we make for \(n\)? How does this relate to the number of divisors of \(n\)?
+        </p>
+      </div>
+
+
+      <a id="algorithm"></a>
+      <h2>Algorithm</h2>
+      <p>
+        Once we have stacks of rocks, we begin to move those stacks around. Like Chelsea, we start to find patterns
+        not only in the arrangements, but also in relationships between arrangements.
+        An <strong>algorithm</strong> is a sequence of steps to perform a calculation or solve a problem. The algorithms
+        we will work with will take some inputs and return some output. 
+        </p>
+        <p>
+        As we play with rock constructions, a question arrises: 
+        <div style="max-width:400px; margin:auto;padding-bottom:15px;">Given two piles of rocks, what is the largest row that could be used in either of their constructions?</div>
+        <!-- A question arrises: for two numbers \(a\) and \(b\), what is the largest row that constructs both \(a\) and \(b\)? -->
+        This is equivalent to asking: what is the greatast common divisor of two numbers? 
+      </p>
+      <p>
+      <div class="definition-box">
+        <h4>Definition</h4>
+        <p> If \(a\) and \(b\) are positive integers, the <strong>greatest common divisor</strong> of \(a\) and \(b\) is
+          denoted gcd(\(a\),\(b\)) and is defined to be the positive integer \(d\) such that \(d|a\) and \(d|b\). </p>
+      </div>
+      </p>
+
+      <p>
+        The algorithm below can be used to find the greatest common divisor of Left and Right piles of rocks. 
+        <div class="algorithm-box">
+          <h4>Algorithm &mdash; Greatest Common Divisor</h4>
+          <p style="font-style:italic;">
+            Given Left and Right piles of rocks, find the gcd of the two piles.
+          </p>
+          <br> 
+          <p>
+          gcd(Left, Right): 
+          <ol>
+            <li>If Left > Right, then take a Right amount away from the Left </li>
+            <li>If Right > Left, then take a Left amount away from the Right</li>
+            <li>If the piles are equal, then that is the gcd, otherwise repeat</li>
+          </ol>
+          </p>
+        </div>
+        </p>
+        <p>
+        In this algorithm, we start with two piles and repeatedly take the smaller amount away from the bigger amount until the piles are equal. Let's run through it with an example of \(55\) and \(25\). 
+
+
+        <div style="max-width:700px; margin:auto;">   
+          <table style="width:100%;border-collapse: collapse;">
+            <tr>
+              <th style="text-align: center;">Algorithm Steps</th>
+              <th style="text-align: center;width:170px;">State of Piles</th>
+            </tr>
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(55\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+            
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:red;">\(30\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+            
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(55\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(55\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:red;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+            
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:red;">\(20\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+            
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:red;">\(15\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(15\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+
+
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(15\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+            
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:red;">\(10\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(10\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(10\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+            
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:red;">\(5\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+
+
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+
+
+          </table>
+        </div>
+
+<!-- 
+
+        <div style="max-width:700px; margin:auto;">   
+          <style>
+            th {
+              background-color: #48729b;color:#fff;
+            }
+          </style>
+          <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+            <tr>
+              <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+              <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+            </tr>
+            <tr>
+              <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(55\)</td>
+              <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+            </tr>
+          </table>
+
+          <div style="margin:auto;text-align: center;">
+            (1) Left > Right so we take 25 away from the 55 pile. 
+          </div>
+
+          <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+            <tr>
+              <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;">Left</th>
+              <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;">Right </th>
+            </tr>
+            <tr>
+              <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:red;">\(30\)</td>
+              <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+            </tr>
+          </table>
+
+
+          <div style="margin:auto;text-align: center;">
+            (2) Right is not greater than Left <br> (3) They are not equal so we loop back to (1) <br> (1) Left > Right so we take 25 away from 30
+          </div>
+
+          <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+            <tr>
+              <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;">Left</th>
+              <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;">Right </th>
+            </tr>
+            <tr>
+              <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:red;">\(5\)</td>
+              <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(20\) </td>
+            </tr>
+          </table>
+
+
+          <div style="margin:auto;text-align: center;">
+            (3) They are not equal so we loop back to (1)<br> (1) Left is not greater than Right<br>(2) Right > Left so we take 5 away from 20
+          </div>
+
+
+          <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+            <tr>
+              <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;">Left</th>
+              <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;">Right </th>
+            </tr>
+            <tr>
+              <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+              <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:red;">\(15\) </td>
+            </tr>
+          </table>
+
+
+          <div style="margin:auto;text-align: center;">
+            (2) Right > Left so we take 5 away from 20
+          </div>
+
+          <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+            <tr>
+              <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;">Left</th>
+              <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;">Right </th>
+            </tr>
+            <tr>
+              <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+              <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:red;">\(10\) </td>
+            </tr>
+          </table>
+
+
+          <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+            <tr>
+              <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;">Left</th>
+              <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;">Right </th>
+            </tr>
+            <tr>
+              <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+              <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:red;">\(5\) </td>
+            </tr>
+          </table>
+
+        </div> -->
+
+
+<!-- 
+
+      <div class="algorithm-box">
+        <h4>Algorithm: gcd(\(a,b\))</h4>
+        <p>
+          Given positive integers \(a \geq b\), find the greatest common divisor \(d\). <br>
+        <ol>
+          <li> while \(b \neq 0\): <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \(t \gets b\) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \(b \gets \) remainder of \(a \div b\) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \(a \gets t\)
+          </li>
+          <li>
+            \(d \gets a\)
+          </li>
+        </ol>
+        </p>
+      </div>
+      </p>
+      <p>
+        The statement "while \(b \neq 0\):" says to repeat the indented steps, in order, until \(b\) reaches zero. The
+        arrow indicates assignment of a value, and is read as "gets". So the statement "\(t \gets b\)" is read as "t
+        gets b" and is the assignment of the value in \(b\) to the variable \(t\) (for temporary).
+      </p>
+      <p>
+        Let's run through the \(\gcd\) algorithm for \(55\) and \(25\).
+      <div style="max-width:700px; margin:auto;">        
+        When we begin the algorithm, the variables have the following values:
+        <style>
+          th {
+            background-color: #48729b;color:#fff;
+          }
+        </style>
+        <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+          <tr>
+            <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(a\)</th>
+            <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(b\) </th>
+            <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(t\) </th>
+          </tr>
+          <tr>
+            <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(55\)</td>
+            <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+            <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;"> </td>
+          </tr>
+        </table>
+        <hr>
+        Since \(b \neq 0\) We go through the loop:
+        <table style="margin: auto;">
+          <tr>
+            <td style="text-align: right; vertical-align: middle;">
+              <div style="display: inline-block; padding-right:20px; margin-bottom:0px;">
+                \(t \gets b\)
+              </div>
+            </td>
+            <td style="text-align: right;">
+              <div style="display: inline-block;">
+                <table style="border-collapse: collapse;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(a\)</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(b\) </th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(t\) </th>
+                  </tr>
+                  <tr>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(55\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:#f00;">\(25\)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: right; vertical-align: middle;">
+              <div style="display: inline-block; padding-right:20px; margin-bottom:0px;">
+                \(b \gets \) remainder of \(a \div b\)
+              </div>
+            </td>
+            <td style="text-align: right;">
+              <div style="display: inline-block;">
+                <table style="border-collapse: collapse;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(a\)</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(b\) </th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(t\) </th>
+                  </tr>
+                  <tr>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(55\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:#f00;">\(5\) </td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: right; vertical-align: middle;">
+              <div style="display: inline-block; padding-right:20px; margin-bottom:0px;">
+                \(a \gets t\)
+              </div>
+            </td>
+            <td style="text-align: right;">
+              <div style="display: inline-block;">
+                <table style="border-collapse: collapse;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(a\)</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(b\) </th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(t\) </th>
+                  </tr>
+                  <tr>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:#f00;">\(25\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\) </td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <hr>
+        Since \(b \neq 0\) We go through the loop:
+        <table style="margin: auto;">
+          <tr>
+            <td style="text-align: right; vertical-align: middle;">
+              <div style="display: inline-block; padding-right:20px; margin-bottom:0px;">
+                \(t \gets b\)
+              </div>
+            </td>
+            <td style="text-align: right;">
+              <div style="display: inline-block;">
+                <table style="border-collapse: collapse;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(a\)</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(b\) </th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(t\) </th>
+                  </tr>
+                  <tr>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\) </td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:#f00;">\(5\)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: right; vertical-align: middle;">
+              <div style="display: inline-block; padding-right:20px; margin-bottom:0px;">
+                \(b \gets \) remainder of \(a \div b\)
+              </div>
+            </td>
+            <td style="text-align: right;">
+              <div style="display: inline-block;">
+                <table style="border-collapse: collapse;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(a\)</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(b\) </th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(t\) </th>
+                  </tr>
+                  <tr>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:#f00;">\(0\) </td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: right; vertical-align: middle;">
+              <div style="display: inline-block; padding-right:20px; margin-bottom:0px;">
+                \(a \gets t\)
+              </div>
+            </td>
+            <td style="text-align: right;">
+              <div style="display: inline-block;">
+                <table style="border-collapse: collapse;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(a\)</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(b\) </th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:20px;text-align: center;">\(t\) </th>
+                  </tr>
+                  <tr>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;color:#f00;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(0\) </td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <hr>
+        Since \(b=0\) we do not loop. Step (2) in the algorithm is \(d \gets a\), so our last step is:
+        \[ d \gets 5 \]
+        <hr>
+      </div>
+      <br> 
+      That value of \(d=5\) is the greatest common divisor of \(55\) and \(25\). 
+      </p>
+      <p>
+        A takeaway from this algorithm is that it works for any \(a\) and \(b\) (positive integers where \(a>b\)). You might have to go through the loop a different number of times, but the final value of \(d\) is guarenteed to be \(\gcd(a,b)\).
+      </p>  -->
+      <p>
+        <div class="inline-exercise">
+          <h4>Exercise</h4>
+          <p>
+            Why does the \(\gcd\) algorithm work? 
+          </p>
+        </div>
+      </p>
+
+      <a id="decimal"></a>
+      <h2>Decimal</h2>
+
+      <p>
+        Our standard number system is base-10, which uses ten symbols:
+        \[0, 1, 2, 3, 4, 5, 6, 7, 8, 9\]
+        Every place value is a power of 10. The number
+        \[4703\]
+        is 4 thousands (\(10^{3}\)), 7 hundreds (\(10^{2}\)), 0 tens (\(10^{1}\)), and 3 ones (\(10^{0}\)). We could
+        make a table like this:
+        \[
+        \begin{array}{c|c|c|c|c}
+        \text{Place-Value} & 10^3 & 10^2 & 10^1 & 10^0 \\ \hline
+        \text{Digit} & 4 & 7 & 0 & 3 \\
+        \end{array}
+        \]
+        or represent it like this:
+      <div style="text-align: center;">
+        <img src="../img/thousands_block.png" style="width:100px;">
+        <img src="../img/thousands_block.png" style="width:100px;">
+        <img src="../img/thousands_block.png" style="width:100px;">
+        <img src="../img/thousands_block.png" style="width:100px;"><br>
+        <img src="../img/hundreds_block.png" style="width:80px;">
+        <img src="../img/hundreds_block.png" style="width:80px;">
+        <img src="../img/hundreds_block.png" style="width:80px;">
+        <img src="../img/hundreds_block.png" style="width:80px;">
+        <img src="../img/hundreds_block.png" style="width:80px;">
+        <img src="../img/hundreds_block.png" style="width:80px;">
+        <img src="../img/hundreds_block.png" style="width:80px;"><br>
+        <img src="../img/ones_block.png" style="width:14px;">
+        <img src="../img/ones_block.png" style="width:14px;">
+        <img src="../img/ones_block.png" style="width:14px;">
+      </div>
+      Notice the ways that ten shows up all over the place in these representations.
+      </p>
+
+      <h3>Counting</h3>
+      <p>
+        Given a set of symbols like \(0,1,2,3,4,5,6,7,8,9\), we start counting with the symbol \(0\) reprsenting zero,
+        then move to the next symbol to represent the next number, and so on:
+        \[
+        \begin{array}{c|c}
+        \textbf{Number} & \textbf{Decimal} \\ \hline
+        \text{zero} & 0 \\
+        \text{one}& 1 \\
+        \text{two}& 2 \\
+        \text{three} & 3 \\
+        \text{four} & 4 \\
+        \text{five} & 5 \\
+        \text{six}& 6 \\
+        \text{seven} & 7 \\
+        \text{eight} & 8 \\
+        \text{nine} & 9 \\
+        \end{array}
+        \]
+        At this point, we have run out of symbols! With every number system:
+      <div style="text-align: center;font-weight: bold;">
+        When you run out of symbols, start over, and add one to the left.
+      </div>
+      <br>
+
+      To move from \(9\) to the next number, we reset the ones place from \(9\) back to \(0\) and increment the tens
+      place to get
+      \[10\]
+      Then we can go through all of the symbols again until we get to \(19\) and repeat the process to get \(20\).
+      </p>
+
+      <p>
+        In each place, we start with our first symbol, \(0\), and count up to our last symbol \(9\). Every time we
+        run out of symbols, we start over at \(0\) and add one to the left.
+      </p>
+      <p>
+        If this is the only number system you know, then it might be suprising to learn that we don't have to represent
+        numbers this way. It isn't just that we could use different symbols, but we could use different place values,
+        too.
+      </p>
+
+      <a id="binary"></a>
+      <h2>Binary</h2>
+      <p>
+        Binary is a base-2 number system that uses the symbols \(0\) and \(1\). When we start counting in binary,
+        we run out of symbols quickly:
+        \[0\]
+        \[1\]
+        We reset the one's place
+        \[10\]
+        That looks like a ten, but it is a two written in binary. Here are several numbers written in binary:
+        \[
+        \begin{array}{c|r}
+        \textbf{Number} & \textbf{Binary} \\ \hline
+        \text{zero} & 0 \\
+        \text{one} & 1 \\
+        \text{two} & 10 \\
+        \text{three} & 11 \\
+        \text{four} & 100 \\
+        \text{five} & 101 \\
+        \text{six} & 110 \\
+        \text{seven} & 111 \\
+        \text{eight} & 1000 \\
+        \text{nine} & 1001 \\
+        \end{array}
+        \]
+        Some very nice patterns emerge. In fact, once we notice patterns counting in base-2, we might go back and look
+        for similar patterns in base-10 that were there all along.
+      </p>
+
+      <h3>Place Value</h3>
+      <p>
+        In binary, we have numbers that look like:
+        \[10111\]
+        which has place values with base-2:
+        \[
+        \begin{array}{c|c|c|c|c|c}
+        \text{Place Value} &2^4 & 2^3 & 2^2 & 2^1 & 2^0 \\ \hline
+        \text{Bit} & 1 & 0 & 1 & 1 & 1 \\
+        \end{array}
+        \]
+        We can convert \(10111\) to decimal by calculting:
+        \[ 1(2^4) + 0 (2^3) + 1 (2^2) + 1 (2^1) + 1(2^0) \]
+        \[ = 16 + 0 + 4 + 2 + 1 \] 
+        \[ = 23 \]
+        </p>
+        <h4>Decimal to Binary</h4>
+        <p>
+          Let's convert \(57\) to binary. We look at the place values and fill in the largest possible place until we have a value that sums to our target of \(57\). 
+        </p>
+        <p>
+          \[
+          \begin{array}{c|c|c|c|c|c|c|c r }
+          \text{Place Value} & 2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0 & \quad \quad \text{Target: }57 \\ \hline
+          \text{Bit} & & & & & & & &  \quad \quad \text{Sum: } 0 \\
+          \end{array}
+          \]
+
+          \[
+          \begin{array}{c|c|c|c|c|c|c|c r }
+          \text{Place Value} & 2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0 & \quad \quad \text{Target: }25 \\ \hline
+          \text{Bit} & & 1 & & & & & &  \quad \quad \text{Sum: } 32 \\
+          \end{array}
+          \]
+
+
+          \[
+          \begin{array}{c|c|c|c|c|c|c|c r }
+          \text{Place Value} & 2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0 & \quad \quad \text{Target: }9 \\ \hline
+          \text{Bit} & & 1 & 1 & & & & &  \quad \quad \text{Sum: 48 }  \\
+          \end{array}
+          \]
+
+          \[
+          \begin{array}{c|c|c|c|c|c|c|c r }
+          \text{Place Value} & 2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0 & \quad \quad \text{Target: } 1 \\ \hline
+          \text{Bit} & & 1 & 1 & 1 & & & &  \quad \quad \text{Sum: 56 }  \\
+          \end{array}
+          \]
+
+          \[
+          \begin{array}{c|c|c|c|c|c|c|c r }
+          \text{Place Value} & 2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0 & \quad \quad \text{Target: } 0 \\ \hline
+          \text{Bit} & & 1 & 1 & 1 & 0 & 0  & 1 &  \quad \quad \text{Sum: 57 }  \\
+          \end{array}
+          \]
+
+          We find that \(57\) in binary is \(111001\).
+          
+        </p>
+        <p>
+        <div class="inline-exercise">
+          <h4>Exercise</h4>
+          <p>
+            Convert the binary \(101010\) to decimal. 
+          </p>
+          <p>
+            Convert the decimal number 76 to binary. 
+          </p>
+        </div>
+      </p>
+
+
+
+
+
+
+
+
+    </section>
+
+  </main>
+</body>
+
+</html>
