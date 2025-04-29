@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing and Data Science</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../header.css" />
+  <link rel="stylesheet" href="../style.css" />
+
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="header-title">
+      <svg class="header-img" viewBox="0 0 1024 1024" fill="currentColor" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m 712,294 a 56,56 0 1 0 112,0 56,56 0 1 0 -112,0 z" id="path5" />
+        <path d="m 564,608 a 96,96 0 1 0 192,0 96,96 0 1 0 -192,0 z" id="path4" />
+        <path d="m 406,380 a 48,48 0 1 0 96,0 48,48 0 1 0 -96,0 z" id="path3" />
+        <path d="m 288,604 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z" id="path2" />
+        <path
+          d="M 888,792 H 200 V 168 c 0,-4.4 -3.6,-8 -8,-8 h -56 c -4.4,0 -8,3.6 -8,8 v 688 c 0,4.4 3.6,8 8,8 h 752 c 4.4,0 8,-3.6 8,-8 v -56 c 0,-4.4 -3.6,-8 -8,-8 z"
+          id="path1" />
+      </svg>
+      <span>Computing and Data Science</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Number
+        <hr>
+      </h1>
+    </section>
+
+
+    <section class="exercises">      
+      <!-- <br>
+      You may use this <a href="problem-set-numbers.tex.txt">LaTeX Template</a> for your solutions.  -->
+      
+      <ol>
+        
+        <li>
+          List the first 6 elements in the sequences of:
+          <ol type="a">
+            <li>Square numbers</li>
+            <li>Triangle numbers</li>
+            <li>Composite numbers</li>
+            <li>Perfect numbers</li>
+          </ol>
+        </li>
+        <li>
+          Find a number pattern. Describe your pattern so someone could continue it as a sequence. 
+          Check <a href="https://oeis.org/">The On-Line Encyclopedia of Integer Sequences
+            (OEIS)</a> to see if it already contains your sequence. If it is already in the OEIS, what is its entry ID
+          and description? 
+        </li>
+        <li>
+          Two numbers \(a\) and \(b\) are said to be <strong>relatively prime</strong> if \(\gcd(a,b)=1\). 
+          <ol type="a">
+            <li>Demonstrate that \(77\) and \(45\) either are or are not relatively prime by factoring them.</li>
+            <li>Use the \(\gcd\) algorithm to determine if \(77\) and \(45\) are relatively prime.</li>
+            <li>The number \(23\) is prime, so Jed says that \(23\) must be relatively prime with every other positive integer. Give a counterexample to Jed's conjecture.</li>
+            <li>Despite overgeneralizing, Jed was on to something. Improve his conjecture about primes and relative primes. </li>
+          </ol>
+        </li>
+        <li>
+          In base-10, we can use base-10 blocks to represent numbers:
+          <div style="text-align: center;margin:1em;">
+            <img style="margin:1em;height:98px;" src="../img/thousands_block.png">
+            <img style="margin:1em;height:80px;" src="../img/hundreds_block.png">
+            <img style="margin:1em;height:80px;" src="../img/tens_block.png">
+            <img style="margin:1em;height:10px;" src="../img/ones_block.png">
+          </div>
+          <ol type="a">
+            <li>Sketch what the first few base-2 blocks might look like.</li>
+            <li>Depict the base-2 reprsentation of \(1011\) in a sketch using base-2 blocks.</li>
+          </ol>
+        </li>
+        <li>
+          Convert the following binary numbers to decimal:
+          <ol type="a">
+            <li>111</li>
+            <li>10001</li>
+            <li>1010101</li>
+            <li>11100001</li>
+            <li>110011</li>
+            <li>100011</li>
+          </ol>
+        </li>
+        <li>
+          Convert the following decimal numbers to binary: 
+          <ol type="a">
+            <li>7</li>
+            <li>100</li>
+            <li>63</li>
+            <li>64</li>
+            <li>15</li>
+            <li>16</li>
+          </ol>
+        </li>
+        <li>
+          The standard algorithm for addition works in every base. Use it to add the binary numbers \(101\) and \(11\). If that goes well, try adding larger numbers like \(100111+1010\). 
+        </li>
+        <li>Create a trinary (base-3) number system. You can use any three appropriate symbols you like. Demonstrate counting and basic arithmetic in your system.</li>
+
+        <li>
+          Read: Henri Poincaré, Science and Reason, Book I, Chapter IV: “Chance”, Section II.
+          <p>
+            Poincaré writes about chance that is either "fortuitous" or "non-fortuitous".
+          <ul>
+            <li>Fortuitous chance describes phenomena that we can analyze with probability, even if we do not know the
+              underlying laws that govern their behaviors. </li>
+            <li>Non-fortuitous chance describes phenomena that we simply have no hope of analyzing without discovering new laws. </li>
+          </ul>
+          </p>
+          <ol type="a">
+            <li>
+              Briefly descrbe the three examples of fortuitous chance given by Poincaré.
+            </li>
+            <li>
+              Poincaré writes: 
+              <blockquote>
+                But, even if it were the case that the natural laws had
+no longer any secret for us, we could still only know the initial situation approximately. [...] 
+<!-- If that enabled us to predict the succeeding situation with the same
+approximation, that is all we require, and we should say that the phenomenon
+had been predicted, that it is governed by laws. But it is not always so;  -->
+it may happen that small differences in the initial conditions produce very great ones
+in the final phenomena. A small error in the former will produce an enormous
+error in the latter. <strong>Prediction becomes impossible</strong>, and we have the fortuitous
+phenomenon.
+              </blockquote>
+              This describes what has come to be known as <em>sensitive dependence on initial conditions</em>, or the <em>butterfly effect</em>. 
+              We will be using data to make predictions. How might sensitive dependence on initial conditions affect our ability to predict the future? It may help to consider examples. 
+            </li>
+            <li>
+              In the short video <a href="https://www.youtube.com/watch?v=fDek6cYijxI">Chaos: The Science of the Butterfly Effect</a>, identify as many references as you can to Poincaré's work. 
+            </li>
+          </ol>
+        </li>
+
+
+      </ol>
+
+    </section>
+
+  </main>
+</body>
+
+</html>
