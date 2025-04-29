@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #2c3e50;
+  padding: 1em;
+  text-align: center;
+}
+
+.header-title {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header-img {
+  width:40px;
+  filter:invert();
+  vertical-align: middle;
+  padding-bottom: 5px;
+}
+
+.table-of-contents {
+  text-align: left;
+}
+.table-of-contents h4 {
+  margin-bottom: 0;
+}
+.table-of-contents ul {
+  display: inline-block;
+  text-align: left; 
+}
+
+main {
+  padding: 2em 1em;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2em; 
+}
+h1, h2, h3{
+  color: #2c3e50;
+}
+
+
+table {
+  border-collapse: collapse;
+}
+
+.tikz-container svg {
+  width: 100%;
+}
+
+.inline-exercise{ 
+  background-color: #f0f8ff; 
+  border-left: 5px solid #4b9cd3; 
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  max-width:500px;
+  margin: auto; 
+  padding: 1em 1.5em;
+}
+.inline-exercise h4 {
+  color: #274967; 
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.definition-box {
+  background-color: #f0fff4; 
+  border-left: 5px solid #2f855a; 
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  max-width:500px;
+  margin: auto; 
+}
+
+.definition-box h4 {
+  color: #276749; 
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.definition-box p {
+  margin: 0;
+}
+
+.theorem-box {
+  background-color: #f7f5ff; 
+  border-left: 5px solid #805ad5; 
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.theorem-box h4 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: #553c9a;  
+  font-weight: 600;
+}
+
+.theorem-box p {
+  margin: 0;
+}
+
+.algorithm-box {
+  background-color: #fffbeb; 
+  border-left: 5px solid #d69e2e; 
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  max-width:500px;
+  margin: auto; 
+}
+
+.algorithm-box h4 {
+  color: #b7791f; 
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.algorithm-box p, .algorithm-box ol {
+  margin: 0;
+}
+.algorithm-box ol {
+  list-style-type: none;
+  counter-reset: my-counter;
+  padding-left: 1.5em; 
+}
+
+.algorithm-box ol li {
+  counter-increment: my-counter;
+  position: relative;
+}
+
+.algorithm-box ol li::before {
+  content: "(" counter(my-counter) ")";
+  position: absolute;
+  left: -1.5em; 
+}
+
+
+
+a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+
+}
+
