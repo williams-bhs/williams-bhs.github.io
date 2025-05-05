@@ -19,7 +19,7 @@ for texfile in *.tex; do
     pdf2svg "${base}.pdf" "../${base}.svg"
         
     # Clean up auxiliary files
-    #rm -f "${base}.aux" "${base}.log" "${base}.pdf"
+    rm -f "${base}.aux" "${base}.log" "${base}.pdf" "${base}.dvi" "${base}.png"
 
     echo "Created ${base}.svg"
 done
