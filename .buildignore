@@ -1,0 +1,17 @@
+node_modules/
+build/
+
+package.json
+package-lock.json
+
+*.md
+*.tex
+
+build.js
+.gitignore
+.buildignore
+
+.DS_Store
+
+.git/
+.vscode/

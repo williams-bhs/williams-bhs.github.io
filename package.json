@@ -1,0 +1,12 @@
+{
+  "name": "build",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@minify-html/node": "^0.16.4",
+    "ignore": "^7.0.4",
+    "node-dir": "^0.1.17",
+    "node-html-parser": "^7.0.1",
+    "node-tikzjax": "^1.0.3"
+  }
+}
