@@ -4,6 +4,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync, rmSyn
 import { parse } from 'node-html-parser';
 import { Buffer } from "node:buffer";
 import minifyHtml from "@minify-html/node";
+import { transform } from 'lightningcss';
+import minifyJs from "@minify-js/node";
 import ignore from 'ignore';
 import dir from 'node-dir';
 import { parseArgs } from 'node:util';
@@ -63,17 +65,35 @@ async function processHtmlFile(filePath) {
     }
 
     const outputStr = html.toString();
-    const minified = minifyHtml.minify(Buffer.from(outputStr), {}).toString('utf8');
+
+    let minified;
+    try {
+        minified = minifyHtml.minify(Buffer.from(outputStr), {
+            minify_css: true,
+            minify_js: true,
+            keep_input_type_text_attr: true
+        }).toString('utf8');
+    } catch {
+        minified = minifyHtml.minify(Buffer.from(outputStr), {
+            minify_css: true,
+            minify_js: false,
+            keep_input_type_text_attr: true
+        }).toString('utf8');
+    }
 
     writeFileSync(outputPath, minified);
 }
 
 const buildignoreFile = path.join(__dirname, '.buildignore');
 const buildignore = existsSync(buildignoreFile) ? readFileSync(buildignoreFile, 'utf8').split('\n') : [];
-const ig = ignore().add(buildignore);
+const noProcessFile = path.join(__dirname, '.noprocess');
+const noProcess = existsSync(noProcessFile) ? readFileSync(noProcessFile, 'utf8').split('\n') : [];
+
+const ig_buildignore = ignore().add(buildignore);
+const ig_noprocess = ignore().add(noProcess);
 
 const filesRaw = await dir.promiseFiles(__dirname);
-const files = filesRaw.map(p => path.relative(__dirname, p)).filter(ig.createFilter());
+const files = filesRaw.map(p => path.relative(__dirname, p)).filter(ig_buildignore.createFilter());
 
 function printUsage() {
     console.log("Usage: node build.js [clean,build] [-v,--verbose]");
@@ -101,7 +121,42 @@ if (positionals.length == 0) {
         case "build":
             console.log("Building project");
             for (const file of files) {
-                if (!file.endsWith('.html')) {
+                if (file.endsWith('.css') && !ig_noprocess.ignores(file)) {
+                    console.log(`Transforming ${file} stylesheet`);
+                    const cssSource = readFileSync(file, 'utf8');
+
+                    let { code, map } = transform({
+                        filename: file,
+                        code: Buffer.from(cssSource),
+                        minify: true,
+                        sourceMap: true
+                    });
+
+                    const cssOutputPath = path.join(__dirname, 'build', file);
+                    if (!existsSync(path.dirname(cssOutputPath))) {
+                        mkdirSync(path.dirname(cssOutputPath), { recursive: true });
+                    }
+                    writeFileSync(cssOutputPath, code.toString('utf8'));
+                    const cssMapOutputPath = path.join(__dirname, 'build', file + '.map');
+                    writeFileSync(cssMapOutputPath, map.toString('utf8'));
+                } else if (file.endsWith('.js') && !ig_noprocess.ignores(file)) {
+                    console.log(`Transforming ${file} script`);
+                    const jsSource = readFileSync(file, 'utf8');
+                    const jsOutputPath = path.join(__dirname, 'build', file);
+                    if (!existsSync(path.dirname(jsOutputPath))) {
+                        mkdirSync(path.dirname(jsOutputPath), { recursive: true });
+                    }
+
+                    let minified = jsSource;
+                    try {
+                        minified = minifyJs.minify("global", Buffer.from(jsSource)).toString('utf8');
+                    } catch { }
+
+                    writeFileSync(jsOutputPath, minified);
+                }
+                else if (file.endsWith('.html') && !ig_noprocess.ignores(file)) {
+                    await processHtmlFile(file, !ig_noprocess.ignores(file));
+                } else {
                     console.log(`Copying ${file} to build directory`);
                     const filePath = path.dirname(file);
 
@@ -110,8 +165,6 @@ if (positionals.length == 0) {
                     }
 
                     copyFileSync(file, path.join(__dirname, 'build', file));
-                } else {
-                    await processHtmlFile(file);
                 }
             }
             console.log("Build complete");

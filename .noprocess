@@ -1,0 +1,5 @@
+**/dist/**/*.*
+**/plugin/**/*.*
+
+# Slides html breaks when processed
+slides/*.html

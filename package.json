@@ -4,7 +4,9 @@
   "type": "module",
   "dependencies": {
     "@minify-html/node": "^0.16.4",
+    "@minify-js/node": "^0.6.0",
     "ignore": "^7.0.4",
+    "lightningcss": "^1.29.3",
     "node-dir": "^0.1.17",
     "node-html-parser": "^7.0.1",
     "node-tikzjax": "^1.0.3"
