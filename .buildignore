@@ -1,0 +1,22 @@
+# Node and build artifacts
+node_modules/
+package.json
+package-lock.json
+build/
+
+# Private files
+*.md
+*.tex
+*.sh
+
+# Build and config files
+build.js
+.gitignore
+.buildignore
+.noprocess
+.git/
+.vscode/
+.github/
+
+# OS specific files
+.DS_Store
