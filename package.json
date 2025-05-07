@@ -2,6 +2,10 @@
   "name": "build",
   "version": "1.0.0",
   "type": "module",
+  "scripts": {
+    "clean": "node build.js clean",
+    "build": "node build.js build"
+  },
   "dependencies": {
     "@minify-html/node": "^0.16.4",
     "@minify-js/node": "^0.6.0",
