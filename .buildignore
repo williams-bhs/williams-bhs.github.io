@@ -16,6 +16,7 @@ build.js
 .noprocess
 .git/
 .vscode/
+.github/
 
 # OS specific files
 .DS_Store
