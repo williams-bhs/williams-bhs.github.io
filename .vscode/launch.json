@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             "args": [
-                "clean",
+                "build",
                 "-v"
             ],
             "program": "${workspaceFolder}/build.js",
