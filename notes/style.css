@@ -73,6 +73,25 @@ table {
   margin-top: 0;
   margin-bottom: 0.5em;
 }
+        .exercise {
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          padding: 15px;
+          margin-bottom: 20px;
+          background: #f9f9f9;
+        }
+        .solution {
+          display: none;
+          margin-top: 10px;
+          background: #e6f7ff;
+          padding: 10px;
+          border-left: 4px solid #1890ff;
+        }
+        .exercise-button {
+          margin-top: 10px;
+          cursor: pointer;
+        }
+
 
 .definition-box {
   background-color: #f0fff4; 

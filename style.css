@@ -3,33 +3,37 @@ body {
   font-family: system-ui, sans-serif;
   background-color: #fff;
   color: #333;
-  line-height: 1.6;  
+  line-height: 1.6;
 
   /* Color definitions for data science pipeline */
   --dsp-red: rgb(255, 217, 223);
   --dsp-orange: rgb(255, 226, 173);
   --dsp-yellow: rgb(255, 255, 190);
   --dsp-green: rgb(200, 236, 200);
-  --dsp-blue: rgb(205, 229, 237); 				
-  --dsp-gray: rgb(231, 231, 231); 
+  --dsp-blue: rgb(205, 229, 237);
+  --dsp-gray: rgb(231, 231, 231);
   --dsp-light: rgb(245, 245, 245);
 }
 
-img {max-width: 100%; }
+img {
+  max-width: 100%;
+}
 
 main {
   padding: 2em 1em;
   max-width: 800px;
   margin: auto;
   margin-bottom: 10em;
-  text-align:justify;
+  text-align: justify;
 }
 
 h1 {
-  font-size: 1.8em; 
+  font-size: 1.8em;
 }
 
-h1, h2, h3{
+h1,
+h2,
+h3 {
   color: #2c3e50;
   text-align: left;
 }
@@ -39,7 +43,6 @@ h1, h2, h3{
 }
 
 blockquote {
-  /* font: 16px/22px normal helvetica, sans-serif; */
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 50px;
@@ -47,21 +50,20 @@ blockquote {
   border-left: 3px solid #ccc;
   text-align: justify;
   max-width: 600px;
-  }
-  .quote-by {
-    font-size:90%;
-    display: block;
-    font-style: italic;
-    text-align: right;
-    padding-top:10px;
-  }
+}
 
-  .reference {
-    font-size: 90%; 
-    margin-top: 1em; 
-  }
+.quote-by {
+  font-size: 90%;
+  display: block;
+  font-style: italic;
+  text-align: right;
+  padding-top: 10px;
+}
 
-
+.reference {
+  font-size: 90%;
+  margin-top: 1em;
+}
 
 a {
   color: #007acc;
@@ -75,9 +77,13 @@ main a:hover {
 
 
 @media (max-width: 600px) {
+  main {
+    text-align: left;
+  }
   blockquote {
     margin-left: 2px;
     font: 12px/22px normal helvetica, sans-serif;
+    text-align: left;
   }
 
 }

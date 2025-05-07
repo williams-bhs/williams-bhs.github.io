@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing and Data Science</title>
+  <link rel="stylesheet" href="../header.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../boxes.css" />
+  <script src="../notes.js"></script>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+</head>
+
+<body>
+  <header>
+    <a href="../index.html" class="header-title">
+      <svg class="header-img" viewBox="0 0 1024 1024" fill="currentColor" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m 712,294 a 56,56 0 1 0 112,0 56,56 0 1 0 -112,0 z" id="path5" />
+        <path d="m 564,608 a 96,96 0 1 0 192,0 96,96 0 1 0 -192,0 z" id="path4" />
+        <path d="m 406,380 a 48,48 0 1 0 96,0 48,48 0 1 0 -96,0 z" id="path3" />
+        <path d="m 288,604 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z" id="path2" />
+        <path
+          d="M 888,792 H 200 V 168 c 0,-4.4 -3.6,-8 -8,-8 h -56 c -4.4,0 -8,3.6 -8,8 v 688 c 0,4.4 3.6,8 8,8 h 752 c 4.4,0 8,-3.6 8,-8 v -56 c 0,-4.4 -3.6,-8 -8,-8 z"
+          id="path1" />
+      </svg>
+      <span>Computing and Data Science</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Sequent Sum Set</h1>
+      <p>
+        Some patterns continue while some patterns end. You never know which one you're observing unless it ends.
+      </p>
+      <p>
+        Some of the exercises below are adapted from the wonderful text <a
+          href="https://discrete.openmathbooks.org"><em>Discrete Mathematics: An Open Introduction</em></a> by Oscar
+        Levin under <a href="creativecommons.org/licenses/by-nc-sa/4.0">creativecommons.org/licenses/by-nc-sa/4.0</a>.
+      </p>
+    </section>
+
+    <section class="content">
+      <h2>Sequence</h2>
+      <p>
+        A <strong>sequence</strong> is an ordered list of terms. Sequences can be <strong>finite</strong> or
+        <strong>infinite</strong>. Sequences can be listed or defined in a variety of ways. Here are some sequences:
+        \[1,1,1,1,1,...\]
+        \[2,4,6,8,10\]
+        \[1,1,2,3,5,8,...\]
+        \[0, 0.01, 0.0011, 0.000111, 0.00001111, ... \]
+        \[\frac{0}{1},\frac{1}{3},\frac{1}{2},\frac{2}{3},\frac{1}{1}\]
+        The ellipses (...) indicate that the sequence continues.
+      </p>
+
+      <h3>Formulating Sequences</h3>
+      <p>
+        An <strong>explicit formula</strong> is one that calculates the \(n^{\text{th}}\) term of a sequence directly.
+        The \(n^{\text{th}}\) perfect square is given by
+        \[a_n = n^2 \]
+        for \(n \geq 1\).
+        The subscript is an index which refers to a particular term in a sequence. It is common to start with subscripts
+        of either 0 or 1. The sequence defined by the formula above is \(a_1, a_2, a_3, ...\), where:
+        \[a_1 = 1\]
+        \[a_2 = 4\]
+        \[a_3 = 9\]
+        \[...\]
+      </p>
+      <p>
+        A <strong>recursive definition</strong> consists of an <strong>initial condition</strong> and <strong>recurrence
+          relation</strong> for calculating each term from previous terms. Consider:
+        \[a_1 = \frac{1}{2}\]
+        \[a_n = 3a_{n-1}\]
+        This says that every term is equal to \(3\) times the previous term, with the first term being
+        \(\frac{1}{2}\). This definition gives us the sequence:
+        \[a_{1} = \frac{1}{2}\]
+        \[a_{2} = \frac{3}{2}\]
+        \[a_{3} = \frac{9}{2}\]
+        \[a_{4} = \frac{27}{2}\]
+      </p>
+
+      <p>
+      <div class="exercise">
+        <h4>Exercise</h4>
+        <p>Find \(a_6\) in the sequence defined by \(a_n = 2a_{n-1}-a_{n-2}\) with \(a_0 = 3\) and \(a_1=4\).</p>
+        <button onclick="toggleSolution(this)" class="exercise-button">Show Solution</button>
+        <div class="solution">
+          <p>
+            To find \(a_6\) we would need:
+            \[ a_6 = 2a_5 - a_4 \]
+            but we do not know \(a_5\) or \(a_4\) yet. The typical strategy for evaluating terms recursivly is to start
+            at the beginning and work up to our target term.
+          </p>
+          <p>
+            We are given:
+            \[a_0 = 3\]
+            \[a_1 = 4\]
+            and we continue with:
+            \[a_2 = 2 \cdot 4 - 3 = 5 \]
+            \[a_3 = 2 \cdot 5 - 4 = 6 \]
+            \[a_4 = 2 \cdot 6 - 5 = 7 \]
+            \[a_5 = 2 \cdot 7 - 6 = 8 \]
+            \[a_6 = 2 \cdot 8 - 7 = 9 \]
+          </p>
+        </div>
+      </div>
+      </p>
+
+
+      <p>
+        Below are examples of sequences with their explicit and recursive formulas.
+        <style>
+          .sequence-table {
+            margin: auto;
+            border-collapse: collapse;
+          }
+
+          .sequence-table th {
+            text-align: center;
+          }
+
+          .sequence-table td {
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+
+          .sequence-table tr:nth-child(even) {
+            background-color: #f5f5f5;
+          }
+        </style>
+      <table class="sequence-table">
+        <tr>
+          <th style="border-right: 1px solid gray;">Sequence</th>
+          <th style="border-right: 1px solid gray;">Explicit</th>
+          <th>Recurisve</th>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(1,2,3,4,5, ...\)</td>
+          <td style="border-right: 1px solid gray;">\[a_n = n\] \[n \geq 1 \]</td>
+          <td>\[a_0 = 1\] \[a_n = a_{n-1}+1\]</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(0,2,4,6,8 ...\)</td>
+          <td style="border-right: 1px solid gray;">\[a_n = 2n\] \[n \geq 0 \]</td>
+          <td>\[a_0 = 0\] \[a_n = a_{n-1}+2\]</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(1,2,4,8,16, ...\)</td>
+          <td style="border-right: 1px solid gray;">\[a_n = 2^n\] \[n \geq 0 \]</td>
+          <td>\[a_0 = 1\] \[a_n = 2a_{n-1}\]</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\[\frac{1}{3},\frac{1}{2},\frac{3}{5},\frac{2}{3},\frac{5}{7},... \]
+          </td>
+          <td style="border-right: 1px solid gray;">\[a_n = \frac{n}{n+2}\] \[n \geq 1 \]</td>
+          <td>I don't know</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\[ 1,1,1,3,5,9,17,... \]</td>
+          <td style="border-right: 1px solid gray;">I don't know</td>
+          <td>\[a_0 = 1, a_1 = 1, a_2 = 1\] \[a_n = a_{n-1}+a_{n-2}+a_{n-3}\]</td>
+        </tr>
+      </table>
+      </p>
+
+
+      <p>
+      <div class="exercise">
+        <h4>Exercise</h4>
+        <p>Find both a explicit and recursive definition for the sequence: \[ 5, 8, 11, 14, ... \]</p>
+        <button onclick="toggleSolution(this)" class="exercise-button">Show Solution</button>
+        <div class="solution">
+          <p>Observe that the first term is \(5\) and there is a common difference of \(3\).</p>
+          <p>We can write a recursive definition by stating the initial condition and recurrance relation:
+            \[a_0 = 5\]
+            \[a_n = a_{n-1}+3\]
+          </p>
+          <p>
+            We can write an explicit formula as:
+            \[ a_n = 5 + 3n \]
+            Notice that when \(n=0\) we have \(5+3(0)\). It is always good to verify your formula!
+          </p>
+        </div>
+      </div>
+      </p>
+
+      <p>
+        Some famous sequences include:
+      <table class="sequence-table">
+        <tr style="height:70px;">
+          <td style="border-right: 1px solid gray;text-align: right;">\(1,4,9,16,25, ...\)</td>
+          <td style="text-align: left;">The <strong>square numbers</strong>. The sequence \((s_n)_{n \geq 1}\) has
+            closed formula \(s_n = n^2\) </td>
+        </tr>
+        <tr style="height:70px;">
+          <td style="border-right: 1px solid gray;text-align: right;">\(1,3,6,10,15,21, ...\)</td>
+          <td style="text-align: left;">The <strong>triangular numbers</strong>. The sequence \((T_n)_{n \geq 1}\) has
+            closed formula \(T_n = \frac{n(n+1)}{2} \) </td>
+        </tr>
+        <tr style="height:70px;">
+          <td style="border-right: 1px solid gray;text-align: right;">\(1,2,4,8,16,32, ...\)</td>
+          <td style="text-align: left;">The <strong>powers of 2</strong>. The sequence \((a_n)_{n \geq 0}\) has closed
+            formula \(a_n = 2^n\) </td>
+        </tr>
+        <tr style="height:70px;">
+          <td style="border-right: 1px solid gray;text-align: right;">\(1,1,2,3,5,8,13, ...\)</td>
+          <td style="text-align: left;">The <strong>Fibonacci numbers</strong> are defined recursively by \(F_1=F_2=1\),
+            \(F_{n} = F_{n-1}+F_{n-2}\) </td>
+        </tr>
+      </table>
+      </p>
+
+
+      <p>
+      <div class="exercise" style="max-width:100%;">
+        <!-- Example 4.1.8 from Levin -->
+        <h4>Exercise</h4>
+        <p>Use the formulas \(T_n = \frac{n(n+1)}{2}\) and \(a_n = 2^n\) to find closed formulas that agree with the
+          following sequences. Assume each first term corresponds to \(n=0\).</p>
+        <p>
+        <ol>
+          <li>\( (b_n): 1,2,4,7,11,16,22,... \)</li>
+          <li>\( (c_n): 3,5,9,17,33,... \)</li>
+          <li>\( (d_n): 0,2,6,12,20,30,42,... \)</li>
+          <li>\( (e_n): 3,6,10,15,21,28,... \)</li>
+          <li>\( (f_n): 0,1,3,7,15,31,... \)</li>
+          <li>\( (g_n): 3,6,12,24,48,... \)</li>
+          <li>\( (h_n):6,10,18,34,66,... \)</li>
+          <li>\( (j_n): 15, 33, 57, 87, 123, ... \)</li>
+        </ol>
+        </p>
+        <button onclick="toggleSolution(this)" class="exercise-button">Show Solution</button>
+        <div class="solution">
+          <p>
+          <div class="para"> We wish to compare these sequences to the triangular numbers <span
+              class="process-math">\((0, 1, 3, 6, 10, 15, 21,\ldots)\text{,}\)</span> when we start with <span
+              class="process-math">\(n=0\text{,}\)</span> and the powers of 2: \((1, 2, 4, 8,
+            16, \ldots)\text{.}\)</span>
+          </div>
+          <ol>
+            <li>
+              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-1-1">
+                \((1, 2, 4, 7, 11, 16, 22, \ldots)\text{.}\)</span> Note that if we subtract 1 from each term, we get
+                the sequence \((T_n)\text{.}\)</span> So we have <span class="process-math">\(b_n = T_n +
+                  1\text{.}\)</span> Therefore a closed formula is <span class="process-math">\(b_n = \frac{n(n+1)}{2} +
+                  1\text{.}\)</span> A quick check of the first few
+                \(n\)</span> confirms we have it right.</div>
+            </li>
+            <li>
+              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-2-1">
+                \((3, 5, 9, 17, 33, \ldots )\text{.}\)</span> Each term in this sequence is one more than a power of 2,
+                so we might guess the closed formula is \(c_n = a_n+1 = 2^n +
+                1\text{.}\)</span> If we try this though, we get \(c_0 = 2^0 + 1 =
+                2\)</span> and \(c_1 = 2^1 + 1 = 3\text{.}\)</span> We are off because the
+                indices are shifted. What we really want is \(c_n = a_{n+1}+1\)</span> giving
+                \(c_n = 2^{n+1} + 1\text{.}\)</span>
+              </div>
+            </li>
+            <li>
+              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-3-1">(\(0, 2, 6,
+                12, 20, 30, 42,\ldots \)</span>). Notice that all these terms are even. What happens if we factor out
+                a 2? We get \((T_n)\text{!}\)</span> More precisely, we find that <span class="process-math">\(d_n/2 =
+                  T_n\text{,}\)</span> so this sequence has closed formula <span class="process-math">\(d_n =
+                  n(n+1)\text{.}\)</span>
+              </div>
+            </li>
+            <li>
+              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-4-1">
+                \((3, 6, 10, 15, 21, 28, \ldots)\text{.}\)</span> These are all triangular
+                numbers. However, we are starting with 3 as our initial term instead of as our third term. So if we
+                could plug in 2 instead of 0 into the formula for \(T_n\text{,}\)</span> we
+                would be set. Therefore the closed formula is \(e_n =
+                \frac{(n+2)(n+3)}{2}\)</span> (where \(n+3\)</span> came from <span
+                  class="process-math">\((n+2)+1\)</span>). Thinking about sequences as functions, we are doing a
+                horizontal shift by 2: \(e_n = T_{n+2}\)</span> which would cause the graph
+                to shift 2 units to the left.
+              </div>
+            </li>
+            <li>
+              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-5-1">
+                \((0, 1, 3, 7, 15, 31, \ldots )\text{.}\)</span> Try adding 1 to each term, and we get powers of 2. You
+                might guess this because each term is a little more than twice the previous term (the powers of 2 are
+                <em class="emphasis">exactly</em> twice the previous term). Closed formula: <span
+                  class="process-math">\(f_n = 2^{n} - 1\text{.}\)</span>
+              </div>
+            </li>
+            <li>
+              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-6-1">
+                \((3, 6, 12, 24, 48, \ldots )\text{.}\)</span> These numbers are also doubling each time, but are also
+                all multiples of 3. Dividing each by 3 gives 1, 2, 4, 8, …. Aha. We get the closed formula <span
+                  class="process-math">\(g_n = 3\cdot 2^{n}\text{.}\)</span>
+              </div>
+            </li>
+            <li>
+              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-7-1">
+                \((6, 10, 18, 34, 66, \ldots )\text{.}\)</span> To get from one term to the next, we almost double each
+                term. So maybe we can relate this back to \(2^n\text{.}\)</span> Yes, each
+                term is 2 more than a power of 2. So we get \(h_n = 2^{n+2} + 2\)</span> (the
+                \(n+2\)</span> is because the first term is 2 more than <span
+                  class="process-math">\(2^2\text{,}\)</span> not \(2^0\)</span>).
+                Alternatively, we could have related this sequence to the second sequence in this example: Starting with
+                3, 5, 9, 17, … we see that this sequence is twice the terms from that sequence. That sequence had closed
+                formula \(c_n = 2^{n+1} + 1\text{.}\)</span> Our sequence here would be twice
+                this, so \(h_n = 2(2^n + 1)\text{,}\)</span> which is the same as what we got
+                before.</div>
+            </li>
+            <li>
+              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-8-1">
+                \((15, 33, 57, 87, 123, \ldots)\text{.}\)</span> Try dividing each term by 3. That gives the sequence
+                \(5, 11, 19, 29, 41,\ldots\text{.}\)</span> Now add 1 to each term: <span class="process-math">\(6, 12,
+                  20, 30, 42, \ldots\text{,}\)</span> which is <span class="process-math">\((d_n)\)</span> in this
+                example, except starting with 6 instead of 0. So let’s
+                start with the formula \(d_n= n(n+1)\text{.}\)</span> To start with the 6, we
+                shift: \((n+2)(n+3)\text{.}\)</span> But this is one too many, so subtract 1:
+                \((n+2)(n+3) - 1\text{.}\)</span> That gives us our sequence, but divided by
+                3. So we want \(j_n = 3((n+2)(n+3) - 1)\text{.}\)</span>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+      </details>
+      </div>
+      </article>
+    </section>
+    <section class="subsection" id="subsec-partial-sums">
+      <h3 class="heading hide-type">
+        </p>
+        </div>
+        </div>
+        </p>
+
+
+
+        <h3>Sequence Behavior</h3>
+        <p>
+          For an infinite sequence, a natural question regards the behavior of \(a_n\) as \(n\) goes to infinty.
+          There are some common behaviors we want to be able to recognize and analyize.
+        </p>
+        <p>
+          Some sequences will just get bigger, tending toward \(\pm \infty\), for example:
+          \[1,2,3,4,5,...\]
+          \[2,4,6,8,10,...\]
+          \[-2, -3, -5, -7, -11, -13, ...\]
+          \[\sqrt{1}, \sqrt{2}, \sqrt{3}, \sqrt{4}, ...\]
+        </p>
+        <p>
+          Other sequences <strong>converge</strong> to a single number. Cosider these sequences:
+          \[ \frac{1}{1},\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5},\frac{1}{6}, ... \]
+          \[1, 0.1, 0.001, 0.0001, 0.00001, ...\]
+          \[ \frac{1}{1}, \frac{2}{2^2}, \frac{3}{3^2}, \frac{4}{4^2} \]
+          For all of these sequences, \(a_n \to 0\) as \(n \to \infty\), or using <strong>limit notation</strong>:
+          \[ \lim_{n \to \infty} a_n = 0 \]
+        </p>
+        <p>
+          Other sequences <strong>cycle</strong>. The sequence given by:
+          \[a_0 = 3 \quad \quad a_n = -1 a_{n-1}\]
+          is the alternating sequence:
+          \[3, -3, 3, -3, 3, ...\]
+          We would call this a \(2\)-cycle since it cycles between two values.
+        </p>
+        <p>
+          Other sequences do not cycle, converge, or go off to infinity. The sequence of digits in \(\pi\) are
+          values from \(0\) to \(9\) that do not converge and do not cycle.
+        </p>
+
+        <h2>Sum</h2>
+        <p>
+          We will find several applications that sum the terms of a sequence. Even infinite sequences! Given the
+          infinite sequence:
+          \[ \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \frac{1}{16}, ... \]
+          The corresponding sum is:
+          \[ \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + ... \]
+          which amazingly is an infinite sum equal to \(1\).
+          A formula for this sequence of reciprocal powers of \(2\) is:
+          \[ a_n = \frac{1}{2^n} \quad \quad n \geq 1 \]
+        </p>
+        <p>
+          <strong>Sigma notation</strong> uses \(\sum\) to represent a summation. The summation of the infinite sequence
+          above could be written as:
+          \[ \sum_{n=1}^{\infty} a_n = \sum_{n=1}^{\infty} \frac{1}{2^n} \]
+          where the subscript \(n=1\) represents the starting value of \(n\) and the superscript represents the final
+          value.
+        </p>
+        <p>
+          We can also write sums of finite sequences or <strong>partial sums</strong> of infinite sequences. Here is the
+          sum of the first five perfect squares:
+          \[\sum_{i=1}^{5} x^2 = (1)^2 + (2)^2 + (3)^2 + (4)^2 + (5)^2\]
+        </p>
+
+
+        <p>
+        <div class="exercise">
+          <!-- Example 4.1.10 from Levin -->
+          <h4>Exercise</h4>
+          <p>Use \(\sum\) notation to rewrite the sums:
+          <ol>
+            <li>\( \quad 1 + 2 + 3 + 4 + \dots + 100 \)</li>
+            <li>\( \quad 1 + 2 + 4 + 8 + \dots + 2^{50} \)</li>
+            <li>\( \quad 6 + 10 + 14 + \dots + (4n-2) \)</li>
+          </ol>
+          </p>
+          <button onclick="toggleSolution(this)" class="exercise-button">Show Solution</button>
+          <div class="solution">
+            <p>
+            <ol>
+              <li> \[ \sum_{k=1}^{100} k \] </li>
+              <li> \[ \sum_{k=0}^{50} 2^k \] </li>
+              <li> \[ \sum_{k=2}^{n} (4k-2) \] </li>
+            </ol>
+            </p>
+          </div>
+        </div>
+        </p>
+
+
+        <h2>Sets</h2>
+        <!-- Modified from https://discrete.openmathbooks.org/pdfs/dmoi3-tablet.pdf -->
+        <p>
+          A set is an unordered collection of objects. Consider the set of books with two-word titles, the set of prime
+          numbers, or the set of english words that are spelled the same forwards as backwards. Imagine the set of all
+          sets that have three elements in them. The foundation of mathematics is built with sets.
+        </p>
+        <p>
+          For us, we will consider sets that look like this:
+          \[A = \{1,2,3\}\]
+          This is read, "A is the set containing the elements 1, 2, and 3." We use curly braces to enclose elements of a
+          set.
+        </p>
+        <p>
+          We can write:
+          \[a \in \{a,b,c\} \]
+          to say that \(a\) "is an element of" the set. It would also be true to say that \(d\) is not in the set, or:
+          \[ d \notin \{a,b,c\} \]
+        </p>
+        <p>
+        <h3>Special Sets</h3>
+        <table class="sequence-table">
+          <tr>
+            <td style="border-right: 1px solid gray;">\(\emptyset\) </th>
+            <td>The <strong>empty set</strong> is the set which contains no elements. </th>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">
+              \(\mathcal{U}\)
+              </th>
+            <td>
+              The <strong>universe set</strong> is the set of all elements.
+              </th>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">
+              \(\mathbb{N}\)
+              </th>
+            <td>
+              The set of natural numbers. That is, \(\mathbb{N} = \{0, 1, 2, 3\ldots\}\text{.}\)</span>
+              </th>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">
+              \(\mathbb{Z}\)
+              </th>
+            <td>
+              The set of integers. That is, \(\mathbb{Z} = \{\ldots, -2, -1, 0, 1, 2, 3, \ldots\}\text{.}\)</span>
+              </th>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">
+              \(\mathbb{Q}\)
+              </th>
+            <td>
+              The set of rational numbers.
+              </th>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">
+              \(\mathbb{R}\)
+              </th>
+            <td>
+              The set of real numbers.
+              </th>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">
+              \(\mathcal{P}(A)\)
+              </th>
+            <td>
+              The <strong class="terminology">power set</strong> of any set \(A\)</span> is the set of all subsets of
+              \(A\text{.}\)</span>
+              </th>
+          </tr>
+        </table>
+
+
+        <h3>Set Theory Notation</h3>
+
+        <table class="sequence-table">
+          <tr>
+            <td style="border-right: 1px solid gray;"> \(:\) </th>
+            <td> \(\{x : x &gt; 2\}\) is the set of all \(x\) <strong class="terminology">such that</strong> \(x\) is
+              greater than 2. </th>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">\(\in\)</td>
+            <td>\(2 \in \{1,2,3\}\) asserts that 2 is <strong class="terminology">an element of</strong> the set
+              \(\{1,2,3\}\text{.}\) </td>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">\(\not\in\)</td>
+            <td>\(4 \notin \{1,2,3\}\) because 4 <strong class="terminology">is not an element of</strong> the set
+              \(\{1,2,3\}\text{.}\) </td>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">\(\subseteq\)</td>
+            <td>\(A \subseteq B\) asserts that <strong class="terminology">\(A\) is a subset of \(B\)</strong>: every
+              element of \(A\) is also an element of \(B\text{.}\) </td>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">\(\subset\)</td>
+            <td>\(A \subset B\) asserts that <strong class="terminology">\(A\) is a proper subset of \(B\)</strong>:
+              every element of \(A\) is also an element of \(B\text{,}\) but \(A \ne B\text{.}\) </td>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">\(\cap\)</td>
+            <td>\(A \cap B\) is the <strong class="terminology">intersection of \(A\) and \(B\)</strong>: the set
+              containing all elements which are elements of both \(A\) and \(B\text{.}\) </td>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">\(\cup\)</td>
+            <td>\(A \cup B\) is the <strong class="terminology">union of \(A\) and \(B\)</strong>: is the set containing
+              all elements which are elements of \(A\) or \(B\) or both. </td>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">\(\times\)</td>
+            <td>\(A \times B\) is the <strong class="terminology">Cartesian product of \(A\) and \(B\)</strong>: the set
+              of all ordered pairs \((a,b)\) with \(a \in A\) and \(b \in B\text{.}\) </td>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">\(\setminus\)</td>
+            <td>\(A \setminus B\) is <strong class="terminology">set difference between \(A\) and \(B\)</strong>: the
+              set containing all elements of \(A\) which are not elements of \(B\text{.}\) </td>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">\(\bar{A}\)</td>
+            <td>The <strong class="terminology">complement of \(A\)</strong> is the set of everything which is not an
+              element of \(A\text{.}\) </td>
+          </tr>
+          <tr>
+            <td style="border-right: 1px solid gray;">\(|A|\)</td>
+            <td>The <strong class="terminology">cardinality (or size) of \(A\)</strong> is the number of elements in
+              \(A\text{.}\) </td>
+          </tr>
+        </table>
+        </p>
+
+
+        <h3>Relationships Between Sets</h3>
+        <p>
+          Two sets are equal if they have exactly the same elements. For exmaple,
+          \[\{1,2,3\}=\{2,1,3\} \]
+        </p>
+        <p>
+          What about the sets \(A =\{1,2,3\}\) and \(B=\{1,2,3,4\}\)? Clearly \(A \neq B\), but notice that every
+          element of \(A\) is also an element of \(B\). Because of this, we say that \(A\) is a <strong>subset</strong>
+          of \(B\), or in symbols \(A \subset B\) or \(A \subseteq B\). Both symbols are read "is a subset of." The
+          difference is that sometimes we want to say that \(A\) is either equal to or is a subset of \(B\), in which
+          case we use \(\subseteq\). This is anlaogous to the difference between \(<\) and \(\leq\). </p>
+            <p>
+              The <strong>cardinality</strong> of a set is the size of a set, and is equal to the number of elements in
+              the set. If set \(A\) has \(3\) elements then we say that \(|A|=3\).
+            </p>
+            <p>
+              We call the set of all subsets of \(A\) the <strong>power set</strong> of \(A\). For \(A=\{1,2,3\}\), the
+              power set \(\mathcal{P}(A) = \{ \{\},\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\} \}\)
+            </p>
+
+
+            <h3>Operations</h3>
+            <p>
+
+            </p>
+
+            <div style="text-align: center;">
+              <div class="tikz-container">
+                \[A\]
+                <img src="../img/set_a.svg">
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <div class="tikz-container">
+                \[A\]
+
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="185.049pt"
+                  height="114.183pt" viewBox="0 0 185.049 114.183" version="1.1">
+                  <defs>
+                    <g>
+                      <symbol overflow="visible" id="glyph0-0">
+                        <path style="stroke:none;" d="" />
+                      </symbol>
+                      <symbol overflow="visible" id="glyph0-1">
+                        <path style="stroke:none;"
+                          d="M 1.78125 -1.140625 C 1.390625 -0.484375 1 -0.34375 0.5625 -0.3125 C 0.4375 -0.296875 0.34375 -0.296875 0.34375 -0.109375 C 0.34375 -0.046875 0.40625 0 0.484375 0 C 0.75 0 1.0625 -0.03125 1.328125 -0.03125 C 1.671875 -0.03125 2.015625 0 2.328125 0 C 2.390625 0 2.515625 0 2.515625 -0.1875 C 2.515625 -0.296875 2.4375 -0.3125 2.359375 -0.3125 C 2.140625 -0.328125 1.890625 -0.40625 1.890625 -0.65625 C 1.890625 -0.78125 1.953125 -0.890625 2.03125 -1.03125 L 2.796875 -2.296875 L 5.296875 -2.296875 C 5.3125 -2.09375 5.453125 -0.734375 5.453125 -0.640625 C 5.453125 -0.34375 4.9375 -0.3125 4.734375 -0.3125 C 4.59375 -0.3125 4.5 -0.3125 4.5 -0.109375 C 4.5 0 4.609375 0 4.640625 0 C 5.046875 0 5.46875 -0.03125 5.875 -0.03125 C 6.125 -0.03125 6.765625 0 7.015625 0 C 7.0625 0 7.1875 0 7.1875 -0.203125 C 7.1875 -0.3125 7.09375 -0.3125 6.953125 -0.3125 C 6.34375 -0.3125 6.34375 -0.375 6.3125 -0.671875 L 5.703125 -6.890625 C 5.6875 -7.09375 5.6875 -7.140625 5.515625 -7.140625 C 5.359375 -7.140625 5.3125 -7.0625 5.25 -6.96875 Z M 2.984375 -2.609375 L 4.9375 -5.90625 L 5.265625 -2.609375 Z M 2.984375 -2.609375 " />
+                      </symbol>
+                      <symbol overflow="visible" id="glyph0-2">
+                        <path style="stroke:none;"
+                          d="M 1.59375 -0.78125 C 1.5 -0.390625 1.46875 -0.3125 0.6875 -0.3125 C 0.515625 -0.3125 0.421875 -0.3125 0.421875 -0.109375 C 0.421875 0 0.515625 0 0.6875 0 L 4.25 0 C 5.828125 0 7 -1.171875 7 -2.15625 C 7 -2.875 6.421875 -3.453125 5.453125 -3.5625 C 6.484375 -3.75 7.53125 -4.484375 7.53125 -5.4375 C 7.53125 -6.171875 6.875 -6.8125 5.6875 -6.8125 L 2.328125 -6.8125 C 2.140625 -6.8125 2.046875 -6.8125 2.046875 -6.609375 C 2.046875 -6.5 2.140625 -6.5 2.328125 -6.5 C 2.34375 -6.5 2.53125 -6.5 2.703125 -6.484375 C 2.875 -6.453125 2.96875 -6.453125 2.96875 -6.3125 C 2.96875 -6.28125 2.953125 -6.25 2.9375 -6.125 Z M 3.09375 -3.65625 L 3.71875 -6.125 C 3.8125 -6.46875 3.828125 -6.5 4.25 -6.5 L 5.546875 -6.5 C 6.421875 -6.5 6.625 -5.90625 6.625 -5.46875 C 6.625 -4.59375 5.765625 -3.65625 4.5625 -3.65625 Z M 2.65625 -0.3125 C 2.515625 -0.3125 2.5 -0.3125 2.4375 -0.3125 C 2.328125 -0.328125 2.296875 -0.34375 2.296875 -0.421875 C 2.296875 -0.453125 2.296875 -0.46875 2.359375 -0.640625 L 3.046875 -3.421875 L 4.921875 -3.421875 C 5.875 -3.421875 6.078125 -2.6875 6.078125 -2.265625 C 6.078125 -1.28125 5.1875 -0.3125 4 -0.3125 Z M 2.65625 -0.3125 " />
+                      </symbol>
+                    </g>
+                  </defs>
+                  <g id="surface1">
+                    <path
+                      style="fill:none;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+                      d="M -70.866563 -56.693156 L -70.866563 56.693562 L 113.387344 56.693562 L 113.387344 -56.693156 Z M -70.866563 -56.693156 "
+                      transform="matrix(1,0,0,-1,71.265,57.092)" />
+                    <path
+                      style="fill-rule:nonzero;fill:rgb(84.999084%,84.999084%,84.999084%);fill-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+                      d="M 42.520156 -0.00175 C 42.520156 23.482625 23.485 42.521687 0.000625 42.521687 C -23.48375 42.521687 -42.518906 23.482625 -42.518906 -0.00175 C -42.518906 -23.482219 -23.48375 -42.521281 0.000625 -42.521281 C 23.485 -42.521281 42.520156 -23.482219 42.520156 -0.00175 Z M 42.520156 -0.00175 "
+                      transform="matrix(1,0,0,-1,71.265,57.092)" />
+                    <path
+                      style="fill:none;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+                      d="M 85.039687 -0.00175 C 85.039687 23.482625 66.004531 42.521687 42.520156 42.521687 C 19.035781 42.521687 0.000625 23.482625 0.000625 -0.00175 C 0.000625 -23.482219 19.035781 -42.521281 42.520156 -42.521281 C 66.004531 -42.521281 85.039687 -23.482219 85.039687 -0.00175 Z M 85.039687 -0.00175 "
+                      transform="matrix(1,0,0,-1,71.265,57.092)" />
+                    <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
+                      <use xlink:href="#glyph0-1" x="16.505" y="60.495" />
+                    </g>
+                    <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
+                      <use xlink:href="#glyph0-2" x="160.78" y="60.495" />
+                    </g>
+                  </g>
+                </svg>
+
+              </div>
+            </div>
+
+
+            <div style="text-align: center;">
+              <div class="tikz-container">
+                \[B\]
+                <img src="../img/set_b.svg">
+              </div>
+            </div>
+
+
+            <div style="text-align: center;">
+              <div class="tikz-container">
+                \[\bar{A}\]
+                <img src="../img/set_a_complement.svg">
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <div class="tikz-container">
+                \[\bar{B}\]
+                <img src="../img/set_b_complement.svg">
+              </div>
+            </div>
+
+
+            <div style="text-align: center;">
+              <div class="tikz-container">
+                \[A \cup B\]
+                <img src="../img/set_a_union_b.svg">
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <div class="tikz-container">
+                \[A \cap B\]
+                <img src="../img/set_a_intersect_b.svg">
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <div class="tikz-container">
+                \[\overline{A \cup B} \]
+                <!-- There is a bug where this overline does not render for some scenarios with zoom <= 100% -->
+                <img src="../img/set_a_union_b_converse.svg">
+              </div>
+            </div>
+
+
+
+            <h2>References</h2>
+
+
+    </section>
+
+  </main>
+</body>
+
+</html>

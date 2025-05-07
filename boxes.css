@@ -14,6 +14,43 @@
   margin-bottom: 0.5em;
 }
 
+
+/* 
+An example inline exercise with solution looks like this: 
+      <div class="exercise">
+        <h4>Exercise</h4>
+        <p>What is 1+2+3?</p>
+        <button onclick="toggleSolution(this)" class="exercise-button">Show Solution</button>
+        <div class="solution">
+          <p>1+2+3 = 6.</p>
+        </div>
+      </div>
+*/
+.exercise {
+  background-color: #f0f8ff; 
+  border-left: 5px solid #4b9cd3; 
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  max-width:500px;
+  margin: auto; 
+  padding: 1em 1.5em;
+  text-align: left;
+}
+.exercise h4 {
+  color: #274967; 
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+.solution {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+}
+.exercise-button {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
 .definition-box {
   background-color: #f0fff4; 
   border-left: 5px solid #2f855a; 
@@ -23,6 +60,7 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   max-width:500px;
   margin: auto; 
+  text-align: left;
 }
 
 .definition-box h4 {
@@ -42,6 +80,7 @@
   margin: 1.5em 0;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  text-align: left;
 }
 
 .theorem-box h4 {
@@ -64,6 +103,7 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   max-width:500px;
   margin: auto; 
+  text-align: left;
 }
 
 .algorithm-box h4 {
