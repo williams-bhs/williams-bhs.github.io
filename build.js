@@ -53,7 +53,7 @@ async function processHtmlFile(filePath) {
     const html = parse(text);
 
     const tikzElements = html.querySelectorAll("script[type=text/tikz]");
-    for (let elem of html.querySelectorAll("script[type=text/tikz]")) {
+    for (let elem of tikzElements) {
         const svg = await convertTikz(elem.innerHTML);
         const svgElement = parse(svg).firstChild;
         elem.tagName = "svg";
