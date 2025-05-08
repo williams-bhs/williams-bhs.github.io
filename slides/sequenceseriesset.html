@@ -197,8 +197,8 @@
 				</div>			
 			</section>
 			
-			<section>
-				<h4>Sequence Behavior</h4>
+			<section data-background-color="#eef">
+				<h4>Sequence Behavior Summary</h4>
 				<br> 
 				<table>
 					<tr>
@@ -524,37 +524,125 @@
 
 
 			<section>
-				<h4>Set Operation Summary</h4>
+				<h4>Set Operations</h4>
 				<table>
 					<tr>
 						<td style="vertical-align: middle;text-align: right;">
 							\(A\)
 						</td>
 						<td>
-							<img src="../img/set_a.svg">
+							<div class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+								  \begin{tikzpicture}
+								  % Universal set rectangle
+								  \draw[thick] (-2.5,-2) rectangle (4,2);
+				  
+								  % Highlight A only
+								  \begin{scope}
+								  \clip (-2.5,-2) rectangle (4,2);          
+								  \fill[gray!30] (0,0) circle (1.5cm);       % Fill A
+								  \end{scope}
+				  
+								  % Set A and B outlines
+								  \draw (0,0) circle (1.5cm);
+								  \draw (1.5,0) circle (1.5cm);
+								  \node at (-1.8, 0) {\(A\)};
+								  \node at (3.3, 0) {\(B\)}; 
+				  
+								  \end{tikzpicture}
+								</script>
+							  </div>
 						</td>
 						<td style="vertical-align: middle;text-align: right;">
 							\(\bar{A}\)
 						</td>
 						<td>
-							<img src="../img/set_a_complement.svg">
+							<div class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+									  \begin{tikzpicture}
+									  % Universal set rectangle
+									  \draw[thick] (-2.5,-2) rectangle (4,2);
+					  
+									  % Complement of A shading
+									  \begin{scope}
+									  \clip (-2.5,-2) rectangle (4,2);          % Clip to universal set
+									  \fill[gray!30] (-2.5,-2) rectangle (4,2);  % Fill all
+									  \begin{scope}
+									  \clip (0,0) circle (1.5cm);
+									  \fill[white] (0,0) circle (1.5cm);       % Cut out A
+									  \end{scope}
+									  \end{scope}
+					  
+									  % Set A and B outlines
+									  \draw (0,0) circle (1.5cm);
+									  \draw (1.5,0) circle (1.5cm);
+									  \node at (-1.8, 0) {\(A\)};
+									  \node at (3.3, 0) {\(B\)}; 
+					  
+									  \end{tikzpicture}
+									</script>
+							  </div>
 						</td>
 					</tr>
 					<tr>
 						<td style="vertical-align: middle;text-align: right;">
-							\(A \cup B\)
+							\( A \cup B \)
 						</td>
-						<td>
-							<img src="../img/set_a_union_b.svg">
+						<td style="vertical-align: middle;text-align: right;">
+							<div class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+									  \begin{tikzpicture}
+									  % Universal set rectangle
+									  \draw[thick] (-2.5,-2) rectangle (4,2);
+					  
+									  % Union shading
+									  \begin{scope}
+									  \clip (-2.5,-2) rectangle (4,2);
+									  \fill[gray!30] (0,0) circle (1.5cm);
+									  \fill[gray!30] (1.5,0) circle (1.5cm);
+									  \end{scope}
+					  
+									  % Set A and B outlines
+									  \draw (0,0) circle (1.5cm);
+									  \draw (1.5,0) circle (1.5cm);
+									  \node at (-1.8, 0) {\(A\)};
+									  \node at (3.3, 0) {\(B\)}; 
+					  
+									  \end{tikzpicture}
+									</script>
+							  </div>
 						</td>
 						<td style="vertical-align: middle;text-align: right;">
 							\(A \cap B\)
 						</td>
 						<td>
-							<img src="../img/set_a_intersect_b.svg">
+							<div class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+									  \begin{tikzpicture}
+									  % Universal set rectangle
+									  \draw[thick] (-2.5,-2) rectangle (4,2);
+					  
+									  % Intersection shading
+									  \begin{scope}
+									  \clip (-2.5,-2) rectangle (4,2); % Clip to universal set
+									  \begin{scope}
+									  \clip (0,0) circle (1.5cm);
+									  \fill[gray!30] (1.5,0) circle (1.5cm);
+									  \end{scope}
+									  \end{scope}
+					  
+									  % Set A and B outlines
+									  \draw (0,0) circle (1.5cm);
+									  \draw (1.5,0) circle (1.5cm);
+									  \node at (-1.8, 0) {\(A\)};
+									  \node at (3.3, 0) {\(B\)}; 
+					  
+									  \end{tikzpicture}
+									</script>
+							  </div>
 						</td>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<td style="vertical-align: middle;text-align: right;">
 							\(A - B\)
 						</td>
@@ -567,7 +655,7 @@
 						<td>
 							<img src="../img/set_a_union_b_converse.svg">
 						</td>
-					</tr>
+					</tr> -->
 				</table>
 
 
