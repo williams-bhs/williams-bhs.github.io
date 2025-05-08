@@ -4,15 +4,6 @@ body {
   background-color: #fff;
   color: #333;
   line-height: 1.6;
-
-  /* Color definitions for data science pipeline */
-  --dsp-red: rgb(255, 217, 223);
-  --dsp-orange: rgb(255, 226, 173);
-  --dsp-yellow: rgb(255, 255, 190);
-  --dsp-green: rgb(200, 236, 200);
-  --dsp-blue: rgb(205, 229, 237);
-  --dsp-gray: rgb(231, 231, 231);
-  --dsp-light: rgb(245, 245, 245);
 }
 
 img {

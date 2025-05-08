@@ -39,7 +39,7 @@
         Some patterns continue while some patterns end. You never know which one you're observing unless it ends.
       </p>
       <p>
-        Some of the exercises below are adapted from the wonderful text <a
+        Some of the content below is adapted from the wonderful text <a
           href="https://discrete.openmathbooks.org"><em>Discrete Mathematics: An Open Introduction</em></a> by Oscar
         Levin under <a href="creativecommons.org/licenses/by-nc-sa/4.0">creativecommons.org/licenses/by-nc-sa/4.0</a>.
       </p>
@@ -237,556 +237,577 @@
         <button onclick="toggleSolution(this)" class="exercise-button">Show Solution</button>
         <div class="solution">
           <p>
-          <div class="para"> We wish to compare these sequences to the triangular numbers <span
-              class="process-math">\((0, 1, 3, 6, 10, 15, 21,\ldots)\text{,}\)</span> when we start with <span
-              class="process-math">\(n=0\text{,}\)</span> and the powers of 2: \((1, 2, 4, 8,
-            16, \ldots)\text{.}\)</span>
-          </div>
+            We wish to compare these sequences to the triangular numbers
+            \((0, 1, 3, 6, 10, 15, 21,\ldots)\text{,}\) when we start with
+            \(n=0\text{,}\) and the powers of 2: \((1, 2, 4, 8,
+            16, \ldots)\text{.}\)
           <ol>
             <li>
-              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-1-1">
-                \((1, 2, 4, 7, 11, 16, 22, \ldots)\text{.}\)</span> Note that if we subtract 1 from each term, we get
-                the sequence \((T_n)\text{.}\)</span> So we have <span class="process-math">\(b_n = T_n +
-                  1\text{.}\)</span> Therefore a closed formula is <span class="process-math">\(b_n = \frac{n(n+1)}{2} +
-                  1\text{.}\)</span> A quick check of the first few
-                \(n\)</span> confirms we have it right.</div>
+              \((1, 2, 4, 7, 11, 16, 22, \ldots)\text{.}\) Note that if we subtract 1 from each term, we get
+              the sequence \((T_n)\text{.}\) So we have \(b_n = T_n +
+              1\text{.}\) Therefore a closed formula is \(b_n = \frac{n(n+1)}{2} +
+              1\text{.}\) A quick check of the first few
+              \(n\) confirms we have it right.
             </li>
             <li>
-              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-2-1">
-                \((3, 5, 9, 17, 33, \ldots )\text{.}\)</span> Each term in this sequence is one more than a power of 2,
-                so we might guess the closed formula is \(c_n = a_n+1 = 2^n +
-                1\text{.}\)</span> If we try this though, we get \(c_0 = 2^0 + 1 =
-                2\)</span> and \(c_1 = 2^1 + 1 = 3\text{.}\)</span> We are off because the
-                indices are shifted. What we really want is \(c_n = a_{n+1}+1\)</span> giving
-                \(c_n = 2^{n+1} + 1\text{.}\)</span>
-              </div>
+              \((3, 5, 9, 17, 33, \ldots )\text{.}\) Each term in this sequence is one more than a power of 2,
+              so we might guess the closed formula is \(c_n = a_n+1 = 2^n +
+              1\text{.}\) If we try this though, we get \(c_0 = 2^0 + 1 =
+              2\) and \(c_1 = 2^1 + 1 = 3\text{.}\) We are off because the
+              indices are shifted. What we really want is \(c_n = a_{n+1}+1\) giving
+              \(c_n = 2^{n+1} + 1\text{.}\)
             </li>
             <li>
-              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-3-1">(\(0, 2, 6,
-                12, 20, 30, 42,\ldots \)</span>). Notice that all these terms are even. What happens if we factor out
-                a 2? We get \((T_n)\text{!}\)</span> More precisely, we find that <span class="process-math">\(d_n/2 =
-                  T_n\text{,}\)</span> so this sequence has closed formula <span class="process-math">\(d_n =
-                  n(n+1)\text{.}\)</span>
-              </div>
+              (\(0, 2, 6, 12, 20, 30, 42,\ldots \)). Notice that all these terms are even. What happens if we factor out
+              a 2? We get \((T_n)\text{!}\) More precisely, we find that \(d_n/2 =
+              T_n\text{,}\) so this sequence has closed formula \(d_n =
+              n(n+1)\text{.}\)
             </li>
             <li>
-              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-4-1">
-                \((3, 6, 10, 15, 21, 28, \ldots)\text{.}\)</span> These are all triangular
-                numbers. However, we are starting with 3 as our initial term instead of as our third term. So if we
-                could plug in 2 instead of 0 into the formula for \(T_n\text{,}\)</span> we
-                would be set. Therefore the closed formula is \(e_n =
-                \frac{(n+2)(n+3)}{2}\)</span> (where \(n+3\)</span> came from <span
-                  class="process-math">\((n+2)+1\)</span>). Thinking about sequences as functions, we are doing a
-                horizontal shift by 2: \(e_n = T_{n+2}\)</span> which would cause the graph
-                to shift 2 units to the left.
-              </div>
+              \((3, 6, 10, 15, 21, 28, \ldots)\text{.}\) These are all triangular
+              numbers. However, we are starting with 3 as our initial term instead of as our third term. So if we
+              could plug in 2 instead of 0 into the formula for \(T_n\text{,}\) we
+              would be set. Therefore the closed formula is \(e_n =
+              \frac{(n+2)(n+3)}{2}\) (where \(n+3\) came from \((n+2)+1\)). Thinking about sequences as
+              functions, we are doing a horizontal shift by 2: \(e_n=T_{n+2}\) which would cause the graph to shift
+              2 units to the left.
             </li>
             <li>
-              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-5-1">
-                \((0, 1, 3, 7, 15, 31, \ldots )\text{.}\)</span> Try adding 1 to each term, and we get powers of 2. You
-                might guess this because each term is a little more than twice the previous term (the powers of 2 are
-                <em class="emphasis">exactly</em> twice the previous term). Closed formula: <span
-                  class="process-math">\(f_n = 2^{n} - 1\text{.}\)</span>
-              </div>
+              \((0, 1, 3, 7, 15, 31, \ldots )\text{.}\) Try adding 1 to each term, and we get powers of 2. You
+              might guess this because each term is a little more than twice the previous term (the powers of 2 are
+              <em class="emphasis">exactly</em> twice the previous term). Closed formula: \(f_n=2^{n} -
+              1\text{.}\)
             </li>
             <li>
-              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-6-1">
-                \((3, 6, 12, 24, 48, \ldots )\text{.}\)</span> These numbers are also doubling each time, but are also
-                all multiples of 3. Dividing each by 3 gives 1, 2, 4, 8, …. Aha. We get the closed formula <span
-                  class="process-math">\(g_n = 3\cdot 2^{n}\text{.}\)</span>
-              </div>
+              \((3, 6, 12, 24, 48, \ldots )\text{.}\) These numbers are also doubling each time, but are also
+              all multiples of 3. Dividing each by 3 gives 1, 2, 4, 8, …. Aha. We get the closed formula
+              \(g_n=3\cdot 2^{n}\text{.}\)
             </li>
             <li>
-              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-7-1">
-                \((6, 10, 18, 34, 66, \ldots )\text{.}\)</span> To get from one term to the next, we almost double each
-                term. So maybe we can relate this back to \(2^n\text{.}\)</span> Yes, each
-                term is 2 more than a power of 2. So we get \(h_n = 2^{n+2} + 2\)</span> (the
-                \(n+2\)</span> is because the first term is 2 more than <span
-                  class="process-math">\(2^2\text{,}\)</span> not \(2^0\)</span>).
-                Alternatively, we could have related this sequence to the second sequence in this example: Starting with
-                3, 5, 9, 17, … we see that this sequence is twice the terms from that sequence. That sequence had closed
-                formula \(c_n = 2^{n+1} + 1\text{.}\)</span> Our sequence here would be twice
-                this, so \(h_n = 2(2^n + 1)\text{,}\)</span> which is the same as what we got
-                before.</div>
+              \((6, 10, 18, 34, 66, \ldots )\text{.}\) To get from one term to the next, we almost double each
+              term. So maybe we can relate this back to \(2^n\text{.}\) Yes, each
+              term is 2 more than a power of 2. So we get \(h_n = 2^{n+2} + 2\) (the
+              \(n+2\) is because the first term is 2 more than \(2^2\text{,}\) not \(2^0\)). Alternatively, we
+              could have related this sequence to the second sequence in this example: Starting with 3, 5, 9, 17, …
+              we see that this sequence is twice the terms from that sequence. That sequence had closed formula
+              \(c_n=2^{n+1} + 1\text{.}\) Our sequence here would be twice this, so \(h_n=2(2^n + 1)\text{,}\) which
+              is the same as what we got before.
             </li>
             <li>
-              <div class="para" id="subsec-formulas-for-sequences-19-2-1-6-8-1">
-                \((15, 33, 57, 87, 123, \ldots)\text{.}\)</span> Try dividing each term by 3. That gives the sequence
-                \(5, 11, 19, 29, 41,\ldots\text{.}\)</span> Now add 1 to each term: <span class="process-math">\(6, 12,
-                  20, 30, 42, \ldots\text{,}\)</span> which is <span class="process-math">\((d_n)\)</span> in this
-                example, except starting with 6 instead of 0. So let’s
-                start with the formula \(d_n= n(n+1)\text{.}\)</span> To start with the 6, we
-                shift: \((n+2)(n+3)\text{.}\)</span> But this is one too many, so subtract 1:
-                \((n+2)(n+3) - 1\text{.}\)</span> That gives us our sequence, but divided by
-                3. So we want \(j_n = 3((n+2)(n+3) - 1)\text{.}\)</span>
-              </div>
+
+              \((15, 33, 57, 87, 123, \ldots)\text{.}\) Try dividing each term by 3. That gives the sequence
+              \(5, 11, 19, 29, 41,\ldots\text{.}\) Now add 1 to each term: \(6, 12,
+              20, 30, 42, \ldots\text{,}\) which is \((d_n)\) in this
+              example, except starting with 6 instead of 0. So let's
+              start with the formula \(d_n= n(n+1)\text{.}\) To start with the 6, we
+              shift: \((n+2)(n+3)\text{.}\) But this is one too many, so subtract 1:
+              \((n+2)(n+3) - 1\text{.}\) That gives us our sequence, but divided by
+              3. So we want \(j_n = 3((n+2)(n+3) - 1)\text{.}\)
+
             </li>
           </ol>
         </div>
       </div>
-      </details>
-      </div>
-      </article>
-    </section>
-    <section class="subsection" id="subsec-partial-sums">
-      <h3 class="heading hide-type">
-        </p>
-        </div>
-        </div>
-        </p>
 
 
+      <h3>Sequence Behavior</h3>
+      <p>
+        For an infinite sequence, a natural question regards the behavior of \(a_n\) as \(n\) goes to infinty.
+        There are some common behaviors we want to be able to recognize and analyize.
+      </p>
+      <p>
+        Some sequences will just get bigger, tending toward \(\pm \infty\), for example:
+        \[1,2,3,4,5,...\]
+        \[2,4,6,8,10,...\]
+        \[-2, -3, -5, -7, -11, -13, ...\]
+        \[\sqrt{1}, \sqrt{2}, \sqrt{3}, \sqrt{4}, ...\]
+      </p>
+      <p>
+        Other sequences <strong>converge</strong> to a single number. Cosider these sequences:
+        \[ \frac{1}{1},\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5},\frac{1}{6}, ... \]
+        \[1, 0.1, 0.001, 0.0001, 0.00001, ...\]
+        \[ \frac{1}{1}, \frac{2}{2^2}, \frac{3}{3^2}, \frac{4}{4^2} \]
+        For all of these sequences, \(a_n \to 0\) as \(n \to \infty\), or using <strong>limit notation</strong>:
+        \[ \lim_{n \to \infty} a_n = 0 \]
+      </p>
+      <p>
+        Other sequences <strong>cycle</strong>. The sequence given by:
+        \[a_0 = 3 \quad \quad a_n = -1 a_{n-1}\]
+        is the alternating sequence:
+        \[3, -3, 3, -3, 3, ...\]
+        We would call this a \(2\)-cycle since it cycles between two values.
+      </p>
+      <p>
+        Other sequences do not cycle, converge, or go off to infinity. The sequence of digits in \(\pi\) are
+        values from \(0\) to \(9\) that do not converge and do not cycle.
+      </p>
 
-        <h3>Sequence Behavior</h3>
-        <p>
-          For an infinite sequence, a natural question regards the behavior of \(a_n\) as \(n\) goes to infinty.
-          There are some common behaviors we want to be able to recognize and analyize.
-        </p>
-        <p>
-          Some sequences will just get bigger, tending toward \(\pm \infty\), for example:
-          \[1,2,3,4,5,...\]
-          \[2,4,6,8,10,...\]
-          \[-2, -3, -5, -7, -11, -13, ...\]
-          \[\sqrt{1}, \sqrt{2}, \sqrt{3}, \sqrt{4}, ...\]
-        </p>
-        <p>
-          Other sequences <strong>converge</strong> to a single number. Cosider these sequences:
-          \[ \frac{1}{1},\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5},\frac{1}{6}, ... \]
-          \[1, 0.1, 0.001, 0.0001, 0.00001, ...\]
-          \[ \frac{1}{1}, \frac{2}{2^2}, \frac{3}{3^2}, \frac{4}{4^2} \]
-          For all of these sequences, \(a_n \to 0\) as \(n \to \infty\), or using <strong>limit notation</strong>:
-          \[ \lim_{n \to \infty} a_n = 0 \]
-        </p>
-        <p>
-          Other sequences <strong>cycle</strong>. The sequence given by:
-          \[a_0 = 3 \quad \quad a_n = -1 a_{n-1}\]
-          is the alternating sequence:
-          \[3, -3, 3, -3, 3, ...\]
-          We would call this a \(2\)-cycle since it cycles between two values.
-        </p>
-        <p>
-          Other sequences do not cycle, converge, or go off to infinity. The sequence of digits in \(\pi\) are
-          values from \(0\) to \(9\) that do not converge and do not cycle.
-        </p>
-
-        <h2>Sum</h2>
-        <p>
-          We will find several applications that sum the terms of a sequence. Even infinite sequences! Given the
-          infinite sequence:
-          \[ \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \frac{1}{16}, ... \]
-          The corresponding sum is:
-          \[ \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + ... \]
-          which amazingly is an infinite sum equal to \(1\).
-          A formula for this sequence of reciprocal powers of \(2\) is:
-          \[ a_n = \frac{1}{2^n} \quad \quad n \geq 1 \]
-        </p>
-        <p>
-          <strong>Sigma notation</strong> uses \(\sum\) to represent a summation. The summation of the infinite sequence
-          above could be written as:
-          \[ \sum_{n=1}^{\infty} a_n = \sum_{n=1}^{\infty} \frac{1}{2^n} \]
-          where the subscript \(n=1\) represents the starting value of \(n\) and the superscript represents the final
-          value.
-        </p>
-        <p>
-          We can also write sums of finite sequences or <strong>partial sums</strong> of infinite sequences. Here is the
-          sum of the first five perfect squares:
-          \[\sum_{i=1}^{5} x^2 = (1)^2 + (2)^2 + (3)^2 + (4)^2 + (5)^2\]
-        </p>
+      <h2>Sum</h2>
+      <p>
+        We will find several applications that involve summing a sequence. Even infinite sequences! Given the
+        infinite sequence:
+        \[ \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \frac{1}{16}, ... \]
+        The corresponding sum is:
+        \[ \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + ... \]
+        which amazingly is an infinite sum equal to \(1\).
+        A formula for this sequence of reciprocal powers of \(2\) is:
+        \[ a_n = \frac{1}{2^n} \quad \quad n \geq 1 \]
+        which we can use to write the sum using
+        <strong>sigma notation</strong>. That summation looks like:
+        \[ \sum_{n=1}^{\infty} a_n = \sum_{n=1}^{\infty} \frac{1}{2^n} \]
+        where the subscript \(n=1\) represents the starting value of \(n\) and the superscript represents the final
+        value.
+      </p>
+      <p>
+        We can also write sums of finite sequences or <strong>partial sums</strong> of infinite sequences. The
+        sum of the first five perfect squares is:
+        \[\sum_{i=1}^{5} x^2 = (1)^2 + (2)^2 + (3)^2 + (4)^2 + (5)^2\]
+      </p>
 
 
-        <p>
-        <div class="exercise">
-          <!-- Example 4.1.10 from Levin -->
-          <h4>Exercise</h4>
-          <p>Use \(\sum\) notation to rewrite the sums:
+      <p>
+      <div class="exercise">
+        <!-- Example 4.1.10 from Levin 4th ed. -->
+        <h4>Exercise</h4>
+        <p>Use \(\sum\) notation to rewrite the sums:
+        <ol>
+          <li>\( \quad 1 + 2 + 3 + 4 + \dots + 100 \)</li>
+          <li>\( \quad 1 + 2 + 4 + 8 + \dots + 2^{50} \)</li>
+          <li>\( \quad 6 + 10 + 14 + \dots + (4n-2) \)</li>
+        </ol>
+        </p>
+        <button onclick="toggleSolution(this)" class="exercise-button">Show Solution</button>
+        <div class="solution">
+          <p>
           <ol>
-            <li>\( \quad 1 + 2 + 3 + 4 + \dots + 100 \)</li>
-            <li>\( \quad 1 + 2 + 4 + 8 + \dots + 2^{50} \)</li>
-            <li>\( \quad 6 + 10 + 14 + \dots + (4n-2) \)</li>
+            <li> \[ \sum_{k=1}^{100} k \] </li>
+            <li> \[ \sum_{k=0}^{50} 2^k \] </li>
+            <li> \[ \sum_{k=2}^{n} (4k-2) \] </li>
           </ol>
           </p>
-          <button onclick="toggleSolution(this)" class="exercise-button">Show Solution</button>
-          <div class="solution">
-            <p>
-            <ol>
-              <li> \[ \sum_{k=1}^{100} k \] </li>
-              <li> \[ \sum_{k=0}^{50} 2^k \] </li>
-              <li> \[ \sum_{k=2}^{n} (4k-2) \] </li>
-            </ol>
-            </p>
-          </div>
         </div>
-        </p>
+      </div>
+      </p>
 
 
-        <h2>Sets</h2>
-        <!-- Modified from https://discrete.openmathbooks.org/pdfs/dmoi3-tablet.pdf -->
-        <p>
-          A set is an unordered collection of objects. Consider the set of books with two-word titles, the set of prime
-          numbers, or the set of english words that are spelled the same forwards as backwards. Imagine the set of all
-          sets that have three elements in them. The foundation of mathematics is built with sets.
-        </p>
-        <p>
-          For us, we will consider sets that look like this:
-          \[A = \{1,2,3\}\]
-          This is read, "A is the set containing the elements 1, 2, and 3." We use curly braces to enclose elements of a
-          set.
-        </p>
-        <p>
-          We can write:
-          \[a \in \{a,b,c\} \]
-          to say that \(a\) "is an element of" the set. It would also be true to say that \(d\) is not in the set, or:
-          \[ d \notin \{a,b,c\} \]
-        </p>
-        <p>
-        <h3>Special Sets</h3>
-        <table class="sequence-table">
-          <tr>
-            <td style="border-right: 1px solid gray;">\(\emptyset\) </th>
-            <td>The <strong>empty set</strong> is the set which contains no elements. </th>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">
-              \(\mathcal{U}\)
-              </th>
-            <td>
-              The <strong>universe set</strong> is the set of all elements.
-              </th>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">
-              \(\mathbb{N}\)
-              </th>
-            <td>
-              The set of natural numbers. That is, \(\mathbb{N} = \{0, 1, 2, 3\ldots\}\text{.}\)</span>
-              </th>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">
-              \(\mathbb{Z}\)
-              </th>
-            <td>
-              The set of integers. That is, \(\mathbb{Z} = \{\ldots, -2, -1, 0, 1, 2, 3, \ldots\}\text{.}\)</span>
-              </th>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">
-              \(\mathbb{Q}\)
-              </th>
-            <td>
-              The set of rational numbers.
-              </th>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">
-              \(\mathbb{R}\)
-              </th>
-            <td>
-              The set of real numbers.
-              </th>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">
-              \(\mathcal{P}(A)\)
-              </th>
-            <td>
-              The <strong class="terminology">power set</strong> of any set \(A\)</span> is the set of all subsets of
-              \(A\text{.}\)</span>
-              </th>
-          </tr>
-        </table>
+      <h2>Sets</h2>
+      <!-- Modified from https://discrete.openmathbooks.org/pdfs/dmoi3-tablet.pdf -->
+      <p>
+        A set is an unordered collection of objects. Consider the set of books with two-word titles, the set of prime
+        numbers, or the set of english words that are spelled the same forwards as backwards. Imagine the set of all
+        sets that have three elements in them. The foundation of mathematics is built with sets.
+      </p>
+      <p>
+        We will consider sets that look like this:
+        \[A = \{1,2,3\}\]
+        This is read, "A is the set containing the elements 1, 2, and 3." We use curly braces to enclose elements of a
+        set.
+      </p>
+      <p>
+        We can write:
+        \[a \in \{a,b,c\} \]
+        to say that \(a\) "is an element of" the set. It would also be true to say that \(d\) is not in the set, or:
+        \[ d \notin \{a,b,c\} \]
+      </p>
+      <p>
+
+      <h3>Relationships Between Sets</h3>
+      <p>
+        Two sets are equal if they have exactly the same elements. For exmaple,
+        \[\{1,2,3\}=\{2,1,3\} \]
+      </p>
+      <p>
+        What about the sets \(A =\{1,2,3\}\) and \(B=\{1,2,3,4\}\)? Clearly \(A \neq B\), but notice that every
+        element of \(A\) is also an element of \(B\text{.}\) Because of this, we say that \(A\) is a
+        <strong>subset</strong>
+        of \(B\), or in symbols \(A \subset B\) or \(A \subseteq B\text{.}\) Both symbols are read "is a subset of."
+        The
+        difference is that sometimes we want to say that \(A\) is either equal to or is a subset of \(B\), in which
+        case we use \(\subseteq\text{.}\) This is anlaogous to the difference between \(<\) and \(\leq\text{.}\) </p>
+          <p>
+            The <strong>cardinality</strong> of a set is the size of a set, and is equal to the number of elements in
+            the set. If set \(A\) has \(3\) elements then we say that \(|A|=3\text{.}\)
+          </p>
+          <p>
+            We call the set of all subsets of \(A\) the <strong>power set</strong> of \(A\text{.}\) For
+            \(A=\{1,2,3\}\), the
+            power set \(\mathcal{P}(A) = \{ \{\},\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\} \}\)
+          </p>
 
 
-        <h3>Set Theory Notation</h3>
+          <h3>Operations</h3>
+          <p>
+            Is it possible to add two sets? Not really, however there is something similar. If we want to combine two
+            sets to get the collection of objects that are in either set, then we can take the <strong>union</strong>
+            of the two sets. Symbolically,
+            \[ C = A \cup B\text{,} \]
+            read, "\(C\) is the union of \(A\) and \(B\text{,}\)" means that the elements of \(C\) are exactly the
+            elements which are either an element of \(A\) or an element of \(B\) (or an element of both). For example,
+            if \(A = \{1, 2, 3\}\) and \(B = \{2, 3, 4\}\text{,}\) then \(A \cup B = \{1, 2, 3, 4\}\text{.}\)
+          </p>
+          <p>
+            The other common operation on sets is <strong>intersection</strong>. We write,
+            \[
+            C = A \cap B
+            \]
+            and say, “\(C\) is the intersection of \(A\) and \(B\text{,}\)” when the elements in \(C\) are precisely
+            those both in \(A\) and in \(B\text{.}\) So if \(A = \{1, 2, 3\}\) and \(B = \{2, 3, 4\}\text{,}\) then
+            \(A \cap B = \{2, 3\}\text{.}\)
+          </p>
 
-        <table class="sequence-table">
-          <tr>
-            <td style="border-right: 1px solid gray;"> \(:\) </th>
-            <td> \(\{x : x &gt; 2\}\) is the set of all \(x\) <strong class="terminology">such that</strong> \(x\) is
-              greater than 2. </th>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">\(\in\)</td>
-            <td>\(2 \in \{1,2,3\}\) asserts that 2 is <strong class="terminology">an element of</strong> the set
-              \(\{1,2,3\}\text{.}\) </td>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">\(\not\in\)</td>
-            <td>\(4 \notin \{1,2,3\}\) because 4 <strong class="terminology">is not an element of</strong> the set
-              \(\{1,2,3\}\text{.}\) </td>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">\(\subseteq\)</td>
-            <td>\(A \subseteq B\) asserts that <strong class="terminology">\(A\) is a subset of \(B\)</strong>: every
-              element of \(A\) is also an element of \(B\text{.}\) </td>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">\(\subset\)</td>
-            <td>\(A \subset B\) asserts that <strong class="terminology">\(A\) is a proper subset of \(B\)</strong>:
-              every element of \(A\) is also an element of \(B\text{,}\) but \(A \ne B\text{.}\) </td>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">\(\cap\)</td>
-            <td>\(A \cap B\) is the <strong class="terminology">intersection of \(A\) and \(B\)</strong>: the set
-              containing all elements which are elements of both \(A\) and \(B\text{.}\) </td>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">\(\cup\)</td>
-            <td>\(A \cup B\) is the <strong class="terminology">union of \(A\) and \(B\)</strong>: is the set containing
-              all elements which are elements of \(A\) or \(B\) or both. </td>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">\(\times\)</td>
-            <td>\(A \times B\) is the <strong class="terminology">Cartesian product of \(A\) and \(B\)</strong>: the set
-              of all ordered pairs \((a,b)\) with \(a \in A\) and \(b \in B\text{.}\) </td>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">\(\setminus\)</td>
-            <td>\(A \setminus B\) is <strong class="terminology">set difference between \(A\) and \(B\)</strong>: the
-              set containing all elements of \(A\) which are not elements of \(B\text{.}\) </td>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">\(\bar{A}\)</td>
-            <td>The <strong class="terminology">complement of \(A\)</strong> is the set of everything which is not an
-              element of \(A\text{.}\) </td>
-          </tr>
-          <tr>
-            <td style="border-right: 1px solid gray;">\(|A|\)</td>
-            <td>The <strong class="terminology">cardinality (or size) of \(A\)</strong> is the number of elements in
-              \(A\text{.}\) </td>
-          </tr>
-        </table>
-        </p>
+          <p>Often when dealing with sets, we will have some understanding as to what “everything” is. Perhaps we are
+            only concerned with natural numbers. In this case we would say that our <strong>universe</strong> is
+            \(\mathbb{N}\text{.}\) Sometimes we denote this universe by \(\mathcal{U}\text{.}\) Given this context, we
+            might wish to
+            speak of all the elements which are <em class="emphasis">not</em> in a particular set. We say \(B\) is the
+            <strong>complement</strong> of \(A\text{,}\) and write,
+            \[
+            B = \bar A
+            \]
+            when \(B\) contains every element not contained in \(A\text{.}\) So, if our universe is \(\{1, 2,\ldots,
+            9, 10\}\text{,}\) and \(A = \{2, 3, 5, 7\}\text{,}\) then \(\bar A = \{1, 4, 6, 8, 9,10\}\text{.}\)
+          </p>
+
+          <p>
+            Of course we can perform more than one operation at a time. For example, consider
+            \[
+            A \cap \bar B
+            \]
+          </p>
+
+          <p>
+            This is the set of all elements which are both elements of \(A\) and not elements of \(B\text{.}\) What
+            have we done? We've started with \(A\) and removed all of the elements which were in \(B\text{.}\) Another
+            way to write this is the <strong>set difference</strong>:
+            \[
+            A \cap \bar B = A \setminus B
+            \]
+          </p>
+
+          <p>
+            It is important to remember that these operations (union, intersection, complement, and difference) on
+            sets produce other sets. Don't confuse these with the symbols from the previous section (element of and
+            subset of). \(A \cap B\) is a set, while \(A \subseteq B\) is true or false. This is the same difference
+            as between \(3 + 2\) (which is a number) and \(3 \le 2\) (which is false).
+          </p>
 
 
-        <h3>Relationships Between Sets</h3>
-        <p>
-          Two sets are equal if they have exactly the same elements. For exmaple,
-          \[\{1,2,3\}=\{2,1,3\} \]
-        </p>
-        <p>
-          What about the sets \(A =\{1,2,3\}\) and \(B=\{1,2,3,4\}\)? Clearly \(A \neq B\), but notice that every
-          element of \(A\) is also an element of \(B\). Because of this, we say that \(A\) is a <strong>subset</strong>
-          of \(B\), or in symbols \(A \subset B\) or \(A \subseteq B\). Both symbols are read "is a subset of." The
-          difference is that sometimes we want to say that \(A\) is either equal to or is a subset of \(B\), in which
-          case we use \(\subseteq\). This is anlaogous to the difference between \(<\) and \(\leq\). </p>
-            <p>
-              The <strong>cardinality</strong> of a set is the size of a set, and is equal to the number of elements in
-              the set. If set \(A\) has \(3\) elements then we say that \(|A|=3\).
-            </p>
-            <p>
-              We call the set of all subsets of \(A\) the <strong>power set</strong> of \(A\). For \(A=\{1,2,3\}\), the
-              power set \(\mathcal{P}(A) = \{ \{\},\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\} \}\)
-            </p>
 
 
-            <h3>Operations</h3>
-            <p>
+          <h3>Venn Diagrams</h3>
+          <p>
+            A <strong>Venn diagram</strong> is a a diagram depicting overlapping sets and their relationships. Below are
+            several Venn diagrams that visualize set operations.
+          </p>
 
-            </p>
+          <p>
+          <div style="text-align: center;">
+            Set \(A\)
+            <div class="tikz-container" style="display:flex; justify-content: center;">
+              <script type="text/tikz">
+                \begin{tikzpicture}
+                % Universal set rectangle
+                \draw[thick] (-2.5,-2) rectangle (4,2);
 
-            <div style="text-align: center;">
-              <div class="tikz-container">
-                \[A\]
-                <script type="text/tikz">
-                  \begin{tikzpicture}
-                  % Universal set rectangle
-                  \draw[thick] (-2.5,-2) rectangle (4,2);
+                % Highlight A only
+                \begin{scope}
+                \clip (-2.5,-2) rectangle (4,2);          
+                \fill[gray!30] (0,0) circle (1.5cm);       % Fill A
+                \end{scope}
 
-                  % Highlight A only
-                  \begin{scope}
-                  \clip (-2.5,-2) rectangle (4,2);          
-                  \fill[gray!30] (0,0) circle (1.5cm);       % Fill A
-                  \end{scope}
+                % Set A and B outlines
+                \draw (0,0) circle (1.5cm);
+                \draw (1.5,0) circle (1.5cm);
+                \node at (-1.8, 0) {\(A\)};
+                \node at (3.3, 0) {\(B\)}; 
 
-                  % Set A and B outlines
-                  \draw (0,0) circle (1.5cm);
-                  \draw (1.5,0) circle (1.5cm);
-                  \node at (-1.8, 0) {$A$};
-                  \node at (3.3, 0) {$B$};
-
-                  \end{tikzpicture}
-                </script>
-              </div>
+                \end{tikzpicture}
+              </script>
             </div>
+          </div>
+      </p>
+
+      <p>
+      <div style="text-align: center;">
+        Set \(B\)
+        <div class="tikz-container" style="display:flex; justify-content: center;">
+          <script type="text/tikz">
+                \begin{tikzpicture}
+                % Universal set rectangle
+                \draw[thick] (-2.5,-2) rectangle (4,2);
+
+                % Highlight B only
+                \begin{scope}
+                \clip (-2.5,-2) rectangle (4,2);          
+                \fill[gray!30] (1.5,0) circle (1.5cm);     % Fill B
+                \end{scope}
+
+                % Set A and B outlines
+                \draw (0,0) circle (1.5cm);
+                \draw (1.5,0) circle (1.5cm);
+                \node at (-1.8, 0) {\(A\)};
+                \node at (3.3, 0) {\(B\)}; 
+
+                \end{tikzpicture}
+              </script>
+        </div>
+      </div>
+      </p>
+
+      <p>
+      <div style="text-align: center;">
+        \(\bar{A}\)
+        <div class="tikz-container" style="display:flex; justify-content: center;">
+          <script type="text/tikz">
+                \begin{tikzpicture}
+                % Universal set rectangle
+                \draw[thick] (-2.5,-2) rectangle (4,2);
+
+                % Complement of A shading
+                \begin{scope}
+                \clip (-2.5,-2) rectangle (4,2);          % Clip to universal set
+                \fill[gray!30] (-2.5,-2) rectangle (4,2);  % Fill all
+                \begin{scope}
+                \clip (0,0) circle (1.5cm);
+                \fill[white] (0,0) circle (1.5cm);       % Cut out A
+                \end{scope}
+                \end{scope}
+
+                % Set A and B outlines
+                \draw (0,0) circle (1.5cm);
+                \draw (1.5,0) circle (1.5cm);
+                \node at (-1.8, 0) {\(A\)};
+                \node at (3.3, 0) {\(B\)}; 
+
+                \end{tikzpicture}
+              </script>
+        </div>
+      </div>
+      </p>
 
 
-            <div style="text-align: center;">
-              <div class="tikz-container">
-                \[B\]
-                <script type="text/tikz">
-                  \begin{tikzpicture}
-                  % Universal set rectangle
-                  \draw[thick] (-2.5,-2) rectangle (4,2);
+      <p>
+      <div style="text-align: center;">
+        \(A \cup B\)
+        <div class="tikz-container" style="display:flex; justify-content: center;">
+          <script type="text/tikz">
+                \begin{tikzpicture}
+                % Universal set rectangle
+                \draw[thick] (-2.5,-2) rectangle (4,2);
 
-                  % Highlight B only
-                  \begin{scope}
-                  \clip (-2.5,-2) rectangle (4,2);          
-                  \fill[gray!30] (1.5,0) circle (1.5cm);     % Fill B
-                  \end{scope}
+                % Union shading
+                \begin{scope}
+                \clip (-2.5,-2) rectangle (4,2);
+                \fill[gray!30] (0,0) circle (1.5cm);
+                \fill[gray!30] (1.5,0) circle (1.5cm);
+                \end{scope}
 
-                  % Set A and B outlines
-                  \draw (0,0) circle (1.5cm);
-                  \draw (1.5,0) circle (1.5cm);
-                  \node at (-1.8, 0) {$A$};
-                  \node at (3.3, 0) {$B$};
+                % Set A and B outlines
+                \draw (0,0) circle (1.5cm);
+                \draw (1.5,0) circle (1.5cm);
+                \node at (-1.8, 0) {\(A\)};
+                \node at (3.3, 0) {\(B\)}; 
 
-                  \end{tikzpicture}
-                </script>
-              </div>
-            </div>
+                \end{tikzpicture}
+              </script>
+        </div>
+      </div>
+      </p>
 
+      <p>
+      <div style="text-align: center;">
+        \(A \cap B\)
+        <div class="tikz-container" style="display:flex; justify-content: center;">
+          <script type="text/tikz">
+                \begin{tikzpicture}
+                % Universal set rectangle
+                \draw[thick] (-2.5,-2) rectangle (4,2);
 
-            <div style="text-align: center;">
-              <div class="tikz-container">
-                \[\bar{A}\]
-                <script type="text/tikz">
-                  \begin{tikzpicture}
-                  % Universal set rectangle
-                  \draw[thick] (-2.5,-2) rectangle (4,2);
+                % Intersection shading
+                \begin{scope}
+                \clip (-2.5,-2) rectangle (4,2); % Clip to universal set
+                \begin{scope}
+                \clip (0,0) circle (1.5cm);
+                \fill[gray!30] (1.5,0) circle (1.5cm);
+                \end{scope}
+                \end{scope}
 
-                  % Complement of A shading
-                  \begin{scope}
-                  \clip (-2.5,-2) rectangle (4,2);          % Clip to universal set
-                  \fill[gray!30] (-2.5,-2) rectangle (4,2);  % Fill all
-                  \begin{scope}
-                  \clip (0,0) circle (1.5cm);
-                  \fill[white] (0,0) circle (1.5cm);       % Cut out A
-                  \end{scope}
-                  \end{scope}
+                % Set A and B outlines
+                \draw (0,0) circle (1.5cm);
+                \draw (1.5,0) circle (1.5cm);
+                \node at (-1.8, 0) {\(A\)};
+                \node at (3.3, 0) {\(B\)}; 
 
-                  % Set A and B outlines
-                  \draw (0,0) circle (1.5cm);
-                  \draw (1.5,0) circle (1.5cm);
-                  \node at (-1.8, 0) {$A$};
-                  \node at (3.3, 0) {$B$};
+                \end{tikzpicture}
+              </script>
+        </div>
+      </div>
+      </p>
 
-                  \end{tikzpicture}
-                </script>
-              </div>
-            </div>
+      <p>
+      <div style="text-align: center;">
+        \(\overline{A \cup B} \)
+        <div class="tikz-container" style="display:flex; justify-content: center;">
+          <script type="text/tikz">
+                \begin{tikzpicture}
+                % Universal set rectangle
+                \draw[thick] (-2.5,-2) rectangle (4,2);
 
-            <div style="text-align: center;">
-              <div class="tikz-container">
-                \[\bar{B}\]
-                <script type="text/tikz">
-                  \begin{tikzpicture}
-                  % Universal set rectangle
-                  \draw[thick] (-2.5,-2) rectangle (4,2);
+                % Union complement shading
+                \begin{scope}
+                \clip (-2.5,-2) rectangle (4,2);          % Clip to universal set
+                \fill[gray!30] (-2.5,-2) rectangle (4,2);  % Fill all
+                \begin{scope}
+                \clip (0,0) circle (1.5cm);
+                \fill[white] (0,0) circle (1.5cm);       % Cut out A
+                \end{scope}
+                \begin{scope}
+                \clip (1.5,0) circle (1.5cm);
+                \fill[white] (1.5,0) circle (1.5cm);     % Cut out B
+                \end{scope}
+                \end{scope}
 
-                  % Complement of B shading
-                  \begin{scope}
-                  \clip (-2.5,-2) rectangle (4,2);          % Clip to universal set
-                  \fill[gray!30] (-2.5,-2) rectangle (4,2);  % Fill all
-                  \begin{scope}
-                  \clip (1.5,0) circle (1.5cm);
-                  \fill[white] (1.5,0) circle (1.5cm);     % Cut out B
-                  \end{scope}
-                  \end{scope}
+                % Set A and B outlines
+                \draw (0,0) circle (1.5cm);
+                \draw (1.5,0) circle (1.5cm);
+                \node at (-1.8, 0) {\(A\)};
+                \node at (3.3, 0) {\(B\)}; 
 
-                  % Set A and B outlines
-                  \draw (0,0) circle (1.5cm);
-                  \draw (1.5,0) circle (1.5cm);
-                  \node at (-1.8, 0) {$A$};
-                  \node at (3.3, 0) {$B$};
-
-                  \end{tikzpicture}
-                </script>
-              </div>
-            </div>
-
-
-            <div style="text-align: center;">
-              <div class="tikz-container">
-                \[A \cup B\]
-                <script type="text/tikz">
-                  \begin{tikzpicture}
-                  % Universal set rectangle
-                  \draw[thick] (-2.5,-2) rectangle (4,2);
-
-                  % Union shading
-                  \begin{scope}
-                  \clip (-2.5,-2) rectangle (4,2);
-                  \fill[gray!30] (0,0) circle (1.5cm);
-                  \fill[gray!30] (1.5,0) circle (1.5cm);
-                  \end{scope}
-
-                  % Set A and B outlines
-                  \draw (0,0) circle (1.5cm);
-                  \draw (1.5,0) circle (1.5cm);
-                  \node at (-1.8, 0) {$A$};
-                  \node at (3.3, 0) {$B$};
-
-                  \end{tikzpicture}
-                </script>
-              </div>
-            </div>
-
-            <div style="text-align: center;">
-              <div class="tikz-container">
-                \[A \cap B\]
-                <script type="text/tikz">
-                  \begin{tikzpicture}
-                  % Universal set rectangle
-                  \draw[thick] (-2.5,-2) rectangle (4,2);
-
-                  % Intersection shading
-                  \begin{scope}
-                  \clip (-2.5,-2) rectangle (4,2); % Clip to universal set
-                  \begin{scope}
-                  \clip (0,0) circle (1.5cm);
-                  \fill[gray!30] (1.5,0) circle (1.5cm);
-                  \end{scope}
-                  \end{scope}
-
-                  % Set A and B outlines
-                  \draw (0,0) circle (1.5cm);
-                  \draw (1.5,0) circle (1.5cm);
-                  \node at (-1.8, 0) {$A$};
-                  \node at (3.3, 0) {$B$};
-
-                  \end{tikzpicture}
-                </script>
-              </div>
-            </div>
-
-            <div style="text-align: center;">
-              <div class="tikz-container">
-                \[\overline{A \cup B} \]
-                <!-- There is a bug where this overline does not render for some scenarios with zoom <= 100% -->
-                <script type="text/tikz">
-                  \begin{tikzpicture}
-                  % Universal set rectangle
-                  \draw[thick] (-2.5,-2) rectangle (4,2);
-
-                  % Union complement shading
-                  \begin{scope}
-                  \clip (-2.5,-2) rectangle (4,2);          % Clip to universal set
-                  \fill[gray!30] (-2.5,-2) rectangle (4,2);  % Fill all
-                  \begin{scope}
-                  \clip (0,0) circle (1.5cm);
-                  \fill[white] (0,0) circle (1.5cm);       % Cut out A
-                  \end{scope}
-                  \begin{scope}
-                  \clip (1.5,0) circle (1.5cm);
-                  \fill[white] (1.5,0) circle (1.5cm);     % Cut out B
-                  \end{scope}
-                  \end{scope}
-
-                  % Set A and B outlines
-                  \draw (0,0) circle (1.5cm);
-                  \draw (1.5,0) circle (1.5cm);
-                  \node at (-1.8, 0) {$A$};
-                  \node at (3.3, 0) {$B$};
-
-                  \end{tikzpicture}
-                </script>
-              </div>
-            </div>
+                \end{tikzpicture}
+              </script>
+        </div>
+      </div>
+      </p>
 
 
 
-            <h2>References</h2>
+
+      <h3>Special Sets</h3>
+      <table class="sequence-table">
+        <tr>
+          <td style="border-right: 1px solid gray;">\(\emptyset\) </th>
+          <td>The <strong>empty set</strong> is the set which contains no elements. </th>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">
+            \(\mathcal{U}\)
+            </th>
+          <td>
+            The <strong>universe set</strong> is the set of all elements.
+            </th>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">
+            \(\mathbb{N}\)
+            </th>
+          <td>
+            The set of natural numbers. That is, \(\mathbb{N} = \{0, 1, 2, 3\ldots\}\text{.}\)
+            </th>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">
+            \(\mathbb{Z}\)
+            </th>
+          <td>
+            The set of integers. That is, \(\mathbb{Z} = \{\ldots, -2, -1, 0, 1, 2, 3, \ldots\}\text{.}\)
+            </th>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">
+            \(\mathbb{Q}\)
+            </th>
+          <td>
+            The set of rational numbers.
+            </th>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">
+            \(\mathbb{R}\)
+            </th>
+          <td>
+            The set of real numbers.
+            </th>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">
+            \(\mathcal{P}(A)\)
+            </th>
+          <td>
+            The <strong class="terminology">power set</strong> of any set \(A\) is the set of all subsets of
+            \(A\text{.}\)
+            </th>
+        </tr>
+      </table>
+
+
+      <h3>Set Theory Notation</h3>
+
+      <table class="sequence-table">
+        <tr>
+          <td style="border-right: 1px solid gray;"> \(:\) </th>
+          <td> \(\{x : x &gt; 2\}\) is the set of all \(x\) <strong class="terminology">such that</strong> \(x\)
+            is
+            greater than 2. </th>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(\in\)</td>
+          <td>\(2 \in \{1,2,3\}\) asserts that 2 is <strong class="terminology">an element of</strong> the set
+            \(\{1,2,3\}\text{.}\) </td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(\not\in\)</td>
+          <td>\(4 \notin \{1,2,3\}\) because 4 <strong class="terminology">is not an element of</strong> the set
+            \(\{1,2,3\}\text{.}\) </td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(\subseteq\)</td>
+          <td>\(A \subseteq B\) asserts that <strong class="terminology">\(A\) is a subset of \(B\)</strong>:
+            every
+            element of \(A\) is also an element of \(B\text{.}\) </td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(\subset\)</td>
+          <td>\(A \subset B\) asserts that <strong class="terminology">\(A\) is a proper subset of \(B\)</strong>:
+            every element of \(A\) is also an element of \(B\text{,}\) but \(A \ne B\text{.}\) </td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(\cap\)</td>
+          <td>\(A \cap B\) is the <strong class="terminology">intersection of \(A\) and \(B\)</strong>: the set
+            containing all elements which are elements of both \(A\) and \(B\text{.}\) </td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(\cup\)</td>
+          <td>\(A \cup B\) is the <strong class="terminology">union of \(A\) and \(B\)</strong>: is the set
+            containing
+            all elements which are elements of \(A\) or \(B\) or both. </td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(\times\)</td>
+          <td>\(A \times B\) is the <strong class="terminology">Cartesian product of \(A\) and \(B\)</strong>: the
+            set
+            of all ordered pairs \((a,b)\) with \(a \in A\) and \(b \in B\text{.}\) </td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(\setminus\)</td>
+          <td>\(A \setminus B\) is <strong class="terminology">set difference between \(A\) and \(B\)</strong>:
+            the
+            set containing all elements of \(A\) which are not elements of \(B\text{.}\) </td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(\bar{A}\)</td>
+          <td>The <strong class="terminology">complement of \(A\)</strong> is the set of everything which is not
+            an
+            element of \(A\text{.}\) </td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid gray;">\(|A|\)</td>
+          <td>The <strong class="terminology">cardinality (or size) of \(A\)</strong> is the number of elements in
+            \(A\text{.}\) </td>
+        </tr>
+      </table>
+      </p>
+
+
 
 
     </section>

@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+	<title>CDS</title>
+
+	<link rel="stylesheet" href="reveal.js-master/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
+	<link rel="stylesheet" href="slides.css">
+	<link rel="stylesheet" href="../boxes.css">
+
+	<script src="../notes.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+	<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+	<style>
+		.reveal img {
+			margin: 0;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- TITLE SLIDE -->
+			<section>
+				<h2>Sequent Sum Set</h2>
+				<div class="tikz-container" style="display:flex; justify-content: center;">
+					<script type="text/tikz">
+						\begin{tikzpicture}
+						% Universal set rectangle
+						\draw[thick] (-2.5,-2) rectangle (4,2);
+		
+						% Intersection shading
+						\begin{scope}
+						\clip (-2.5,-2) rectangle (4,2); % Clip to universal set
+						\begin{scope}
+						\clip (0,0) circle (1.5cm);
+						\fill[gray!30] (1.5,0) circle (1.5cm);
+						\end{scope}
+						\end{scope}
+		
+						% Set A and B outlines
+						\draw (0,0) circle (1.5cm);
+						\draw (1.5,0) circle (1.5cm);
+						\node at (-1.8, 0) {\(A\)};
+						\node at (3.3, 0) {\(B\)}; 
+		
+						\end{tikzpicture}
+					  </script>
+				</div>
+				<div class="slides-subtitle">Computing and Data Science</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="header">Sequence</h4>
+				<div data-id="div1">
+					A <strong>sequence</strong> is an ordered list.
+				</div>
+				<p>
+					It can be <strong>finite</strong> or <strong>infinite</strong>.
+				</p>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="header">Sequence</h4>
+				<div data-id="div1">
+					A <strong>sequence</strong> is an ordered list.
+				</div>
+				<div data-id="famous-sequences">
+					\[ 0, 1, 2, 3, 4, 5, 6, ...\]
+					\[0, -0.1, -0.001, -0.0001 \]
+					\[ 1, 4, 9, 16, 25, 36 \]
+					\[ \frac{1}{3},\frac{2}{5},\frac{3}{7},\frac{4}{9}, ...\]
+					\[ 1, 4, 1, 5, 9, 2, 6, 5, ... \]
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="formulating-sequence">
+					\[5, 10, 15, 20, 25, ...\]
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<div data-id="formulating-sequence">
+					\[5, 10, 15, 20, 25, ...\]
+				</div>
+				<div>
+					\[ a_0, a_1, a_2, a_3, a_4, ... \]
+				</div>
+			</section>
+			<!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="formulating-header">Formulating a Sequence</h4>
+				<div data-id="formulating-sequence">
+					\[5, 10, 15, 20, 25, ...\]
+				</div>
+			</section> -->
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="formulating-header">Formulating a Sequence</h4>
+				<div data-id="formulating-sequence">
+					\[5, 10, 15, 20, 25, ...\]
+				</div>
+				<div data-id="formula" style="background-color:var(--dsp-blue);width:50%; margin:auto;padding:1em;border-radius:15px;">
+					Explicit Formula
+					\[a_n = 5n\]
+					\[n \geq 0\]
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="formulating-header">Formulating a Sequence</h4>
+				<div data-id="formulating-sequence">
+					\[5, 10, 15, 20, 25, ...\]
+				</div>
+				<div data-id="formula" style="background-color:var(--dsp-orange);width:50%; margin:auto;padding:1em;border-radius:15px;">
+					Recursive Definition
+					\[a_0 = 5\]
+					\[a_n = a_{n-1} + 5\]
+				</div>
+			</section>
+
+
+			<section>
+				<p>
+				<div class="exercise">
+					<h4>Exercise</h4>
+					<p>Find both an explicit and recursive definition for the sequence: \[ 8, 11, 14, 17, ... \]</p>
+				</div>
+				</p>
+			</section>
+
+			<section>
+				<h4>Some famous sequences</h4>
+				<table style="font-size:70%;">
+					<tr style="height:70px;">
+						<td style="border-right: 1px solid gray;text-align: right;">\(1,4,9,16,25, ...\)</td>
+						<td style="text-align: left;">The <strong>square numbers</strong>. The sequence \((s_n)_{n \geq
+							1}\) has
+							closed formula \(s_n = n^2\) </td>
+					</tr>
+					<tr style="height:70px;">
+						<td style="border-right: 1px solid gray;text-align: right;">\(1,3,6,10,15,21, ...\)</td>
+						<td style="text-align: left;">The <strong>triangular numbers</strong>. The sequence \((T_n)_{n
+							\geq 1}\) has
+							closed formula \(T_n = \frac{n(n+1)}{2} \) </td>
+					</tr>
+					<tr style="height:70px;">
+						<td style="border-right: 1px solid gray;text-align: right;">\(1,2,4,8,16,32, ...\)</td>
+						<td style="text-align: left;">The <strong>powers of 2</strong>. The sequence \((a_n)_{n \geq
+							0}\) has closed
+							formula \(a_n = 2^n\) </td>
+					</tr>
+					<tr style="height:70px;">
+						<td style="border-right: 1px solid gray;text-align: right;">\(1,1,2,3,5,8,13, ...\)</td>
+						<td style="text-align: left;">The <strong>Fibonacci numbers</strong> are defined recursively by
+							\(F_1=F_2=1\),
+							\(F_{n} = F_{n-1}+F_{n-2}\) </td>
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h4>Sequence Behavior</h4>
+				<br>
+				<div>
+					A sequence \(a\) <strong>converges</strong> 
+					<br> 
+					if \(a_n\) approach a single value as \(n \to \infty\)
+				</div>				
+				<div>
+					\[ 3.9, 3.99, 3.999, 3.9999, ... \]
+				</div>
+			</section>
+			<section>
+				<h4>Sequence Behavior</h4>
+				<br>
+				<div>
+					A sequence \(a\) <strong>diverges</strong> 
+					<br> 
+					if it does not converge
+				</div>				
+				<div>
+					\[ 1, 2, 4, 8, 16, ...  \]
+				</div>			
+			</section>
+			<section>
+				<h4>Sequence Behavior</h4>
+				<br>
+				<div>
+					A <strong>cycle</strong> is when a sequence <br> 
+					oscillates between two or more values. 
+				</div>				
+				<div>
+					\[ 4, 2, 1, 4, 2, 1, 4, ... \]
+				</div>			
+			</section>
+			
+			<section>
+				<h4>Sequence Behavior</h4>
+				<br> 
+				<table>
+					<tr>
+						<td><strong>Converge</strong></td>
+						<td>Approach a single value</td>
+					</tr>
+					<tr>
+						<td><strong>Diverge</strong></td>
+						<td>Does not converge</td>
+					</tr>
+					<tr>
+						<td><strong>Cycle</strong></td>
+						<td>Oscillate between two or more values (special case of divergence)</td>
+					</tr>
+				</table>
+			</section>
+
+			<!-- Sigma notation -->
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Sums</h4>
+				<p>
+					There are many applications where we will sum a sequence. 					
+				</p>
+				<div data-id="sequence">
+					\[ 1, 2, 4, 8, 16, 32, ... \]
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Sums</h4>
+				<p>
+					There are many applications where we will sum a sequence. 					
+				</p>
+				<div data-id="sequence">
+					\[ 1, 2, 4, 8, 16, 32, ... \]
+				</div>
+				<div data-id="sequence-sum">
+					\[ 1 + 2 + 4 + 8 + 16 + 32 + ... \]
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>\(\Sigma\)-notation</h4>
+				<div data-id="sequence-sum">
+					\[ 1 + 2 + 4 + 8 + 16 + 32 + ... \]
+				</div>
+				<div data-id="sequence-sum2">
+					\[ \sum_{n=1}^{\infty} 2^n \]
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>\(\Sigma\)-notation</h4>
+				<div data-id="sequence-sum">
+					\[ 1 + 2 + 4 + 8 + 16 + 32 + ... \]
+				</div>
+				<div data-id="sequence-sum2">
+					\[ \sum_{n=0}^{\infty} 2^n = 2^{(0)} + 2^{(1)} + 2^{(2)} + 2^{(3)} + ... \]
+				</div>
+			</section>
+
+			<section>
+				<!-- https://commons.wikimedia.org/wiki/File:Sigma_summation_notation.svg -->
+				<img src="../img/Sigma_summation_notation.svg">
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>\(\Sigma\) Examples</h4>
+				<div>
+					\[\sum_{x=4}^{6}3x^2 = 3(4)^2 + 3(5)^2  + 3(6)^2  \]
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>\(\Sigma\) Examples</h4>
+				<div>
+					\[\sum_{k=1}^{3} \left( 5k+2 \right) = \left[ 5(1)+2 \right] + \left[ 5(2)+2 \right] + \left[ 5(3)+2 \right] \]
+				</div>
+			</section>
+
+
+
+			<!-- SET -->
+			<section>
+				<h4>Set</h4>
+				<div>
+					A <strong>set</strong> is an unordered collection. 
+				</div>
+			</section>
+
+
+
+			<!-- Set operations -->
+			<section data-auto-animate>
+				<h4 data-id="set_op_header">Set Operations</h4>
+				<div style="text-align: center;">
+					<div class="tikz-container" id="set_operation">
+						\[A\]
+						<img src="../img/set_a.svg" style="min-width:50%;">
+					</div>
+					Set \(A\) <br>
+					Contains all the elements of \(A\)
+				</div>
+				<br><br><br>
+			</section>
+			<section data-auto-animate>
+				<h4 data-id="set_op_header">Set Operations</h4>
+				<div style="text-align: center;">
+					<div class="tikz-container" id="set_operation">
+						\[\bar{A}\]
+						<img src="../img/set_a_complement.svg" style="min-width:50%;">
+					</div>
+					Not \(A\), or \(A\)'s Complement <br>
+					All the elements not in \(A\)
+				</div>
+				<br><br><br>
+			</section>
+			<section data-auto-animate>
+				<h4 data-id="set_op_header">Set Operations</h4>
+				<div style="text-align: center;">
+					<div class="tikz-container" id="set_operation">
+						\[A \cup B\]
+						<img src="../img/set_a_union_b.svg" style="min-width:50%;">
+					</div>
+					\(A\) Union \(B\)<br>
+					All elements in \(A\) OR \(B\)
+				</div>
+				<br><br><br>
+			</section>
+			<section data-auto-animate>
+				<h4 data-id="set_op_header">Set Operations</h4>
+				<div style="text-align: center;">
+					<div class="tikz-container" id="set_operation">
+						\[A \cap B\]
+						<img src="../img/set_a_intersect_b.svg" style="min-width:50%;">
+					</div>
+					\(A\) Intersect \(B\)<br>
+					all elements in \(A\) AND \(B\)
+				</div>
+				<br><br><br>
+			</section>
+
+
+
+
+			<section data-auto-animate>
+				<h4 data-id="set_op_header">Set Operations</h4>
+				<br>
+				<div style="text-align: center;">
+					\(A\)'s complement
+					<div class="tikz-container" id="set_operation">
+						<img src="../img/set_a_complement.svg" style="min-width:50%;">
+						\[\bar{A}\]
+					</div>
+				</div>
+				<br><br><br>
+			</section>
+			<section data-auto-animate>
+				<h4 data-id="set_op_header">Set Operations</h4>
+				<div style="text-align: center;">
+					<div class="tikz-container" id="set_operation">
+						\[B\]
+						<img src="../img/set_b.svg" style="min-width:50%;">
+					</div>
+				</div>
+				<br><br><br>
+			</section>
+			<section data-auto-animate>
+				<h4 data-id="set_op_header">Set Operations</h4>
+				<div style="text-align: center;">
+					<div class="tikz-container" id="set_operation">
+						\[\bar{B}\]
+						<img src="../img/set_b_complement.svg" style="min-width:50%;">
+					</div>
+				</div>
+				<br><br><br>
+			</section>
+
+			<section data-auto-animate>
+				<h4 data-id="set_op_header">Set Operations</h4>
+				<div style="text-align: center;">
+					<div class="tikz-container" id="set_operation">
+						\[\bar{B}\]
+						<img src="../img/set_b_complement.svg" style="min-width:50%;">
+					</div>
+				</div>
+				<br><br><br>
+			</section>
+
+
+
+
+			<section>
+				<h4>Set Operation Summary</h4>
+				<table>
+					<tr>
+						<td style="vertical-align: middle;text-align: right;">
+							\(A\)
+						</td>
+						<td>
+							<img src="../img/set_a.svg">
+						</td>
+						<td style="vertical-align: middle;text-align: right;">
+							\(\bar{A}\)
+						</td>
+						<td>
+							<img src="../img/set_a_complement.svg">
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: middle;text-align: right;">
+							\(A \cup B\)
+						</td>
+						<td>
+							<img src="../img/set_a_union_b.svg">
+						</td>
+						<td style="vertical-align: middle;text-align: right;">
+							\(A \cap B\)
+						</td>
+						<td>
+							<img src="../img/set_a_intersect_b.svg">
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: middle;text-align: right;">
+							\(A - B\)
+						</td>
+						<td>
+							<img src="../img/set_a_minus_b.svg">
+						</td>
+						<td style="vertical-align: middle;text-align: right;">
+							\(\overline{A \cup B}\)
+						</td>
+						<td>
+							<img src="../img/set_a_union_b_converse.svg">
+						</td>
+					</tr>
+				</table>
+
+
+			</section>
+
+
+
+
+
+
+		</div>
+	</div>
+
+	<script src="reveal.js-master/dist/reveal.js"></script>
+	<script src="reveal.js-master/plugin/notes/notes.js"></script>
+	<script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+	<script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+	<script src="reveal.js-master/plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		});
+	</script>
+
+	
+</body>
+
+</html>

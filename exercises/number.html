@@ -7,6 +7,7 @@
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="stylesheet" href="../header.css" />
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../exercises.css" />
 
 
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -45,9 +46,23 @@
       <ol>
         
         <li>
+          Create a "grid" chart of factors. Label both axes with numbers 1 through 20. For each number \(x\) on the horizontal axis, fill in the boxes above that number if the \(y\) value is a factor of \(x\). Your grid will start like this:
+          <div style="text-align: center;">
+            <img src="../img/factor-grid.png" style="max-width:200px;">
+          </div>
+          What patterns do you observe? 
+        </li>
+
+        <li>
+          Create a \(10 \times 10\) grid and label each axis \(1\) through \(10\). For each square in the grid, write the GCD of the \(x\) and \(y\) coordinate of that square. 
+          What patterns do you observe? 
+          Create a 3D version of this chart by stacking objects (<em>i.e.</em>, small blocks) at each square to represent the GCD. 
+        </li>
+
+        <li>
           Two numbers \(a\) and \(b\) are said to be <strong>relatively prime</strong> if \(\gcd(a,b)=1\). 
           <ol type="a">
-            <li>Demonstrate that \(77\) and \(45\) either are or are not relatively prime by factoring them.</li>
+            <li>Demonstrate that \(77\) and \(45\) either are or are not relatively prime by factoring them to find their GCD.</li>
             <li>Use the \(\gcd\) algorithm to determine if \(77\) and \(45\) are relatively prime.</li>
             <li>The number \(23\) is prime, so Jed says that \(23\) must be relatively prime with every other positive integer. Give a counterexample to Jed's conjecture.</li>
             <li>Despite overgeneralizing, Jed was on to something. Improve his conjecture about primes and relative primes. </li>
@@ -91,7 +106,7 @@
         <li>
           The standard algorithm for addition works in every base. Use it to add the binary numbers \(101\) and \(11\). If that goes well, try adding larger numbers like \(100111+1010\). 
         </li>
-        <li>Create a trinary (base-3) number system. You can use any three appropriate symbols you like. Demonstrate counting and basic arithmetic in your system.</li>
+        <li>Create a ternary (base-3) number system. You can use any three appropriate symbols you like. Demonstrate counting and basic arithmetic in your system.</li>
 
         <li>
           Read: Henri Poincaré, Science and Reason, Book I, Chapter IV: “Chance”, Section II.
