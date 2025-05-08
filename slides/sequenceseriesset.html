@@ -95,15 +95,9 @@
 					\[5, 10, 15, 20, 25, ...\]
 				</div>
 				<div>
-					\[ a_0, a_1, a_2, a_3, a_4, ... \]
+					\[ a_1, a_2, a_3, a_4, a_5, ... \]
 				</div>
 			</section>
-			<!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-				<h4 data-id="formulating-header">Formulating a Sequence</h4>
-				<div data-id="formulating-sequence">
-					\[5, 10, 15, 20, 25, ...\]
-				</div>
-			</section> -->
 			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
 				<h4 data-id="formulating-header">Formulating a Sequence</h4>
 				<div data-id="formulating-sequence">
@@ -112,7 +106,7 @@
 				<div data-id="formula" style="background-color:var(--dsp-blue);width:50%; margin:auto;padding:1em;border-radius:15px;">
 					Explicit Formula
 					\[a_n = 5n\]
-					\[n \geq 0\]
+					\[n \geq 1\]
 				</div>
 			</section>
 			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
@@ -122,7 +116,7 @@
 				</div>
 				<div data-id="formula" style="background-color:var(--dsp-orange);width:50%; margin:auto;padding:1em;border-radius:15px;">
 					Recursive Definition
-					\[a_0 = 5\]
+					\[a_1 = 5\]
 					\[a_n = a_{n-1} + 5\]
 				</div>
 			</section>
@@ -171,7 +165,7 @@
 				<h4>Sequence Behavior</h4>
 				<br>
 				<div>
-					A sequence \(a\) <strong>converges</strong> 
+					A sequence <strong>converges</strong> 
 					<br> 
 					if \(a_n\) approach a single value as \(n \to \infty\)
 				</div>				
@@ -183,7 +177,7 @@
 				<h4>Sequence Behavior</h4>
 				<br>
 				<div>
-					A sequence \(a\) <strong>diverges</strong> 
+					A sequence <strong>diverges</strong> 
 					<br> 
 					if it does not converge
 				</div>				
@@ -226,7 +220,7 @@
 			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
 				<h4>Sums</h4>
 				<p>
-					There are many applications where we will sum a sequence. 					
+					There are many applications where <br>we will sum a sequence. 					
 				</p>
 				<div data-id="sequence">
 					\[ 1, 2, 4, 8, 16, 32, ... \]
@@ -235,7 +229,7 @@
 			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
 				<h4>Sums</h4>
 				<p>
-					There are many applications where we will sum a sequence. 					
+					There are many applications where <br>we will sum a sequence. 					
 				</p>
 				<div data-id="sequence">
 					\[ 1, 2, 4, 8, 16, 32, ... \]
@@ -285,111 +279,246 @@
 
 
 			<!-- SET -->
-			<section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
 				<h4>Set</h4>
-				<div>
+				<div data-id="set-comment">
 					A <strong>set</strong> is an unordered collection. 
 				</div>
 			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Set</h4>
+				<div data-id="set-comment">
+					A <strong>set</strong> is an unordered collection. 
+				</div>
+				<div>
+					\[\{ 1,2,3  \} = \{2,1,3\}\] 
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Here are some sets</h4>				
+				<div>
+					\[\{ a, b, c \}\]
+					\[\{ 1,2,3 \}\]
+					\[\{ \text{eagle}, \text{elk}, \text{emu}, \text{ermine} \}\]
+					\[\{ \{ a, b, c \}, \{ 1,2,3 \}, \{ \text{eagle}, \text{elk}, \text{emu}, \text{ermine} \}  \}\]
+				</div>
+			</section>
+
+
+			<!-- Statements about sets -->
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Statements about sets</h4>
+				<div data-id="theset">
+					\[A = \{1,2,3,4,5\}\]
+				</div>				
+			</section>				
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Statements about sets</h4>
+				<div data-id="theset">
+					\[A = \{1,2,3,4,5\}\]
+				</div>
+				<div>
+					\[ |A| = 5 \]
+					\(A\) has <strong>cardinality</strong> \(5\)
+				</div>				
+			</section>		
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Statements about sets</h4>
+				<div data-id="theset">
+					\[A = \{1,2,3,4,5\}\]
+				</div>
+				<div>
+					\[ 1 \in A \]
+					1 is an <strong>element</strong> of \(A\)
+				</div>				
+			</section>	
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Statements about sets</h4>
+				<div data-id="theset">
+					\[A = \{1,2,3,4,5\}\]
+				</div>
+				<div>
+					\[ 0 \notin A \]
+					0 is NOT an element of \(A\)
+				</div>				
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Statements about sets</h4>
+				<div data-id="theset">
+					\[A = \{1,2,3,4,5\}\]
+				</div>		
+				<div data-id="theBset">
+					\[B = \{2,4\} \]
+				</div>				
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Statements about sets</h4>
+				<div data-id="theset">
+					\[A = \{1,2,3,4,5\}\]
+				</div>		
+				<div data-id="theBset">
+					\[B = \{2,4\} \]
+				</div>			
+				<div>
+					\[B \subseteq A \]
+					\(B\) is a <strong>subset</strong> of \(A\)
+				</div>	
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Statements about sets</h4>
+				<div data-id="theset">
+					\[A = \{1,2,3,4,5\}\]
+				</div>		
+				<div data-id="theBset">
+					\[B = \{2,4\} \]
+				</div>			
+				<div>
+					\[B \subset A \]
+					\(B\) is a <strong>strict subset</strong> of \(A\)
+				</div>	
+			</section>
+
+			
+			
+
+
 
 
 
 			<!-- Set operations -->
-			<section data-auto-animate>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
 				<h4 data-id="set_op_header">Set Operations</h4>
-				<div style="text-align: center;">
-					<div class="tikz-container" id="set_operation">
-						\[A\]
-						<img src="../img/set_a.svg" style="min-width:50%;">
-					</div>
-					Set \(A\) <br>
-					Contains all the elements of \(A\)
+				<div data-id="thesets">
+					\[A = \{1,2,3,4\} \quad \quad B = \{3,4,5\}\]
 				</div>
-				<br><br><br>
 			</section>
-			<section data-auto-animate>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
 				<h4 data-id="set_op_header">Set Operations</h4>
-				<div style="text-align: center;">
-					<div class="tikz-container" id="set_operation">
-						\[\bar{A}\]
-						<img src="../img/set_a_complement.svg" style="min-width:50%;">
-					</div>
-					Not \(A\), or \(A\)'s Complement <br>
-					All the elements not in \(A\)
+				<div data-id="thesets">
+					\[A = \{1,2,3,4\} \quad \quad B = \{3,4,5\}\]
 				</div>
-				<br><br><br>
+				<div>
+					<strong>Union</strong>
+				</div>
+				<table>
+					<tr>
+						<td style="vertical-align: middle;">\[A \cup B = \{1,2,3,4,5\}\]</td>
+						<td><div class="tikz-container" style="display:flex; justify-content: center;">
+							<script type="text/tikz">
+								  \begin{tikzpicture}
+								  % Universal set rectangle
+								  \draw[thick] (-2.5,-2) rectangle (4,2);
+				  
+								  % Union shading
+								  \begin{scope}
+								  \clip (-2.5,-2) rectangle (4,2);
+								  \fill[gray!30] (0,0) circle (1.5cm);
+								  \fill[gray!30] (1.5,0) circle (1.5cm);
+								  \end{scope}
+				  
+								  % Set A and B outlines
+								  \draw (0,0) circle (1.5cm);
+								  \draw (1.5,0) circle (1.5cm);
+								  \node at (-1.8, 0) {\(A\)};
+								  \node at (3.3, 0) {\(B\)}; 
+				  
+								  \end{tikzpicture}
+								</script>
+						  </div></td>
+					</tr>
+				</table>
 			</section>
-			<section data-auto-animate>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
 				<h4 data-id="set_op_header">Set Operations</h4>
-				<div style="text-align: center;">
-					<div class="tikz-container" id="set_operation">
-						\[A \cup B\]
-						<img src="../img/set_a_union_b.svg" style="min-width:50%;">
-					</div>
-					\(A\) Union \(B\)<br>
-					All elements in \(A\) OR \(B\)
+				<div data-id="thesets">
+					\[A = \{1,2,3,4\} \quad \quad B = \{3,4,5\}\]
 				</div>
-				<br><br><br>
-			</section>
-			<section data-auto-animate>
-				<h4 data-id="set_op_header">Set Operations</h4>
-				<div style="text-align: center;">
-					<div class="tikz-container" id="set_operation">
-						\[A \cap B\]
-						<img src="../img/set_a_intersect_b.svg" style="min-width:50%;">
-					</div>
-					\(A\) Intersect \(B\)<br>
-					all elements in \(A\) AND \(B\)
+				<div>
+					<strong>Intersection</strong>
 				</div>
-				<br><br><br>
+				<table>
+					<tr>
+						<td style="vertical-align: middle;">\[A \cap B = \{3,4\}\]</td>
+						<td>
+							<div class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+									\begin{tikzpicture}
+									% Universal set rectangle
+									\draw[thick] (-2.5,-2) rectangle (4,2);
+					
+									% Intersection shading
+									\begin{scope}
+									\clip (-2.5,-2) rectangle (4,2); % Clip to universal set
+									\begin{scope}
+									\clip (0,0) circle (1.5cm);
+									\fill[gray!30] (1.5,0) circle (1.5cm);
+									\end{scope}
+									\end{scope}
+					
+									% Set A and B outlines
+									\draw (0,0) circle (1.5cm);
+									\draw (1.5,0) circle (1.5cm);
+									\node at (-1.8, 0) {\(A\)};
+									\node at (3.3, 0) {\(B\)}; 
+					
+									\end{tikzpicture}
+								  </script>
+							</div>
+						</td>
+					</tr>
+				</table>
 			</section>
 
 
 
 
-			<section data-auto-animate>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
 				<h4 data-id="set_op_header">Set Operations</h4>
-				<br>
-				<div style="text-align: center;">
-					\(A\)'s complement
-					<div class="tikz-container" id="set_operation">
-						<img src="../img/set_a_complement.svg" style="min-width:50%;">
-						\[\bar{A}\]
-					</div>
+				<div data-id="thesets">
+					\[A = \{1,2,3,4\} \quad \quad B = \{3,4,5\}\]
 				</div>
-				<br><br><br>
-			</section>
-			<section data-auto-animate>
-				<h4 data-id="set_op_header">Set Operations</h4>
-				<div style="text-align: center;">
-					<div class="tikz-container" id="set_operation">
-						\[B\]
-						<img src="../img/set_b.svg" style="min-width:50%;">
-					</div>
+				<div>
+					<strong>Complement</strong>
 				</div>
-				<br><br><br>
-			</section>
-			<section data-auto-animate>
-				<h4 data-id="set_op_header">Set Operations</h4>
-				<div style="text-align: center;">
-					<div class="tikz-container" id="set_operation">
-						\[\bar{B}\]
-						<img src="../img/set_b_complement.svg" style="min-width:50%;">
-					</div>
-				</div>
-				<br><br><br>
+				<table>
+					<tr>
+						<td style="vertical-align: middle;">\[ \bar{A} \]</td>
+						<td>
+							<div class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+									\begin{tikzpicture}
+									% Universal set rectangle
+									\draw[thick] (-2.5,-2) rectangle (4,2);
+									
+									% Complement of A shading
+									\begin{scope}
+									\clip (-2.5,-2) rectangle (4,2);          % Clip to universal set
+									\fill[gray!30] (-2.5,-2) rectangle (4,2);  % Fill all
+									\begin{scope}
+									\clip (0,0) circle (1.5cm);
+									\fill[white] (0,0) circle (1.5cm);       % Cut out A
+									\end{scope}
+									\end{scope}
+									
+									% Set A and B outlines
+									\draw (0,0) circle (1.5cm);
+									\draw (1.5,0) circle (1.5cm);
+									\node at (-1.8, 0) {$A$};
+									\node at (3.3, 0) {$B$};
+									
+									\end{tikzpicture}
+								  </script>
+							</div>
+						</td>
+					</tr>
+				</table>
 			</section>
 
-			<section data-auto-animate>
-				<h4 data-id="set_op_header">Set Operations</h4>
-				<div style="text-align: center;">
-					<div class="tikz-container" id="set_operation">
-						\[\bar{B}\]
-						<img src="../img/set_b_complement.svg" style="min-width:50%;">
-					</div>
-				</div>
-				<br><br><br>
-			</section>
+
 
 
 
