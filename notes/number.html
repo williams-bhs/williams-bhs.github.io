@@ -1304,6 +1304,50 @@
         \[ = 16 + 0 + 4 + 2 + 1 \] 
         \[ = 23 \]
         </p>
+        <p>
+          Try creating some binary numbers by clicking on the cells below: 
+          <script>
+            function toggleBit(id_num) {
+              let id = "bit" + id_num; 
+              let bit = document.getElementById(id); 
+              if (bit.innerHTML == 1) {
+                bit.innerHTML = 0; 
+              } else {
+                bit.innerHTML = 1; 
+              }
+
+              let total = 0; 
+              for (let i=0;i<7;i++) {
+                total += 2**i * document.getElementById("bit"+i).innerHTML; 
+              }
+              document.getElementById('bitsum').innerHTML = total; 
+            }
+          </script>
+          <table style="margin:auto;">
+            <tr>
+              <td style="color:#bbb;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 64 </td>
+              <td style="color:#bbb;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 32 </td>
+              <td style="color:#bbb;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 16 </td>
+              <td style="color:#bbb;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 8 </td>
+              <td style="color:#bbb;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 4 </td>
+              <td style="color:#bbb;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 2 </td>
+              <td style="color:#bbb;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 1 </td>
+              <td>   </td>
+              <td>   </td>
+            </tr>
+            <tr>
+              <td id="bit6" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 3px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(6);"> 0 </td>
+              <td id="bit5" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 3px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(5);"> 0 </td>
+              <td id="bit4" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 3px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(4);"> 0 </td>
+              <td id="bit3" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 3px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(3);"> 0 </td>
+              <td id="bit2" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 3px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(2);"> 0 </td>
+              <td id="bit1" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 3px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(1);"> 0 </td>
+              <td id="bit0" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 3px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(0);"> 0 </td>
+              <td> \(=\) </td>
+              <td id="bitsum" style="width:50px;">0</td>
+            </tr>
+          </table>
+        </p>
         <h4>Decimal to Binary</h4>
         <p>
           Let's convert \(57\) to binary. We look at the place values and fill in the largest possible place until we have a value that sums to our target of \(57\). 

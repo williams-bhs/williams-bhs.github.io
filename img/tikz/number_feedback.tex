@@ -19,7 +19,6 @@
 \node[draw, circle, minimum size=4pt, inner sep=0pt, fill=black] (leftnode) at (inmid) {};
 
 % Output arrow with circle node
-%\coordinate (outend) at ($(block.east)+(1.5,0)$);
 \coordinate (outmid) at ($(block.east)+(0.9,0)$);
 \draw[->] (block.east) -- ($(outmid.west)-(0.07,0)$);
 \node[draw, circle, minimum size=4pt, inner sep=0pt, fill=black] (rightnode) at (outmid) {};

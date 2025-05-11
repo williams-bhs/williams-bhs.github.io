@@ -4,3 +4,11 @@
 }.exercises ol li ol li {
   margin-top: 5px; 
 }
+
+@media (max-width: 600px) {
+  
+  .exercises ol {
+    padding-left: 22px; 
+  }
+
+}

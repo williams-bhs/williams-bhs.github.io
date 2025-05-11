@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+	<title>CDS</title>
+
+	<link rel="stylesheet" href="reveal.js-master/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
+	<link rel="stylesheet" href="slides.css">
+	<link rel="stylesheet" href="../boxes.css">
+
+	<style>
+		.reveal img {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- TITLE SLIDE -->
+			<section>
+				<h2>Logic and Circuits</h2>
+				<img src="../img/not_gate.svg" style="width:300px;">
+				<div class="slides-subtitle">Computing and Data Science</div>
+			</section>
+
+			<section>
+				<div>
+					A <strong>logical expression</strong> is one that evaluates to either <strong>TRUE</strong>(1) or
+					<strong>FALSE</strong>(0).
+				</div>
+				<br><br>
+				<div>
+					Three fundamental logical operations are:
+				</div>
+				<div>
+					AND, OR, NOT
+				</div>
+			</section>
+
+			<section>
+				<h3>NOT</h3>
+				<div>
+					Given a Boolean variable \(A\), where \(A\) is either \(0\) or \(1\), the <strong>NOT</strong>
+					operation <em>negates</em> \(A\).
+				</div>
+				<br>
+				<div
+					style="background-color: var(--dsp-red);margin:auto;width:600px;padding-top:0.7em;padding-bottom:0.7em;border-radius: 15px;">
+					If \(A\) is \(0\), then NOT \(A\) is \(1\). <br>
+					If \(A\) is \(1\), then NOT \(A\) is \(0\).
+				</div>
+			</section>
+			<section>
+				<h3>NOT</h3>
+				<table>
+					<tr>
+						<td>
+							<div>Logic Syntax</div>\[Q = \neg A\]
+						</td>
+						<td style="width:20%;"></td>
+						<td>
+							<div>Circuit Diagram</div><img src="../img/not_gate.svg" style="width:300px;">
+						</td>
+					</tr>
+				</table>
+				<div>
+					Truth Table
+					<div style="font-size:100%;padding-top:0;margin-top:0;">
+						\(
+						\begin{array}{|c|c|}
+						\hline
+						A & \neg A \\
+						\hline
+						0 & 1 \\
+						1 & 0 \\
+						\hline
+						\end{array}
+						\)
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<h3>AND</h3>
+				<div>
+					Given variables \(A\) &amp; \(B\), <br>
+					\(A\) AND \(B\) evaluates to True only if
+					<div
+						style="background-color: var(--dsp-orange);margin:auto;width:600px;padding-top:0.7em;padding-bottom:0.7em;border-radius: 15px;">
+						both \(A\) AND \(B\) are true
+					</div>
+				</div>
+			</section>
+			<section>
+				<h3>AND</h3>
+				<table>
+					<tr>
+						<td>
+							<div>Logic Syntax</div>\[Q = A \land B\]
+						</td>
+						<td style="width:20%;"></td>
+						<td>
+							<div>Circuit Diagram</div><img src="../img/and_gate.svg" style="width:300px;">
+						</td>
+					</tr>
+				</table>
+				<div>
+					Truth Table
+					<div style="font-size:90%;padding-top:0;margin-top:0;">
+						\(
+						\begin{array}{|c c|c|}
+						\hline
+						\rule{0pt}{2.5ex} A & B & A \land B \\
+						\hline
+						0 & 0 & 0 \\
+						0 & 1 & 0 \\
+						1 & 0 & 0 \\
+						1 & 1 & 1 \\
+						\hline
+						\end{array}
+						\)
+					</div>
+				</div>
+			</section>
+
+
+			<section>
+				<h3>OR</h3>
+				<div>
+					Given variables \(A\) &amp; \(B\), <br>
+					\(A\) OR \(B\) evaluates to True if either
+					<div
+						style="background-color: var(--dsp-green);margin:auto;width:600px;padding-top:0.7em;padding-bottom:0.7em;border-radius: 15px;">
+						\(A\) OR \(B\) are true
+					</div>
+				</div>
+			</section>
+			<section>
+				<h3>OR</h3>
+				<table>
+					<tr>
+						<td>
+							<div>Logic Syntax</div>\[Q = A \lor B\]
+						</td>
+						<td style="width:20%;"></td>
+						<td>
+							<div>Circuit Diagram</div><img src="../img/or_gate.svg" style="width:300px;">
+						</td>
+					</tr>
+				</table>
+				<div>
+					Truth Table
+					<div style="font-size:90%;padding-top:0;margin-top:0;">
+						\(
+						\begin{array}{|c c|c|}
+						\hline
+						\rule{0pt}{2.5ex} A & B & A \lor B \\
+						\hline
+						0 & 0 & 0 \\
+						0 & 1 & 1 \\
+						1 & 0 & 1 \\
+						1 & 1 & 1 \\
+						\hline
+						\end{array}
+						\)
+					</div>
+				</div>
+			</section>
+
+
+			<section>
+
+				<h3>Logic Summary</h3>
+				<br>
+				<style>
+					.digitalsummarytable tr td:nth-child(2) {
+						background-color: #fff;
+					}
+				</style>
+				<table class="digitalsummarytable">
+					<tr>
+						<td style="text-align: center;">NOT</td>
+						<td style="text-align: center;">AND</td>
+						<td style="text-align: center;">OR</td>
+					</tr>
+					<tr>
+						<td style="text-align: center;"><img style="width:250px;" src="../img/not_gate.svg"></td>
+						<td style="text-align: center;"><img style="width:250px;" src="../img/and_gate.svg"></td>
+						<td style="text-align: center;"><img style="width:250px;" src="../img/or_gate.svg"></td>
+					</tr>
+					<tr style="font-size:70%;">
+						<td style="width:33%;"> \[
+							\begin{array}{|c|c|}
+							\hline
+							A & \neg A \\
+							\hline
+							0 & 1 \\
+							1 & 0 \\
+							\hline
+							\end{array}
+							\]</td>
+						<td style="width:33%;"> \[
+							\begin{array}{|c c|c|}
+							\hline
+							\rule{0pt}{2.5ex} A & B & A \land B \\
+							\hline
+							0 & 0 & 0 \\
+							0 & 1 & 0 \\
+							1 & 0 & 0 \\
+							1 & 1 & 1 \\
+							\hline
+							\end{array}
+							\]</td>
+						<td style="width:33%;"> \[
+							\begin{array}{|c c|c|}
+							\hline
+							\rule{0pt}{2.5ex} A & B & A \lor B \\
+							\hline
+							0 & 0 & 0 \\
+							0 & 1 & 1 \\
+							1 & 0 & 1 \\
+							1 & 1 & 1 \\
+							\hline
+							\end{array}
+							\]</td>
+					</tr>
+				</table>
+			</section>
+
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Follow the Logic</h3>
+				<div data-id="circuit">
+					<img src="../img/circuit_ex0.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Follow the Logic</h3>
+				<div data-id="circuit">
+					<img src="../img/circuit_ex0b.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Follow the Logic</h3>
+				<div data-id="circuit">
+					<img src="../img/circuit_ex0c.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Follow the Logic</h3>
+				<div data-id="circuit">
+					<img src="../img/circuit_ex0d.png">
+				</div>
+			</section>
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Follow the Logic</h3>
+				<div data-id="circuit">
+					<img src="../img/circuit_ex0.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Follow the Logic</h3>
+				<div data-id="circuit">
+					<img src="../img/circuit_ex1b.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Follow the Logic</h3>
+				<div data-id="circuit">
+					<img src="../img/circuit_ex1c.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Follow the Logic</h3>
+				<div data-id="circuit">
+					<img src="../img/circuit_ex1d.png">
+				</div>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Follow the Logic</h3>
+				<div data-id="circuit">
+					<img src="../img/circuit_ex0.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Follow the Logic</h3>
+				<div data-id="circuit">
+					<img src="../img/circuit_ex2a.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Follow the Logic</h3>
+				<div data-id="circuit">
+					<img src="../img/circuit_ex2b.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Follow the Logic</h3>
+				<div data-id="circuit">
+					<img src="../img/circuit_ex2c.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Truth Table</h3>
+				<div data-id="circuit2">
+					<img src="../img/circuit_ex2c.png" style="width:50%;">
+				</div>
+				<div data-id="truthtable">
+					\(
+					\begin{array}{|c c|c|}
+					\hline
+					\rule{0pt}{2.5ex} A & B & \neg A \land B \\
+					\hline
+					0 & 0 &   \\
+					0 & 1 &   \\
+					1 & 0 &   \\
+					1 & 1 &   \\
+					\hline
+					\end{array}
+					\)
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Truth Table</h3>
+				<div data-id="circuit2">
+					<img src="../img/circuit_ex2c.png" style="width:50%;">
+				</div>
+				<div data-id="truthtable">					
+					\(
+					\begin{array}{|c c|c|}
+					\hline
+					\rule{0pt}{2.5ex} A & B & \neg A \land B \\
+					\hline
+					0 & 0 & 0 \\
+					0 & 1 & 1 \\
+					1 & 0 & 0 \\
+					1 & 1 & 0 \\
+					\hline
+					\end{array}
+					\)
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Create the Circuit</h4>
+				<div>
+					\[ A \lor \neg B \]
+				</div>
+			</section>
+
+
+			<section>
+				<p style="color: #888;font-size:50%;">
+					©2025 Jedediyah Williams
+					<br> 
+					This work is licensed under the Creative Commons <br>Attribution-NonCommercial-ShareAlike 4.0 International License.
+					<br>
+					<img src="../img/by-nc-sa.svg">
+					<br> 
+					To view a copy of this license, visit <a
+					  href="https://creativecommons.org/licenses/by-nc-sa/4.0/">https://creativecommons.org/licenses/by-nc-sa/4.0/</a>.
+				  </p>
+			</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<script src="reveal.js-master/dist/reveal.js"></script>
+	<script src="reveal.js-master/plugin/notes/notes.js"></script>
+	<script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+	<script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+	<script src="reveal.js-master/plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		});
+	</script>
+</body>
+
+</html>

@@ -13,16 +13,11 @@
 	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
 	<link rel="stylesheet" href="slides.css">
 
-	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
 	<style>
 		.reveal img {
 			margin: 0;
 		}
 	</style>
-
-	<!-- Theme used for syntax highlighted code -->
-	<!-- <link rel="stylesheet" href="plugin/highlight/monokai.css"> -->
 </head>
 
 <body>
@@ -349,6 +344,52 @@
 			</section>
 
 
+			<section>
+				<script>
+					function toggleBit(id_num) {
+					  let bit = document.getElementById("bit"+id_num); 
+					  let dec = document.getElementById("dec"+id_num); 
+					  if (bit.innerHTML == 1) {
+						bit.innerHTML = 0; 
+						dec.style.color = "#ccc";
+					  } else {
+						bit.innerHTML = 1; 
+						dec.style.color = "#66a";
+					  }
+		
+					  let total = 0; 
+					  for (let i=0;i<7;i++) {
+						total += 2**i * document.getElementById("bit"+i).innerHTML; 
+					  }
+					  document.getElementById('bitsum').innerHTML = total; 
+					}
+				  </script>
+				  <table style="margin:auto;border-collapse: separate;">
+					<tr>
+					  <td id="dec6" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 64 </td>
+					  <td id="dec5" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 32 </td>
+					  <td id="dec4" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 16 </td>
+					  <td id="dec3" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 8 </td>
+					  <td id="dec2" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 4 </td>
+					  <td id="dec1" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 2 </td>
+					  <td id="dec0" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 1 </td>
+					  <td style="border:0;">   </td>
+					  <td style="border:0;">   </td>
+					</tr>
+					<tr>
+					  <td id="bit6" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(6);"> 0 </td>
+					  <td id="bit5" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(5);"> 0 </td>
+					  <td id="bit4" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(4);"> 0 </td>
+					  <td id="bit3" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(3);"> 0 </td>
+					  <td id="bit2" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(2);"> 0 </td>
+					  <td id="bit1" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(1);"> 0 </td>
+					  <td id="bit0" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(0);"> 0 </td>
+					  <td> \(=\) </td>
+					  <td id="bitsum" style="width:80px;">0</td>
+					</tr>
+				  </table>
+			</section>
+
 
 			<section>
 				<h4>Exercises</h4>
@@ -357,6 +398,20 @@
 					<li>Rock Constructions</li>
 
 				</ol>
+			</section>
+
+
+			<section>
+				<p style="color: #888;font-size:50%;">
+					©2025 Jedediyah Williams
+					<br> 
+					This work is licensed under the Creative Commons <br>Attribution-NonCommercial-ShareAlike 4.0 International License.
+					<br>
+					<img src="../img/by-nc-sa.svg">
+					<br> 
+					To view a copy of this license, visit <a
+					  href="https://creativecommons.org/licenses/by-nc-sa/4.0/">https://creativecommons.org/licenses/by-nc-sa/4.0/</a>.
+				  </p>
 			</section>
 
 
@@ -369,6 +424,7 @@
 	<script src="reveal.js-master/plugin/notes/notes.js"></script>
 	<script src="reveal.js-master/plugin/markdown/markdown.js"></script>
 	<script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+	<script src="reveal.js-master/plugin/math/math.js"></script>
 	<script>
 		// More info about initialization & config:
 		// - https://revealjs.com/initialization/
@@ -377,7 +433,7 @@
 			hash: true,
 
 			// Learn about plugins: https://revealjs.com/plugins/
-			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
 		});
 	</script>
 </body>
