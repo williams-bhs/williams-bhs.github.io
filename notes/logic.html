@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing and Data Science</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../header.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../boxes.css" />
+
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <a href="../index.html" class="header-title">
+      <svg class="header-img" viewBox="0 0 1024 1024" fill="currentColor" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m 712,294 a 56,56 0 1 0 112,0 56,56 0 1 0 -112,0 z" id="path5" />
+        <path d="m 564,608 a 96,96 0 1 0 192,0 96,96 0 1 0 -192,0 z" id="path4" />
+        <path d="m 406,380 a 48,48 0 1 0 96,0 48,48 0 1 0 -96,0 z" id="path3" />
+        <path d="m 288,604 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z" id="path2" />
+        <path
+          d="M 888,792 H 200 V 168 c 0,-4.4 -3.6,-8 -8,-8 h -56 c -4.4,0 -8,3.6 -8,8 v 688 c 0,4.4 3.6,8 8,8 h 752 c 4.4,0 8,-3.6 8,-8 v -56 c 0,-4.4 -3.6,-8 -8,-8 z"
+          id="path1" />
+      </svg>
+      <span>Computing and Data Science</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Logic and Circuits and Sets</h1>
+      <p>
+        The foundations of mathematics are built with logic. The bit of logic we will see here is <strong>Boolean
+          logic</strong>, which is the basis for digital circuits and computing. 
+      </p>
+    </section>
+
+    <section class="content">
+      <h2>Boolean Logic</h2>
+      <p>
+        A <strong>logical expression</strong> is one that evaluates to either <strong>TRUE</strong> or
+        <strong>FALSE</strong>. A single binary bit can represent TRUE (\(1\)) or FALSE (\(0\)), and we can operate on
+        bits with logical operations. Three fundamental logical operations are NOT, AND, and OR.
+      </p>
+
+      <h3>NOT</h3>
+      <p>
+        The simplest operation is NOT. Given a Boolean variable \(A\), where \(A\) is either 0 or 1, the NOT operation
+        negates \(A\):
+      </p>
+      <p style="text-align: center;">
+        If \(A\) is \(0\), then NOT \(A\) is \(1\). <br>
+        If \(A\) is \(1\), then NOT \(A\) is \(0\).
+      </p>
+      <p>
+        The digital circuit diagram for NOT looks like this:
+      </p>
+      <p>
+        <!-- https://commons.wikimedia.org/wiki/File:NOT_ANSI_Labelled.svg -->
+      <div class="tikz-container" style="display:flex; justify-content: center;">
+        <img src="../img/not_gate.svg">
+      </div>
+      </p>
+      <p>
+        where \(Q\) is the output. A nice way to represent this is with a truth table. The left-hand side is the input
+        value and the right-hand side is the output value.
+      </p>
+      <p>
+        \[
+        \begin{array}{|c|c|}
+        \hline
+        A & \neg A \\
+        \hline
+        0 & 1 \\
+        1 & 0 \\
+        \hline
+        \end{array}
+        \]
+      </p>
+
+      <h3>AND</h3>
+      <p>
+        Given two input bits A and B, the AND operation evaluates to TRUE when A and B are both true. The digital
+        circuit diagram for AND looks like this:
+        <!-- https://commons.wikimedia.org/wiki/File:AND_ANSI_Labelled.svg -->
+      <div class="tikz-container" style="display:flex; justify-content: center;">
+        <img src="../img/and_gate.svg">
+      </div>
+      The truth table for AND is:
+      \[
+      \begin{array}{|c c|c|}
+      \hline
+      \rule{0pt}{2.5ex} A & B & A \land B \\
+      \hline
+      0 & 0 & 0 \\
+      0 & 1 & 0 \\
+      1 & 0 & 0 \\
+      1 & 1 & 1 \\
+      \hline
+      \end{array}
+      \]
+      </p>
+      <h3>OR</h3>
+      <p>
+        Given input bits A and B, the OR operation evaluates to TRUE when either A or B is true. The digital circuit diagram for OR looks like this:
+      </p>
+      <p>
+        <!-- https://commons.wikimedia.org/wiki/File:OR_ANSI_Labelled.svg -->
+      <div class="tikz-container" style="display:flex; justify-content: center;">
+        <img src="../img/or_gate.svg">
+      </div>
+      </p>
+      <p>
+        The truth table for OR is:
+        \[
+        \begin{array}{|c c|c|}
+        \hline
+        \rule{0pt}{2.5ex} A & B & A \lor B \\
+        \hline
+        0 & 0 & 0 \\
+        0 & 1 & 1 \\
+        1 & 0 & 1 \\
+        1 & 1 & 1 \\
+        \hline
+        \end{array}
+        \]
+      </p>
+
+      <h3>Evaluating Expressions</h3>
+      <p>
+        Consider the expression 
+          \[\neg A \lor B \land C\]
+        which reads "NOT A OR B AND C". This expression uses three Boolean values, and is TRUE either if A is FALSE, OR if B AND C are both TRUE. The order of operations here is that AND takes precedence over OR.          
+      </p>
+      <p>
+
+        \[
+        \begin{array}{|c c c | c |}
+        \hline
+        \rule{0pt}{2.5ex} A & B & C & \neg A \lor B \land C \\
+        \hline
+        0 & 0 & 0 &  1  \\
+        0 & 0 & 1 &  1  \\
+        0 & 1 & 0 &  1  \\
+        0 & 1 & 1 &  1  \\
+        1 & 0 & 0 &  0  \\
+        1 & 0 & 1 &  0  \\
+        1 & 1 & 0 &  0  \\
+        1 & 1 & 1 &  1  \\
+        \hline
+        \end{array}
+        \]
+      </p>
+
+      <h2>A Bit More Logic</h2>
+      <p>
+        Logic is much bigger than what we have seen above (see Chapter 1 of <a href="https://discrete.openmathbooks.org/dmoi4/ch_logic.html">Levin</a>), but Boolean logic is the foundation of digital electronics, upon which computing is built, which is directly related to the programming languages that run on digital electronics. 
+      </p>
+      <p>
+        When you work with logic in code, it will be using AND, OR, and NOT operations. 
+      </p>
+
+
+    </section>
+
+  </main>
+</body>
+
+</html>

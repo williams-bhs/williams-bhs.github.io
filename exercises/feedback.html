@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing and Data Science</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../header.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../exercises.css" />
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+</head>
+
+<body>
+  <header>
+    <a href="../index.html" class="header-title">
+      <svg class="header-img" viewBox="0 0 1024 1024" fill="currentColor" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m 712,294 a 56,56 0 1 0 112,0 56,56 0 1 0 -112,0 z" id="path5" />
+        <path d="m 564,608 a 96,96 0 1 0 192,0 96,96 0 1 0 -192,0 z" id="path4" />
+        <path d="m 406,380 a 48,48 0 1 0 96,0 48,48 0 1 0 -96,0 z" id="path3" />
+        <path d="m 288,604 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z" id="path2" />
+        <path
+          d="M 888,792 H 200 V 168 c 0,-4.4 -3.6,-8 -8,-8 h -56 c -4.4,0 -8,3.6 -8,8 v 688 c 0,4.4 3.6,8 8,8 h 752 c 4.4,0 8,-3.6 8,-8 v -56 c 0,-4.4 -3.6,-8 -8,-8 z"
+          id="path1" />
+      </svg>
+      <span>Computing and Data Science</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Feedback
+        <hr>
+      </h1>
+    </section>
+
+    <section class="exercises">
+      These questions are intended to be done either by hand or with a spreadsheet. 
+      <ol>
+        <li>Let \(F(x)=x^2+1\). Find the first five points in the orbit of \(x_0=0\). Describe the orbits in \(F(x)\) of
+          any initial condition \(x_0\). </li>
+
+        <li> Let \(F(x)=x^2 - 2\). Find the first five points in the orbits of:
+          <ol type="a">
+            <li> \(x_0=0\) </li>
+            <li> \(x_0=\frac{1}{2}\) </li>
+            <li> \(x_0=1\) </li>
+            <li> \(x_0=2\) </li>
+          </ol>
+        </li>
+
+        <li>Let \(C(x)=\cos(x)\). For any initial value \(x_0\), the orbit of \(x_0\) in \(C(x)\) converges. Find the
+          value of this convergence. </li>
+
+        <li>Let \(F(x)=1-x^2\). Determine the \(2\)-cycle reached from \(x_0=\frac{1}{2}\).</li>
+
+        <li>In the previous problem, the same \(2\)-cycle can be reached for any \(x_0\) where \(-k < x_0 < k\). Find
+            \(k\). </li>
+
+        <li>Let \(F(x)=\sin(kx)\). Describe the orbit of \(x_0=\frac{1}{2}\) in \(F(x)\) for:
+          <ol type="a">
+            <li>\(k=1\)</li>
+            <li>\(k=2\)</li>
+            <li>\(k=3\)</li>
+          </ol>
+        </li>
+
+        <li>
+          Let \(P(x)=2x(1-x)\).
+          <ol type="a">
+            <li>Expand \(P^2(x) = P(P(x)) \).</li>
+            <li>Determine the first 20 terms in the orbits of \(x_0=0.2, 0.5, 0.8\)</li>
+          </ol>
+        </li>
+
+        <li>
+          Create a spreadsheet implementing the Babylonian square root algorithm. 
+          <ol type="a">
+            <li>Place the value in A1 for which we want
+          to approximate the square root. Then we place our guess in B1. The rows below B1 should iteratively improve
+          our approximation of A1.</li>
+          <li>Add more columns to demonstrate the algorithm working for exerveral examples.</li>
+          </ol>
+        </li>
+
+        <li>
+          Many deployed data models are part of larger feedback systems. Consider a video streaming service which
+          develops a recommendation function \(R\). This function may take many inputs, but one of those inputs might
+          be the list of videos the user has watched, \(w\). The output of \(R(w)\) is a list of videos for the user,
+          who watches some of those videos, and then gets more recommendations which have been influenced by the earlier
+          recommendations.
+        </li>
+
+
+        <li>
+          A very different system that still involves feedback is your schoolwork. You complete assignments that get
+          grades that influence the way you complete future assignments. When we start looking for feedback systems, we
+          find them everywhere.
+          <ol type="a">
+            <li> Identify three feedback systems that you interact with. </li>
+            <li> What does "orbit" mean in the context of those systems? </li>
+          </ol>
+        </li>
+
+
+        <!-- <li>
+          In the short video <a href="https://www.youtube.com/watch?v=fDek6cYijxI">Chaos: The Science of the Butterfly Effect</a>, identify as many references as you can to Poincaré's work. 
+        </li> -->
+
+        <li>
+          Watch <a href="https://www.youtube.com/watch?v=ovJcsL7vyrk">The Equation that Changed How We See the World</a>. 
+          Create the bifurcation diagram in a spreadsheet. Here is one way to do it: 
+          <div>
+            <ol>
+              <li>Make column headers for r, x0, x1, etc. </li>
+              <li>Fill in the A column with r values from 1 to 4.</li>
+              <li>Fill in the B column with an initial value. </li>
+              <li>Use the formula for the logistic equation shown in the image below. Note the $ symbol in front of the A. This is so you can drag the equation down, and then right, without that A changing.</li>
+              <li>Select all of the columns from M to the right, and create a scatter plot. </li>
+            </ol>
+          </div>
+          <div>
+            <img src="../img/logistic_spreadsheet.png">
+          </div> 
+        </li>
+
+        <li>
+          Strogatz Chapter 2
+        </li>
+
+        <li>
+          Mitchell, Complexity Chapter 2. 
+        </li>
+
+      </ol>
+
+    </section>
+
+  </main>
+</body>
+
+</html>

@@ -41,6 +41,7 @@ blockquote {
   border-left: 3px solid #ccc;
   text-align: justify;
   max-width: 600px;
+  font-style:normal;
 }
 
 .quote-by {

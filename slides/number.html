@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
 	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
 	<link rel="stylesheet" href="slides.css">
+	<link rel="stylesheet" href="../boxes.css">
+	
 
 	<style>
 		.reveal img {
@@ -343,7 +345,135 @@
 				</div>
 			</section>
 
+			<section>
+				    <div class="inline-exercise" style="font-size:60%;">
+						<h4>Exercise</h4>
+						<p>
+							Find all of the "rock constructions" up to \(15\).							
+						</p>
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td>
+<pre style="box-shadow: none;font-size:1em;line-height:.5;;color:#666;">
+&#9679;
 
+   &#9679;
+&#9679;&#9679; &#9679;
+
+    &#9679;
+&#9679;&#9679;&#9679; &#9679;
+    &#9679;
+
+        &#9679;
+     &#9679;&#9679; &#9679;
+&#9679;&#9679;&#9679;&#9679; &#9679;&#9679; &#9679;
+        &#9679;
+</pre>
+</td>
+<td>
+<pre style="box-shadow: none;font-size:1em;line-height:.5;color:#666;">
+      &#9679;
+      &#9679;
+&#9679;&#9679;&#9679;&#9679;&#9679; &#9679;
+      &#9679;
+      &#9679;
+    
+	  
+&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;  &#9679;
+        &#9679;
+ &#9679;&#9679;     &#9679;
+ &#9679;&#9679; &#9679;&#9679;&#9679; &#9679;
+ &#9679;&#9679; &#9679;&#9679;&#9679; &#9679;
+        &#9679;
+</pre>
+</td>
+</tr>
+</table>
+					</div>
+			</section>
+
+
+
+
+			<!-- Number Systems and artifacts -->
+			 <section>
+				<a href="https://old.maa.org/press/periodicals/convergence/mathematical-treasure-ishango-bone"><img src="../img/ishango_bone.jpg"></a>
+				<aside class="notes">
+					From The Crest of the Peacock, pg 32: <br> 
+					However, the Ishango bone appears to have been more than a simple
+tally. Certain underlying numerical patterns may be observed within each
+of the rows marked (a) to (c) in figure 2.1. The markings on rows (a) and
+(b) each add up to 60: 9 +19 + 21+ 11= 60 , and 19 + 17 +13 + 11= 60 ,
+respectively. Row (b) contains the prime numbers between 10 and 20. Row
+(a) is quite consistent with a numeration system based on 10, since the
+notches are grouped as 20 + 1, 20 - 1, 10 + 1 , and 10 - 1. Finally, row (c),
+where subgroups (5, 5, 10), (8, 4), and (6, 3) are clearly demarcated, has
+been interpreted as showing some appreciation of the concept of duplica-
+tion or multiplying by 2.
+
+				</aside>
+			 </section>
+			 <section>
+				<a href="https://personal.math.ubc.ca/~cass/courses/m446-03/pl322/pl322.html"><img src="../img/plimpton322.jpg"></a>
+			 </section>
+
+			 <section data-background-color="#000">
+				<a href="https://en.wikipedia.org/wiki/YBC_7289"><img src="../img/ybc-7289.jpg" style="width:50%;"></a>
+			 </section>
+
+
+			 <!-- Square root Algorithm -->
+			 <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="algobox" class="algorithm-box" style="font-size:60%;">
+					<h4>Algorithm &mdash; Square Root</h4>
+					<p style="font-style:italic;">
+					  Given a number \(x\), calculate \(\sqrt{x}\) to desired precision.
+					</p>
+					<br> 
+					<p>
+					<ol>
+					  <li>Make a guess, \(g\)</li>
+					  <li>Calculate new guess: \(\frac{1}{2}( g + \frac{x}{g} )\)</li>
+					  <li>Repeate step (2) as many times as you like, plugging in the new guess each time.</li>
+					</ol>
+					</p>
+				  </div>
+			 </section>
+			 <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="algoboxsmall" class="algorithm-box" style="font-size:30%;">
+					<h4>Algorithm &mdash; Square Root</h4>
+					<p style="font-style:italic;">
+					  Given a number \(x\), calculate \(\sqrt{x}\) to desired precision.
+					</p>
+					<br> 
+					<p>
+					<ol>
+					  <li>Make a guess, \(g\)</li>
+					  <li>Calculate new guess: \(\frac{1}{2}( g + \frac{x}{g} )\)</li>
+					  <li>Repeate step (2) as many times as you like, plugging in the new guess each time.</li>
+					</ol>
+					</p>
+				  </div>
+				  <div style="font-size:80%;padding-top:0.5em;">
+					Find \(\sqrt{2}\):
+					<br> 
+						<ul>
+							<li>\(g=1\)</li>
+							<li>\(g = \frac{1}{2} (1+\frac{2}{1}) \) </li>
+							<li>\(g = \frac{1}{2} \left( \frac{1}{2} (1+\frac{2}{1})+ \frac{2}{\frac{1}{2} (1+\frac{2}{1})} \right) \) </li>
+							<li>\( g = \frac{1}{2} \left( \frac{1}{2} \left( \frac{1}{2} (1+\frac{2}{1})+ \frac{2}{\frac{1}{2} (1+\frac{2}{1})} \right) + \frac{2}{\frac{1}{2} \left( \frac{1}{2} (1+\frac{2}{1})+ \frac{2}{\frac{1}{2} (1+\frac{2}{1})} \right)} \right) \) </li>
+						</ul>
+				  </div>
+			 </section>
+
+
+			 <section data-background-color="#151515">
+				<a href="https://en.wikipedia.org/wiki/Quipu"><img src="../img/Inca_Quipu.jpg"></a>
+			 </section>
+
+			<!-- Binary -->
 			<section>
 				<script>
 					function toggleBit(id_num) {
@@ -363,41 +493,155 @@
 					  }
 					  document.getElementById('bitsum').innerHTML = total; 
 					}
-				  </script>
-				  <table style="margin:auto;border-collapse: separate;">
+					function toggleDec(id_num) {
+					  /* Holy copy pasta. This is how you know I didn't do this with AI. */
+					  let bit = document.getElementById("place"+id_num); 
+					  let dec = document.getElementById("decimal"+id_num); 
+					  if (bit.innerHTML == 9) {
+						bit.innerHTML = 0; 
+						dec.style.color = "#ccc";
+					  } else {
+						bit.innerHTML = Number(bit.innerHTML) + 1; 
+						dec.style.color = "#66a";
+					  } 
+					  let total = 0; 
+					  for (let i=0;i<5;i++) {
+						total += 10**i * document.getElementById("place"+i).innerHTML; 
+					  }
+					  document.getElementById('decsum').innerHTML = total; 
+					}
+				</script>
+
+				<table style="margin:auto;border-collapse: separate;">
 					<tr>
-					  <td id="dec6" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 64 </td>
-					  <td id="dec5" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 32 </td>
-					  <td id="dec4" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 16 </td>
-					  <td id="dec3" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 8 </td>
-					  <td id="dec2" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 4 </td>
-					  <td id="dec1" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 2 </td>
-					  <td id="dec0" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 1 </td>
-					  <td style="border:0;">   </td>
-					  <td style="border:0;">   </td>
+					<td id="decimal4" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(10^{4}\) </td>
+					<td id="decimal3" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(10^{3}\) </td>
+					<td id="decimal2" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(10^{2}\) </td>
+					<td id="decimal1" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(10^{1}\) </td>
+					<td id="decimal0" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(10^{0}\) </td>
+					<td style="border:0;">   </td>
+					<td style="border:0;">   </td>
 					</tr>
 					<tr>
-					  <td id="bit6" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(6);"> 0 </td>
-					  <td id="bit5" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(5);"> 0 </td>
-					  <td id="bit4" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(4);"> 0 </td>
-					  <td id="bit3" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(3);"> 0 </td>
-					  <td id="bit2" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(2);"> 0 </td>
-					  <td id="bit1" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(1);"> 0 </td>
-					  <td id="bit0" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(0);"> 0 </td>
-					  <td> \(=\) </td>
-					  <td id="bitsum" style="width:80px;">0</td>
+					<td id="place4" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDec(4);"> 0 </td>
+					<td id="place3" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDec(3);"> 0 </td>
+					<td id="place2" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDec(2);"> 0 </td>
+					<td id="place1" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDec(1);"> 0 </td>
+					<td id="place0" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDec(0);"> 0 </td>
+					<td> \(=\) </td>
+					<td id="decsum" style="width:180px;">0</td>
 					</tr>
-				  </table>
+				</table>
+				<br><br> 
+				<table style="margin:auto;border-collapse: separate;">
+				<tr>
+					<td id="dec6" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(2^{6}\) </td>
+					<td id="dec5" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(2^{5}\) </td>
+					<td id="dec4" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(2^{4}\) </td>
+					<td id="dec3" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(2^{3}\) </td>
+					<td id="dec2" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(2^{2}\) </td>
+					<td id="dec1" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(2^{1}\) </td>
+					<td id="dec0" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(2^{0}\) </td>
+					<td style="border:0;">   </td>
+					<td style="border:0;">   </td>
+				</tr>
+				<tr>
+					<td id="bit6" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(6);"> 0 </td>
+					<td id="bit5" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(5);"> 0 </td>
+					<td id="bit4" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(4);"> 0 </td>
+					<td id="bit3" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(3);"> 0 </td>
+					<td id="bit2" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(2);"> 0 </td>
+					<td id="bit1" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(1);"> 0 </td>
+					<td id="bit0" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBit(0);"> 0 </td>
+					<td> \(=\) </td>
+					<td id="bitsum" style="width:80px;">0</td>
+				</tr>
+				</table>
 			</section>
 
 
 			<section>
-				<h4>Exercises</h4>
-				<ol>
-					<li>Rock Patterns - Check the OEIS</li>
-					<li>Rock Constructions</li>
-
-				</ol>
+				<script>
+					function toggleBitb(id_num) {
+					  let bit = document.getElementById("bitb"+id_num); 
+					  let dec = document.getElementById("decb"+id_num); 
+					  if (bit.innerHTML == 1) {
+						bit.innerHTML = 0; 
+						dec.style.color = "#ccc";
+					  } else {
+						bit.innerHTML = 1; 
+						dec.style.color = "#66a";
+					  }
+		
+					  let total = 0; 
+					  for (let i=0;i<7;i++) {
+						total += 2**i * document.getElementById("bitb"+i).innerHTML; 
+					  }
+					  document.getElementById('bitsumb').innerHTML = total; 
+					}
+					function toggleDecb(id_num) {
+					  /* Holy copy pasta. This is how you know I didn't do this with AI. */
+					  let bit = document.getElementById("placeb"+id_num); 
+					  let dec = document.getElementById("decimalb"+id_num); 
+					  if (bit.innerHTML == 9) {
+						bit.innerHTML = 0; 
+						dec.style.color = "#ccc";
+					  } else {
+						bit.innerHTML = Number(bit.innerHTML) + 1; 
+						dec.style.color = "#66a";
+					  } 
+					  let total = 0; 
+					  for (let i=0;i<5;i++) {
+						total += 10**i * document.getElementById("placeb"+i).innerHTML; 
+					  }
+					  document.getElementById('decsumb').innerHTML = total; 
+					}
+				</script>
+				<table style="margin:auto;border-collapse: separate;">
+					<tr>
+					<td id="decimalb4" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 10000 </td>
+					<td id="decimalb3" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 1000 </td>
+					<td id="decimalb2" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 100 </td>
+					<td id="decimalb1" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 10 </td>
+					<td id="decimalb0" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 1 </td>
+					<td style="border:0;">   </td>
+					<td style="border:0;">   </td>
+					</tr>
+					<tr>
+					<td id="placeb4" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDecb(4);"> 0 </td>
+					<td id="placeb3" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDecb(3);"> 0 </td>
+					<td id="placeb2" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDecb(2);"> 0 </td>
+					<td id="placeb1" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDecb(1);"> 0 </td>
+					<td id="placeb0" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDecb(0);"> 0 </td>
+					<td> \(=\) </td>
+					<td id="decsumb" style="width:180px;">0</td>
+					</tr>
+				</table>
+				<br><br> 
+				<table style="margin:auto;border-collapse: separate;">
+				<tr>
+					<td id="decb6" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 64 </td>
+					<td id="decb5" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 32 </td>
+					<td id="decb4" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 16 </td>
+					<td id="decb3" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 8 </td>
+					<td id="decb2" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 4 </td>
+					<td id="decb1" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 2 </td>
+					<td id="decb0" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> 1 </td>
+					<td style="border:0;">   </td>
+					<td style="border:0;">   </td>
+				</tr>
+				<tr>
+					<td id="bitb6" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBitb(6);"> 0 </td>
+					<td id="bitb5" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBitb(5);"> 0 </td>
+					<td id="bitb4" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBitb(4);"> 0 </td>
+					<td id="bitb3" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBitb(3);"> 0 </td>
+					<td id="bitb2" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBitb(2);"> 0 </td>
+					<td id="bitb1" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBitb(1);"> 0 </td>
+					<td id="bitb0" style="font-weight:bold;background-color: #f2fff2;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleBitb(0);"> 0 </td>
+					<td> \(=\) </td>
+					<td id="bitsumb" style="width:80px;">0</td>
+				</tr>
+				</table>
 			</section>
 
 

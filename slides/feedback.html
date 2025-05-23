@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+	<title>CDS</title>
+
+	<link rel="stylesheet" href="reveal.js-master/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
+	<link rel="stylesheet" href="slides.css">
+	<link rel="stylesheet" href="../boxes.css">
+
+	<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+	<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<style>
+		.reveal img {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- TITLE SLIDE -->
+			<section>
+				<h2>Dynamical Systems <br>and Feedback</h2>
+				<img src="../img/number_feedback.svg" style="width:500px;">
+				<div class="slides-subtitle">Computing and Data Science</div>
+			</section>
+
+			<section>
+				<div>A <strong>dynamical system</strong> is a system that<br>
+					changes over time. Defined by:
+				</div>
+				<br>
+				<div>
+					<ul>
+						<li><strong>State</strong>: variables representing current configuration</li>
+						<li><strong>Rules</strong>: equations defining how the system evolves</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h4>Classic Dynamical Systems</h4>
+				<ul>
+					<li>Solar system</li>
+					<li>Weather systems</li>
+					<li>Economic systems</li>
+					<li>Chemical reactions</li>
+					<li>Electric Circuits</li>
+				</ul>
+			</section>
+
+			<section>
+				<!-- <h3>Can we predict the future?</h3> -->
+				<div>
+					Dynamical systems are at the core of <br>science and the root of mathematics.
+				</div>
+				<br>
+				<div>
+					The primary question of a dynamical system is:
+				</div>
+				<div
+					style="background-color: var(--dsp-orange);padding-top:1em;padding-bottom:1em;border-radius: 13px;">
+					Can we predict future states? 					
+				</div>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Function</h3>
+				<div data-id="func"
+					style="background-color: var(--dsp-green);padding-top:.05em;padding-bottom:0.05em;border-radius: 13px;width:400px;margin:auto;">
+					\[S(x) = \sqrt{x}\]
+				</div>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Function</h3>
+				<div data-id="func"
+					style="background-color: var(--dsp-green);padding-top:.05em;padding-bottom:0.05em;border-radius: 13px;width:400px;margin:auto;">
+					\[S(x) = \sqrt{x}\]
+				</div>
+				<div>
+					\[ S(36) = 6 \]
+					\[ S(20.25) = 4.5 \]
+					\[ S(2) \approx 1.41421356237 \]
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Function</h3>
+				<br>
+				<div>
+					<img src="../img/number_function.svg" style="width:80%;">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Feedback</h3>
+				<br>
+				<div>
+					<img src="../img/number_feedback.svg" style="width:80%;">
+				</div>
+			</section>
+			<section>
+				<img src="../img/number_movie_recommendation.svg"  style="width:80%;">
+			</section>
+			<section>
+				<a href="https://commons.wikimedia.org/wiki/File:OpAmpHystereticOscillator.svg">
+					<img src="../img/OpAmpHystereticOscillator.svg" style="width:60%;">
+				</a>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Feedback</h3>
+				<div data-id="func"
+					style="background-color: var(--dsp-green);padding-top:.05em;padding-bottom:0.05em;border-radius: 13px;width:400px;margin:auto;">
+					\[S(x) = \sqrt{x}\]
+				</div>
+				<div style="text-align: left;" data-id="orb">
+					\(x_0\)<br>
+					\(x_1 = S(x_0) = \sqrt{x_0} \)<br>
+					\(x_2 = S(x_1) = S(S(x_0)) = \sqrt{\sqrt{x_0}} \)<br>
+					\(x_3 = S(x_2) = S(S(S(x_0))) = \sqrt{\sqrt{\sqrt{x_0}}} \)
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Feedback</h3>
+				<div data-id="func"
+					style="background-color: var(--dsp-green);padding-top:.05em;padding-bottom:0.05em;border-radius: 13px;width:400px;margin:auto;">
+					\[S(x) = \sqrt{x}\]
+				</div>
+				<div style="text-align: left;" data-id="orb">
+					\(x_0\)<br>
+					\(x_1 = S(x_0) = \sqrt{x_0} \)<br>
+					\(x_2 = S(x_1) = S(S(x_0)) = \sqrt{\sqrt{x_0}} \)<br>
+					\(x_3 = S(x_2) = S(S(S(x_0))) = \sqrt{\sqrt{\sqrt{x_0}}} \)
+				</div>
+				<div style="text-align: left;" data-id="orbn">
+					\(x_n = S^{n}(x_0) \) 
+				</div>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Iterate</h3>
+				<div data-id="orbit-table">
+					<table>
+						<tr>
+							<td style="vertical-align: middle;">
+								\[S(x) = \sqrt{x}\]
+							</td>
+							<td>\[\quad\]</td>
+							<td style="text-align: left;">
+								\(x_0 = 16\)<br>
+								\(x_1 = S^1(x_0)=4\)<br>
+								\(x_2 = S^2(x_0)=2\)<br>
+								\(x_3 = S^3(x_0)=1.4142...\)<br>
+								\(x_4 = S^4(x_0)=1.1892...\)<br>
+								\(\vdots\)
+							</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Iterate</h3>
+
+				<div>The <strong>orbit</strong> of \(x_0\) is the sequence generated by iterating</div>
+				<div data-id="orbit-table">
+					<table>
+						<tr>
+							<td style="vertical-align: middle;">
+								\[S(x) = \sqrt{x}\]
+							</td>
+							<td>\[\quad\]</td>
+							<td style="text-align: left;">
+								\(x_0 = 16\)<br>
+								\(x_1 = S^1(x_0)=4\)<br>
+								\(x_2 = S^2(x_0)=2\)<br>
+								\(x_3 = S^3(x_0)=1.4142...\)<br>
+								\(x_4 = S^4(x_0)=1.1892...\)<br>
+								\(\vdots\)
+							</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+
+			<section>
+				This iterative function composition is equivalent to writing a <strong>recurrence relation</strong> with an <strong>initial condition</strong>:
+				\[ x_0 = 16 \]
+				\[ x_{n+1} = \sqrt{x_{n}} \] 
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div class="exercise">
+					<h4>Exercise</h4>
+					<p>Determine the fate of the orbit of \(x_0=2\) in \[F(x) = \sin(x)\]</p>
+				</div>
+				<div style="font-size:80%;">
+					In other words, what can we say about: \[\lim_{n \to \infty} F^{n}(2) \]
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="theex" style="font-size:50%;">
+					<p>Determine the fate of the orbit of \(x_0=2\) in \[F(x) = \sin(x)\]</p>
+				</div>
+				<div data-id="theexplicit">
+					<img src="../img/dynamical_sin.svg" style="width:75%;">
+				</div>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div class="exercise">
+					<h4>Exercise</h4>
+					<p>Determine the fate of the orbit of \(x_0=2\) in \[C(x) = \cos(x)\]</p>
+				</div>
+				<div style="font-size:80%;">
+					In other words, what can we say about: \[\lim_{n \to \infty} C^{n}(2) \]
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="theex" style="font-size:50%;">
+					<p>Determine the fate of the orbit of \(x_0=2\) in \[C(x) = \cos(x)\]</p>
+				</div>
+				<div data-id="theexplicit">
+					<img src="../img/dynamical_cos.svg" style="width:75%;">
+				</div>
+			</section>
+
+
+
+			<!-- Spreadsheet example -->
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="ss_img"><img src="../img/ds_ss_sina.png"></div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="ss_img"><img src="../img/ds_ss_sinb.png"></div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="ss_img"><img src="../img/ds_ss_sinc.png"></div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="ss_img"><img src="../img/ds_ss_sind.png"></div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Remember our algorithm for square root?</h4>
+				<br>
+				<div class="algorithm-box" style="font-size:60%;" data-id="algosqrt">
+					<h4>Algorithm &mdash; Square Root</h4>
+					<p style="font-style:italic;">
+					Given a number \(x\), calculate \(\sqrt{x}\) to desired precision.
+					</p>
+					<br> 
+					<p>
+					<ol>
+					<li>Make a guess, \(g\).</li>
+					<li>Calculate new guess: \(\frac{1}{2}( g + \frac{x}{g} )\)</li>
+					<li>Repeate step (2) as many times as you like, plugging in the new guess each time.</li>
+					</ol>
+					</p>
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div class="algorithm-box" style="font-size:30%;" data-id="algosqrtb">
+					<h4>Algorithm &mdash; Square Root</h4>
+					<p style="font-style:italic;">
+					Given a number \(x\), calculate \(\sqrt{x}\) to desired precision.
+					</p>
+					<br> 
+					<p>
+					<ol>
+					<li>Make a guess, \(g\).</li>
+					<li>Calculate new guess: \(\frac{1}{2}( g + \frac{x}{g} )\)</li>
+					<li>Repeate step (2) as many times as you like, plugging in the new guess each time.</li>
+					</ol>
+					</p>
+				</div>
+				<div>
+					\[ x_0 = g \]
+					\[ x_{i+1} = \frac{1}{2}\left(x_i + \frac{x}{x_i}\right) \]
+				</div>
+				<aside class="notes">
+					The value this recurrence relation converges toward is dependent on x. 
+				</aside>
+			</section> 
+
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Fixed Point</h4>
+				<div data-id="fp-1">
+					A <strong>fixed point</strong> is a value that stays the same from one step to
+					the next in a dynamical system.
+				</div>
+				<div data-id="fp-2" style="background-color: var(--dsp-blue);width:650px;margin:auto;border-radius:11px;">
+					The output is the same as the input.
+				</div>
+				<br>
+				<div data-id="fp-eqa">
+					Given \(S(x)=\sqrt{x}\),
+					\[S(1) = 1\]
+				</div>
+			</section><section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Fixed Point</h4>
+				<div data-id="fp-1">
+					A <strong>fixed point</strong> is a value that stays the same from one step to
+					the next in a dynamical system.
+				</div>
+				<div data-id="fp-2" style="background-color: var(--dsp-blue);width:650px;margin:auto;border-radius:11px;">
+					The output is the same as the input.
+				</div>
+				<br>
+				<div data-id="fp-eqa">
+					Given \(S(x)=\sqrt{x}\),
+					\[S(1) = 1\]
+				</div>
+				<div>
+					\[S(0) = 0\]
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Finding Fixed Points</h4>
+				<div data-id="descript">
+					\[\text{Output} = \text{Input}\]
+					\[S(x) = x\]
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Finding Fixed Points</h4>
+				<div data-id="descript">
+					\[\text{Output} = \text{Input}\]
+					\[S(x) = x\]
+				</div>
+				<div style="background-color:var(--dsp-gray); width:400px; margin:auto;border-radius: 11px;padding:0.5em;">
+					\( \sqrt{x} = x\) <br> 
+					\( x = x^2 \)  <br> <!-- No \pm :( -->
+					\( x^2 - x = 0 \)  <br> 
+					\( x(x-1) = 0 \)  <br> 
+					\( x = 0, 1 \)
+				</div>
+			</section>
+
+
+			<section>
+				<div>Recall our <span style="color:#c74440;">\(\sin\)</span> and <span style="color:#fa7e19;">\(\cos\)</span> systems. <br>Those convergence values were fixed points. </div>
+				<table>
+					<tr>
+						<td>
+							<div>\[\sin(x) = x\]</div>
+							<div>
+								<img src="../img/fixed_pt_sin.svg">
+							</div>
+						</td>
+						<td>\(\quad \quad \)</td>
+						<td>
+							<div>\[\cos(x) = x\]</div>
+							<div>
+								<img src="../img/fixed_pt_cos.svg">
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Periodic Orbit</h4>
+				<div data-id="descriptb">
+					A <strong>periodic orbit</strong>, or <strong>cycle</strong>, is a repeating sequence. 
+				</div>
+				<br> 
+				<div>
+					<img src="../img/cycle3.svg" style="width:70%;">
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Finding Cycles</h4>
+				<br>
+				<div data-id="cycle2">
+					2-Cycle: \( \quad G(G(x)) = x \)
+				</div>
+				<br> 
+				<div data-id="cycle3">
+					3-Cycle: \( \quad G(G(G(x))) = x \)
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Finding Cycles</h4>
+				<br>
+				<div data-id="cycle2">
+					2-Cycle: \( \quad G(G(x)) = x \)
+				</div>
+				<br> 
+				<div data-id="cycle3">
+					3-Cycle: \( \quad G(G(G(x))) = x \)
+				</div>
+				<br> 
+				<div data-id="cyclen">
+					\(n\)-Cycle: \( \quad G^{n}(x) = x \)  
+				</div>
+			</section>
+
+
+
+
+
+			<section style="font-size:80%;">
+				<div>
+					Analysis of mathematical dynamical systems like these isn't just intellectually stimulating. 
+					We observe behaviors like this in real dynamical systems. 
+				</div>
+				<br> 
+				<div>
+					<ul>
+						<li><span style="font-weight:bold;color:#c74440;">Physical systems</span>: orbits(!), phases, tides</li>
+						<li><span style="font-weight:bold;color:#c74440;">Weather</span>: seasons, atmospheric convection, water cycles </li>
+						<li><span style="font-weight:bold;color:#c74440;">Population</span>: illness, predator-prey, consequence of policies, external factors like changes to environment</li>
+						<li><span style="font-weight:bold;color:#c74440;">Psychology</span>: modes of cognition and learning, response to stimuli</li>
+						<li><span style="font-weight:bold;color:#c74440;">Politics</span>: pendulum swing of political parties, cultural waves </li>
+						<li><span style="font-weight:bold;color:#c74440;">Electronics</span>: harnessing feedback, limit cycle, amplification </li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h4>Pretty much everything is a dynamical system with feedback...<span style="font-size:40%;color:#888;">Ok not everything</span></h4>
+				<a href="https://commons.wikimedia.org/wiki/File:Ant_mill.gif"><img src="../img/Ant_mill.gif"></a>
+				<a href="https://commons.wikimedia.org/wiki/File:Ant_mill.gif"><video controls autoplay loop src="../img/trailordynamics.mp4" style="height:250px;"></video></a>
+				<a href="https://en.wikipedia.org/wiki/File:Internet_map_1024.jpg"><img src="../img/Internet_map_1024.jpg" style="height:250px;"></a>
+				<a href="https://commons.wikimedia.org/wiki/File:Common_Era_Temperature.svg"><img src="../img/Common_Era_Temperature.svg" style="height:250px;"></a>
+				<a href="https://commons.wikimedia.org/wiki/File:Sort_sol_ved_%C3%98rns%C3%B8_2007.jpg"><img src="../img/flock.jpg" style="height:250px;"></a>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Population Dynamics</h4>
+				<div data-id="population-eq" style="padding:0.15em;border-radius:11px; background-color: var(--dsp-orange);width:600px;margin:auto;">
+					\[ P_{n+1} = R P_{n} \]
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Population Dynamics</h4>
+				<div data-id="population-eq" style="padding:0.15em;border-radius:11px; background-color: var(--dsp-orange);width:600px;margin:auto;">
+					\[ P_{n+1} = R P_{n} \]
+				</div>
+				<div>
+					\(R\) is a <strong>parameter</strong> representing growth-rate.
+					<br> 
+					We analyze this system by looking at its behavior for various values of \(R\text{.}\)
+				</div>
+				<br> 
+				<div>				
+					What are interesting values of \(R\text{?}\)
+				</div>
+				<aside class="notes">
+					We can talk about this system for various values of R. 
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+				<div>
+					<img src="../img/population_examples.svg" style="max-width:70%;">
+				</div>		
+				<div> 
+					<span style="color:#1362ac">\( A_{n+1} = 1.1 A_{n} \)</span>  <br> 
+					<span style="color:#000">\( B_{n+1} = 1.0 B_{n} \)</span> <br>
+					<span style="color:#c74440">\( C_{n+1} = 0.9 C_{n} \)</span> 
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">	
+				<h4>Slightly Less Trivial Population Dynamics</h4>
+				<div data-id="logistic-eq" style="padding:0.15em;border-radius:11px; background-color: var(--dsp-green);width:600px;margin:auto;">
+					\[P_{n+1} = r P_{n} (1 - P_{n}) \]
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">	
+				<h4>Slightly Less Trivial Population Dynamics</h4>
+				<div data-id="logistic-eq" style="padding:0.15em;border-radius:11px; background-color: var(--dsp-green);width:600px;margin:auto;">
+					\[P_{n+1} = r P_{n} (1 - P_{n}) \]
+				</div>
+				<br>
+				<div>
+					\(r\) is a parameter that encapsulates growth and carrying capacity. \(P\) is a <strong>population density</strong>.
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">	
+				<h4>Slightly Less Trivial Population Dynamics</h4>
+				<div data-id="logistic-eq" style="padding:0.15em;border-radius:11px; background-color: var(--dsp-green);width:600px;margin:auto;">
+					\[P_{n+1} = r P_{n} (1 - P_{n}) \]
+				</div>
+				<br>
+				<div>
+					Analyze this system for:
+					<br> 
+					\( r = 2.5 \) <br>
+					\( r = 3 \) <br>
+					\( r = 3.5 \) <br>
+					\( r = 4 \) 
+				</div>
+				<aside class="notes">
+					Right now, "analyze" means plug in values and experimentally observe the system's behavior. 
+					Suggested initial value is 0.8, but you can choose anything between 0 and 1. 
+				</aside>
+			</section>
+
+<section>
+	\(P_{n+1} = r P_{n} (1 - P_{n}) \)
+	<br> 
+  <canvas id="logisticChart" sytle="width:100%; height:70ev;"></canvas>
+  <div style="margin: 0.3em;">
+	<table>
+		<tr>
+			<td>
+				<label for="x0Slider"> \( P_0 \): <span id="x0Value">0.8</span></label>
+				<input type="range" id="x0Slider" min="0.01" max="0.99" step="0.01" value="0.8" />
+			</td>
+			<td>\(\quad \)</td>
+			<td>
+				<label for="rSlider"> \( r \): <span id="rValue">2</span></label>
+				<input type="range" id="rSlider" min="1" max="4" step="0.01" value="2.0" />
+			</td>
+		</tr>
+	</table>
+  </div>
+  
+  <script>
+    const x0Slider = document.getElementById("x0Slider");
+    const rSlider = document.getElementById("rSlider");
+    const x0Value = document.getElementById("x0Value");
+    const rValue = document.getElementById("rValue");
+    const ctx = document.getElementById("logisticChart").getContext("2d");
+
+    function logisticOrbit(x0, r, steps = 50) {
+      const x = [x0];
+      for (let i = 1; i <= steps; i++) {
+        x.push(r * x[i - 1] * (1 - x[i - 1]));
+      }
+      return x;
+    }
+
+    let chart = new Chart(ctx, {
+		type: "line",
+		data: {
+			labels: [...Array(51).keys()],
+			datasets: [{
+				data: logisticOrbit(parseFloat(x0Slider.value), parseFloat(rSlider.value)),
+				pointRadius: 3,
+				pointBackgroundColor: "red",
+				borderColor: "#469",
+			}]
+		},
+		options: {
+			responsive: true,
+			plugins: { 
+				legend: { display: false }
+			},
+			scales: {
+			y: {
+				min: 0,
+				max: 1
+			}
+			}
+		}
+	});
+
+    function updateChart() {
+      const x0 = parseFloat(x0Slider.value);
+      const r = parseFloat(rSlider.value);
+      x0Value.textContent = x0.toFixed(2);
+      rValue.textContent = r.toFixed(2);
+      chart.data.datasets[0].data = logisticOrbit(x0, r);
+      chart.update();
+    }
+
+    x0Slider.addEventListener("input", updateChart);
+    rSlider.addEventListener("input", updateChart);
+  </script>
+</section>
+
+
+
+
+
+
+			<section>
+				<h4>Determinism</h4>
+				<div>
+					Given a dynamical system and inital conditions, if I ask you to find the \(83^{\text{rd}}\) term, you should all get exactly the same answer. That is <strong>deterministic</strong>, or <strong>not random</strong>.
+				</div>
+			</section>
+
+			<section>
+				<h4>Chaos</h4>
+				<div>
+					A system is <strong>chaotic</strong> if it exhibits <br><strong>sensitive dependence on initial conditions</strong>. 
+				</div>
+				<div style="font-size:80%;text-align: left;padding-left:40%;">
+					<span style="color:#c74440">\(x_0 = 8 \)</span> <br> 
+					<span style="color:#1362ac">\(x_0 = 8.00001\)</span>
+				</div>
+				<div>
+					<img src="../img/chaotic.png" style="width:70%;">
+				</div>
+			</section>
+
+
+			<section data-background="#fff" data-background-video="../img/triplependulum.mp4" data-background-size="contain" style="text-align:left;">
+				<br><br><br><br><br><br><br><br><br><br><br><br>
+				<a href="https://twitter.com/standupmaths/status/741251532167974912" target="_blank"><span style="color:#999; font-size:50%;">https://twitter.com/standupmaths/status/741251532167974912</span></a>
+				<aside class="notes">
+					This isn't just a cool colorful animation.  
+					It is a demonstration of how sensitive dependence on initial conditions can make prediction impracticle or impossible.
+					Yet technology after technology is put into production, decisions and policies are decided, etc., within complex systems based on insufficient information. 
+				</aside>
+			</section>
+
+			<section>
+				<h4>Deterministic Vs. Predictable</h4>
+				<div>					
+					<blockquote style="font-size:60%;font-style:normal;">
+					  But, even if it were the case that the natural laws had
+	  no longer any secret for us, <strong>we could still only know the initial situation approximately</strong>. 
+	  If that enabled us to predict the succeeding situation with the same
+	  approximation, that is all we require, and we should say that the phenomenon
+	  had been predicted, that it is governed by laws. But it is not always so; 
+	  it may happen that <strong>small differences in the initial conditions produce very great ones
+	  in the final phenomena</strong>. A small error in the former will produce an enormous
+	  error in the latter. <strong>Prediction becomes impossible</strong>, and we have the fortuitous
+	  phenomenon.
+	  <div class="quote-by">Poincaré</div>
+					</blockquote>
+				</div>
+			</section>
+
+
+<!-- 
+			<section>
+				<div style="font-size:70%;">
+					A fascinating history of Chaos!
+					 Check out Gleick's book, and  <br> 
+					<a href="https://youtu.be/ycJEoqmQvwg?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V&t=511">Strogatz's historical overview</a>
+					<br> 
+					or: https://pmc.ncbi.nlm.nih.gov/articles/PMC2465602/ 
+				</div>
+			
+				<div style="padding-top:0.4em;">
+					<table style="font-size:60%;">
+						<tr> 
+							<td> 1666</td>
+							<td> Newton </td>
+							<td> Dynamics of motion. </td>
+						</tr>
+						<tr> 
+							<td> ~ 1900</td>
+							<td> Poincaré </td>
+							<td> Geometric view of dynamics. Shows 3-body problem is intractable. </td>
+						</tr>
+						<tr> 
+							<td> 1920s - 1950s</td>
+							<td>  </td>
+							<td> Nonlinear oscillators in physics and engineering. </td>
+						</tr>
+						<tr> 
+							<td> ~1950</td>
+							<td>  </td>
+							<td> Modern computing develops. </td>
+						</tr>
+						<tr> 
+							<td> 1963</td>
+							<td> Lorenz </td>
+							<td> "Deterministic nonperiodic flow" </td>
+						</tr>
+						<tr> 
+							<td> 1976</td>
+							<td> May </td>
+							<td> "Simple mathematical models with very complicated dynamics" </td>
+						</tr>
+						<tr> 
+							<td> 1970s </td>
+							<td> Mandelbrot </td>
+							<td> Fractals </td>
+						</tr>
+						<tr> 
+							<td> 1978 </td>
+							<td> Feigenbaum </td>
+							<td> Universal route to chaos </td>
+						</tr>
+						<tr> 
+							<td> 1999 </td>
+							<td> Williams </td>
+							<td> "Nonlinear Grid Ciphers", my high school science fair project on using chaos for cryptography </td>
+						</tr>
+					</table>
+				</div>
+			</section> -->
+
+
+			<section>
+				<a target="_blank" href="https://direct.mit.edu/artl/article-abstract/27/1/44/101872/The-Impossibility-of-Automating-Ambiguity?redirectedFrom=fulltext"><img src="../img/automatingambiguity.png"></a>
+				<aside class="notes">
+					This has profound ramifications in our development of mathematical models. 
+					Remember that to develop our model, we measure to get data! 
+
+					A strange irony is that this is something that extremely well known in science, but often 
+					ignored in data sciences!
+				</aside>
+			</section>
+
+
+			<section>
+				<h4>Complexity Science</h4>
+				<div>
+					In <strong>chaos</strong>, we see simple systems exhibit infinitely complex behaviors. 
+				</div>
+				<div>
+					<strong>Complexity science</strong> is in some ways a converse of chaos: Profoundly complex systems may exhibit order. 
+				</div>	
+			</section>
+			
+			<section>
+				<div style="font-size:50%;"><a href="https://www.complexityexplorer.org/explore/glossary">https://www.complexityexplorer.org/explore/glossary</a></div>
+				<div>
+					<a href="https://www.complexityexplorer.org/explore/glossary"><img src="../img/complexity_screenshot.png" style="width:100%;"></a>
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Dynamical Systems</h4>
+				<div style="font-size:80%;">
+					<table>
+						<tr>
+							<td style="font-weight:bold;text-align: right;">Feedback </td>
+							<td style="color:#666;">The output of a system is fed back into the input </td>
+						</tr>
+						<tr>
+							<td style="font-weight:bold;text-align: right;">Iteration </td>
+							<td style="color:#666;">One step of a feedback loop </td>
+						</tr>
+						<tr>
+							<td style="font-weight:bold;text-align: right;">Orbit </td>
+							<td style="color:#666;">The sequence generated by iterating from a particular initial condition </td>
+						</tr>
+						<tr>
+							<td style="font-weight:bold;text-align: right;">Fixed Point </td>
+							<td style="color:#666;">A value such that the output of an iteration is equal to the input </td>
+						</tr>
+						<tr>
+							<td style="font-weight:bold;text-align: right;">Cycle </td>
+							<td style="color:#666;">A periodic orbit, repeating values </td>
+						</tr>
+						<tr>
+							<td style="font-weight:bold;text-align: right;">Deterministic </td>
+							<td style="color:#666;">When a system does not involve randomness, and future states can be calculated exactly. </td>
+						</tr>
+						<tr>
+							<td style="font-weight:bold;text-align: right;">Chaotic </td>
+							<td style="color:#666;">When the orbit of a dynamical system is sensitively dependent on the initial conditions. </td>
+						</tr>
+					</table>
+				</div>
+			</section>
+
+
+			<section  style="font-size:70%;">
+				<h4>References and Resources</h4>
+				<ul>
+					<li><a href="https://www.complexityexplorer.org/explore/glossary">https://www.complexityexplorer.org/explore/glossary</a></li>
+					<li>Mitchell, M. (2009). Complexity: A Guided Tour. Oxford University Press, Inc., USA.</li>
+					<li>Strogatz, S. H. (2000). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry and Engineering. Westview Press. </li>
+					<li><a href="https://www.youtube.com/watch?v=fDek6cYijxI">Veritasium &mdash; Chaos: The Science of the Butterfly Effect</a></li>
+					<li><a href="https://www.youtube.com/watch?v=-RdOwhmqP5s">3Blue1Brown &mdash; Newton's fractal (which Newton knew nothing about)</a></li>
+				</ul>				
+			</section>
+
+
+			<section>
+				<p style="color: #888;font-size:50%;">
+					©2025 Jedediyah Williams
+					<br> 
+					This work is licensed under the Creative Commons <br>Attribution-NonCommercial-ShareAlike 4.0 International License.
+					<br>
+					<img src="../img/by-nc-sa.svg">
+					<br> 
+					To view a copy of this license, visit <a
+					  href="https://creativecommons.org/licenses/by-nc-sa/4.0/">https://creativecommons.org/licenses/by-nc-sa/4.0/</a>.
+				  </p>
+			</section>
+
+
+
+		</div>
+	</div>
+
+	<script src="reveal.js-master/dist/reveal.js"></script>
+	<script src="reveal.js-master/plugin/notes/notes.js"></script>
+	<script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+	<script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+	<script src="reveal.js-master/plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		});
+	</script>
+</body>
+
+</html>
