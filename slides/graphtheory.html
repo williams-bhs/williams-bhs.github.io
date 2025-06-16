@@ -1,0 +1,1308 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+	<title>CDS</title>
+
+	<link rel="stylesheet" href="reveal.js-master/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
+	<link rel="stylesheet" href="slides.css">
+	<link rel="stylesheet" href="../boxes.css">
+
+
+	<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+	<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+	<style>
+		.reveal img {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- TITLE SLIDE -->
+			<section>
+				<h2>Graph Theory</h2>
+				<div class="tikz-container" style="display:flex; justify-content: center;padding-bottom:10px;">
+					<img src="../img/graph_hunting.svg">
+           		 </div>
+				<div class="slides-subtitle">Computing and Data Science</div>
+			</section>
+			
+			<!-- <section>
+				<h4>Graphs</h4>
+				- Definition  <br> 
+				- A taxonomy of graphs <br> 
+				- How graphs are used  <br> 
+				- Graph operations <br> 
+			</section> -->
+
+			<section>
+				<p>A <strong>graph</strong> is something with this structure:</p>
+				<div>
+					<!-- https://commons.wikimedia.org/wiki/File:SixteenPlayerSingleEliminationTournamentBracket.svg -->
+					 <img src="../img/SixteenPlayerSingleEliminationTournamentBracket.svg" style="height:250px;">
+					 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<!-- https://commons.wikimedia.org/wiki/File:Waldburg_Ahnentafel.jpg -->
+					<img src="../img/Waldburg_Ahnentafel.jpg" style="height:250px;">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<!-- https://www.mbta.com/schedules/subway -->
+					<img src="../img/subway.png" style="height:250px;">
+
+
+				</div>
+				<div>
+					<!-- https://commons.wikimedia.org/wiki/File:Chemical_Graph_Representation.svg -->
+					 <img src="../img/Chemical_Graph_Representation.svg.png" style="height:220px;">
+					 &nbsp;&nbsp;&nbsp;
+					 <!-- https://commons.wikimedia.org/wiki/File:Neural_network.svg -->
+					 <img src="../img/Neural_network.png" style="height:250px;">
+					 &nbsp;&nbsp;&nbsp;
+					 <img src="../img/Internet_map_1024.jpg" style="height:240px;">
+				</div>
+			</section>
+
+			<section>
+				        <blockquote style="font-style:normal;text-align: left;">
+							<a href="https://youtu.be/7eHvglLMCK8?t=864" style="color:#55a;">
+          A graph is a pair of two sets such that the second set is a set of two-element subsets of the first.
+		  </a>
+		  <br>           
+        </blockquote>
+		\[ G = (V, E) \]
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<table>
+					<tr style="border:0px;padding:0px;">
+						<td style="border:0px;padding:0px;">
+							<div data-id="graph-G" data-auto-animate-delay="0.0"  style="display:inline-block; font-size:70%;">\(G = ( \)</div>
+						</td>
+						<td data-auto-animate-delay="0.5" style="border:0;"></td>
+					</tr>
+					<tr style="border:0px;padding:0px;">
+						<td style="border:0px;padding:0px;">
+							
+						</td>
+						<td data-auto-animate-delay=" 0.6" style="text-align: left;border:0;">
+							<div data-id="graph-V" data-auto-animate-delay="0.1" style="display:inline-block; font-size:70%;">\(\{a,b,c,d\}\)</div>					
+						</td>
+					</tr>
+					<tr style="border:0px;padding:0px;">
+						<td style="border:0px;padding:0px;">
+							<div data-id="graph-c" data-auto-animate-delay="0.2" style="display:inline-block; font-size:70%;">\(,\)</div>			
+						</td>
+						<td data-auto-animate-delay="0.7" style="border:0px;padding:0px;vertical-align: top;">							
+						</td>
+					</tr>
+					<tr style="border:0px;padding:0px;">
+						<td style="border:0px;padding:0px;">
+							
+						</td>
+						<td data-auto-animate-delay="0.8" style="border:0px;padding:0px;vertical-align: top;">
+							<div data-id="graph-E" data-auto-animate-delay="0.3" style="display:inline-block; font-size:70%;">\(\{ \{ a,b \}, \{ a,c \}, \{ b,c \}, \{ c,d \} \} \)</div>					
+						</td>
+					</tr>
+					<tr style="border:0px;padding:0px;">
+						<td style="border:0px;padding:0px;">
+							<div data-id="graph-b" data-auto-animate-delay="0.4" style="display:inline-block; font-size:70%;">\( ) \)</div>
+						</td>
+						<td data-auto-animate-delay="0.9" style="border:0px;padding:0px;vertical-align: top;">							
+						</td>
+					</tr>
+				</table>
+			</section>
+
+			<!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="verted">
+
+				</div>
+				<div data-id="dmp-env" data-auto-animate-delay="1.4">
+					<div data-id="graph-G" data-auto-animate-delay="0.0" style="display:inline-block; font-size:70%;">\(G = \{\)</div>					
+					<div data-id="graph-V" data-auto-animate-delay="0.1" style="display:inline-block; font-size:70%;">\(\{A,B,C,D\}\)</div>					
+					<div data-id="graph-c" data-auto-animate-delay="0.2" style="display:inline-block; font-size:70%;">\(,\)</div>			
+					<div data-id="graph-E" data-auto-animate-delay="0.3" style="display:inline-block; font-size:70%;">\(\{ \{ A,B \}, \{ A,C \}, \{ B,C \}, \{ C,D \} \} \)</div>					
+					<div data-id="graph-b" data-auto-animate-delay="0.4" style="display:inline-block; font-size:70%;">\(\}\)</div>
+				</div>
+				<div data-id="graphex">
+
+				</div>
+			</section> -->
+
+			<!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="verted" style="padding-right:30%;">
+					<div style="background-color: var(--dsp-blue);display:inline-block;border-radius: 13px;padding-left:8px;padding-right:8px;">Vertices</div>									
+					<div style="background-color: var(--dsp-red);display:inline-block;border-radius: 13px;padding-left:8px;padding-right:8px;">Edges</div>
+				</div>
+				<div data-id="dmp-env" data-auto-animate-delay="1.4">
+					<div data-id="graph-G" data-auto-animate-delay="0.0" style="display:inline-block; font-size:70%;">\(G = \{\)</div>					
+					<div data-id="graph-V" data-auto-animate-delay="0.1" style="display:inline-block; font-size:70%;background-color: var(--dsp-blue);border-radius:11px;">\(\{A,B,C,D\}\)</div>					
+					<div data-id="graph-c" data-auto-animate-delay="0.2" style="display:inline-block; font-size:70%;">\(,\)</div>			
+					<div data-id="graph-E" data-auto-animate-delay="0.3" style="display:inline-block; font-size:70%;background-color: var(--dsp-red);border-radius:11px;">\(\{ \{ A,B \}, \{ A,C \}, \{ B,C \}, \{ C,D \} \} \)</div>					
+					<div data-id="graph-b" data-auto-animate-delay="0.4" style="display:inline-block; font-size:70%;">\(\}\)</div>
+				</div>
+				<div data-id="graphex" class="tikz-container" style="display:flex; justify-content: center;margin-top:2em;margin-bottom:2em;">					
+				</div>
+			</section> -->
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="verted" data-auto-animate-delay="1.75" style="padding-right:24%;">
+					<div style="background-color: var(--dsp-red);display:inline-block;border-radius: 13px;padding-left:8px;padding-right:8px;">Vertices</div>									
+					&nbsp;
+					<div style="background-color: var(--dsp-blue);display:inline-block;border-radius: 13px;padding-left:8px;padding-right:8px;">Edges</div>
+				</div>
+				<div data-id="dmp-env" data-auto-animate-delay="0.5">					
+					<div data-id="graph-G" data-auto-animate-delay="0.0" style="display:inline-block; font-size:70%;">\(G = ( \)</div>					
+					<div data-id="graph-V" data-auto-animate-delay="0.1" style="display:inline-block; font-size:70%;background-color: var(--dsp-red);border-radius:11px;">\(\{a,b,c,d\}\)</div>					
+					<div data-id="graph-c" data-auto-animate-delay="0.2" style="display:inline-block; font-size:70%;">\(,\)</div>			
+					<div data-id="graph-E" data-auto-animate-delay="0.3" style="display:inline-block; font-size:70%;background-color: var(--dsp-blue);border-radius:11px;">\(\{ \{ a,b \}, \{ a,c \}, \{ b,c \}, \{ c,d \} \} \)</div>					
+					<div data-id="graph-b" data-auto-animate-delay="0.4" style="display:inline-block; font-size:70%;">\( ) \)</div>					
+				</div>
+				<div data-id="graphex" data-auto-animate-delay="0.8" class="tikz-container" style="display:flex; justify-content: center;margin-top:2em;margin-bottom:2em;">
+					<script type="text/tikz">	
+					\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+  					\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+					\begin{tikzpicture}[thick, >={Latex[length=4mm, width=3mm]}, scale=2, transform shape]
+
+					\node (a) at (0,0) [circle, fill=nred, inner sep=2pt, label=left:$a$] {};
+					\node (b) at (2,0) [circle, fill=nred, inner sep=2pt, label=right:$b$] {};
+					\node (c) at (2,2) [circle, fill=nred, inner sep=2pt, label=right:$c$] {};
+					\node (d) at (0,2) [circle, fill=nred, inner sep=2pt, label=left:$d$] {};
+
+					\draw[draw=nblue, ultra thick] (a) -- (b); 
+					\draw[draw=nblue, ultra thick] (b) -- (c); 
+					\draw[draw=nblue, ultra thick] (c) -- (a);
+					\draw[draw=nblue, ultra thick] (c) -- (d);
+					\end{tikzpicture}
+					</script>
+				</div>
+			</section>
+
+
+			<style>
+				.graphsdiv div {
+					padding:10px;
+				}
+			</style>
+			<section class="graphsdiv">
+				<!-- First row of graphs -->
+				<div class="tikz-container" style="display:inline-block;padding-left:10px;padding-right:10px;">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick]
+					\node (a) at (0,0) [circle, fill, inner sep=2pt] {};
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block;padding-left:10px;padding-right:10px;">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick]
+					\node (a) at (0,0) [circle, fill, inner sep=2pt] {};
+					\node (b) at (0,2) [circle, fill, inner sep=2pt] {};
+					\draw (a) -- (b); 
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block;padding-left:10px;padding-right:10px;">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick, scale=1.4]
+					\node (a) at (0,0) [circle, fill, inner sep=2pt] {};
+					\node (b) at (2,0) [circle, fill, inner sep=2pt] {};
+					\node (c) at (1,1.41) [circle, fill, inner sep=2pt] {};
+					\draw (a) -- (b); 
+					\draw (a) -- (c); 
+					\draw (b) -- (c); 
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block;padding-left:10px;padding-right:10px;">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick]
+					\node (a) at (0,0) [circle, fill, inner sep=2pt] {};
+					\node (b) at (2,0) [circle, fill, inner sep=2pt] {};
+					\node (c) at (2,2) [circle, fill, inner sep=2pt] {};
+					\node (d) at (0,2) [circle, fill, inner sep=2pt] {};
+					\draw (a) -- (b); 
+					\draw (a) -- (c); 
+					\draw (a) -- (d); 
+					\draw (b) -- (c); 
+					\draw (b) -- (d); 
+					\draw (c) -- (d); 
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block;padding-left:10px;padding-right:10px;">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=1.1]						
+						% Define the 5 vertices in a pentagon layout
+						\foreach \i/\name in {1/A, 2/B, 3/C, 4/D, 5/E} {
+							\node[circle, fill=black, inner sep=2pt] (V\i) 
+								at ({90+72*(\i-1)}:1) {};
+						}
+
+						% Draw edges between every pair of vertices
+						\foreach \i in {1,2,3,4,5} {
+							\foreach \j in {1,2,3,4,5} {
+							\ifnum\i<\j
+								\draw (V\i) -- (V\j);
+							\fi
+							}
+						}
+					\end{tikzpicture}
+					</script>
+				</div>
+				
+				<br> 
+				<!-- Second row of graphs -->
+
+				<div class="tikz-container" style="display:inline-block">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=1.5]				
+						\node[circle, fill=black, inner sep=2pt] (a) at (0,0) {};
+						\node[circle, fill=black, inner sep=2pt] (b) at (1,0) {};
+						\node[circle, fill=black, inner sep=2pt] (c) at (2,0) {};
+						\node[circle, fill=black, inner sep=2pt] (d) at (3,0) {};
+						\draw (a) -- (b);
+						\draw (b) -- (c);
+						\draw (c) -- (d);
+						\draw[bend right=80] (a) to (c);
+						\draw[bend left=80] (b) to (d);
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=1.5]												
+						\node[circle, fill=black, inner sep=2pt] (a) at (0,1) {};
+						\node[circle, fill=black, inner sep=2pt] (b) at (1,2) {};
+						\node[circle, fill=black, inner sep=2pt] (c) at (1,0) {};
+						\node[circle, fill=black, inner sep=2pt] (d) at (2,1) {};					
+						\draw (a) -- (b);
+						\draw (a) -- (c);
+						\draw (b) -- (c);
+						\draw (b) -- (d);
+						\draw (c) -- (d);
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=1.5]												
+						\node[circle, fill=black, inner sep=2pt] (a) at (0,2) {};
+						\node[circle, fill=black, inner sep=2pt] (b) at (0,0) {};
+						\node[circle, fill=black, inner sep=2pt] (c) at (2,0) {};
+						\node[circle, fill=black, inner sep=2pt] (d) at (2,2) {};					
+						\draw (a) -- (b);
+						\draw (a) -- (c);
+						\draw (b) -- (c);
+						\draw (b) -- (d);
+						\draw (c) -- (d);
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=1.5]												
+						\node[circle, fill=black, inner sep=2pt] (a) at (0,1) {};
+						\node[circle, fill=black, inner sep=2pt] (b) at (1,2) {};
+						\node[circle, fill=black, inner sep=2pt] (c) at (1,0) {};
+						\node[circle, fill=black, inner sep=2pt] (d) at (2,1) {};					
+						\draw (a) -- (b);
+						\draw[bend left=45] (a) to (c);						
+						\draw[bend left=22] (b) to (c);
+						\draw[bend left=45] (b) to (d);
+						\draw (c) -- (d);
+					\end{tikzpicture}
+					</script>
+				</div>
+
+				<br> 
+				<!-- Third row of graphs -->
+				<div class="tikz-container" style="display:inline-block">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=1]												
+						\node[circle, fill=black, inner sep=2pt] (a) at (1,2) {};
+						\node[circle, fill=black, inner sep=2pt] (b) at (3,2) {};
+						\node[circle, fill=black, inner sep=2pt] (d) at (0,0) {};
+						\node[circle, fill=black, inner sep=2pt] (e) at (2,0) {};
+						\node[circle, fill=black, inner sep=2pt] (f) at (4,0) {};					
+						\draw (a) -- (d);
+						\draw (a) -- (e);
+						\draw (a) -- (f);
+						\draw (b) -- (d);
+						\draw (b) -- (e);
+						\draw (b) -- (f);
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=1]												
+						\node[circle, fill=black, inner sep=2pt] (a) at (0,2) {};
+						\node[circle, fill=black, inner sep=2pt] (b) at (2,2) {};
+						\node[circle, fill=black, inner sep=2pt] (c) at (4,2) {};
+						\node[circle, fill=black, inner sep=2pt] (d) at (0,0) {};
+						\node[circle, fill=black, inner sep=2pt] (e) at (2,0) {};
+						\node[circle, fill=black, inner sep=2pt] (f) at (4,0) {};					
+						\draw (a) -- (d);
+						\draw (a) -- (e);
+						\draw (a) -- (f);
+						\draw (b) -- (d);
+						\draw (b) -- (e);
+						\draw (b) -- (f);
+						\draw (c) -- (d);
+						\draw (c) -- (e);
+						\draw (c) -- (f);
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=0.6]												
+						\node[circle, fill=black, inner sep=2pt] (a) at (2,-2) {};
+						\node[circle, fill=black, inner sep=2pt] (b) at (2,2) {};
+						\node[circle, fill=black, inner sep=2pt] (d) at (0,0) {};
+						\node[circle, fill=black, inner sep=2pt] (e) at (2,0) {};
+						\node[circle, fill=black, inner sep=2pt] (f) at (4,0) {};					
+						\draw (a) -- (d);
+						\draw (a) -- (e);
+						\draw (a) -- (f);
+						\draw (b) -- (d);
+						\draw (b) -- (e);
+						\draw (b) -- (f);
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=0.6]												
+						\node[circle, fill=black, inner sep=2pt] (a) at (1,-2) {};
+						\node[circle, fill=black, inner sep=2pt] (b) at (2,2) {};
+						\node[circle, fill=black, inner sep=2pt] (c) at (3,-2) {};
+						\node[circle, fill=black, inner sep=2pt] (d) at (0,0) {};
+						\node[circle, fill=black, inner sep=2pt] (e) at (2,0) {};
+						\node[circle, fill=black, inner sep=2pt] (f) at (4,0) {};					
+						\draw (a) -- (d);
+						\draw (a) -- (e);
+						\draw (a) -- (f);
+						\draw (b) -- (d);
+						\draw (b) -- (e);
+						\draw (b) -- (f);
+						\draw (c) -- (d);
+						\draw (c) -- (e);
+						\draw (c) -- (f);
+					\end{tikzpicture}
+					</script>
+				</div>
+
+				<br> 
+				<!-- Fourth row of graphs -->
+				<div class="tikz-container" style="display:inline-block">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=0.6]												
+						\node[circle, fill=black, inner sep=2pt] (a) at (1,-2) {};
+						\node[circle, fill=black, inner sep=2pt] (b) at (2,2) {};
+						\node[circle, fill=black, inner sep=2pt] (c) at (3,-2) {};
+						\node[circle, fill=black, inner sep=2pt] (d) at (0,0) {};
+						\node[circle, fill=black, inner sep=2pt] (e) at (2,-1) {};
+						\node[circle, fill=black, inner sep=2pt] (f) at (4,0) {};					
+						\draw (a) -- (b);
+						\draw (b) -- (c);
+						\draw (b) -- (d);
+						\draw (c) -- (e);
+						\draw (c) -- (f);
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=0.6]												
+						\node[circle, fill=black, inner sep=2pt] (a) at (3,4) {};
+						\node[circle, fill=black, inner sep=2pt] (b) at (1,2) {};
+						\node[circle, fill=black, inner sep=2pt] (c) at (5,2) {};
+						\node[circle, fill=black, inner sep=2pt] (d) at (0,0) {};
+						\node[circle, fill=black, inner sep=2pt] (e) at (2,0) {};
+						\node[circle, fill=black, inner sep=2pt] (f) at (4,0) {};	
+						\node[circle, fill=black, inner sep=2pt] (g) at (6,0) {};					
+						\draw (a) -- (b);
+						\draw (a) -- (c);
+						\draw (b) -- (d);
+						\draw (b) -- (e);
+						\draw (c) -- (f);
+						\draw (c) -- (g);
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=0.6]												
+						\node[circle, fill=black, inner sep=2pt] (a) at (2,2) {};
+						\node[circle, fill=black, inner sep=2pt] (b) at (0,2) {};
+						\node[circle, fill=black, inner sep=2pt] (c) at (4,2) {};
+						\node[circle, fill=black, inner sep=2pt] (d) at (0,0) {};
+						\node[circle, fill=black, inner sep=2pt] (e) at (0,4) {};
+						\node[circle, fill=black, inner sep=2pt] (f) at (4,0) {};	
+						\node[circle, fill=black, inner sep=2pt] (g) at (4,4) {};	
+						\node[circle, fill=black, inner sep=2pt] (h) at (6,2) {};					
+						\draw (a) -- (b);
+						\draw (a) -- (c);
+						\draw (b) -- (d);
+						\draw (b) -- (e);
+						\draw (c) -- (f);
+						\draw (c) -- (g);
+						\draw (c) -- (h);
+					\end{tikzpicture}
+					</script>
+				</div>
+				<div class="tikz-container" style="display:inline-block">
+					<script type="text/tikz">						
+					\begin{tikzpicture}[thick,scale=0.6]												
+						\node[circle, fill=black, inner sep=2pt] (a) at (0,0) {};
+						\node[circle, fill=black, inner sep=2pt] (b) at (2,0) {};
+						\node[circle, fill=black, inner sep=2pt] (c) at (1.4,1.4) {};
+						\node[circle, fill=black, inner sep=2pt] (d) at (0,2) {};
+						\node[circle, fill=black, inner sep=2pt] (e) at (-1.4,1.4) {};
+						\node[circle, fill=black, inner sep=2pt] (f) at (-2,0) {};	
+						\node[circle, fill=black, inner sep=2pt] (g) at (-1.4,-1.4) {};	
+						\node[circle, fill=black, inner sep=2pt] (h) at (0,-2) {};					
+						\node[circle, fill=black, inner sep=2pt] (i) at (1.4,-1.4) {};					
+						\draw (a) -- (b);
+						\draw (a) -- (c);
+						\draw (a) -- (d);
+						\draw (a) -- (e);
+						\draw (a) -- (f);
+						\draw (a) -- (g);
+						\draw (a) -- (h);
+						\draw (a) -- (i);
+					\end{tikzpicture}
+					</script>
+				</div>
+
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<p>
+					A <strong>graph</strong> is composed of <strong>vertices</strong> and <strong>edges</strong>.
+					<br>
+					\(G = (V, E)\)
+				</p>
+				<table>
+					<tr>
+						<td style="width:58%;vertical-align: top;font-size:80%;">
+							<p>
+								A <strong>vertex</strong> does not require an edge.
+							</p>
+							<p>
+								There can be any number of edges between vertices.
+							</p>
+							<p>
+								No loose edges allowed, but you can <strong>loop</strong>.
+							</p>
+							<p>
+								The picture is just a picture.
+							</p>
+						</td>
+						<td style="vertical-align:top;text-align: center;">
+							<div data-id="graph-example"  style="vertical-align: top;">
+								<script type="text/tikz">
+									\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+									\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+									\begin{tikzpicture}[thick,scale=2,transform shape]	
+										\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (0,2) {};
+										\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (1,0) {};
+										\node[circle, fill=nred, inner sep=2pt, label=right:$c$] (c) at (3,0) {};
+										\node[circle, fill=nred, inner sep=2pt, label=right:$d$] (d) at (3,2) {};
+
+										\draw[draw=nblue, ultra thick, bend left=40] (b) to (c); 
+										\draw[draw=nblue, ultra thick, bend right=40] (b) to (c); 
+										\draw[draw=nblue, ultra thick] (c) -- (d);
+										\draw[draw=nblue, ultra thick] (d) to[out=180, in=75, looseness=35] (d);  
+									\end{tikzpicture}
+								</script>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="graph-example" class="tikz-container"
+					style="display:flex; justify-content: center; width:400px;margin:auto;">
+					<script type="text/tikz">
+								\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+								\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+								\begin{tikzpicture}[thick,scale=2,transform shape]	
+									\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (0,2) {};
+									\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (1,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$c$] (c) at (3,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$d$] (d) at (3,2) {};
+
+									\draw[draw=nblue, ultra thick, bend left=40] (b) to (c); 
+									\draw[draw=nblue, ultra thick, bend right=40] (b) to (c); 
+									\draw[draw=nblue, ultra thick] (c) -- (d);
+									\draw[draw=nblue, ultra thick] (d) to[out=180, in=75, looseness=35] (d);  
+								\end{tikzpicture}
+								</script>
+				</div>
+				<div>
+					\[ G = ( \{a,b,c,d\}, \{ \dots \} ) \]
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="graph-example" class="tikz-container"
+					style="display:flex; justify-content: center; width:400px;margin:auto;">
+					<script type="text/tikz">
+								\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+								\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+								\begin{tikzpicture}[thick,scale=2,transform shape]	
+									\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (0,2) {};
+									\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (1,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$c$] (c) at (3,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$d$] (d) at (3,2) {};
+
+									\draw[draw=nblue, ultra thick, bend left=40] (b) to (c); 
+									\draw[draw=nblue, ultra thick, bend right=40] (b) to (c); 
+									\draw[draw=nblue, ultra thick] (c) -- (d);
+									\draw[draw=nblue, ultra thick] (d) to[out=180, in=75, looseness=35] (d);  
+								\end{tikzpicture}
+								</script>
+				</div>
+				<div data-id="agraphdefinition">
+					\[ G = ( \{a,b,c,d\}, \{ \{b,c\},\{b,c\},\{c,d\},\{d,d\} \} ) \]
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Adjacency List</h4>
+				<table>
+					<tr>
+						<td style="width:40%;vertical-align: top;text-align: center;">
+							<div data-id="graph-example" class="tikz-container"
+								style="display:flex; justify-content: center; width:400px;margin:auto;">
+								<script type="text/tikz">
+								\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+								\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+								\begin{tikzpicture}[thick,scale=2,transform shape]	
+									\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (0,2) {};
+									\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (1,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$c$] (c) at (3,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$d$] (d) at (3,2) {};
+
+									\draw[draw=nblue, ultra thick, bend left=40] (b) to (c); 
+									\draw[draw=nblue, ultra thick, bend right=40] (b) to (c); 
+									\draw[draw=nblue, ultra thick] (c) -- (d);
+									\draw[draw=nblue, ultra thick] (d) to[out=180, in=75, looseness=35] (d);  
+								\end{tikzpicture}
+								</script>
+							</div>
+							<br>
+						</td>
+						<td>
+							<br>
+<table>
+	<tr><td style="border-right:1px solid rgb(205, 115, 122);color: rgb(205, 115, 122);">\(a\):</td><td></td></tr>
+	<tr><td style="border-right:1px solid rgb(205, 115, 122);color: rgb(205, 115, 122);">\(b\):</td><td>\(c\), \(c\)</td></tr>
+	<tr><td style="border-right:1px solid rgb(205, 115, 122);color: rgb(205, 115, 122);">\(c\):</td><td>\(b\), \(b\), \(d\)</td></tr>
+	<tr><td style="border-right:1px solid rgb(205, 115, 122);color: rgb(205, 115, 122);">\(d\):</td><td>\(c\), \(d\)</td></tr>
+</table>
+							
+						</td>
+					</tr>
+				</table>
+				<br>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Adjacency Matrix</h4>
+				<table>
+					<tr>
+						<td style="width:40%;vertical-align: top;">
+							<div data-id="graph-example" class="tikz-container"
+								style="display:flex; justify-content: center; width:400px;margin:auto;">
+								<script type="text/tikz">
+								\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+								\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+								\begin{tikzpicture}[thick,scale=2,transform shape]	
+									\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (0,2) {};
+									\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (1,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$c$] (c) at (3,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$d$] (d) at (3,2) {};
+
+									\draw[draw=nblue, ultra thick, bend left=40] (b) to (c); 
+									\draw[draw=nblue, ultra thick, bend right=40] (b) to (c); 
+									\draw[draw=nblue, ultra thick] (c) -- (d);
+									\draw[draw=nblue, ultra thick] (d) to[out=180, in=75, looseness=35] (d);  
+								\end{tikzpicture}
+								</script>
+							</div>
+							<br>
+						</td>
+						<td>
+							<br>
+							<img src="../img/adjacency.png" style="width:400px;">
+						</td>
+					</tr>
+				</table>
+				<br>
+			</section>
+
+
+			<section>
+				<h4>Practice</h4>
+				<p>
+					Write the adjacency list and adjacency 
+					<br> matrix for graph \(H\) below. 
+				</p>
+				<br>
+				<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+								\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+								\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+								\begin{tikzpicture}[thick,scale=3,transform shape]	
+									\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (1,2) {};
+									\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (0,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$c$] (c) at (3,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$d$] (d) at (4,2) {};
+			
+									\draw[draw=nblue, ultra thick] (a) -- (b); 
+									\draw[draw=nblue, ultra thick] (a) -- (c); 
+									\draw[draw=nblue, ultra thick] (c) -- (d); 
+									\draw[draw=nblue, ultra thick] (a) -- (d); 
+								\end{tikzpicture}
+								</script>
+							</div>
+			</section>
+			<section>
+				<h4>Practice</h4>
+				<p>
+					Draw a graph corresponding to the adjacency matrix: 
+					\[ \begin{bmatrix} 
+						0 & 1 & 1 \\
+						1 & 0 & 0 \\ 
+						1 & 0 & 0 
+					\end{bmatrix} \]
+				</p>
+			</section>
+
+			<section>
+				<h4>Adjacency Matrix</h4>
+				<table>
+					<tr>
+						<td style="border-bottom:0;">
+							<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+								\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+								\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+								\begin{tikzpicture}[thick,scale=1.8,transform shape]	
+									\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (0,2) {};
+									\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (0,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$c$] (c) at (2,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$d$] (d) at (2,2) {};
+			
+									\draw[draw=nblue, ultra thick] (a) -- (b);
+									\draw[draw=nblue, ultra thick] (b) -- (c);
+									\draw[draw=nblue, ultra thick] (b) -- (d);
+								\end{tikzpicture}
+								</script>
+							</div>
+						</td>
+						<td style="border-bottom:0;">
+							<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+								\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+								\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+								\begin{tikzpicture}[thick,scale=1.8,transform shape]	
+									\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (0,2) {};
+									\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (0,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$c$] (c) at (2,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$d$] (d) at (2,2) {};
+			
+									\draw[draw=nblue, ultra thick, bend left=40] (a) to (d); 
+									\draw[draw=nblue, ultra thick, bend right=40] (a) to (d); 
+									\draw[draw=nblue, ultra thick, bend left=40] (b) to (c); 
+									\draw[draw=nblue, ultra thick, bend right=40] (b) to (c); 
+									\draw[draw=nblue, ultra thick] (c) -- (d); 
+								\end{tikzpicture}
+								</script>
+							</div>
+						</td>
+						<td style="border-bottom:0;">
+							<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+								\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+								\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+								\begin{tikzpicture}[thick,scale=1.8,transform shape]	
+									\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (0,2) {};
+									\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (0,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$c$] (c) at (2,0) {};
+									\node[circle, fill=nred, inner sep=2pt, label=right:$d$] (d) at (2,2) {};
+			
+									\draw[draw=nblue, ultra thick] (a) -- (b); 
+									\draw[draw=nblue, ultra thick] (b) -- (c); 
+									\draw[draw=nblue, ultra thick] (c) -- (d); 
+									\draw[draw=nblue, ultra thick] (d) -- (a); 
+									\draw[draw=nblue, ultra thick] (a) -- (c); 
+									\draw[draw=nblue, ultra thick] (b) -- (d); 
+								\end{tikzpicture}
+								</script>
+							</div>
+						</td>
+					</tr>
+					<tr style="font-size:80%;">
+						<td>
+							\[ \begin{bmatrix} 
+								0 & 1 & 0 & 0 \\
+								1 & 0 & 1 & 1 \\
+								0 & 1 & 0 & 0 \\
+								0 & 1 & 0 & 0 \\
+								\end{bmatrix} \]
+						</td>
+						<td>
+							\[ \begin{bmatrix} 
+								0 & 0 & 0 & 2 \\
+								0 & 0 & 2 & 0 \\
+								0 & 2 & 0 & 1 \\
+								2 & 0 & 1 & 0 \\
+								\end{bmatrix} \]
+						</td>
+						<td>
+							\[ \begin{bmatrix} 
+								0 & 1 & 1 & 1 \\
+								1 & 0 & 1 & 1 \\
+								1 & 1 & 0 & 1 \\
+								1 & 1 & 1 & 0 \\
+								\end{bmatrix} \]
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
+			<section>
+				<h4>Complete Graph</h4>
+				<p style="font-size:85%">
+					A <strong>complete graph</strong> is a graph where every <br> 
+					vertex is connected to every other vertex. 
+				</p>
+				<table>
+					<tr>
+						<td style="border-bottom:0;"> 
+							<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+					<script type="text/tikz">
+					\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+						\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 		
+						\begin{tikzpicture}[thick,scale=2.5]						
+						% Define the 5 vertices in a pentagon layout
+						\foreach \i/\name in {1/A, 2/B, 3/C} {
+							\node[circle, fill=nred, inner sep=2pt] (V\i) 
+								at ({90+120*(\i-1)}:1) {};
+						}
+
+						% Draw edges between every pair of vertices
+						\foreach \i in {1,2,3} {
+							\foreach \j in {1,2,3} {
+							\ifnum\i<\j
+								\draw[ultra thick,draw=nblue] (V\i) -- (V\j);
+							\fi
+							}
+						}
+					\end{tikzpicture}
+					</script>
+				</div>
+						</td>
+						<td style="border-bottom:0;"> 
+							<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+					<script type="text/tikz">
+						\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+						\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 		
+						\begin{tikzpicture}[thick,scale=2.5]						
+						% Define the 5 vertices in a pentagon layout
+						\foreach \i/\name in {1/A, 2/B, 3/C, 4/D, 5/E} {
+							\node[circle, fill=nred, inner sep=2pt] (V\i) 
+								at ({90+72*(\i-1)}:1) {};
+						}
+
+						% Draw edges between every pair of vertices
+						\foreach \i in {1,2,3,4,5} {
+							\foreach \j in {1,2,3,4,5} {
+							\ifnum\i<\j
+								\draw[ultra thick,draw=nblue] (V\i) -- (V\j);
+							\fi
+							}
+						}
+					\end{tikzpicture}
+					</script>
+				</div>
+						</td>
+						<td style="border-bottom:0;"> 
+							<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+					<script type="text/tikz">
+					\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+						\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 		
+						\begin{tikzpicture}[thick,scale=2.5]						
+						% Define the 5 vertices in a pentagon layout
+						\foreach \i/\name in {1/A, 2/B, 3/C, 4/D, 5/E, 6/F, 7/G, 8/H, 9/I, 10/J, 11/K, 12/L} {
+							\node[circle, fill=nred, inner sep=2pt] (V\i) 
+								at ({90+30*(\i-1)}:1) {};
+						}
+
+						% Draw edges between every pair of vertices
+						\foreach \i in {1,2,3,4,5,6,7,8,9,10,11,12} {
+							\foreach \j in {1,2,3,4,5,6,7,8,9,10,11,12} {
+							\ifnum\i<\j
+								\draw[ultra thick,draw=nblue] (V\i) -- (V\j);
+							\fi
+							}
+						}
+					\end{tikzpicture}
+					</script>
+				</div>
+						</td>
+					</tr>
+						<td style="text-align: center;font-size:80%;"> 
+							\(K_{3}\)
+						</td>
+						<td style="text-align: center;font-size:80%;"> 
+							\(K_{5}\)
+						</td>
+						<td style="text-align: center;font-size:80%;"> 
+							\(K_{12}\)
+						</td>
+					</tr>
+				</table>
+				<br> 
+			</section>
+			<section>
+				<h4>Bipartite Graph</h4>
+				<p style="font-size:75%;">
+					A <strong>bipartite graph</strong> is one whose vertices can be separated into two sets such that no edge connects vertices from the same set. 
+				</p>
+				<table>
+					<tr> 
+						<td style="border-bottom:0;">
+
+				<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+					<script type="text/tikz">
+					\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+					\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+					\begin{tikzpicture}[thick,scale=1.8,transform shape]	
+						\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (0,3) {};
+						\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (0,1) {};
+						\node[circle, fill=nred, inner sep=2pt, label=right:$x$] (x) at (2,0) {};
+						\node[circle, fill=nred, inner sep=2pt, label=right:$y$] (y) at (2,2) {};
+						\node[circle, fill=nred, inner sep=2pt, label=right:$z$] (z) at (2,4) {};
+
+						\draw[draw=nblue, ultra thick] (a) -- (y); 
+						\draw[draw=nblue, ultra thick] (a) -- (z); 
+						\draw[draw=nblue, ultra thick] (b) -- (z); 
+						\draw[draw=nblue, ultra thick] (b) -- (x); 
+					\end{tikzpicture}
+					</script>
+				</div>
+						</td>
+						<td style="border-bottom:0;">
+
+				<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;background-color: #eee;">
+					<script type="text/tikz">
+					\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+					\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+					\begin{tikzpicture}[thick,scale=1.8,transform shape]	
+						\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (0,4) {};
+						\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (0,2) {};
+						\node[circle, fill=nred, inner sep=2pt, label=left:$c$] (c) at (0,0) {};
+						\node[circle, fill=nred, inner sep=2pt, label=right:$x$] (x) at (2,4) {};
+						\node[circle, fill=nred, inner sep=2pt, label=right:$y$] (y) at (2,2) {};
+						\node[circle, fill=nred, inner sep=2pt, label=right:$z$] (z) at (2,0) {};
+
+						\draw[draw=nblue, ultra thick] (a) -- (x); 
+						\draw[draw=nblue, ultra thick] (b) -- (y); 
+						\draw[draw=nblue, ultra thick] (c) -- (z); 
+					\end{tikzpicture}
+					</script>
+				</div>
+						</td>
+						<td style="border-bottom:0;"> 
+						
+				<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+					<script type="text/tikz">
+					\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+					\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+					\begin{tikzpicture}[thick,scale=1.8,transform shape]	
+						\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (0,4) {};
+						\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (0,2) {};
+						\node[circle, fill=nred, inner sep=2pt, label=left:$c$] (c) at (0,0) {};
+						\node[circle, fill=nred, inner sep=2pt, label=right:$x$] (x) at (2,3) {};
+						\node[circle, fill=nred, inner sep=2pt, label=right:$y$] (y) at (2,1) {};
+
+						\draw[draw=nblue, ultra thick] (a) -- (x); 
+						\draw[draw=nblue, ultra thick] (a) -- (y); 
+						\draw[draw=nblue, ultra thick] (b) -- (x); 
+						\draw[draw=nblue, ultra thick] (b) -- (y); 
+						\draw[draw=nblue, ultra thick] (c) -- (x); 
+						\draw[draw=nblue, ultra thick] (c) -- (y); 
+					\end{tikzpicture}
+					</script>
+				</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td style="text-align: center;font-size:80%;">\(K_{3,2}\)</td>
+					</tr>
+				</table>
+			</section>
+			
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<table>
+					<tr>
+						<td>
+							<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+								\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+								\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+								\definecolor{n}{rgb}{0,0,0} % aka black 
+								
+								\begin{tikzpicture}[ultra thick, scale=1.5, transform shape, every node/.style={draw, circle, minimum size=.75cm}]
+
+								\node (a) at (0,0) {a};
+								\node (b) at (2.8,1.7) {b};
+								\node (c) at (5,1) {c};
+								\node (d) at (6,3) {d};
+								\node (e) at (4,5) {e};
+								\node (f) at (2,3.75) {f};
+								\node (g) at (0,5) {g};
+								\node (h) at (-1,3) {h};
+
+								\draw (a) -- (b);
+								\draw (b) -- (c);
+								\draw (c) -- (d);
+								\draw (d) -- (e);
+								\draw (e) -- (f);
+								\draw (f) -- (g);
+								\draw (g) -- (h);
+								\draw (e) -- (g);
+								\draw (a) -- (f);
+								\draw (b) -- (f);
+
+								\end{tikzpicture}
+								</script>
+							</div>
+						</td>
+						<td style="text-align: left;vertical-align: top;">
+							Walks, trails, paths, and cycles...
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<table>
+					<tr>
+						<td>
+							<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+								\definecolor{nblue}{rgb}{0.40, 0.598, 0.83}
+								\definecolor{nred}{rgb}{0.9, 0.65, 0.675} 
+								\definecolor{n}{rgb}{0,0,0} % aka black 
+								
+								\begin{tikzpicture}[ultra thick, scale=1.5, transform shape, every node/.style={draw, circle, minimum size=.75cm}]
+
+								\node[fill=nred] (a) at (0,0) {a};
+								\node[fill=nred] (b) at (2.8,1.7) {b};
+								\node[fill=nred] (c) at (5,1) {c};
+								\node (d) at (6,3) {d};
+								\node (e) at (4,5) {e};
+								\node[fill=nred] (f) at (2,3.75) {f};
+								\node (g) at (0,5) {g};
+								\node (h) at (-1,3) {h};
+
+								\draw[draw=nblue,line width=4pt] (a) -- (b);
+								\draw[draw=nblue,line width=4pt] (b) -- (c);
+								\draw (c) -- (d);
+								\draw (d) -- (e);
+								\draw (e) -- (f);
+								\draw (f) -- (g);
+								\draw (g) -- (h);
+								\draw (e) -- (g);
+								\draw (a) -- (f);
+								\draw[draw=nblue,line width=4pt] (b) -- (f);
+
+								\end{tikzpicture}
+								</script>
+							</div>
+						</td>
+						<td style="text-align: left;vertical-align: top;">
+							A <span style="text-decoration: underline;font-weight: bold;">walk</span> is a sequence of <strong>adjacent</strong> vertices.	
+							<br><br>
+							\(a,b,c,b,f\)
+						</td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<table>
+					<tr>
+						<td style="vertical-align: middle;">
+							<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+								\definecolor{nblue}{rgb}{0.40, 0.598, 0.83}
+								\definecolor{nred}{rgb}{0.9, 0.65, 0.675} 
+								\definecolor{n}{rgb}{0,0,0} % aka black 
+								
+								\begin{tikzpicture}[ultra thick, scale=1.5, transform shape, every node/.style={draw, circle, minimum size=.75cm}]
+
+								\node[fill=nred] (a) at (0,0) {a};
+								\node[fill=nred] (b) at (2.8,1.7) {b};
+								\node[fill=nred] (c) at (5,1) {c};
+								\node (d) at (6,3) {d};
+								\node[fill=nred] (e) at (4,5) {e};
+								\node[fill=nred] (f) at (2,3.75) {f};
+								\node[fill=nred] (g) at (0,5) {g};
+								\node (h) at (-1,3) {h};
+
+								\draw[draw=nblue,line width=4pt] (a) -- (b);
+								\draw[draw=nblue,line width=4pt] (b) -- (c);
+								\draw (c) -- (d);
+								\draw (d) -- (e);
+								\draw[draw=nblue,line width=4pt] (e) -- (f);
+								\draw[draw=nblue,line width=4pt] (f) -- (g);
+								\draw (g) -- (h);
+								\draw[draw=nblue,line width=4pt] (e) -- (g);
+								\draw[draw=nblue,line width=4pt] (a) -- (f);
+								\draw[draw=nblue,line width=4pt] (b) -- (f);
+
+								\end{tikzpicture}
+								</script>
+							</div>
+						</td>
+						<td style="text-align: left;vertical-align: top;">
+							<div style="color:#ccc;">
+								A <span style="text-decoration: underline;font-weight: bold;">walk</span> is a sequence of <strong>adjacent</strong> vertices.	
+							</div>
+							<br>
+							<div>
+								A <span style="text-decoration: underline;font-weight: bold;">trail</span> is a walk that does not repeat edges. 
+							</div>
+							<br>
+							\(b,a,f,g,e,f,b,c\)
+						</td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<table>
+					<tr>
+						<td style="vertical-align: middle;">
+							<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+								<script type="text/tikz">
+								\definecolor{nblue}{rgb}{0.40, 0.598, 0.83}
+								\definecolor{nred}{rgb}{0.9, 0.65, 0.675} 
+								\definecolor{n}{rgb}{0,0,0} % aka black 
+								
+								\begin{tikzpicture}[ultra thick, scale=1.5, transform shape, every node/.style={draw, circle, minimum size=.75cm}]
+
+								\node[fill=nred] (a) at (0,0) {a};
+								\node[fill=nred] (b) at (2.8,1.7) {b};
+								\node (c) at (5,1) {c};
+								\node[fill=nred] (d) at (6,3) {d};
+								\node[fill=nred] (e) at (4,5) {e};
+								\node[fill=nred] (f) at (2,3.75) {f};
+								\node (g) at (0,5) {g};
+								\node (h) at (-1,3) {h};
+
+								\draw[draw=nblue,line width=4pt] (a) -- (b);
+								\draw (b) -- (c);
+								\draw (c) -- (d);
+								\draw[draw=nblue,line width=4pt] (d) -- (e);
+								\draw[draw=nblue,line width=4pt] (e) -- (f);
+								\draw (f) -- (g);
+								\draw (g) -- (h);
+								\draw (e) -- (g);
+								\draw (a) -- (f);
+								\draw[draw=nblue,line width=4pt] (b) -- (f);
+
+								\end{tikzpicture}
+								</script>
+							</div>
+						</td>
+						<td style="text-align: left;vertical-align: top;">
+							<div style="color:#ccc;">
+								A <span style="text-decoration: underline;font-weight: bold;">walk</span> is a sequence of <strong>adjacent</strong> vertices.	
+							</div>
+							<br> 
+							<div style="color:#ccc;">
+								A <span style="text-decoration: underline;font-weight: bold;">trail</span> is a walk that does not repeat edges. 
+							</div>
+							<br>
+							A <span style="text-decoration: underline;font-weight: bold;">path</span> is a walk that does not repeat vertices.
+							<br><br> \(a, b, f, e, d\)
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
+			<section> 
+				<h4>Tree</h4>
+				<p>
+					A <strong>tree</strong> is a graph with no cycles. 
+				</p>
+				<table>
+					<tr> 
+						<td style="border-bottom:0;">
+
+				<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+					<script type="text/tikz">
+					\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+					\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+					\begin{tikzpicture}[thick,scale=1.8,transform shape]	
+						\node[circle, fill=nred, inner sep=2pt] (a) at (2,2) {};
+						\node[circle, fill=nred, inner sep=2pt] (b) at (1,1) {};
+						\node[circle, fill=nred, inner sep=2pt] (c) at (0,0) {};
+						\node[circle, fill=nred, inner sep=2pt] (d) at (3,1) {};
+						\node[circle, fill=nred, inner sep=2pt] (e) at (2,0) {};
+
+						\draw[draw=nblue, ultra thick] (a) -- (b); 
+						\draw[draw=nblue, ultra thick] (b) -- (c); 
+						\draw[draw=nblue, ultra thick] (a) -- (d); 
+						\draw[draw=nblue, ultra thick] (b) -- (e); 
+					\end{tikzpicture}
+					</script>
+				</div>
+						</td>
+						<td style="border-bottom:0;">
+
+				<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;background-color: #eee;">
+					<script type="text/tikz">
+						\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+						\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+						\begin{tikzpicture}[thick,scale=1.8,transform shape]	
+							\node[circle, fill=nred, inner sep=2pt] (a) at (0,1) {};
+							\node[circle, fill=nred, inner sep=2pt] (b) at (1,1) {};
+							\node[circle, fill=nred, inner sep=2pt] (c) at (1,0) {};
+							\node[circle, fill=nred, inner sep=2pt] (d) at (0,2) {};
+							\node[circle, fill=nred, inner sep=2pt] (e) at (2,2) {};
+
+							\draw[draw=nblue, ultra thick] (a) -- (b); 
+							\draw[draw=nblue, ultra thick] (b) -- (c); 
+							\draw[draw=nblue, ultra thick] (a) -- (d); 
+							\draw[draw=nblue, ultra thick] (b) -- (e); 
+						\end{tikzpicture}
+					</script>
+				</div>
+						</td>
+						<td style="border-bottom:0;"> 
+						
+				<div data-id="graph-example" class="tikz-container" style="display:flex; justify-content: center;">
+					<script type="text/tikz">
+						\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+						\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+						\begin{tikzpicture}[thick,scale=1.8,transform shape]	
+						\node[circle, fill=nred, inner sep=2pt] (a) at (0,0) {};
+						\node[circle, fill=nred, inner sep=2pt] (b) at (1,0) {};
+						\node[circle, fill=nred, inner sep=2pt] (c) at (2,0) {};
+						\node[circle, fill=nred, inner sep=2pt] (d) at (0,1) {};
+						\node[circle, fill=nred, inner sep=2pt] (e) at (1,1) {};
+						\node[circle, fill=nred, inner sep=2pt] (f) at (2,1) {};
+						\node[circle, fill=nred, inner sep=2pt] (g) at (0,2) {};
+						\node[circle, fill=nred, inner sep=2pt] (h) at (1,2) {};
+						\node[circle, fill=nred, inner sep=2pt] (i) at (2,2) {};
+	
+							\draw[draw=nblue, ultra thick] (a) -- (b); 
+							\draw[draw=nblue, ultra thick] (b) -- (c); 
+							\draw[draw=nblue, ultra thick] (b) -- (e); 
+							\draw[draw=nblue, ultra thick] (e) -- (h); 
+							\draw[draw=nblue, ultra thick] (h) -- (i); 
+							\draw[draw=nblue, ultra thick] (i) -- (f); 
+							\draw[draw=nblue, ultra thick] (h) -- (g); 
+							\draw[draw=nblue, ultra thick] (e) -- (d); 
+						\end{tikzpicture}
+					</script>
+				</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+
+			<section> 
+				Equal or Isomorphic
+			</section>
+			<section>
+				Subgraph 
+			</section>
+
+			<section>
+				<h4>Graph Summary</h4>
+			</section>
+
+
+						<section>
+				<div class="tikz-container" style="display:flex; justify-content: center;margin-top:2em;margin-bottom:2em;">
+					<script type="text/tikz">						
+\begin{tikzpicture}[thick, scale=2, transform shape, >=Latex]
+
+  \node[circle, fill, inner sep=2pt, label=left:$A$] (A) at (0,0) {};
+  \node[circle, fill, inner sep=2pt, label=right:$B$] (B) at (3,0) {};
+  \node[circle, fill, inner sep=2pt, label=above:$C$] (C) at (1.5,2) {};
+
+  \draw (A) -- (B) node[midway, below] {$3$};
+  \draw[->, >={Latex[length=4mm, width=3mm]}] (B) -- (C) node[midway, right] {$4$};
+  \draw[->, >={Latex[length=4mm, width=3mm]}] (A) -- (C) node[midway, left] {$5$};
+
+\end{tikzpicture}
+					</script>
+				</div>
+			</section>
+
+
+
+			<section>
+				<p style="color: #888;font-size:50%;">
+					©2025 Jedediyah Williams
+					<br> 
+					This work is licensed under the Creative Commons <br>Attribution-NonCommercial-ShareAlike 4.0 International License.
+					<br>
+					<img src="../img/by-nc-sa.svg">
+					<br> 
+					To view a copy of this license, visit <a
+					  href="https://creativecommons.org/licenses/by-nc-sa/4.0/">https://creativecommons.org/licenses/by-nc-sa/4.0/</a>.
+				  </p>
+			</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<script src="reveal.js-master/dist/reveal.js"></script>
+	<script src="reveal.js-master/plugin/notes/notes.js"></script>
+	<script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+	<script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+	<script src="reveal.js-master/plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		});
+	</script>
+</body>
+
+</html>
