@@ -38,10 +38,11 @@
       </h1>
     </section>
 
-    <section class="exercises">
+    <section class="exercises">      
+      These exercises are intended to be completed by hand.       
       <ol>
 
-        <li> Write a Boolean expression for the truth table below:
+        <li> Given the truth table: 
           \[\begin{array}{|c c|c|}
           \hline
           \rule{0pt}{2.5ex} A & B & Output \\
@@ -53,7 +54,20 @@
           \hline
           \end{array}
           \]
+          <ol type="a">
+            <li>Write a Boolean expression for this truth table.</li>
+            <li>Draw the corresponding circuit. </li>
+          </ol>
         </li>
+
+
+        <li>
+          Write the Boolean expression and truth table for the circuit below.
+          <div style="text-align: center;">
+            <img src="../img/circuit_c1.svg" style="width:450px;">
+          </div>
+        </li>
+
 
         <li> For each of the following Boolean expressions, write the truth table and draw the corresponding circuit
           diagram.
@@ -68,9 +82,6 @@
             <li>\( \quad A \land \neg B \)</li>
             <li>\( \quad \neg (A \land B \lor C) \)</li>
             <li>\( \quad \neg \neg (A \lor B) \)</li>
-            <li>\( \quad A \land B \land C \)</li>
-            <li>\( \quad (A \lor B) \land C \)</li>
-            <li>\( \quad (A \lor B) \land \neg C \)</li>
             <li>\( \quad \neg(A \land B) \lor (B \land \neg C) \)</li>
             <li>\( \quad (A \land \neg B) \lor (\neg A \land B) \)</li>
           </ol>
@@ -78,14 +89,7 @@
 
 
         <li>
-          Write the Boolean expression and truth table for the circuit below.
-          <div style="text-align: center;">
-            <img src="../img/circuit_c1.svg" style="width:450px;">
-          </div>
-        </li>
-
-        <li>
-          An <strong>Exclusive OR</strong>, or XOR, will output true only if the inputs are different. We write \(A\) XOR \(B\) as \[A \oplus B\] and have the truth table:
+          An <strong>Exclusive OR</strong>, or XOR, will output True only if the inputs are different. We write \(A\) XOR \(B\) as \[A \oplus B\] and have the truth table:
           \[\begin{array}{|c c|c|}
           \hline
           \rule{0pt}{2.5ex} A & B & A \oplus B \\
@@ -107,27 +111,31 @@
 
         <li>
           A famous puzzle goes like this:
-
-            <ol>
-              <li>There are five houses.</li>
-              <li>The Englishman lives in the red house.</li>
-              <li>The Spaniard owns the dog.</li>
-              <li>Coffee is drunk in the green house.</li>
-              <li>The Ukrainian drinks tea.</li>
-              <li>The green house is immediately to the right of the ivory house.</li>
-              <li>The Old Gold smoker owns snails.</li>
-              <li>Kools are smoked in the yellow house.</li>
-              <li>Milk is drunk in the middle house.</li>
-              <li>The Norwegian lives in the first house.</li>
-              <li>The man who smokes Chesterfields lives in the house next to the man with the fox.</li>
-              <li>Kools are smoked in the house next to the house where the horse is kept.</li>
-              <li>The Lucky Strike smoker drinks orange juice.</li>
-              <li>The Japanese smokes Parliaments.</li>
-              <li>The Norwegian lives next to the blue house.</li>
-            </ol>
-            Who drinks water, and who owns the zebra? 
+          <ol type="a">
+            <li>The Brit lives in the Red house.</li>
+            <li>The Swede keeps Dogs as pets.</li>
+            <li>The Dane drinks Tea.</li>
+            <li>The Green house is exactly to the left of the White house.</li>
+            <li>The owner of the Green house drinks Coffee.</li>
+            <li>The person who smokes Pall Mall rears Birds.</li>
+            <li>The owner of the Yellow house smokes Dunhill.</li>
+            <li>The man living in the centre house drinks Milk.</li>
+            <li>The Norwegian lives in the first house.</li>
+            <li>The man who smokes Blends lives next to the one who keeps Cats.</li>
+            <li>The man who keeps Horses lives next to the man who smokes Dunhill.</li>
+            <li>The man who smokes Blue Master drinks Beer.</li>
+            <li>The German smokes Prince.</li>
+            <li>The Norwegian lives next to the Blue house.</li>
+            <li>The man who smokes Blends has a neighbour who drinks Water.</li>
+          </ol>
+            Who owns the fish? 
             <br><br> 
-            It will be nice to find the answer, but the important piece of this puzzle is the logic. As you solve, you will make conclusions. Write logical expressions (using AND, OR, and NOT) that demonstrate why each conclusion must be true. 
+            It will be nice to find the answer, but the important piece of this puzzle is the logic. As you solve, you will make conclusions based on what you already know. Write logical expressions (using AND, OR, and NOT) that demonstrate why each conclusion must be true. For example, 
+            <ul>
+              <li>The Norwegian lives in the first house, therefore the Brit does NOT live in the first house AND the Swede does NOT live in the first house AND the Dane does NOT live in the first house AND the German does NOT live in the first house. </li>
+              <li>The Brit lives in the Red house AND the Brit does NOT live in the first house, therefore...</li>
+            </ul> 
+            <!-- SShhhh!! This is a proof! -->
         </li>
 
       </ol>

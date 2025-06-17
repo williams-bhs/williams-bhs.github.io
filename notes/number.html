@@ -35,10 +35,6 @@
       <h1>Number</h1>
       <p>Humans are very good at recognizing patterns. We are often too good at it, finding patterns where there aren't
         any, but more on that later.</p>
-
-      <div class="table-of-contents">
-        On this page: <a href="#calculus">Calculus</a>, <a href="#algorithm">Algorithm</a>, <a href="#decimal">Decimal</a>, <a href="#binary">Binary</a>.
-      </div>
     </section>
 
     <section class="content">
@@ -46,7 +42,7 @@
       <a id="calculus"></a>
       <h2>Calculus</h2>
       <p>
-        Imagine living ten thousand years ago. Among your hobbies, you enjoy collecting rocks. It isn't long before you
+        Imagine living twenty-eight thousand years ago. Among your hobbies, you enjoy rock collecting. It isn't long before you
         start to notice patterns in various arrangements of your rocks.
       </p>
       <p>
@@ -118,7 +114,7 @@
         neat! Good thing cell phones don't exist...
       </p>
       <p>
-        Then your friend Chelsea, also from ten thousand years ago, notices another connection: sometimes she can
+        Then your friend Chelsea, also from twenty-eight thousand years ago, notices another connection: sometimes she can
         combine two arrangements from Pattern 2 to get a bigger arrangement also in Pattern 2, but it doesn't always work.
         She finds this one:
       </p>
@@ -175,7 +171,7 @@
       <p>
         Chelsea, who is rightly proud of her discovery about combinations in Pattern 2, searches for similar
         combinations in Pattern 3. She wants to find two piles in Pattern 3 that can combine together to get another pile
-        in Pattern 3, but this last format is challenging and it will be quite a wile before someone
+        in Pattern 3, but this last format is challenging and it will be quite a wiles before someone
         figures it out. <!-- Y'all, I am not proud of this. -->
       </p>
 
@@ -416,9 +412,9 @@
       </div>
 
       <p>
-        These are all the ways that you can construct the numbers one through six with equally sized rows. In each
+        These are all the ways that you can construct the numbers one through six with regular rows (rows of the same size so they line up). In each
         construction, a row represents a <strong>factor</strong> or <strong>divisor</strong> of the number. Four
-        example, \(4\) is a factor of \(12\) because we can construct 12 with rows of size \(4\). Another way to think
+        example, <!-- this was, unfortunately, intentional --> \(4\) is a factor of \(12\) because we can construct 12 with rows of size \(4\). Another way to think
         about this is that \(12\) can be dividied into rows of size \(4\).
       </p>
       <p>
@@ -426,8 +422,11 @@
       <div class="definition-box">
         <h4>Definition</h4>
         <p> A <strong>factor</strong> or <strong>divisor</strong> is a number that divides a larger number into whole
-          parts. We write \[d | n \] and say "\(d\) divides \(n\)" to mean that \(d\) is a divisor of \(n\). </p>
+          parts. We write \[d \mid n \] and say "\(d\) divides \(n\)" to mean that \(d\) is a divisor of \(n\). </p>
       </div>
+      </p>
+      <p>
+      Since \(4\) "goes into" \(12\), we may write \(4 \mid 12\). We can also write \(5 \nmid 12\) to say that \(5\) does not divide \(12\). 
       </p>
       <p>
         We haven't yet talked about negative rocks, which could be viewed as factors, but when we say "\(d\) divides
@@ -461,7 +460,7 @@
       <div class="definition-box">
         <h4>Definition</h4>
         <p> If \(a\) and \(b\) are positive integers, the <strong>greatest common divisor</strong> of \(a\) and \(b\) is
-          denoted gcd(\(a\),\(b\)) and is defined to be the positive integer \(d\) such that \(d|a\) and \(d|b\). </p>
+          denoted gcd(\(a\),\(b\)) and is defined to be the positive integer \(d\) such that \(d \mid a\) and \(d \mid b\). </p>
       </div>
       </p>
 
@@ -476,9 +475,8 @@
           <p>
           gcd(Left, Right): 
           <ol>
-            <li>If Left > Right, then take a Right amount away from the Left </li>
-            <li>If Right > Left, then take a Left amount away from the Right</li>
-            <li>If the piles are equal, then that is the gcd, otherwise repeat</li>
+            <li>If the piles are the same size, that is the GCD and we are done. </li>
+            <li>Remove a small-pile-amount from the larger pile, go back to 1.</li>
           </ol>
           </p>
         </div>
@@ -494,9 +492,12 @@
               <th style="text-align: center;width:170px;">State of Piles</th>
             </tr>
 
-
             <tr style="border-bottom: 1px solid #ddd;"> 
               <td>
+                <table>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
+                </table>
               </td>
               <td>
                 <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
@@ -511,13 +512,12 @@
                 </table>      
               </td>
             </tr>
-            
+
             <tr style="border-bottom: 1px solid #ddd;"> 
               <td>
                 <table>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
                 </table>
               </td>
               <td>
@@ -533,15 +533,13 @@
                 </table>      
               </td>
             </tr>
-            
 
 
             <tr style="border-bottom: 1px solid #ddd;"> 
               <td>
                 <table>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
                 </table>
               </td>
               <td>
@@ -551,44 +549,18 @@
                     <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
                   </tr>
                   <tr style="text-align: center;">
-                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(55\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(30\)</td>
                     <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
                   </tr>
                 </table>      
               </td>
             </tr>
 
-
-
             <tr style="border-bottom: 1px solid #ddd;"> 
               <td>
                 <table>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
-                </table>
-              </td>
-              <td>
-                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
-                  <tr>
-                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
-                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
-                  </tr>
-                  <tr style="text-align: center;">
-                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(55\)</td>
-                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
-                  </tr>
-                </table>      
-              </td>
-            </tr>
-
-
-            <tr style="border-bottom: 1px solid #ddd;"> 
-              <td>
-                <table>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
                 </table>
               </td>
               <td>
@@ -604,14 +576,34 @@
                 </table>      
               </td>
             </tr>
-            
+
 
             <tr style="border-bottom: 1px solid #ddd;"> 
               <td>
                 <table>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
+                </table>
+              </td>
+              <td>
+                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
+                  <tr>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
+                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
+                  </tr>
+                  <tr style="text-align: center;">
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+                  </tr>
+                </table>      
+              </td>
+            </tr>
+
+            <tr style="border-bottom: 1px solid #ddd;"> 
+              <td>
+                <table>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
                 </table>
               </td>
               <td>
@@ -632,9 +624,8 @@
             <tr style="border-bottom: 1px solid #ddd;"> 
               <td>
                 <table>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
                 </table>
               </td>
               <td>
@@ -645,44 +636,17 @@
                   </tr>
                   <tr style="text-align: center;">
                     <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
-                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
+                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(20\) </td>
                   </tr>
                 </table>      
               </td>
             </tr>
 
-
-
             <tr style="border-bottom: 1px solid #ddd;"> 
               <td>
                 <table>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
-                </table>
-              </td>
-              <td>
-                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
-                  <tr>
-                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
-                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
-                  </tr>
-                  <tr style="text-align: center;">
-                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
-                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(25\) </td>
-                  </tr>
-                </table>      
-              </td>
-            </tr>
-            
-
-
-            <tr style="border-bottom: 1px solid #ddd;"> 
-              <td>
-                <table>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
                 </table>
               </td>
               <td>
@@ -704,9 +668,8 @@
             <tr style="border-bottom: 1px solid #ddd;"> 
               <td>
                 <table>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
                 </table>
               </td>
               <td>
@@ -723,39 +686,11 @@
               </td>
             </tr>
 
-
-
-
             <tr style="border-bottom: 1px solid #ddd;"> 
               <td>
                 <table>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
-                </table>
-              </td>
-              <td>
-                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
-                  <tr>
-                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
-                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
-                  </tr>
-                  <tr style="text-align: center;">
-                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
-                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(15\) </td>
-                  </tr>
-                </table>      
-              </td>
-            </tr>
-            
-
-
-            <tr style="border-bottom: 1px solid #ddd;"> 
-              <td>
-                <table>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
                 </table>
               </td>
               <td>
@@ -773,13 +708,11 @@
             </tr>
 
 
-
             <tr style="border-bottom: 1px solid #ddd;"> 
               <td>
                 <table>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
                 </table>
               </td>
               <td>
@@ -796,38 +729,11 @@
               </td>
             </tr>
 
-
-
             <tr style="border-bottom: 1px solid #ddd;"> 
               <td>
                 <table>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
-                </table>
-              </td>
-              <td>
-                <table style="border-collapse: collapse;margin:auto;margin-top:20px;margin-bottom:20px;">
-                  <tr>
-                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Left</th>
-                    <th style="border:2px solid #eee;padding:5px 8px 5px 8px;width:50px;text-align: center;background-color:#48729b;color:#fff;">Right </th>
-                  </tr>
-                  <tr style="text-align: center;">
-                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(5\)</td>
-                    <td style="border:2px solid #eee;padding:5px 8px 5px 8px;text-align: center;">\(10\) </td>
-                  </tr>
-                </table>      
-              </td>
-            </tr>
-            
-
-
-            <tr style="border-bottom: 1px solid #ddd;"> 
-              <td>
-                <table>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
                 </table>
               </td>
               <td>
@@ -845,13 +751,11 @@
             </tr>
 
 
-
             <tr style="border-bottom: 1px solid #ddd;"> 
               <td>
                 <table>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(1) If Left > Right, then take a Right amount away from the Left</td></tr>
-                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) If Right > Left, then take a Left amount away from the Right</td></tr>
-                  <tr><td>&#8594;</td><td style="font-size:90%;">(3) If the piles are equal, then that is the gcd, otherwise repeat</td></tr>
+                  <tr><td>&#8594;</td><td style="font-size:90%;">(1) If the piles are the same size, that is the GCD and we are done</td></tr>
+                  <tr><td></td><td style="font-size:90%;color:#ccc;">(2) Remove a small-pile-amount from the larger pile, go back to (1)</td></tr>
                 </table>
               </td>
               <td>
@@ -867,10 +771,11 @@
                 </table>      
               </td>
             </tr>
-
-
-          </table>
+          </table>          
         </div>
+        <p>
+          We are done, and we find that \(\gcd(55,25) = 5\). 
+        </p>
 
 <!-- 
 
@@ -1270,10 +1175,57 @@
         In each place, we start with our first symbol, \(0\), and count up to our last symbol \(9\). Every time we
         run out of symbols, we start over at \(0\) and add one to the left.
       </p>
+
+      <h3>Place Value</h3>
+      <p>
+        Each place we write a decimial has a value associated with it. That value is a power of \(10\), increasing from right to left. 
+      </p>
+      <div>				
+				<script>
+					function toggleDec(id_num) {
+					  /* Holy copy pasta. This is how you know I didn't do this with AI. */
+					  let bit = document.getElementById("place"+id_num); 
+					  let dec = document.getElementById("decimal"+id_num); 
+					  if (bit.innerHTML == 9) {
+						bit.innerHTML = 0; 
+						dec.style.color = "#ccc";
+					  } else {
+						bit.innerHTML = Number(bit.innerHTML) + 1; 
+						dec.style.color = "#66a";
+					  } 
+					  let total = 0; 
+					  for (let i=0;i<5;i++) {
+						total += 10**i * document.getElementById("place"+i).innerHTML; 
+					  }
+					  document.getElementById('decsum').innerHTML = total; 
+					}
+				</script>
+
+				<table style="margin:auto;border-collapse: separate;">
+					<tr>
+					<td id="decimal4" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(10^{4}\) </td>
+					<td id="decimal3" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(10^{3}\) </td>
+					<td id="decimal2" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(10^{2}\) </td>
+					<td id="decimal1" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(10^{1}\) </td>
+					<td id="decimal0" style="border:0;color:#ccc;font-size:80%;padding-bottom:0;margin-bottom:0;text-align: center;"> \(10^{0}\) </td>
+					<td style="border:0;">   </td>
+					<td style="border:0;">   </td>
+					</tr>
+					<tr>
+					<td id="place4" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDec(4);"> 0 </td>
+					<td id="place3" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDec(3);"> 0 </td>
+					<td id="place2" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDec(2);"> 0 </td>
+					<td id="place1" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDec(1);"> 0 </td>
+					<td id="place0" style="font-weight:bold;background-color: #f2f2ff;border: 2px solid gray; border-radius: 9px; text-align: center; width:50px;font-family: 'Courier New', Courier, monospace;" onclick="toggleDec(0);"> 0 </td>
+					<td> \(=\) </td>
+					<td id="decsum" style="width:180px;">0</td>
+					</tr>
+				</table>
+</div>
+
       <p>
         If this is the only number system you know, then it might be suprising to learn that we don't have to represent
-        numbers this way. It isn't just that we could use different symbols, but we could use different place values,
-        too.
+        numbers this way. 
       </p>
 
       <a id="binary"></a>
@@ -1283,7 +1235,7 @@
         we run out of symbols quickly:
         \[0\]
         \[1\]
-        We reset the one's place
+        We reset the one's place and add \(1\) to the left of it: 
         \[10\]
         That looks like a ten, but it is a two written in binary. Here are several numbers written in binary:
         \[
@@ -1309,7 +1261,7 @@
       <p>
         In binary, we have numbers that look like:
         \[10111\]
-        which has place values with base-2:
+        which has place-values in base-2:
         \[
         \begin{array}{c|c|c|c|c|c}
         \text{Place Value} &2^4 & 2^3 & 2^2 & 2^1 & 2^0 \\ \hline
@@ -1423,6 +1375,15 @@
         </div>
       </p>
 
+
+      <h2>Recommended Resources</h2>
+      <p>
+        <ul>
+          <li>
+            Joseph, G. G. (2011). <i>The Crest of the Peacock: Non-European Roots of Mathematics (Third Edition)</i>. Princeton University Press. http://www.jstor.org/stable/j.ctt7sdsb
+          </li>
+        </ul>
+      </p>
 
 
 

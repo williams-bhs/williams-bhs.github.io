@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,6 +15,7 @@
   <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
   <script src="https://tikzjax.com/v1/tikzjax.js"></script>
 </head>
+
 <body>
   <header>
     <a href="../index.html" class="header-title">
@@ -39,31 +41,38 @@
     </section>
 
 
-    <section class="exercises">      
-      These exercises are intended to be completed by hand. 
+    <section class="exercises">
+      These exercises are intended to be completed by hand.
       <ol>
-        
+
         <li>
-          Create a "grid" chart of factors. Label both axes with numbers 1 through 20. For each number \(x\) on the horizontal axis, fill in the boxes above that number if the \(y\) value is a factor of \(x\). Your grid will start like this:
+          Create a "grid" chart of factors. Label both axes with numbers 1 through 20. For each number \(x\) on the
+          horizontal axis, fill in the boxes above that number if the \(y\) value is a factor of \(x\). Your grid will
+          start like this:
           <div style="text-align: center;">
             <img src="../img/factor-grid.png" style="max-width:200px;">
           </div>
-          What patterns do you observe? 
+          What patterns do you observe?
         </li>
 
         <li>
-          Create a \(10 \times 10\) grid and label each axis \(1\) through \(10\). For each square in the grid, write the GCD of the \(x\) and \(y\) coordinate of that square. 
-          What patterns do you observe? 
-          Create a 3D version of this chart by stacking objects (<em>i.e.</em>, small blocks) at each square to represent the GCD. 
+          Create a \(10 \times 10\) grid and label each axis \(1\) through \(10\). For each square in the grid, write
+          the GCD of the \(x\) and \(y\) coordinate of that square.
+          What patterns do you observe?
+          Create a 3D version of this chart by stacking objects (<em>i.e.</em>, small blocks) at each square to
+          represent the GCD.
         </li>
 
         <li>
-          Two numbers \(a\) and \(b\) are said to be <strong>relatively prime</strong> if \(\gcd(a,b)=1\). 
+          Two numbers \(a\) and \(b\) are said to be <strong>relatively prime</strong> if \(\gcd(a,b)=1\).
           <ol type="a">
-            <li>Demonstrate that \(77\) and \(45\) either are or are not relatively prime by factoring them to find their GCD.</li>
+            <li>Demonstrate that \(77\) and \(45\) either are or are not relatively prime by factoring them to find
+              their GCD.</li>
             <li>Use the \(\gcd\) algorithm to determine if \(77\) and \(45\) are relatively prime.</li>
-            <li>The number \(23\) is prime, so Jed says that \(23\) must be relatively prime with every other positive integer. Give a counterexample to Jed's conjecture.</li>
-            <li>Despite overgeneralizing, Jed was on to something. Improve his conjecture about primes and relative primes. </li>
+            <li>The number \(23\) is prime, so Jed says that \(23\) must be relatively prime with every other positive
+              integer. Give a counterexample to Jed's conjecture.</li>
+            <li>Despite overgeneralizing, Jed was on to something. Improve his conjecture about primes and relative
+              primes. </li>
           </ol>
         </li>
         <li>
@@ -81,7 +90,7 @@
         </li>
         <li>
           Convert the following binary numbers to decimal:
-          <ol type="a">
+          <ol type="a" style="column-count: 3;">
             <li>111</li>
             <li>10001</li>
             <li>1010101</li>
@@ -91,8 +100,8 @@
           </ol>
         </li>
         <li>
-          Convert the following decimal numbers to binary: 
-          <ol type="a">
+          Convert the following decimal numbers to binary:
+          <ol type="a" style="column-count: 3;">
             <li>7</li>
             <li>100</li>
             <li>63</li>
@@ -102,44 +111,55 @@
           </ol>
         </li>
         <li>
-          The standard algorithm for addition works in every base. Use it to add the binary numbers \(101\) and \(11\). If that goes well, try adding larger numbers like \(100111+1010\). 
-        </li>
-        <li>Create a ternary (base-3) number system. You can use any three appropriate symbols you like. Demonstrate counting and basic arithmetic in your system.</li>
-
-        <li>
-          Use the square root algorithm to approximate the square root of \(52\), starting with an initial guess of 26. 
+          The standard algorithm for addition works in every base. Demonstrate adding the binary numbers \(101\) and
+          \(11\). If that goes well, try adding larger numbers like \(100111+1010\).
         </li>
 
         <li>
-          Read: Henri Poincaré, Science and Reason, Book I, Chapter IV: “Chance”, Section II.
-          <p>
+          We saw how to create rock constructions representing numbers as rows of their divisors. There are infinitely
+          many numbers with only two constructions. Show that every pile with an even number of rocks (more than two)
+          can be made by combining two piles of such constructions. For example, 5 and 11 both have only two
+          constructions, and can be joined to make 16.  <!-- Is this mean? -->
+        </li>
+        <li>Create a ternary (base-3) number system. You can use any three appropriate symbols you like. Demonstrate
+          counting and basic arithmetic in your system.</li>
+
+        <li>
+          Demonstrate the square root algorithm by approximating the square root of \(52\), starting with an initial
+          guess of 26.
+        </li>
+
+        <li>
+          Read: Henri Poincaré, Science and Reason, Book I, Chapter IV: “Chance”, Sections I and II.
+          <!-- <p>
             Poincaré writes about chance that is either "fortuitous" or "non-fortuitous".
           <ul>
             <li>Fortuitous chance describes phenomena that we can analyze with probability, even if we do not know the
               underlying laws that govern their behaviors. </li>
             <li>Non-fortuitous chance describes phenomena that we simply have no hope of analyzing without discovering new laws. </li>
           </ul>
-          </p>
+          </p> -->
           <ol type="a">
             <li>
               Briefly descrbe the three examples of fortuitous chance given by Poincaré.
             </li>
             <li>
-              Poincaré writes: 
+              Poincaré writes:
               <blockquote>
                 But, even if it were the case that the natural laws had
-no longer any secret for us, we could still only know the initial situation approximately. [...] 
-<!-- If that enabled us to predict the succeeding situation with the same
+                no longer any secret for us, we could still only know the initial situation approximately. [...]
+                <!-- If that enabled us to predict the succeeding situation with the same
 approximation, that is all we require, and we should say that the phenomenon
 had been predicted, that it is governed by laws. But it is not always so;  -->
-it may happen that small differences in the initial conditions produce very great ones
-in the final phenomena. A small error in the former will produce an enormous
-error in the latter. <strong>Prediction becomes impossible</strong>, and we have the fortuitous
-phenomenon.
+                it may happen that small differences in the initial conditions produce very great ones
+                in the final phenomena. A small error in the former will produce an enormous
+                error in the latter. <strong>Prediction becomes impossible</strong>, and we have the fortuitous
+                phenomenon.
               </blockquote>
-              This describes what has come to be known as <em>sensitive dependence on initial conditions</em>, or the <em>butterfly effect</em>. 
-              We will be using data to make predictions in this course. 
-              How might sensitive dependence on initial conditions affect our predictions? 
+              This describes what has come to be known as <em>sensitive dependence on initial conditions</em>, or the
+              <em>butterfly effect</em>.
+              We will be using data to make predictions in this course.
+              How might sensitive dependence on initial conditions affect our predictions?
             </li>
           </ol>
         </li>

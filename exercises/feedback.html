@@ -74,7 +74,8 @@
           Let \(P(x)=2x(1-x)\).
           <ol type="a">
             <li>Expand \(P^2(x) = P(P(x)) \).</li>
-            <li>Determine the first 20 terms in the orbits of \(x_0=0.2, 0.5, 0.8\)</li>
+            <li>Determine the first 10 terms in the orbits of \(x_0=0.2, 0.5, 0.8\)</li>
+            <li>For initial conditions of \(x_0=0.05, 0.1, ..., 0.95\), use a spreadsheet to show that the orbits all converge to the same value. Create a plot of the orbits that depicts them converging.  </li>
           </ol>
         </li>
 
@@ -82,19 +83,19 @@
           Create a spreadsheet implementing the Babylonian square root algorithm. 
           <ol type="a">
             <li>Place the value in A1 for which we want
-          to approximate the square root. Then we place our guess in B1. The rows below B1 should iteratively improve
+          to approximate the square root. Then place a guess in A2. The rows below A2 should iteratively improve
           our approximation of A1.</li>
-          <li>Add more columns to demonstrate the algorithm working for exerveral examples.</li>
+          <li>Add more columns to demonstrate the algorithm working for several examples.</li>
           </ol>
         </li>
 
-        <li>
+        <!-- <li>
           Many deployed data models are part of larger feedback systems. Consider a video streaming service which
           develops a recommendation function \(R\). This function may take many inputs, but one of those inputs might
           be the list of videos the user has watched, \(w\). The output of \(R(w)\) is a list of videos for the user,
           who watches some of those videos, and then gets more recommendations which have been influenced by the earlier
           recommendations.
-        </li>
+        </li> -->
 
 
         <li>
@@ -114,19 +115,34 @@
 
         <li>
           Watch <a href="https://www.youtube.com/watch?v=ovJcsL7vyrk">The Equation that Changed How We See the World</a>. 
-          Create the bifurcation diagram in a spreadsheet. Here is one way to do it: 
+          Create the bifurcation diagram for the logistic equation in a spreadsheet. Here is one way to do it: 
           <div>
             <ol>
               <li>Make column headers for r, x0, x1, etc. </li>
               <li>Fill in the A column with r values from 1 to 4.</li>
               <li>Fill in the B column with an initial value. </li>
-              <li>Use the formula for the logistic equation shown in the image below. Note the $ symbol in front of the A. This is so you can drag the equation down, and then right, without that A changing.</li>
-              <li>Select all of the columns from M to the right, and create a scatter plot. </li>
+              <li>Use the formula for the logistic equation shown in the image below. Note the $ symbol in front of the A. This is so you can drag the equation down, and then right, without that A changing. Each row will contain an orbit. </li>
+              <li>Once the orbits are expanded to the right, select all of the columns from around column P to the right, and create a scatter plot. </li>
             </ol>
           </div>
-          <div>
-            <img src="../img/logistic_spreadsheet.png">
+          <div style="text-align: center;">
+            <img src="../img/logistic_spreadsheet.png" style="max-width:600px;">
           </div> 
+          <div>
+            You should end up with a chart that looks like this:
+          </div>
+          <div style="text-align: center;">
+            <img src="../img/bifurcation_spreadsheet_chart.svg" style="max-width:450px;">
+          </div>
+        </li>
+
+        <li>
+          Let \(F(x) = x^2 + \frac{1}{4} \). 
+          <ol type="a">
+            <li>Analyze the orbits for real \(|x_{0}| \leq \frac{1}{2}\). </li> 
+            <li>Show that the orbit of any real \(|x_0| > \frac{1}{2}\) will go to \(\infty\). </li>
+            <li>Is there a value \(x_0 \in \mathbb{C}\) that has a cycle? </li>
+          </ol>
         </li>
 
         <li>
