@@ -31,7 +31,7 @@
 <g id="surface1">
 <path style="fill:none;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -70.866563 -56.693156 L -70.866563 56.693562 L 113.387344 56.693562 L 113.387344 -56.693156 Z M -70.866563 -56.693156 " transform="matrix(1,0,0,-1,71.265,57.092)"/>
 <g clip-path="url(#clip1)" clip-rule="nonzero">
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(84.999084%,84.999084%,84.999084%);fill-opacity:1;" d="M 0.398438 113.785156 L 0.398438 0.398438 L 184.652344 0.398438 L 184.652344 113.785156 Z M 0.398438 113.785156 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(75%,75%,100%);fill-opacity:1;" d="M 0.398438 113.785156 L 0.398438 0.398438 L 184.652344 0.398438 L 184.652344 113.785156 Z M 0.398438 113.785156 "/>
 </g>
 <g clip-path="url(#clip2)" clip-rule="nonzero">
 <g clip-path="url(#clip3)" clip-rule="nonzero">
