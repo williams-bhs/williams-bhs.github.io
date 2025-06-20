@@ -1,0 +1,32 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+\thispagestyle{empty}
+\begin{document}
+\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 		
+\begin{tikzpicture}[thick,scale=2,transform shape]	
+	\node[circle, fill=nred, inner sep=2pt] (a) at (0,0) {};
+	\node[circle, fill=nred, inner sep=2pt] (b) at (1,0) {};
+	\node[circle, fill=nred, inner sep=2pt] (c) at (2,0) {};
+	\node[circle, fill=nred, inner sep=2pt] (d) at (0,1) {};
+	\node[circle, fill=nred, inner sep=2pt] (e) at (1,1) {};
+	\node[circle, fill=nred, inner sep=2pt] (f) at (2,1) {};
+	\node[circle, fill=nred, inner sep=2pt] (g) at (0,2) {};
+	\node[circle, fill=nred, inner sep=2pt] (h) at (1,2) {};
+	\node[circle, fill=nred, inner sep=2pt] (i) at (2,2) {};
+
+    \draw[draw=nblue, ultra thick] (a) -- (b); 
+	\draw[draw=nblue, ultra thick] (b) -- (c); 
+	\draw[draw=nblue, ultra thick] (b) -- (e); 
+	\draw[draw=nblue, ultra thick] (e) -- (h); 
+	\draw[draw=nblue, ultra thick] (h) -- (i); 
+	\draw[draw=nblue, ultra thick] (i) -- (f); 
+	\draw[draw=nblue, ultra thick] (h) -- (g); 
+	\draw[draw=nblue, ultra thick] (e) -- (d); 
+\end{tikzpicture}
+
+\end{document}

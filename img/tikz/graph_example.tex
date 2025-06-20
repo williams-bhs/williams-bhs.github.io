@@ -1,0 +1,23 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+\thispagestyle{empty}
+\begin{document}
+\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 		
+\begin{tikzpicture}[thick,scale=2,transform shape]	
+	\node[circle, fill=nred, inner sep=2pt, label=left:$a$] (a) at (0,2) {};
+	\node[circle, fill=nred, inner sep=2pt, label=left:$b$] (b) at (1,0) {};
+	\node[circle, fill=nred, inner sep=2pt, label=right:$c$] (c) at (3,0) {};
+	\node[circle, fill=nred, inner sep=2pt, label=right:$d$] (d) at (3,2) {};
+
+										\draw[draw=nblue, ultra thick, bend left=40] (b) to (c); 
+	\draw[draw=nblue, ultra thick, bend right=40] (b) to (c); 
+	\draw[draw=nblue, ultra thick] (c) -- (d);
+	\draw[draw=nblue, ultra thick] (d) to[out=180, in=75, looseness=35] (d);  
+\end{tikzpicture}
+
+\end{document}

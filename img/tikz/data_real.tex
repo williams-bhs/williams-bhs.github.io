@@ -1,0 +1,34 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\thispagestyle{empty}
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+width=10cm, height=8cm,
+xmin=0, xmax=100,
+ymin=0, ymax=25,
+domain=0:100,
+samples=200,
+axis lines=middle,
+xlabel={$X$},
+ylabel={$Y$},
+xlabel style={
+	at={(axis description cs:0.5,-0.1)},
+	anchor=north
+},
+ylabel style={
+	at={(axis description cs:-0.1,0.5)},
+	anchor=south
+}
+]
+\addplot[thick, black] {0.0000021875*x^4-0.00041666*x^3+0.0212917*x^2+5};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

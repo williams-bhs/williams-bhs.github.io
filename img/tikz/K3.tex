@@ -1,0 +1,28 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+\thispagestyle{empty}
+\begin{document}
+\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 		
+\begin{tikzpicture}[thick,scale=2.5]						
+% Define the 5 vertices in a pentagon layout
+\foreach \i/\name in {1/A, 2/B, 3/C} {
+	\node[circle, fill=nred, inner sep=2pt] (V\i) 
+		at ({90+120*(\i-1)}:1) {};
+}
+
+						% Draw edges between every pair of vertices
+\foreach \i in {1,2,3} {
+	\foreach \j in {1,2,3} {
+	\ifnum\i<\j
+		\draw[ultra thick,draw=nblue] (V\i) -- (V\j);
+	\fi
+	}
+}
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,21 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}[]
+\coordinate (A) at (1,1,1);
+\coordinate (B) at (-1,-1,1);
+\coordinate (C) at (-1,1,-1);
+\coordinate (D) at (1,-1,-1);
+
+\foreach \p/\name in {A/1, B/2, C/3, D/4}
+\node[draw, circle, fill=black, inner sep=1pt, label=above:$\name$] at (\p) {};
+
+\foreach \i/\j in {A/B, A/C, A/D, B/C, B/D, C/D}
+\draw[thick] (\i) -- (\j);
+\end{tikzpicture}
+\end{document}
