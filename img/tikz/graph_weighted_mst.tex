@@ -1,0 +1,55 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+\thispagestyle{empty}
+\begin{document}
+\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 	
+\definecolor{gray}{rgb}{0.9, 0.9, 0.9} 		
+\begin{tikzpicture}[thick]	
+	% A recreation of https://commons.wikimedia.org/wiki/File:Minimum_spanning_tree.svg
+	
+	  % Nodes
+	\node[circle, fill=nred, inner sep=2pt] (a) at (0,4) {};
+	\node[circle, fill=nred, inner sep=2pt] (b) at (3,5) {};
+	\node[circle, fill=nred, inner sep=2pt] (c) at (4,6) {};
+	\node[circle, fill=nred, inner sep=2pt] (d) at (3,7) {};
+	\node[circle, fill=nred, inner sep=2pt] (e) at (8,0) {};
+	\node[circle, fill=nred, inner sep=2pt] (f) at (9,5) {};
+	\node[circle, fill=nred, inner sep=2pt] (g) at (9,10) {};
+	\node[circle, fill=nred, inner sep=2pt] (h) at (13,11) {};
+	\node[circle, fill=nred, inner sep=2pt] (i) at (14,9) {};
+	\node[circle, fill=nred, inner sep=2pt] (j) at (16,8.5) {};
+	
+	% Edges with weights
+	\draw[draw=nblue, ultra thick] (a) -- (b) node[midway, above] {3};
+	\draw[draw=nblue, ultra thick] (b) -- (c) node[midway, above] {2};
+	\draw[draw=nblue, ultra thick] (c) -- (d) node[midway, above] {2};
+	\draw[draw=nblue, ultra thick] (c) -- (f) node[midway, above] {8};
+	\draw[draw=nblue, ultra thick] (f) -- (e) node[midway,  left] {8};
+	\draw[draw=nblue, ultra thick] (f) -- (g) node[midway,  left] {7};
+	\draw[draw=nblue, ultra thick] (g) -- (h) node[midway, above] {4};
+	\draw[draw=nblue, ultra thick] (h) -- (i) node[midway, right] {1};
+	\draw[draw=nblue, ultra thick] (i) -- (j) node[midway, above] {3};
+	
+	
+	\draw[draw=gray, thick] (a) -- (d) node[color=gray, midway, above] {6};
+	\draw[draw=gray, thick] (b) -- (d) node[color=gray, midway,  left] {4};
+	\draw[draw=gray, thick] (a) -- (e) node[color=gray, midway, above] {9};
+	\draw[draw=gray, thick] (b) -- (e) node[color=gray, midway, above] {9};
+	\draw[draw=gray, thick] (b) -- (f) node[color=gray, midway, above] {9};
+	\draw[draw=gray, thick] (c) -- (g) node[color=gray, midway, above] {9};
+	\draw[draw=gray, thick] (d) -- (g) node[color=gray, midway, above] {9};
+	\draw[draw=gray, thick] (g) -- (i) node[color=gray, midway, above] {5};
+	\draw[draw=gray, thick] (f) -- (i) node[color=gray, midway, above] {9};
+	\draw[draw=gray, thick] (f) -- (j) node[color=gray, midway, above] {10};
+	\draw[draw=gray, thick] (e) -- (j) node[color=gray, midway, above] {18};
+	\draw[draw=gray, thick] (h) -- (j) node[color=gray, midway, above] {4};
+
+\end{tikzpicture}
+								
+\end{document}

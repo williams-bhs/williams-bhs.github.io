@@ -1,0 +1,21 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+\thispagestyle{empty}
+\begin{document}
+\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 		
+\begin{tikzpicture}[thick, scale=2, transform shape]				
+\node[circle, fill=nred, inner sep=2pt, label=left:$x$] (a) at (0,0) {};
+\node[circle, fill=nred, inner sep=2pt, label=right:$y$] (b) at (2,0) {};
+\node[circle, fill=nred, inner sep=2pt, label=above:$z$] (c) at (1,1.414) {};
+
+\draw[thick,draw=nblue] (a)--(b); 
+\draw[thick,draw=nblue] (b)--(c); 
+\draw[thick,draw=nblue] (c)--(a); 
+\end{tikzpicture}
+
+\end{document}
