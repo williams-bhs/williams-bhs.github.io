@@ -1,0 +1,31 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+\thispagestyle{empty}
+\begin{document}		
+\begin{tikzpicture}[scale=1.5]
+\definecolor{nblue}{rgb}{0.30, 0.498, 0.63}
+\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
+\node[draw, circle, fill=black, inner sep=2pt, label=left:{\textcolor{nred}{a}}] (a) at (0,0) {};
+\node[draw, circle, fill=black, inner sep=2pt, label=above left:{\textcolor{nred}{b}}] (b) at (.2,1) {};
+\node[draw, circle, fill=black, inner sep=2pt, label=right:{\textcolor{nred}{c}}] (c) at (3,1) {};
+\node[draw, circle, fill=black, inner sep=2pt, label=below:{\textcolor{nred}{d}}] (d) at (1.5,1.5) {};                  
+\node[draw, circle, fill=black, inner sep=2pt, label=above:{\textcolor{nred}{e}}] (e) at (2,3) {};                  
+\node[draw, circle, fill=black, inner sep=2pt, label=left:{\textcolor{nred}{f}}] (f) at (0,2) {};                  
+
+\draw[thick] (a) -- (b) node[midway, left] {\textcolor{nblue}{4}};         
+\draw[thick] (a) -- (c) node[midway, below] {\textcolor{nblue}{3}};         
+\draw[thick] (b) -- (c) node[midway, below] {\textcolor{nblue}{2}};         
+\draw[thick] (b) -- (d) node[midway, above] {\textcolor{nblue}{5}};         
+\draw[thick] (c) -- (d) node[midway, above] {\textcolor{nblue}{3}};         
+\draw[thick] (c) -- (e) node[midway, right] {\textcolor{nblue}{6}};         
+\draw[thick] (d) -- (e) node[midway, left] {\textcolor{nblue}{4}};         
+\draw[thick] (d) -- (f) node[midway, above] {\textcolor{nblue}{7}};         
+\draw[thick] (e) -- (f) node[midway, above] {\textcolor{nblue}{2}};         
+\end{tikzpicture}
+
+
+\end{document}

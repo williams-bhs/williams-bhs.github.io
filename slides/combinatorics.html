@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+	<title>CDS</title>
+
+	<link rel="stylesheet" href="reveal.js-master/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
+	<link rel="stylesheet" href="slides.css">
+	<link rel="stylesheet" href="../boxes.css">
+
+	<style>
+		.reveal img {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- TITLE SLIDE -->
+			<section>
+				<h2>Combinatorics</h2>
+				<img src="../img/combo.jpg" style="width:600px;border-radius: 11px;">
+				<div class="slides-subtitle">Computing and Data Science</div>
+			</section>
+
+			<section>
+				<p>
+					To <strong>enumerate</strong> means to put numbers to, or count off. 
+				</p>
+				<br> 
+				<p>
+					<strong>Combinatorics</strong> is the foundational branch of mathematics concerned with counting. 
+				</p>
+				
+			</section>
+
+			<section>
+				<div>
+					<table style="border-collapse: collapse;">
+						<tr style="height:100px;border:4px solid black;">
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+						</tr>
+						<tr style="height:100px;border:4px solid black;">
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+						</tr>
+						<tr style="height:100px;border:4px solid black;">
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+						</tr>
+						<tr style="height:100px;border:4px solid black;">
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+						</tr>
+					</table>
+				</div>
+				<br> 
+				<div>
+					How many squares? 
+				</div>
+			</section>
+			<section>
+				<div>
+					<table style="border-collapse: collapse;">
+						<tr style="height:100px;border:4px solid black;">
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+						</tr>
+						<tr style="height:100px;border:4px solid black;">
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+						</tr>
+						<tr style="height:100px;border:4px solid black;">
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+						</tr>
+						<tr style="height:100px;border:4px solid black;">
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+							<td style="width:50px;border:4px solid black;"></td>
+						</tr>
+					</table>
+				</div>
+				<br> 
+				<div>
+					A more <strong>general</strong> question is:<br>
+					How many squares in an \(m \times n\) grid? 
+				</div>
+			</section>
+			<section>
+				<div>
+					<img src="../img/cubecounts.png" style="width:40%;">
+				</div>
+				<div>
+					How many cubes? 				
+				</div>
+			</section>
+			<section>
+				<div>
+					<img src="../img/cubecounts.png" style="width:40%;">
+				</div>
+				<br> 
+				<div>
+					A more <strong>general</strong> question is:<br>
+					How many cubes in an \(l \times m \times n\) grid? 
+				</div>
+			</section>
+
+			<section>
+				<div style="text-align:left;">
+					Sometimes we are given a particular problem and we want to generalize it.
+				</div>
+				<br>
+				<div style="text-align:left;">
+					Sometimes we are given a general problem and we start by analyzing particular examples.
+				</div>
+				<br>
+				<div style="text-align:left;">
+					A lot of mathematics is looking for patterns, then justifying them, then projecting other problems onto those justified patterns. 
+				</div>
+			</section>
+
+			
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+				<table>
+					<tr>
+						<td style="vertical-align:top;">
+							<div style="font-size:45%;border:2px solid gray;display:inline-block;width:330px;padding:20px;border-radius:11px;margin:10px;text-align:left;" data-id="prob-checker">
+								On a \(2 \times 2\) grid of squares, in how many ways can we color the squares black or white?
+								<table>
+									<tr><td style="border:2px solid black;width:28px;height:28px;padding:0;margin:0;"></td><td style="border:2px solid black;width:28px;height:28px;padding:0;margin:0;"></td></tr>
+									<tr><td style="border:2px solid black;width:28px;height:28px;padding:0;margin:0;"></td><td style="border:2px solid black;width:28px;height:28px;padding:0;margin:0;"></td></tr>
+								</table>
+							</div>
+						
+							<div style="font-size:45%;border:2px solid gray;display:inline-block;width:330px;padding:20px;border-radius:11px;margin:10px;text-align:left;" data-id="prob-color">
+								How many ways can we color this graph's vertices using purple and orange? 
+								<div style="text-align:center;">
+									<img src="../img/graph_2x2.svg" style="width:150px;">
+								</div>
+							</div>
+							
+							<div style="font-size:45%;border:2px solid gray;display:inline-block;width:330px;padding:20px;border-radius:11px;margin:10px;"text-align:left; data-id="prob-powerset">
+								How many subsets are in the power set of \(\{a,b,c,d\}\)?
+							</div>
+							
+	
+						</td>
+						<td style="vertical-align:top;">
+							
+							<div style="font-size:43%;border:2px solid gray;display:inline-block;width:310px;padding:16px;border-radius:11px;margin:10px;text-align:left;" data-id="prob-color">
+								With a bucket of puka shells and yin-yang beads, how many ways can we string a bracelet using four of any beads?
+								<br>
+								<div style="text-align:center;">
+									<img src="../img/bracelet.png" style="width:80%;border-radius:11px;">
+								</div>
+							</div>  
+							<div style="font-size:43%;border:2px solid gray;display:inline-block;width:310px;padding:16px;border-radius:11px;margin:10px;text-align:left;" data-id="prob-groups">
+								How many ways can we assign Alan, Brenda, Chuck, and Damian to two different soccer teams? 
+							</div>	 
+							
+							<div style="font-size:43%;border:2px solid gray;display:inline-block;width:310px;padding:16px;border-radius:11px;margin:10px;text-align:left;" data-id="prob-partition">
+								How many ways can we partition \(T=\{p,q,r,s\}\) into two subsets, \(U\) and \(V\)? 
+							</div>
+							<div style="font-size:43%;border:2px solid gray;display:inline-block;width:310px;padding:16px;border-radius:11px;margin:10px;text-align:left;" data-id="prob-color">
+								How many length-4 binary strings can we make? E.g., 0110.
+							</div> 
+						</td>
+					</tr>
+				</table>
+						
+						
+			</section>
+
+			
+			<section>
+				<div style="font-size:100%;">
+					A <strong>car</strong> can be length 1, 2, 3, etc. 
+					<br>
+					A <strong>train</strong> is a sequence of cars. 
+				</div>
+				<div style="font-size:80%;">
+					How many ways can you make a train of length \(1, 2, 3, ..., n\)? 
+				</div>
+				
+				<div style="font-size:80%;">
+					Here are some ways to make \(5\):
+				</div>
+				<div style="padding-bottom:5px;">
+					<table>
+						<tr>
+							<td style="border:2px solid black;background-color:#55ee55;height:60px;width:180px;text-align:center;vertical-align:middle;" colspan="3">3</td>
+							<td style="border:2px solid black;background-color:#ee5555;height:60px;width:60px;text-align:center;vertical-align:middle;">1</td>
+							<td style="border:2px solid black;background-color:#ee5555;height:60px;width:60px;text-align:center;vertical-align:middle;">1</td>
+						</tr>
+					</table>
+				</div>
+				<div style="padding-bottom:5px;">
+					<table>
+						<tr>
+							<td style="border:2px solid black;background-color:#ee5555;height:60px;width:60px;text-align:center;vertical-align:middle;">1</td>
+							<td style="border:2px solid black;background-color:#55ee55;height:60px;width:180px;text-align:center;vertical-align:middle;" colspan="3">3</td>
+							<td style="border:2px solid black;background-color:#ee5555;height:60px;width:60px;text-align:center;vertical-align:middle;">1</td>
+						</tr>
+					</table>
+				</div>
+				<div style="padding-bottom:5px;">
+					<table>
+						<tr>
+							<td style="border:2px solid black;background-color:#ee5555;height:60px;width:60px;text-align:center;vertical-align:middle;">1</td>
+							<td style="border:2px solid black;background-color:#7171ee;height:60px;width:120px;text-align:center;vertical-align:middle;" colspan="2">2</td>
+							<td style="border:2px solid black;background-color:#7171ee;height:60px;width:120px;text-align:center;vertical-align:middle;" colspan="2">2</td>
+						</tr>
+					</table>
+				</div>
+				<div style="padding-bottom:5px;">
+					<table>
+						<tr>
+							<td style="border:2px solid black;background-color:#cc55cc;height:60px;width:388px;text-align:center;vertical-align:middle;">5</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+				<div style="text-align:left; background-color:aliceblue;padding:15px; border-radius:13px;font-size:75%;">
+					<h4>Staircase Moves</h4>
+					Starting at the bottom of a staircase, you are going to make \(n\) moves, where a move is to either:
+					<br> 
+						<ol>
+							<li style="padding-left:30px;margin-left:100px;">Stay where you are, or</li>
+							<li style="padding-left:30px;margin-left:100px;">Move up one stair</li>
+						</ol>
+				</div>
+				<br> 
+				<table>
+					<tr>
+						<td style="width:0%;">
+
+						</td>
+						<td>
+							<div data-id="staircase"> <img src="../img/staircase.svg" style="width:400px;">	</div>
+						</td>
+					</tr>
+				</table>				
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+				<div style="text-align:left; background-color:aliceblue;padding:15px; border-radius:13px;font-size:75%;">
+					<h4>Staircase Moves</h4>
+					Starting at the bottom of a staircase, you are going to make \(n\) moves, where a move is to either:
+					<br> 
+						<ol>
+							<li style="padding-left:30px;margin-left:100px;">Stay where you are, or</li>
+							<li style="padding-left:30px;margin-left:100px;">Move up one stair</li>
+						</ol>
+				</div>
+				<br> 
+				<table>
+					<tr>
+						<td style="width:0%;vertical-align:top;font-size:80%;width:48%;">
+							<div>Example for \(n=5\) moves: </div>
+							<br>
+							<div style="padding:8px;background-color:var(--dsp-red);border-radius:9px;">Up &rarr; Up &rarr; Stay &rarr; Stay &rarr; Up</div>
+							<br>
+							Which step do you end on?
+						</td>
+						<td style="width:48%;">
+							<div data-id="staircase"> <img src="../img/staircase.svg" style="width:400px;">	</div>
+						</td>
+					</tr>
+				</table>				
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+				<div style="text-align:left; background-color:aliceblue;padding:15px; border-radius:13px;font-size:75%;">
+					<h4>Staircase Moves</h4>
+					Starting at the bottom of a staircase, you are going to make \(n\) moves, where a move is to either:
+					<br> 
+						<ol>
+							<li style="padding-left:30px;margin-left:100px;">Stay where you are, or</li>
+							<li style="padding-left:30px;margin-left:100px;">Move up one stair</li>
+						</ol>
+				</div>
+				<br> 
+				<table>
+					<tr>
+						<td style="width:0%;vertical-align:top;font-size:80%;width:48%;">
+							For \(5\) moves, the lowest stair is \(S_0\) and the highest stair is \(S_5\). 
+							<div style="padding:8px;background-color:var(--dsp-orange);border-radius:9px;">
+								How many ways can you reach stair \(S_0\), \(S_1\), \(S_2\), ...? 
+							</div>
+						</td>
+						<td style="width:48%;">
+							<div data-id="staircase"> <img src="../img/staircase.svg" style="width:400px;">	</div>
+						</td>
+					</tr>
+				</table>				
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+				<div style="text-align:left; background-color:aliceblue;padding:15px; border-radius:13px;font-size:75%;">
+					<h4>Staircase Moves</h4>
+					Starting at the bottom of a staircase, you are going to make \(n\) moves, where a move is to either:
+					<br> 
+						<ol>
+							<li style="padding-left:30px;margin-left:100px;">Stay where you are, or</li>
+							<li style="padding-left:30px;margin-left:100px;">Move up one stair</li>
+						</ol>
+				</div>
+				<br> 
+				<table>
+					<tr>
+						<td style="width:0%;vertical-align:top;font-size:80%;width:48%;">
+							For \(n\) moves, the lowest stair is \(S_0\) and the highest stair is \(S_n\). 
+							<div style="padding:8px;background-color:var(--dsp-green);border-radius:9px;">
+								How many ways can you reach stair \(S_k\)? 
+							</div>
+						</td>
+						<td style="width:48%;">
+							<div data-id="staircase"> <img src="../img/staircase.svg" style="width:400px;">	</div>
+						</td>
+					</tr>
+				</table>				
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+				<h4>Lattice Walks</h4>				
+				<div data-id="lattice-graph">
+					<img src="../img/graph_lattice.svg" style="width:75%;">
+				</div>
+				<div style="font-size:90%;">
+					Given <strong>start</strong> and <strong>goal</strong> positions, you take <br>turns moving either <strong>North (\(N\))</strong> or <strong>East (\(E\))</strong>.
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+				<h4>Lattice Walks</h4>				
+				<div data-id="lattice-graph">
+					<img src="../img/graph_lattice.svg" style="width:75%;">
+				</div>
+				<div style="font-size:90%;">
+					An example path for this lattice:
+					<br>
+					\(N, E, E, E, N, E, N, E\)
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+				<h4>Lattice Walks</h4>				
+				<div data-id="lattice-graphb">
+					<img src="../img/graph_lattice.svg" style="width:70%;">
+				</div>
+				<div style="padding:8px;background-color:var(--dsp-green);border-radius:9px;width:530px;margin:auto;">
+					How many goal-approaching paths are there for a lattice \(m\) edges tall and \(n\) edges wide?
+				</div>
+			</section>
+
+			<section>
+				<div>
+					Here are some binary words:
+				</div>
+				<div>
+					\(1011\) <br> 
+					\(01101\) <br> 
+					\(101011\) 
+				</div>
+				<div>
+					The <strong>weight</strong> of a binary word is the sum of its bits.
+				</div>
+				<br> 
+				<div>
+
+				</div>
+				<div style="padding:8px;background-color:var(--dsp-green);border-radius:9px;width:530px;margin:auto;">
+					How many length \(n\) binary words have weight \(k\)? 
+				</div>
+			</section>
+
+
+			<section>
+
+				<div style="padding:8px;background-color:var(--dsp-red);border-radius:9px;width:530px;margin:auto;">
+					How many subsets of length \(k\) can be made from a set with \(n\) elements?
+				</div>
+			</section>
+
+
+			<section>
+				<p style="color: #888;font-size:50%;">
+					©2025 Jedediyah Williams
+					<br> 
+					This work is licensed under the Creative Commons <br>Attribution-NonCommercial-ShareAlike 4.0 International License.
+					<br>
+					<img src="../img/by-nc-sa.svg">
+					<br> 
+					To view a copy of this license, visit <a
+					  href="https://creativecommons.org/licenses/by-nc-sa/4.0/">https://creativecommons.org/licenses/by-nc-sa/4.0/</a>.
+				  </p>
+			</section>
+
+
+		</div>
+	</div>
+
+	<script src="reveal.js-master/dist/reveal.js"></script>
+	<script src="reveal.js-master/plugin/notes/notes.js"></script>
+	<script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+	<script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+	<script src="reveal.js-master/plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		});
+	</script>
+</body>
+
+</html>

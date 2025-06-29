@@ -13,6 +13,12 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
   <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+  <style>
+    ol ol li {
+      padding-left:12px;
+    }
+  </style>
 </head>
 
 <body>
@@ -61,10 +67,13 @@
           can't even" with either Alejandro or Ben.
           <ol type="a">
             <li>
-              Define and draw a graph, with six vertices, to represent who can work with whom.
+              Define and draw a graph \(W\), with six vertices, to represent who can work with whom.
             </li>
             <li>
-              Show that it is either possible or impossible to create two groups that avoid the drama.
+              Find \(\bar{W}\), the complement of \(W\). 
+            </li>
+            <li>
+              Show that it is possible to create two groups of three by partitioning \(\bar{W}\) into a bipartite graph with three vertices on each side.
             </li>
           </ol>
         </li>
@@ -83,6 +92,14 @@
           </p>
         </li>
 
+        <li>
+          Draw all of the trees with \(|V|=6\). Each tree should be non-isomorphic with the rest. 
+        </li>
+
+        <li>
+          Find all of the unequal isomorphic connected trees with four labeled vertices. 
+        </li>
+
 
         <li>
           The three graphs below correspond to three famous polyhedra.
@@ -99,13 +116,17 @@
             \coordinate (C) at (0,0,1);
             \coordinate (D) at (0.4,1.2,0);
 
-            \node[draw, circle, fill=black, inner sep=2pt, label={[xshift=2pt,yshift=-1pt]$v1$}] at (A) {};
-            \node[draw, circle, fill=black, inner sep=2pt, label={[xshift=-2pt,yshift=-1pt]$v2$}] at (B) {};
-            \node[draw, circle, fill=black, inner sep=2pt, label={[xshift=-8pt,yshift=-5pt]$v3$}] at (C) {};
-            \node[draw, circle, fill=black, inner sep=2pt, label={[xshift=-2pt,yshift=-1pt]$v4$}] at (D) {};
-                        
-            \foreach \i/\j in {A/B, A/C, A/D, B/C, B/D, C/D}
-            \draw[thick] (\i) -- (\j);
+            \node[draw, circle, fill=black, inner sep=2pt, label={[xshift=2pt,yshift=-1pt]$v_1$}] at (A) {};
+            \node[draw, circle, fill=black, inner sep=2pt, label={[xshift=-2pt,yshift=-1pt]$v_2$}] at (B) {};
+            \node[draw, circle, fill=black, inner sep=2pt, label={[xshift=-8pt,yshift=-5pt]$v_3$}] at (C) {};
+            \node[draw, circle, fill=black, inner sep=2pt, label={[xshift=-2pt,yshift=-1pt]$v_4$}] at (D) {};
+
+            \draw (A) -- (B); 
+            \draw[thick] (A) -- (C); 
+            \draw[thick] (A) -- (D); 
+            \draw[thick] (B) -- (C); 
+            \draw[thick] (B) -- (D); 
+            \draw[thick] (C) -- (D);                         
             \end{tikzpicture}
 						</script>
                 </div>
@@ -114,7 +135,7 @@
                 <div class="tikz-container"
                   style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">
                   <script type="text/tikz">
-                    \begin{tikzpicture}[scale=1]
+                    \begin{tikzpicture}[scale=1]                    
                     \coordinate (A) at (1,1,1);
                     \coordinate (B) at (-1,1,1);
                     \coordinate (C) at (-1,-1,1);
@@ -127,10 +148,19 @@
                     \foreach \p/\name in {A/1,B/2,C/3,D/4,E/5,F/6,G/7,H/8}
                       \node[draw, circle, fill=black, inner sep=2pt, label={[xshift=-5pt,yshift=-1pt]$\name$}] at (\p) {};
                   
-                    \foreach \i/\j in {A/B, B/C, C/D, D/A,  % top face
-                                       E/F, F/G, G/H, H/E,  % bottom face
-                                       A/E, B/F, C/G, D/H}  % vertical edges
-                      \draw[thick] (\i) -- (\j);
+                    \draw (C) -- (G);
+                    \draw (G) -- (H);
+                    \draw (G) -- (F);
+                    \draw[thick] (A) -- (B);
+                    \draw[thick] (B) -- (C);
+                    \draw[thick] (C) -- (D);
+                    \draw[thick] (D) -- (H);
+                    \draw[thick] (B) -- (F);
+                    \draw[thick] (E) -- (F);
+                    \draw[thick] (A) -- (E);
+                    \draw[thick] (A) -- (D);
+                    \draw[thick] (E) -- (H);
+
                   \end{tikzpicture}
                   </script>
                 </div>
@@ -174,27 +204,9 @@
         </li>
 
         <li>
-          Find the minimum spanning tree of 
-          <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">
-            <script type="text/tikz">
-                \begin{tikzpicture}[scale=1.5]
-                \node[draw, circle, fill=black, inner sep=2pt, label=left:{a}] (a) at (0,0) {};
-                \node[draw, circle, fill=black, inner sep=2pt, label=right:{b}] (b) at (2,0) {};
-                \node[draw, circle, fill=black, inner sep=2pt, label=right:{c}] (c) at (3,1) {};
-                \node[draw, circle, fill=black, inner sep=2pt, label=below left:{d}] (d) at (1.5,1.5) {};                  
-                \node[draw, circle, fill=black, inner sep=2pt, label=above:{e}] (e) at (2,3) {};                  
-                \node[draw, circle, fill=black, inner sep=2pt, label=left:{f}] (f) at (0,2) {};                  
-                \draw[thick] (a) -- (b) node[midway, below] {4};         
-                \draw[thick] (a) -- (c) node[midway, below] {3};         
-                \draw[thick] (b) -- (c) node[midway, below right] {2};         
-                \draw[thick] (b) -- (d) node[midway, above right] {5};         
-                \draw[thick] (c) -- (d) node[midway, above] {3};         
-                \draw[thick] (c) -- (e) node[midway, right] {6};         
-                \draw[thick] (d) -- (e) node[midway, left] {4};         
-                \draw[thick] (d) -- (f) node[midway, above] {7};         
-                \draw[thick] (e) -- (f) node[midway, above] {2};         
-                \end{tikzpicture}
-              </script>
+          Find the minimum spanning tree of: 
+          <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;"> 
+            <img src="../img/mst_exercise.svg" style="width:280px;">
           </div>
         </li>
 
@@ -202,7 +214,7 @@
           The graph \(H\) below represents towns and the the distance in km between neighboring towns.
           <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">
             <script type="text/tikz">
-                \begin{tikzpicture}[scale=1.5]
+                \begin{tikzpicture}[scale=1.8]
                 \node[draw, circle, fill=black, inner sep=2pt, label=left:{Aberdale}] (a) at (0,0) {};
                 \node[draw, circle, fill=black, inner sep=2pt, label=right:{Belmont}] (b) at (2,1) {};
                 \node[draw, circle, fill=black, inner sep=2pt, label=right:{Claremont}] (c) at (3,3) {};
@@ -231,7 +243,7 @@
           <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">
             <span style="padding-right:25px;">Walking:</span>
             <script type="text/tikz">
-              \begin{tikzpicture}[scale=2]
+              \begin{tikzpicture}[scale=2.2]
               \definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
               \definecolor{nred}{rgb}{0.8, 0.45, 0.475} 	
               \node[circle, fill=nred, inner sep=2pt,label={a}] (a) at (0,0) {};	
@@ -251,10 +263,10 @@
           If there were no bus stop at all, then the average travel time (per neighborhood) would be
           \[ \frac{27+18+12+9+3}{5} = 13.8 \text{ minutes}\]
           The bus is three times faster than walking.
-          <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">
+          <!-- <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">
             <span style="padding-right:25px;">Busing:</span>
             <script type="text/tikz">
-                \begin{tikzpicture}[scale=2]
+                \begin{tikzpicture}[scale=2.2]
                 \definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
                 \definecolor{nred}{rgb}{0.8, 0.45, 0.475} 	
                 \node[circle, fill=nred, inner sep=2pt,label={a}] (a) at (0,0) {};	
@@ -270,30 +282,8 @@
                 \draw[draw=nblue,thick] (e) -- (s) node[midway, below] {$1$};
                 \end{tikzpicture}
             </script>
-          </div>
-          <!-- <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">
-              <script type="text/tikz">
-              \begin{tikzpicture}[scale=2]
-              \definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
-              \definecolor{nred}{rgb}{0.8, 0.45, 0.475} 	
-              \node[circle, fill=nred, inner sep=2pt,label={a}] (v0) at (0,0) {};	
-              \node[circle, fill=nred, inner sep=2pt,label={b}] (v1) at (1,0) {};	
-              \node[circle, fill=nred, inner sep=2pt,label={c}] (v2) at (2,0) {};	
-              \node[circle, fill=nred, inner sep=2pt,label={d}] (v3) at (3,0) {};	
-              \node[circle, fill=black, inner sep=4pt, label={S}] (v4) at (4,0) {};	
-              \node[circle, fill=nred, inner sep=2pt,label={e}] (v5) at (5,0) {};	
-              \node[circle, fill=nred, inner sep=2pt,label={f}] (v6) at (6,0) {};	
-              \draw[draw=nblue,thick] (v0) -- (v1) node[midway, below] {$2$};
-              \draw[draw=nblue,thick] (v1) -- (v2) node[midway, below] {$2$};
-              \draw[draw=nblue,thick] (v2) -- (v3) node[midway, below] {$1$};
-              \draw[draw=nblue,thick] (v3) -- (v4) node[midway, below] {$2$};
-              \draw[draw=nblue,thick] (v4) -- (v5) node[midway, below] {$2$};
-              \draw[draw=nblue,thick] (v5) -- (v6) node[midway, below] {$3$};
-              \end{tikzpicture}
-            </script>
-            </div> -->
+          </div> -->          
           Because there is only one bus stop, students will need to walk either to the bus stop or to school.
-
           <ol type="a">
             <li>Determine the average travel time when the bus stop is placed at each of the locations a through e.
             </li>

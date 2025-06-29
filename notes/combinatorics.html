@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing and Data Science</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../header.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../boxes.css" />
+  <script src="../notes.js"></script>
+
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <a href="../index.html" class="header-title">
+      <svg class="header-img" viewBox="0 0 1024 1024" fill="currentColor" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m 712,294 a 56,56 0 1 0 112,0 56,56 0 1 0 -112,0 z" id="path5" />
+        <path d="m 564,608 a 96,96 0 1 0 192,0 96,96 0 1 0 -192,0 z" id="path4" />
+        <path d="m 406,380 a 48,48 0 1 0 96,0 48,48 0 1 0 -96,0 z" id="path3" />
+        <path d="m 288,604 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z" id="path2" />
+        <path
+          d="M 888,792 H 200 V 168 c 0,-4.4 -3.6,-8 -8,-8 h -56 c -4.4,0 -8,3.6 -8,8 v 688 c 0,4.4 3.6,8 8,8 h 752 c 4.4,0 8,-3.6 8,-8 v -56 c 0,-4.4 -3.6,-8 -8,-8 z"
+          id="path1" />
+      </svg>
+      <span>Computing and Data Science</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Combinatorics</h1>
+      <p>
+        Combinatorics is the mathematics of counting.
+      </p>
+      <p>
+        Some of the combinatorics content is adapted from the fantastic and highly recommended <a href="https://www.mathematicalgemstones.com/maria/OER.html">Counting Rocks!</a> OER under the <a href="https://creativecommons.org/licenses/by/4.0/">creative commons Attribution 4.0</a> license. 
+      </p>
+    </section>
+
+    <section class="content">
+      <h2>Counting</h2>
+      <h4>Adding</h4>
+
+      <p>
+      <div class="definition-box">
+        <h4>Definition &mdash; Addition Principle</h4>
+        <p>
+          The sum \(a+b\) counts the total number of things in a collection formed by adding a collection of \(b\)
+          things to a collection of \(a\) things.
+        </p>
+      </div>
+      </p>
+      <p>
+        For example, suppose we wish to count the number of two-digit positive integers that end in either \(0\) or
+        \(1\). We can first count those that end in \(0\): there are \(9\) of them, one for each possible tens digit.
+        There are also, similarly, \(9\) of them that end in \(1\). So there are \(9+9=18\) such numbers in total.
+      </p>
+
+      <p>
+        It is helpful to think about this as the union of two <strong>disjoint</strong> sets.
+      <div style="text-align: center;">
+        \( a+b = |A \cup B| \)
+        <div class="tikz-container" style="display:flex; justify-content: center;">
+          <script type="text/tikz">
+                  \begin{tikzpicture}
+                  % Universal set rectangle
+                  \draw[thick] (-2.5,-2) rectangle (6,2);
+  
+                  % Union shading
+                  \begin{scope}
+                  \clip (-2.5,-2) rectangle (6,2);
+                  \fill[blue!45] (0,0) circle (1.5cm);    
+                  \fill[blue!45] (3.5,0) circle (1.5cm);
+                  \end{scope}
+  
+                  % Set A and B outlines
+                  \draw (0,0) circle (1.5cm);
+                  \draw (3.5,0) circle (1.5cm);
+                  \node at (-1.8, 0) {\(A\)};
+                  \node at (5.3, 0) {\(B\)}; 
+  
+                  \end{tikzpicture}
+                </script>
+        </div>
+      </div>
+      </p>
+      <p>
+        It is improtant that these sets are disjoint, otherwise we would be double-counting elements. Consider counting
+        people who like baseball or hockey when some people like both.
+      </p>
+      <p>
+        If it is the case that our sets are not disjoint, we can account for the overlap by subtracting one of
+        everything we double-counted.
+      </p>
+      <p>
+      <div style="text-align: center;">
+        \(|A \cup B| = |A| + |B| - |A \cap B| \)
+        <div class="tikz-container" style="display:flex; justify-content: center;">
+          <script type="text/tikz">
+                  \begin{tikzpicture}
+                  % Universal set rectangle
+                  \draw[thick] (-2.5,-2) rectangle (4,2);
+  
+                  % Union shading
+                  \begin{scope}
+                  \clip (-2.5,-2) rectangle (4,2);
+                  \fill[blue!45] (0,0) circle (1.5cm);
+                  \fill[blue!45] (1.5,0) circle (1.5cm);
+                  \end{scope}
+  
+                  % Set A and B outlines
+                  \draw (0,0) circle (1.5cm);
+                  \draw (1.5,0) circle (1.5cm);
+                  \node at (-1.8, 0) {\(A\)};
+                  \node at (3.3, 0) {\(B\)}; 
+  
+                  \end{tikzpicture}
+                </script>
+        </div>
+      </div>
+      </p>
+      <p>
+        The above is the <strong>principle of inclusion-exclusion for two sets</strong>, which is fun to visualize: 
+        <table style="margin:auto;">
+          <tr>
+            <td style="vertical-align:middle;text-align:center;">
+              <script type="text/tikz">
+                \begin{tikzpicture}[scale=0.6,transform shape]
+                        % Universal set rectangle
+                        \draw[thick] (-2.5,-2) rectangle (4,2);
+        
+                        % Union shading
+                        \begin{scope}
+                        \clip (-2.5,-2) rectangle (4,2);
+                        \fill[blue!45] (0,0) circle (1.5cm);
+                        \fill[blue!45] (1.5,0) circle (1.5cm);
+                        \end{scope}
+        
+                        % Set A and B outlines
+                        \draw (0,0) circle (1.5cm);
+                        \draw (1.5,0) circle (1.5cm);
+                        \node at (-1.6, 1) {\(A\)};
+                        \node at (3.1, 1) {\(B\)}; 
+        
+                        \end{tikzpicture}
+              </script>
+            </td>
+            <td style="vertical-align:middle;text-align:center;">
+              \(=\)
+            </td>
+            <td style="vertical-align:middle;text-align:center;">
+              <script type="text/tikz">
+                \begin{tikzpicture}[scale=0.6,transform shape]
+                        % Universal set rectangle
+                        \draw[thick] (-2.5,-2) rectangle (4,2);
+        
+                        % Union shading
+                        \begin{scope}
+                        \clip (-2.5,-2) rectangle (4,2);
+                        \fill[blue!45] (0,0) circle (1.5cm);
+                        %\fill[blue!45] (1.5,0) circle (1.5cm);
+                        \end{scope}
+        
+                        % Set A and B outlines
+                        \draw (0,0) circle (1.5cm);
+                        \draw (1.5,0) circle (1.5cm);
+                        \node at (-1.6, 1) {\(A\)};
+                        \node at (3.1, 1) {\(B\)}; 
+        
+                        \end{tikzpicture}
+              </script>
+            </td>
+            <td style="vertical-align:middle;text-align:center;">
+              \(+\)
+            </td>
+            <td style="vertical-align:middle;text-align:center;">
+              <script type="text/tikz">
+                \begin{tikzpicture}[scale=0.6,transform shape]
+                        % Universal set rectangle
+                        \draw[thick] (-2.5,-2) rectangle (4,2);
+        
+                        % Union shading
+                        \begin{scope}
+                        \clip (-2.5,-2) rectangle (4,2);
+                        %\fill[blue!45] (0,0) circle (1.5cm);
+                        \fill[blue!45] (1.5,0) circle (1.5cm);
+                        \end{scope}
+        
+                        % Set A and B outlines
+                        \draw (0,0) circle (1.5cm);
+                        \draw (1.5,0) circle (1.5cm);
+                        \node at (-1.6, 1) {\(A\)};
+                        \node at (3.1, 1) {\(B\)}; 
+        
+                        \end{tikzpicture}
+              </script>
+            </td>
+            <td style="vertical-align:middle;text-align:center;">
+              \(-\)
+            </td>
+            <td style="vertical-align:middle;text-align:center;">
+              <script type="text/tikz">
+                \begin{tikzpicture}[scale=0.6,transform shape]
+                % Universal set rectangle
+                \draw[thick] (-2.5,-2) rectangle (4,2);
+                
+                % Intersection shading
+                \begin{scope}
+                \clip (-2.5,-2) rectangle (4,2); % Clip to universal set
+                \begin{scope}
+                \clip (0,0) circle (1.5cm);
+                \fill[blue!45] (1.5,0) circle (1.5cm);
+                \end{scope}
+                \end{scope}
+                
+                % Set A and B outlines
+                \draw (0,0) circle (1.5cm);
+                \draw (1.5,0) circle (1.5cm);
+                \node at (-1.6, 1) {\(A\)};
+                \node at (3.1, 1) {\(B\)}; 
+        
+                        \end{tikzpicture}
+              </script>
+            </td>
+          </tr>
+        </table>
+
+        
+      </p>
+
+      <p>
+        <div class="exercise">
+          <h4>Exercise</h4>
+          <p>In a group of \(30\) people, \(18\) like baseball and \(12\) like hockey. If \(5\) people like both, then how many people like at least one of baseball or hockey?</p>
+          <button onclick="toggleSolution(this)" class="exercise-button">Show Solution</button>
+          <div class="solution">
+            <p>
+              Let \(B\) be the set of people who like baseball. Similarly, \(H\) for those who like hockey. We are given:
+              \[ |B| = 18 \]
+              \[ |H| = 12 \]
+              \[ |B \cap H| = 5 \]
+              We can apply the principle of inclusion-exclusion to get:
+              \[ |B \cup H| = |B| + |H| - |B \cap H| \]
+              \[ |B \cup H| = 18 + 12 - 5 = 25 \]
+            </p>
+          </div>
+        </div>
+        </p>
+
+      <h4>Multiplying</h4>
+      <p>
+      <div class="definition-box">
+        <h4>Definition &mdash; Multiplication Principle</h4>
+        <p>
+          The product \(a \cdot b\) counts the number of ways to choose one thing in \(a\) ways followed by another in
+          \(b\) ways.
+        </p>
+      </div>
+      </p>
+      <p>
+        For example, we want to count the number of ways we can flip a coin and roll a die. There are \(2\) possible
+        outcomes from our coin, and \(6\) from our die. This gives us \(2 \cdot 6 = 12\) possible outcomes.
+      </p>
+      <p>
+        A tree is a useful way of visualizing the multiplication principle.
+      <div class="tikz-container" style="display:flex; justify-content: center;margin-top:2em;margin-bottom:2em;">
+        <script type="text/tikz">
+              \begin{tikzpicture}[
+              level distance=11mm,
+              level 1/.style={thick,sibling distance=56mm},
+              level 2/.style={sibling distance=8mm},
+              edge from parent/.style={draw, -latex},
+              every node/.style={font=\footnotesize},
+              scale=1.5, transform shape
+              ]
+
+              \node {Start}
+              child {node {Heads}
+                child {node {1}}
+                child {node {2}}
+                child {node {3}}
+                child {node {4}}
+                child {node {5}}
+                child {node {6}}
+              }
+              child {node {Tails}
+                child {node {1}}
+                child {node {2}}
+                child {node {3}}
+                child {node {4}}
+                child {node {5}}
+                child {node {6}}
+              };
+
+              \end{tikzpicture}
+            </script>
+      </div>
+      There are \(2\) outcomes from the coin flip, each with \(6\) subsequent flips. Notice that there are 12 vertices
+      at the bottom of this tree. Rolling a \(5\), for example, could have happend two different ways:
+      \[ \text{Heads} \to 5 \]
+      \[ \text{Tails} \to 5 \]
+      </p>
+
+      <h2>Permutation</h2>
+      <p>
+        A <strong>permutation</strong> is an ordered arrangment. Consider the letters \(\text{CAT}\). We can arrange
+        these letters in six unique ways:
+        \[\text{ACT}\]
+        \[\text{ATC}\]
+        \[\text{CAT}\]
+        \[\text{CTA}\]
+        \[\text{TAC}\]
+        \[\text{TCA}\]
+
+        which we can visualize as a tree:
+
+      <div class="tikz-container" style="display:flex; justify-content: center;margin-top:2em;margin-bottom:2em;">
+        <script type="text/tikz">
+            \begin{tikzpicture}[
+            level distance=10mm,
+            level 1/.style={thick,sibling distance=24mm},
+            level 2/.style={sibling distance=10mm},
+            level 3/.style={sibling distance=10mm},
+            edge from parent/.style={draw, -latex},
+            every node/.style={font=\footnotesize},
+            scale=1.5, transform shape
+            ]
+
+            \node {Start}
+            child {node {A}
+              child {node {C} 
+                child {node {T}}}
+              child {node {T}
+                child {node {C}}}
+            }
+            child {node {C}
+              child {node {A} 
+                child {node {T}}}
+              child {node {T}
+                child {node {A}}}
+            }
+            child {node {T}
+              child {node {A} 
+                child {node {C}}}
+              child {node {C}
+                child {node {A}}}
+            };
+
+            \end{tikzpicture}
+            </script>
+      </div>
+      </p>
+      <p>
+        There are three letters to choose for the first item in the arrangement. After the first letter is "used", there
+        are two remaining letters to choose from. After the first two letters, there is one remaining letter. This leads
+        to a number of permutations given by:
+        \[3 \cdot 2 \cdot 1 = 6\]
+      </p>
+      <p>
+        Generally, given \(n\) unique items, we can arrange them in \(n \cdot(n-1) \cdot (n-2) \cdot ... \cdot 1 = n!\)
+        ways.
+      </p>
+      <p>
+        Arranging \(n\) items, we may write
+        \[P(n) = n! \]
+        to represent the number of permutations for \(n\) items.
+        If we are arranging \(r\) items from a collection of size \(n\), we have
+        \[P(n,r) = \frac{n!}{(n-r)!} \]
+        permutations.
+      </p>
+
+
+      <h2>Combination</h2>
+      <p>
+        A <strong>combination</strong> is a collection of items (order does not matter). All of the examples of
+        \(\text{CAT}\) from above are the same collection: They all contain \(\text{C}\), \(\text{A}\), and
+        \(\text{T}\).
+      </p>
+      <p>
+        From the collection of letters \(\text{CAT}\), we can choose combinations of size 0, 1, 2, or 3.
+      <ul>
+        <li>There is \(1\) ways to choose \(0\) items: </li>
+        <li>There are \(3\) ways to choose \(1\) item: \(\text{C}\), \(\text{A}\), and \(\text{T}\) </li>
+        <li>There are \(3\) ways to choose \(2\) items: \(\text{AC}\), \(\text{AT}\), and \(\text{CT}\) </li>
+        <li>There is \(1\) way to choose \(3\) items: \(\text{CAT}\) </li>
+      </ul>
+      Because order does not matter in a combination, then similar to a set we have: \(\text{CAT}=\text{ATC}=\text{TAC}\), etc.
+      </p>
+      <p>
+        Given \(n\) items, the number of combinations of \(r\) items is stated "\(n\) choose \(r\)" and given by:
+        \[C(n,r) = {n \choose r} = \frac{n!}{r!(n-r)!} \]
+      </p>
+
+      <h4>Pascal's Triangle</h4>
+      <div style="text-align:center;">
+        <img src="../img/pascal.svg" style="height:280px;">
+        <img src="../img/pascal_ncr.svg" style="height:280px;">
+      </div>
+      <p>
+        One method of constructing <a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">Pascal's triangle</a> is to form two diagonals of \(1\)s, then every number is the sum of the two numbers above it. 
+        This constructions is exactly equivalent to the triangle of \(n \choose r\) where we count down \(n\) rows on the left and then over \(r\) spaces.
+      </p>
+      <p>
+        This seemingly simple triangle contains infinite patterns and is especially important in combinatorics. 
+      </p>
+
+
+    </section>
+
+  </main>
+</body>
+
+</html>

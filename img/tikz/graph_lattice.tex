@@ -1,0 +1,36 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+\thispagestyle{empty}
+\begin{document}
+\definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
+\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 		
+\begin{tikzpicture}[thick,scale=1.5]						
+
+\foreach \i in {0,1,2,3,4,5} {
+	\foreach \j in {0,1,2,3} {
+	\node[circle, fill=nred, inner sep=2pt] (v\i\j) at (\i, \j) {};	
+    }
+}
+\foreach \i in {0,1,2,3,4,5} {
+	\draw[draw=nblue,thick] (v\i0) -- (v\i1) node[midway, right] {};
+	\draw[draw=nblue,thick] (v\i1) -- (v\i2) node[midway, right] {};
+	\draw[draw=nblue,thick] (v\i2) -- (v\i3) node[midway, right] {};
+}
+\foreach \i in {0,1,2,3} {
+	\draw[draw=nblue,thick] (v0\i) -- (v1\i) node[midway, above] {};
+	\draw[draw=nblue,thick] (v1\i) -- (v2\i) node[midway, above] {};
+	\draw[draw=nblue,thick] (v2\i) -- (v3\i) node[midway, above] {};
+	\draw[draw=nblue,thick] (v3\i) -- (v4\i) node[midway, above] {};
+	\draw[draw=nblue,thick] (v4\i) -- (v5\i) node[midway, above] {};
+}
+
+	\node[circle, fill=nred, inner sep=2pt, label=left:{start}] (vstart) at (0,0) {};	
+	\node[circle, fill=nred, inner sep=2pt, label=right:{goal}] (vend) at (5,3) {};	
+
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+\thispagestyle{empty}
+\begin{document}
+	
+\begin{tikzpicture}[scale=1, thick]
+
+
+\definecolor{nred}{rgb}{0.8, 0.45, 0.475} 	
+
+% Draw the staircase
+\foreach \i in {0,...,5} {
+	% Horizontal segment
+	\draw (\i, \i) -- (\i+1, \i);
+	% Vertical segment (skip last)
+	\ifnum\i<5
+	\draw (\i+1, \i) -- (\i+1, \i+1);
+	\fi
+	% Label underneath
+	\node at (\i+0.5, \i-0.2) {\small $S_\i$};
+}
+
+\draw[->, ultra thick,draw=nred] (2.5,2.01) to[out=100, in=100, looseness=2] (3.5,3.01);
+\node (l) at (2.8,3.7) {+1};
+
+
+\end{tikzpicture}
+
+\end{document}
