@@ -115,7 +115,7 @@
         \[x_1 = F(x_0)\]
         \[x_2 = F(x_1) = F(F(x_0))\]
         \[x_3 = F(x_2) = F(F(F(x_0)))\]
-        \[x_n = F(x_{n-1}) =   F((F_{n-1})) \]
+        \[x_n = F(x_{n-1}) = F^{n}(x_0) \]
       </p>
       <p>
         We will use a superscript notation \(x_n = F^{n}(x_0)\) to represent \(n\) iterations of a dynamical system on an initial value \(x_0\text{.}\)
@@ -264,8 +264,10 @@
           <p>
             A \(2\)-cycle periodic orbit under \(F\) exists if there is some value \(x_0\) for which:
             \[ F(F(x_0)) = x_0 \]
+            and \(F((x_0)) \neq x_0 \text{.}\)
             More generally, an \(n\)-cycle periodic orbit exists if there is some value \(x_0\) for which:
             \[ F^{n}(x_0) = x_0 \]
+            where the value of \(x\) does not repeat until the \(n^{th}\) term (a full cycle). 
           </p>
 
           <p>
