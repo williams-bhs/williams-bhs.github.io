@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing and Data Science</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../header.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../boxes.css" />
+  <script src="../notes.js"></script>
+
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <a href="../index.html" class="header-title">
+      <svg class="header-img" viewBox="0 0 1024 1024" fill="currentColor" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m 712,294 a 56,56 0 1 0 112,0 56,56 0 1 0 -112,0 z" id="path5" />
+        <path d="m 564,608 a 96,96 0 1 0 192,0 96,96 0 1 0 -192,0 z" id="path4" />
+        <path d="m 406,380 a 48,48 0 1 0 96,0 48,48 0 1 0 -96,0 z" id="path3" />
+        <path d="m 288,604 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z" id="path2" />
+        <path
+          d="M 888,792 H 200 V 168 c 0,-4.4 -3.6,-8 -8,-8 h -56 c -4.4,0 -8,3.6 -8,8 v 688 c 0,4.4 3.6,8 8,8 h 752 c 4.4,0 8,-3.6 8,-8 v -56 c 0,-4.4 -3.6,-8 -8,-8 z"
+          id="path1" />
+      </svg>
+      <span>Computing and Data Science</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Feedback</h1>
+      <p>
+        A <strong>system</strong> is something that has <strong>state</strong>. A dynamical system is a system that
+        changes over time.
+      </p>
+      <p>
+        The notes below introduce some foundational concepts in dynamical systems and chaos theory. Fantastic work was
+        done decades ago to make the profound implications of this work accessible to a broader audience. Of particular
+        note is the work of Robert L. Devaney who can be seen explaining many of these concepts <a
+          href="https://www.youtube.com/watch?v=TVfn6P4Z4-8">here</a>. Also of note is the work of Steven Strogatz, who's fantastic course <a href="https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V">Nonlinear Dynamics and Chaos</a> is available online.
+      </p>
+    </section>
+
+    <section class="content">
+      <h2>Function</h2>
+      <p>
+        A <strong>function</strong> takes in some input and evaluates an output.
+        You may be familiar with function
+        notation like this:
+        \[S(x) = \sqrt{x}\]
+        which defines a function \(S\) that takes an input \(x\) and evaluates the output as the square-root of \(x\).
+        For example,
+        \[ S(64) = 8 \]
+        \[ S(5929) = 77 \]
+        \[ S(42) \approx 6.48074 \]
+        For real numbers, the <strong>domain</strong> of \(S(x)\) is all valid inputs \(x \geq 0\), and the
+        <strong>codomain</strong> is all possible outputs \(y \geq 0\).
+      </p>
+
+      <h2>Feedback</h2>
+      <p>
+
+        It can be useful to represent the process of evaluating a function \(F(x)\) with a block diagram:
+      <div class="tikz-container" style="display:flex; justify-content: center;">
+        <script type="text/tikz">
+            \begin{tikzpicture}[thick]
+
+            % Function block
+            \node[draw, rectangle, minimum width=2cm, minimum height=1cm] (block) at (0,0) {F(x)}; 
+            
+            % Input arrow 
+            \coordinate (instart) at ($(block.west)+(-1.5,0)$);
+            \coordinate (inmid) at ($(block.west)+(-0.75,0)$);
+            \draw[->] (instart) -- (block.west);
+          
+            % Output arrow 
+            \coordinate (outend) at ($(block.east)+(1.5,0)$);
+            \coordinate (outmid) at ($(block.east)+(0.75,0)$);
+            \draw[->] (block.east) -- (outend);
+          
+            % Labels
+            \node at ($(instart)+(-0.2,0)$) {\large $x$};
+            \node at ($(outend)+(0.2,0)$) {\large $y$};
+            \end{tikzpicture}
+              </script>
+      </div>
+      </p>
+      <p>
+        <strong>Feedback</strong> is a procedure where the output of a process is fed back into the input. Each time
+        this happens is one <strong>iteration</strong>. Starting with some <strong>initial condition</strong> \(x_{0}\),
+        we iterate the function on \(x_{0}\) to get the output \(x_1\), then iterate to get \(x_2\), etc.
+      </p>
+      <div class="tikz-container" style="display:flex; justify-content: center;">
+        <img src="../img/number_feedback.svg">
+      </div>
+      <p>
+
+      </p>
+      <p>For example, taking the output of \(F(16)=4\) and putting it back into \(F(x)\) to get \(F(F(16)) =
+        \sqrt{\sqrt{16}} = 2 \)
+        After providing an initial value \(x_0\), we can <strong>iterate</strong> in \(F(x)\).
+        \[F((F(x))) = \sqrt{\sqrt{x}}\]
+      </p>
+      <p>
+        Given an initial condition \(x_0\), then have:
+        \[x_1 = F(x_0)\]
+        \[x_2 = F(x_1) = F(F(x_0))\]
+        \[x_3 = F(x_2) = F(F(F(x_0)))\]
+        \[x_n = F(x_{n-1}) =   F((F_{n-1})) \]
+      </p>
+      <p>
+        We will use a superscript notation \(x_n = F^{n}(x_0)\) to represent \(n\) iterations of a dynamical system on an initial value \(x_0\text{.}\)
+      </p>
+
+      <p>
+        This process of feedback, where the state of a system at the next step is dependent on the current state of the system, is fundamental to dynamical systems and arises across many domains. 
+      </p>
+      <p>
+        Consider a movie recommendation system on a streaming service. One input that such a system is likely to take
+        includes the movies a user has already watched. These are a factor in determining recommendations for other
+        movies to watch. The user may or may not watch those recommended movies which changes the input for the next
+        recommendation.
+      </p>
+      <div class="tikz-container" style="display:flex; justify-content: center;">
+        <script type="text/tikz">
+            \begin{tikzpicture}[thick]
+            % Main algorithm block
+            \node[draw, rectangle, minimum width=4.5cm, minimum height=1.5cm, align=center] (block) at (0,0) {Movie\\Recommendation\\Algorithm};
+            
+            % Input side
+            \coordinate (instart) at ($(block.west)+(-3,0)$);
+            \coordinate (inmid) at ($(block.west)+(-1.5,0)$);
+            \draw[->] (instart) -- (block.west);
+            \node[draw, circle, minimum size=4pt, inner sep=0pt, fill=black] (leftnode) at (inmid) {};
+            \node[align=center, above=2pt] at (leftnode) {Movies\\Watched};
+          
+            % Output side
+            \coordinate (outend) at ($(block.east)+(1.75,0)$);
+            \coordinate (outmid) at ($(block.east)+(1.8,0)$);
+            \draw[->] (block.east) -- (outend);
+            \node[draw, circle, minimum size=4pt, inner sep=0pt, fill=black] (rightnode) at (outmid) {};
+            \node[align=center, above=2pt] at (rightnode) {Movie\\Recommendations};
+          
+            % Feedback path with intermediate block
+            \coordinate (fbdown1) at ($(rightnode)+(0,-2.5)$);
+            \coordinate (fbdown2) at ($(leftnode)+(0,-2.5)$);
+            
+            % User behavior filter block
+            \node[draw, rectangle, minimum width=3.8cm, minimum height=1cm, align=center] (filter) at ($(rightnode)!0.5!(leftnode)+(0,-2.5)$) {User's Choices\\and Habits};
+            
+            % Connecting feedback arrows
+            \draw[->] (rightnode) -- (fbdown1) -- (filter.east);
+            \draw[->] (filter.west) -- (fbdown2) -- (leftnode);
+          
+            \end{tikzpicture}
+          </script>
+      </div>
+
+      <p>
+        A real system can be far more complex.
+        Other examples of feedback systems include:
+        <ul>
+          <li>Home thermostat</li>
+          <li>A car's cruise control</li>
+          <li>Population growth</li>
+          <li>A video camera being show its own video feed</li>
+          <li>Technological advancement</li>
+          <li>College rankings</li>
+        </ul>
+        In each of these cases, the next state of the system depends on the current state of the system. 
+      </p>
+
+
+
+      <h2>Orbit</h2>
+      <p>
+        Given an initial value \(x_0\), iterating in a function \(F(x)\) generates a sequence of outputs we call the
+        <strong>orbit</strong> of \(x_0\). Consider the dynamical system: 
+        \[F(x) = x^2 - \sin(x) \]
+        Below are the first 20 values in the orbits of \(x_0 = -0.1, 0.23, 1, 1.5,\) and \(2\text{.}\) 
+        <style>
+          #orbittable tr td {
+            padding-left:15px;
+          }
+        </style>
+        <table style="margin:auto;font-size:80%;" id="orbittable">          
+        <tr style="font-weight:bold;"><td>n </td> <td>\(x_0 = -0.1\)  </td><td>	\(x_0=0.23\)</td><td>	\(x_0=1\)</td>	<td>\(x_0=1.5\)</td>	<td>\(x_0=2\)</td></tr>
+        <tr><td>1	</td> <td> 0.1098334166	  </td><td>-0.1750775235  </td><td>	0.1585290152</td><td>	1.252505013	  </td><td>3.090702573</td></tr>
+        <tr><td>2	</td> <td>-0.09754934336 	</td><td>0.2048366158	  </td><td>-0.1327343898</td><td>	0.6189972808	</td><td>9.501574278</td></tr>
+        <tr><td>3	</td> <td>0.1069105801	  </td><td>-0.1614491549  </td><td>	0.1499633895</td><td>	-0.1970611434	</td><td>90.35663462</td></tr>
+        <tr><td>4	</td> <td>-0.09527716197	</td><td>0.1868145137	  </td><td>-0.1269129148</td><td>	0.2346212961	</td><td>8163.640109</td></tr>
+        <tr><td>5	</td> <td>0.1042108148  	</td><td>-0.1508301185  </td><td>	0.1426793817</td><td>	-0.1774275213	</td><td>66645018.85</td></tr>
+        <tr><td>6	</td> <td>-0.09316240354	</td><td>0.1730086027	  </td><td>-0.1218383712</td><td>	0.2079785922	</td><td>4.44156E+15</td></tr>
+        <tr><td>7	</td> <td>0.1017069324	  </td><td>-0.1422148353  </td><td>	0.1363817435</td><td>	-0.1632273811	</td><td>1.97274E+31</td></tr>
+        <tr><td>8	</td> <td>-0.09118737513	</td><td>0.1619609953	  </td><td>-0.1173593736</td><td>	0.189146708	  </td><td>3.89172E+62</td></tr>
+        <tr><td>9	</td> <td>0.09937619245  	</td><td>-0.1350224831  </td><td>	0.1308633788</td><td>	-0.1522444128	</td><td>1.51455E+125</td></tr>
+        <tr><td>10</td>	<td>-0.08933707853	</td><td>0.1528436605	  </td><td>-0.1133649638</td><td>	0.174835326	  </td><td>2.29386E+250</td></tr>
+        <tr><td>11</td>	<td>0.09719940465	  </td><td>-0.1288880692  </td><td>	0.1259739144</td><td>	-0.1433785851	</td><td>Explodes... </td></tr>
+        <tr><td>12</td>	<td>-0.08759870047	</td><td>0.1451436488	  </td><td>-0.1097715626</td><td>	0.1634452596	</td><td> </td></tr>
+        <tr><td>13</td>	<td>0.09516024386	  </td><td>-0.1235678908  </td><td>	0.1216010371</td><td>	-0.1360041557	</td><td> </td></tr>
+        <tr><td>14</td>	<td>-0.08596121671	</td><td>0.1385226942	  </td><td>-0.1065147644</td><td>	0.1540823926	</td><td> </td></tr>
+        <tr><td>15</td>	<td>0.09324472062   </td><td>-0.1188915743  </td><td>	0.117658865	</td><td>-0.129732044	  </td><td> </td></tr>
+        <tr><td>16</td>	<td>-0.08441508084	</td><td>0.1327468858	  </td><td>-0.1035439738</td><td>	0.1461988463	</td><td> </td></tr>
+        <tr><td>17</td>	<td>0.09144076678	  </td><td>-0.1147356217  </td><td>	0.1140804055</td><td>	-0.1243044884	</td><td> </td></tr>
+        <tr><td>18</td>	<td>-0.0829519772	  </td><td>0.1276483153	  </td><td>-0.1008187807</td><td>	0.1394362241	</td><td> </td></tr>
+        <tr><td>19</td>	<td>0.08973790793	  </td><td>-0.1110078529  </td><td>	0.1108124999</td><td>	-0.119542372	</td><td> </td></tr>
+        <tr><td>20</td>	<td>-0.08156462268	</td><td>0.1231027499	  </td><td>-0.0983064436</td><td>	0.1335482365	</td><td> </td></tr>
+      </table>
+      </p>
+      <p>
+      Spreadsheets are excellent tools for exploring systems like this. 
+      </p>
+
+      <h2>Types of Orbits</h2>
+
+      <p>
+        There are many interesting types of orbits in dynamical systems. We will take a closer look at:
+        <ul>
+          <li>Convergent </li>
+          <li>Divergent </li>
+          <li>Constant (fixed point)</li>
+          <li>Periodic (cyclic)</li>
+          <li>Chaotic</li>
+        </ul>
+      </p>
+
+          <h3>Convergent and Divergent Orbits</h3>
+          <p>
+            An orbit <strong>converges</strong> if it approaches a constant \(c\), i.e., 
+            \[ \lim_{n \to \infty} x_n = c \]      
+            Our square root system, \(S(x)=\sqrt{x}\), converges toward \(1\) for all positive values.       
+          </p>
+          <p>
+            An orbit <strong>diverges</strong> if it does not converge, but we are especially interested in divergent orbits when they go off toward \(\pm \infty \text{.}\) 
+            Consider the doubling system, \(D(x)=2x\). The orbit of any positive value \(x_0\) will go toward \(\infty\) under \(D(x)\), while the orbit of any negative \(x_0\) goes toward \(-\infty\text{.}\)
+          </p>          
+          <h3>Fixed Point</h3>
+          <p>
+            A <strong>fixed point</strong> in a dynamical system \(F(x)\) is a value \(x^{*}\) such that \[F(x^{*}) = x^{*}\]
+            \(S(x)=\sqrt{x}\) has two fixed points: \(x^{*}=0\) and \(x^{*}=1\). 
+          </p>
+          <p>
+            Finding fixed points may involve analytical, numerical, or graphical solutions. Graphically, finding a point on \(F\) such that \(F(x)=x\) is equivalent to finding an intersection between \(F(x)\) and \(y=x\). 
+          </p>
+          <div style="text-align:center;">
+            <img src="../img/sqrtgraphical.svg" style="max-width:300px;border:1px solid gray;">
+          </div>
+          
+          <h3>Periodic Orbit</h3>
+          <p>
+            A <strong>periodic orbit</strong> is an orbit which contains a <strong>cycle</strong>, or repeating sequence of values. 
+            A fixed point is really a \(1\)-cycle periodic orbit! 
+            An example of a \(2\)-cycle is the orbit of \(x_0=3\) under \(A(x)=-x\), which we find to be: \(3,-3,3,-3,...\text{.}\)            
+          </p>
+          <p>
+            A \(2\)-cycle periodic orbit under \(F\) exists if there is some value \(x_0\) for which:
+            \[ F(F(x_0)) = x_0 \]
+            More generally, an \(n\)-cycle periodic orbit exists if there is some value \(x_0\) for which:
+            \[ F^{n}(x_0) = x_0 \]
+          </p>
+
+          <p>
+            Let's try a tougher one. Let's find a \(3\)-cycle under \(C(x)=\pi \cos(x)\). Such an orbit exists if there is some \(x_0\) for which:
+            \[ C^{3}(x_0) =  C(C(C(x_0))) = x_0\]
+            This isn't one we are going to solve analytically, so let's try to find a solution graphically, finding the intersection of \(C^{3}(x)\) with \(y=x\). 
+          </p>
+          <div style="text-align:center;">
+            <img src="../img/picos.png" style="border:1px solid gray;max-width:95%;">            
+          </div>
+          <p>
+            It turns out that there are several intersections. But be careful! Some of those are actually \(1\) and \(2\)-cycles. Checking \(x_0=1.9924\), we see that it indeed cycles from:
+            \[x_0 = 1.9924 \]
+            \[x_1 = -1.2856 \]
+            \[x_2 = 0.8838 \]
+            \[x_3 = 1.9924 \]
+            It is true that the value \(x_0=1.9924\) is not exact, but we can at least see graphically that the point exists, it is part of a \(3\)-cycle, and it is very close to \(1.9924\). 
+          </p>
+          <h3>Chaotic Orbit</h3>
+          <p>
+            Some dynamical systems exhibit a phenomenon known as <strong>chaos</strong>. 
+            Chaos refers to a system that is <strong>deterministic</strong> but which exhibits <strong>sensitive dependence on initial conditions</strong>.
+          </p>
+          <p>
+            <strong>Determinism</strong> is the concept that given initial conditions and the set of laws to be followed, all future states of a system can be <em>determined</em> exactly. 
+            That is, a deterministic system is perfectly <strong>predictable</strong>. 
+          </p>
+          <p>
+            <strong>Sensitive dependence on initial conditions</strong> means that even extremely small variations in inital conditions can lead to completely different behaviors or predictions. 
+            Recall Poincaré in <em>Science and Reason</em> who concluded that because "we could still only know the initial situation approximately", "prediction becomes impossible".
+            It is not that we cannot measure, and it is not that we cannot predict, but that to make perfect predictions would require both perfect models and perfect data, which do not exist. 
+          </p>
+
+          <p>
+            The graph below depicts two orbits in the same dynamical system, for nearly identical initial values \(x_0\). 
+            <div style="text-align: left;padding-left:40%;">
+            <span style="color:#c74440">\(x_0 = 8 \)</span> <br> 
+            <span style="color:#1362ac">\(x_0 = 8.00001\)</span>
+          </div>
+          </p>
+          <div style="text-align:center;">
+            <img src="../img/chaotic.png" style="max-width:500px;border: 1px solid gray;">
+          </div>
+          <p>
+            The orbits are indistinguishable for ten iterations, but then separate into two completely different behaviors which will never meet again.             
+          </p>
+          <p>
+            The concept of chaos has profound implications for our understanding, building, and deploying of data models. 
+          </p>
+
+<hr>
+
+
+
+
+
+
+      <h2>References</h2>
+      <div class="reference">
+        Birhane, Abeba. The Impossibility of Automating Ambiguity. Artif Life 2021; 27 (1): 44-61. 
+      </div>
+      <div class="reference">
+        Devaney, Robert L. 1990. Chaos, fractals, and dynamics: computer experiments in
+        mathematics. Addison-Wesley Longman Publishing Co., Inc., USA.</div>
+      <div class="reference">
+        Devaney, Robert L. 1991. A First Course in Chaotic Dynamical Systems : Theory and Experiment. Reading, Mass.
+        . Addison-Wesley.
+      </div>
+      <div class="reference">
+        Devaney, Robert L. Chaos, Fractals and Dynamics: Computer Experiments in Mathematics. <a href="https://www.youtube.com/watch?v=TVfn6P4Z4-8">https://www.youtube.com/watch?v=TVfn6P4Z4-8</a>
+      </div>
+      <div class="reference">
+        Devaney, Robert L. Transition to Chaos: The orbit diagram and the Mandelbrot set. <a href="https://www.youtube.com/watch?v=VLRmCu5PDgQ">https://www.youtube.com/watch?v=VLRmCu5PDgQ</a>
+      </div>
+      <div class="reference">
+        Gleick, James. 1988. Chaos: Making a New Science. Penguin.
+      </div>
+      <div class="reference">
+        Oestreicher C. A history of chaos theory. Dialogues Clin Neurosci. 2007;9(3):279-89. 
+      </div>
+      <div class="reference">
+        Strogatz, S.H. 2015. Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.
+      </div>
+      <div class="reference">
+        <a href="https://www.youtube.com/@nonperiodicflow">https://www.youtube.com/@nonperiodicflow</a>
+      </div>
+
+
+    </section>
+
+  </main>
+</body>
+
+</html>
