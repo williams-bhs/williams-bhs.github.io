@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing and Data Science</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../header.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../exercises.css" />
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+</head>
+
+<body>
+  <header>
+    <a href="../index.html" class="header-title">
+      <svg class="header-img" viewBox="0 0 1024 1024" fill="currentColor" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m 712,294 a 56,56 0 1 0 112,0 56,56 0 1 0 -112,0 z" id="path5" />
+        <path d="m 564,608 a 96,96 0 1 0 192,0 96,96 0 1 0 -192,0 z" id="path4" />
+        <path d="m 406,380 a 48,48 0 1 0 96,0 48,48 0 1 0 -96,0 z" id="path3" />
+        <path d="m 288,604 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z" id="path2" />
+        <path
+          d="M 888,792 H 200 V 168 c 0,-4.4 -3.6,-8 -8,-8 h -56 c -4.4,0 -8,3.6 -8,8 v 688 c 0,4.4 3.6,8 8,8 h 752 c 4.4,0 8,-3.6 8,-8 v -56 c 0,-4.4 -3.6,-8 -8,-8 z"
+          id="path1" />
+      </svg>
+      <span>Computing and Data Science</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Combinatorics
+        <hr>
+      </h1>
+    </section>
+
+    <section class="exercises">
+      <ol>
+
+        <li> 
+          How many subsets with cardinality \(3\) can be made from \(S = \{a,b,c,d,e,f\}\text{?} \)
+        </li>
+
+        <li>
+          Given red, green, and blue beeds, how many different ways can we arrange a bracelet with \(12\) beeds? 
+        </li>
+
+        <li>
+          <p>
+          Morse Code is a method for encoding letters into sequences of short and long signals, or dits and dahs (<a href="https://www.youtube.com/watch?v=xcjgm6ctzAw">History of Morse Code</a>). 
+          The alphabet begins with the encodings:
+          <table style="margin:auto;">
+            <tr><td style="padding-right:15px;">A</td><td> &#x2022; &ndash;</td></tr>
+            <tr><td style="padding-right:15px;">B</td><td>&ndash; &#x2022; &#x2022; &#x2022;</td></tr></tr>
+            <tr><td style="padding-right:15px;">C</td><td>&ndash; &#x2022; &ndash; &#x2022;</td></tr></tr>
+            <tr><td style="padding-right:15px;">D</td><td>&ndash; &#x2022; &#x2022;</td></tr></tr>
+            <tr><td style="padding-right:15px;">E</td><td>&#x2022;</td></tr></tr>
+            <tr><td style="padding-right:15px;">F</td><td>&#x2022; &#x2022; &ndash; &#x2022;</td></tr>
+          </table>
+          </p>
+          <p>
+          The message "BAD DAD" would be represented as:
+          </p>
+          <div style="width:100%; text-align:center;">
+            &ndash; &#x2022; &#x2022; &#x2022; &nbsp;&nbsp;&nbsp;&nbsp;
+            &#x2022; &ndash; &nbsp; &nbsp;&nbsp;&nbsp;
+            &ndash; &#x2022; &#x2022; &nbsp;&nbsp;&nbsp;&nbsp;
+            &ndash; &#x2022; &#x2022; &nbsp;&nbsp;&nbsp;&nbsp;
+            &#x2022; &ndash; &nbsp;&nbsp;&nbsp;&nbsp;
+            &ndash; &#x2022; &#x2022; &nbsp;&nbsp;&nbsp;&nbsp;
+          </div>          
+          <p>
+          We will say that 'B' has a length \(4\) encoding: &nbsp; &ndash; &#x2022; &#x2022; &#x2022;, 'A' has a length \(2\) encoding &#x2022; &ndash;, etc. 
+          If we used only a length \(1\) encoding, there are just two possibilities for representing information: &#x2022; and &ndash;. 
+          <ol type="a">
+            <li>How many different characters could be represented using up to length \(2\) encodings?   </li>
+            <li>How many different characters could be represented using up to length \(3\) encodings?   </li>
+            <li>How many different characters could be represented using up to length \(n\) encodings?   </li>
+            <li>Rewrite this question as an equivalent question in terms of binary trees. </li>
+          </ol>          
+          </p>
+        </li>
+
+
+        <li>
+          In the game Twenty Questions, one person thinks of a person, place, or thing. 
+          A guesser then has twenty yes/no questions to narrow down what first person is thinking of. 
+          Each guess can be thought of as determining membership in a set. 
+          For example, if we ask "is it bigger than a microwave?", the answer tells us whether the thing the person is thinking of is or is not in the set of objects bigger than a microwave. 
+          If we consider each answer "yes" a \(1\), and each answer "no" as a \(0\), then the sequence of answers results a 20-bit binary "word". 
+          <ol type="a">
+            <li>How many different 20-bit binary words are there? </li>
+            <li>Play a game of Twenty Questions, recording the questions and responses as a binary word (it might be shorter than 20 when the game ends). </li>
+          </ol>
+        </li>
+
+        <li>
+          In the game Guess-My-Number, one person thinks of a number from 1 to 100. 
+          A guesser then guesses and the first person answers "correct", "higher", or "lower". 
+          Given a randomly chosen number, the optimal strategy for the guesser is to guess a number in the middle of the unknwon range. For example, if we know the number is less than or equal to 50, we should guess 25. 
+          <ol type ="a">
+            <li>Why is the optimal strategy to guess in the middle?</li>
+            <li>What is the least number of guesses required?</li>
+            <li>What is the most number of guesses required?</li>
+            <li>If you are the thinker, and you want the guesser who is using the optimal strategy to take a long time to guess your number, what number should you pick? </li>
+          </ol>
+        </li>
+
+
+        <li>
+          Let the <strong>weight</strong> of a binary string be the sum of its bits (or the number of 1s). 
+          So the string \(010110\) has weight \(3\). 
+          <ol type="a">
+            <li>How many binary words of length \(3\) have weight \(1\)?</li>
+            <li>How many binary words of length \(5\) have weight \(3\)?</li>
+            <li>How many binary words of length \(n\) have weight \(k\)? </li>
+          </ol>
+        </li>
+          
+
+        <li>
+          A two-player game is played with \(n\) spaces. Players take turns placing an \(X\) in one of the empty spaces, but cannot move adjacent to a space that already has an \(X\). If a player cannot move, they lose. 
+          For example, here is one possible game for \(n=6\):
+          <table style="border-collapse:collapse;margin:auto;margin-top:10px;margin-bottom:10px;">
+            <tr>
+              <td style="padding-right:15px;">Player 1's move:</td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;">X</td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;"></td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;"></td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;"></td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;"></td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;"></td>
+            </tr>
+          </table>
+          <table style="border-collapse:collapse;margin:auto;margin-top:10px;margin-bottom:10px;">
+            <tr>
+              <td style="padding-right:15px;">Player 2's move:</td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;">X</td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;"></td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;"></td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;"></td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;"></td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;">X</td>
+            </tr>
+          </table>
+          <table style="border-collapse:collapse;margin:auto;margin-top:10px;margin-bottom:10px;">
+            <tr>
+              <td style="padding-right:15px;">Player 1's move:</td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;">X</td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;"></td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;"></td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;">X</td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;"></td>
+              <td style="border:1px solid black;width:30px;height:30px;text-align:center;">X</td>
+            </tr>
+          </table>
+          Player 2 cannot move, so Player 1 wins! 
+          <ol type="a">
+            <li>Create a game tree for all the possible games with \(n=6\).</li>
+            <li>With optimal play, which player has the advantage for \(n=1, 2, 3, 4, ...\)?</li>
+          </ol>
+        </li>
+      </ol>
+
+    </section>
+
+  </main>
+</body>
+
+</html>

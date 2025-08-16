@@ -43,6 +43,9 @@
       <h1>Graph Theory
         <hr>
       </h1>
+      <p>
+        Sign in to <a target="_blank" href="https://www.overleaf.com/">Overleaf</a> and use <a target="_blank" href="problem_set_graph.tex.txt">this template</a> to write your solutions. 
+      </p>
     </section>
 
     <section class="exercises">
@@ -50,20 +53,23 @@
 
 
         <li>
-          Choose a public transit line. Define a graph to represent that line.
+          Choose a public transit line. Define and draw a graph to represent that line.
         </li>
 
         <li>
-          A group of five people (Alejandro, Ben, Camille, Dalia, and Elias) all want to join three clubs (Archery,
-          Badminton, and Chinese).
-          Create a bipartite graph representing club membership. How many memberships result? How many memberships would
-          result for \(n\) people joining \(m\) clubs?
+          A group of five people (Alejandro, Ben, Camille, Dalia, and Elias) all want to join three clubs (Xylophone,
+          Yodeling, and Zoology).
+          <ol type="a">
+            <li>Define and draw the complete bipartite graph representing club memberships. How many memberships result? </li>
+            <li>How many memberships would result for \(n\) people joining \(m\) clubs? </li>
+          </ol>
+          
         </li>
 
         <li>
           Fred, along with the five people from the previous problem need to split into two groups of three for a
           project.
-          However, there is drama! Alejandro refuses to work with Dalia, Ben had a fight with Elias, and Camille "just
+          However, there is drama! Alejandro refuses to work with Dalia; Ben had a fight with Elias; Camille "just
           can't even" with either Alejandro or Ben.
           <ol type="a">
             <li>
@@ -93,13 +99,8 @@
         </li>
 
         <li>
-          Draw all of the trees with \(|V|=6\). Each tree should be non-isomorphic with the rest. 
+          Draw all of the (non-isomorphic) trees with \(|V|=6\). 
         </li>
-
-        <li>
-          Find all of the unequal isomorphic connected trees with four labeled vertices. 
-        </li>
-
 
         <li>
           The three graphs below correspond to three famous polyhedra.
@@ -240,8 +241,7 @@
           The large vertex labeled \(S\) is the school.
           Edges represent routes between neighborhoods.
           The weight on each route is the time it takes in minutes to walk that route.
-          <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">
-            <span style="padding-right:25px;">Walking:</span>
+          <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">            
             <script type="text/tikz">
               \begin{tikzpicture}[scale=2.2]
               \definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
@@ -285,7 +285,7 @@
           </div> -->          
           Because there is only one bus stop, students will need to walk either to the bus stop or to school.
           <ol type="a">
-            <li>Determine the average travel time when the bus stop is placed at each of the locations a through e.
+            <li>Determine the average travel time from each location when the bus stop is placed at a. Repeat this for placing the stop at b through e.
             </li>
             <li>Which location is the optimal bus stop to minimize the average travel time? </li>
             <li>How big would the weight on the a&mdash;b edge need to become to change the location that minimizes the

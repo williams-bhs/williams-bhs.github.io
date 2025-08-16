@@ -1,0 +1,55 @@
+%
+% Computing and Data Science 
+% Belmont High School 
+% Problem Set Template 
+%
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage[margin=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\pagenumbering{gobble}
+\begin{document}
+
+% Header 
+\noindent \textbf{\Large Numbers} \hfill \textbf{YOUR NAME} \\  % REPLACE WITH YOUR NAME
+\emph{Computing and Data Science} \hfill \today \hrule \vspace{1cm}
+
+% Exercise solutions
+\begin{enumerate}
+    
+    \item You can include images with the \textbackslash includegraphics command: 
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{arithmetic.jpeg}
+    \end{center}
+    
+    \item To engage math-mode, use either \textbackslash ( \textbackslash ) for inline math or \textbackslash [ \textbackslash ] for equation mode (centered and sometimes bigger). 
+        \begin{enumerate}
+            \item Square numbers:  \( 1, 4, 9, ... \)
+            \item Triangle numbers:  \[ 1, 3, 6, ... \]   % I don't prefer the \dots command
+        \end{enumerate}
+    
+    \item Relatively prime numbers have \(\gcd(a,b)=1\). 
+        \begin{enumerate}
+            \item \(\gcd(77,45) = ...\)
+            \item 
+            \item 23 is not coprime with every other positive integer, for example ....
+            \item 
+        \end{enumerate}
+
+    \item Base \(2\) is great. 
+
+    \item Binary to decimal conversions: 
+        \begin{enumerate}
+            \item \(1 = 1\)
+            \item 
+            \item ... 
+        \end{enumerate}
+    
+        
+
+\end{enumerate}
+
+\end{document}

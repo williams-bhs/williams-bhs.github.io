@@ -37,9 +37,9 @@
 
   <main>
     <section class="intro">
-      <h1>Feedback</h1>
+      <h1>Dynamical Systems and Feedback</h1>
       <p>
-        A <strong>system</strong> is something that has <strong>state</strong>. A dynamical system is a system that
+        A <strong>system</strong> is something that has <strong>state</strong>. A <strong>dynamical system</strong> is a system that
         changes over time.
       </p>
       <p>
@@ -105,28 +105,30 @@
       <p>
 
       </p>
-      <p>For example, taking the output of \(F(16)=4\) and putting it back into \(F(x)\) to get \(F(F(16)) =
-        \sqrt{\sqrt{16}} = 2 \)
-        After providing an initial value \(x_0\), we can <strong>iterate</strong> in \(F(x)\).
-        \[F((F(x))) = \sqrt{\sqrt{x}}\]
+      <p>
+        Let's use our square root function from above as an example, and choose an initial value of \(x_0 =16\). We can iterate once to get \(S(16)=4\), then take that output and put it back into \(S(x)\) to get:
+        \[S(S(16)) = \sqrt{\sqrt{16}} = 2 \text{.}\]
       </p>
       <p>
-        Given an initial condition \(x_0\), then have:
-        \[x_1 = F(x_0)\]
-        \[x_2 = F(x_1) = F(F(x_0))\]
-        \[x_3 = F(x_2) = F(F(F(x_0)))\]
-        \[x_n = F(x_{n-1}) = F^{n}(x_0) \]
+        Given an initial condition \(x_0\), then we would have:
+        \[x_1 = S(x_0)\]
+        \[x_2 = S(x_1) = S(S(x_0))\]
+        \[x_3 = S(x_2) = S(S(S(x_0)))\]
+        \[x_n = S(x_{n-1}) = S^{n}(x_0) \]
       </p>
       <p>
-        We will use a superscript notation \(x_n = F^{n}(x_0)\) to represent \(n\) iterations of a dynamical system on an initial value \(x_0\text{.}\)
+        
+        We use a superscript notation \(x_n = F^{n}(x_0)\) to represent \(n\) iterations in \(F\) on an initial value \(x_0\text{.}\)
+        We view these functions as <strong>dynamical systems</strong> since they have state and evolve over time. 
       </p>
 
       <p>
-        This process of feedback, where the state of a system at the next step is dependent on the current state of the system, is fundamental to dynamical systems and arises across many domains. 
+        This process of feedback, where the state of a system at the next step is dependent on the current state of the system, is fundamental to dynamical systems and arises across domains. 
+        Many data pipelines that feed into models are components of dynamical systems with feedback, as the output of those models often will influence the next generation of inputs. 
       </p>
       <p>
-        Consider a movie recommendation system on a streaming service. One input that such a system is likely to take
-        includes the movies a user has already watched. These are a factor in determining recommendations for other
+        Consider a movie recommendation system on a streaming service. One input that such a system is likely to
+        include is the set of movies a user has already watched. These are a factor in determining recommendations for other
         movies to watch. The user may or may not watch those recommended movies which changes the input for the next
         recommendation.
       </p>
@@ -293,12 +295,13 @@
           </p>
           <p>
             <strong>Determinism</strong> is the concept that given initial conditions and the set of laws to be followed, all future states of a system can be <em>determined</em> exactly. 
-            That is, a deterministic system is perfectly <strong>predictable</strong>. 
+            That is, a deterministic system is theoretically a <strong>predictable</strong> system. 
           </p>
           <p>
             <strong>Sensitive dependence on initial conditions</strong> means that even extremely small variations in inital conditions can lead to completely different behaviors or predictions. 
             Recall Poincaré in <em>Science and Reason</em> who concluded that because "we could still only know the initial situation approximately", "prediction becomes impossible".
             It is not that we cannot measure, and it is not that we cannot predict, but that to make perfect predictions would require both perfect models and perfect data, which do not exist. 
+            (Quantum mechanics is also sitting over there waiting to say something!)
           </p>
 
           <p>
@@ -353,6 +356,9 @@
       </div>
       <div class="reference">
         <a href="https://www.youtube.com/@nonperiodicflow">https://www.youtube.com/@nonperiodicflow</a>
+      </div>
+      <div class="reference">
+        <a href="https://www.youtube.com/watch?v=PVo1mHnU7WU">https://www.youtube.com/watch?v=PVo1mHnU7WU</a>
       </div>
 
 

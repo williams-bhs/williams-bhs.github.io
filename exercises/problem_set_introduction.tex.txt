@@ -1,0 +1,37 @@
+%
+% Computing and Data Science 
+% Belmont High School 
+% Problem Set Template. 
+% Copy and paste this into your favorite Tex editor. 
+%
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\pagenumbering{gobble}
+
+\begin{document}
+
+% Header 
+\noindent \textbf{\Large Introduction} \hfill \textbf{YOUR NAME} \\  % REPLACE WITH YOUR NAME
+\emph{Computing and Data Science} \hfill \today \hrule \vspace{1cm}
+
+% Exercise solutions
+\begin{enumerate}
+    
+    \item  First problem 
+        \begin{enumerate}
+            \item First part 
+            \item Second part
+            \item 3rd part
+            \item 4th part
+        \end{enumerate}
+
+
+    \item Second problem
+        \begin{enumerate}
+            \item First part 
+            \item Second part
+        \end{enumerate}
+    
+\end{enumerate}
+
+\end{document}

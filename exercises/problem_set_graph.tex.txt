@@ -1,0 +1,62 @@
+%
+% Computing and Data Science 
+% Belmont High School 
+% Problem Set Template. 
+% Copy and paste this into your favorite Tex editor. 
+%
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+% Header 
+\noindent \textbf{\Large Graph Theory} \hfill \textbf{YOUR NAME} \\  % REPLACE WITH YOUR NAME
+\emph{Computing and Data Science} \hfill \today \hrule \vspace{1cm}
+
+% Exercise solutions
+\begin{enumerate}
+
+    \item Below is a sample graph. In the code, notice that you can add a vertex at any position \((x,y)\) with the \texttt{node} command, and draw an edge between vertices with the \texttt{draw} command. 
+
+    \begin{verbatim}
+\begin{tikzpicture}[every node/.style={circle, draw, fill=black, inner sep=2pt}]
+    \node[label= left:$a$] (a) at (1,2) {};
+    \node[label= left:$b$] (b) at (0,0) {};
+    \node[label=right:$c$] (c) at (3,0) {};
+    \node[label=right:$d$] (d) at (4,2) {};
+
+    \draw[thick] (a) -- (b); 
+    \draw[thick] (a) -- (c); 
+    \draw[thick] (c) -- (d); 
+    \draw[thick] (a) -- (d); 
+\end{tikzpicture}
+    \end{verbatim}
+
+    \begin{tikzpicture}[every node/.style={circle, draw, fill=black, inner sep=2pt}]
+        \node[label= left:$a$] (a) at (1,2) {};
+	\node[label= left:$b$] (b) at (0,0) {};
+	\node[label=below:$c$] (c) at (3,0) {};
+	\node[label=above:$d$] (d) at (4,2) {};
+
+	\draw[thick] (a) -- (b); 
+	\draw[thick] (a) -- (c); 
+	\draw[thick] (c) -- (d); 
+	\draw[thick] (a) -- (d); 
+\end{tikzpicture}
+
+    \item Second problem
+        \begin{enumerate}
+            \item First part 
+            \item Second part
+        \end{enumerate}
+    
+\end{enumerate}
+
+\end{document}
+

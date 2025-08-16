@@ -1,0 +1,36 @@
+%
+% Computing and Data Science 
+% Belmont High School 
+% Problem Set Template. 
+% Copy and paste this into your favorite Tex editor. 
+%
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+% Header 
+\noindent \textbf{\Large Cryptography} \hfill \textbf{YOUR NAME} \\  % REPLACE WITH YOUR NAME
+\emph{Computing and Data Science} \hfill \today \hrule \vspace{1cm}
+
+% Exercise solutions
+\begin{enumerate}
+
+    \item 
+        \begin{enumerate}
+            \item Given $a_n = \frac{2}{3n}$ for $n \geq 1$, the first five terms are:
+            \[ a_1, a_2, a_3, a_4, a_5\]
+
+            \item Given $a_n = 2n^3$ for $n \geq 0$, the first five terms are: 
+        \end{enumerate}
+
+    \item Here is a sum: 
+    \[ \sum_{k=6}^{\infty} \frac{A^{\pi}}{\sqrt{\phi}}  \]
+    
+\end{enumerate}
+
+\end{document}
+

@@ -94,10 +94,11 @@
       </div>
       </p>
       <p>
-        It is improtant that these sets are disjoint, otherwise we would be double-counting elements. Consider counting
+        It is improtant that these sets are disjoint, otherwise we would be double-counting elements. 
+        </p>
+      <p>Consider counting
         people who like baseball or hockey when some people like both.
-      </p>
-      <p>
+      
         If it is the case that our sets are not disjoint, we can account for the overlap by subtracting one of
         everything we double-counted.
       </p>
@@ -398,6 +399,9 @@
       <p>
         Given \(n\) items, the number of combinations of \(r\) items is stated "\(n\) choose \(r\)" and given by:
         \[C(n,r) = {n \choose r} = \frac{n!}{r!(n-r)!} \]
+        Note how similar this formula is to that for permutations. 
+        The only difference is the factor \(r!\text{,}\) the number of arrangements of \(r\), in the denominator.
+        The number of combinations is the subset of permutations where we do not count equal sets of items, i.e., order does not matter, and dividing combinations by \(r!\) cancels out the extra equivalent sets.  
       </p>
 
       <h4>Pascal's Triangle</h4>
@@ -410,7 +414,7 @@
         This construction is exactly equivalent to the triangle of \(n \choose r\) where we count down \(n\) rows on the left and then over \(r\) spaces.
       </p>
       <p>
-        This seemingly simple triangle contains infinite patterns and is especially important in combinatorics. 
+        This seemingly simple triangle contains infinitely many patterns and is fundamental to combinatorics. 
       </p>
 
 
