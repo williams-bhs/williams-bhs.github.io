@@ -1,0 +1,1447 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+	<title>CDS</title>
+
+	<link rel="stylesheet" href="reveal.js-master/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
+	<link rel="stylesheet" href="slides.css">
+	<link rel="stylesheet" href="../boxes.css">
+
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<style>
+		.reveal img {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- TITLE SLIDE -->
+			<section>
+				<h2>Computer Vision</h2>
+				<img src="../img/landers_bots_noise.jpg" style="width:600px;">
+				<div class="slides-subtitle">Computing and Data Science</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Primary Colors (optics)</h4>
+				<img src="../img/AdditiveColor.svg">
+				<!-- https://commons.wikimedia.org/wiki/File:AdditiveColor.svg -->
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Red Green Blue (RGB)</h4>
+				<img src="../img/AdditiveColor.svg">
+				<!-- https://commons.wikimedia.org/wiki/File:AdditiveColor.svg -->
+
+				<div style="display:inline-block;font-size:80%;">
+					<img src="../img/LCD_pixels_RGB.jpg">
+					<!-- https://upload.wikimedia.org/wikipedia/commons/b/b0/LCD_pixels_RGB.jpg -->
+					<br>
+					Closeup of LCD display
+				</div>
+			</section>
+
+			<section>
+				<h4>RGB</h4>
+				<div>
+					<img src="../img/apple_rgb.png">
+					An image on a screen is a composite<br> of three color channels
+					<!-- You have no idea how much time was spent debating whether to use "composite or composition. I don't like it, but this is the correct word. " -->
+				</div>
+			</section>
+
+
+
+			<section>
+				<h4>Charge-Coupled Device (CCD)</h4>
+				<div style="text-align:left; font-size:80%;">
+					A CCD is an array of sensors corresponding to pixels.
+					The common analogy is "buckets" that collect light.
+					A CCD may have R, G, and B color filters, or use a beam splitter with multiple CCDs.
+				</div>
+				<!-- <img src="../img/Bayer_pattern_on_sensor.svg"> -->
+				<!-- https://commons.wikimedia.org/wiki/File:Bayer_pattern_on_sensor.svg -->
+				<img src="../img/3CCD_sensors_and_separation_prism.jpg" style="height:380px;">
+				<div style="display:inline-block;">
+					<img src="../img/Color_Separation_Prism.jpg" style="height:380px;">
+					<!-- https://commons.wikimedia.org/wiki/File:Color_Separation_Prism.jpg -->
+				</div>
+				<div style="font-size:40%; color:#aaa;display:inline-block;">
+					https://commons.wikimedia.org/wiki/File:3CCD_sensors_and_separation_prism.jpg
+					<br>
+					This file is licensed under the Creative Commons <a
+						href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+						style="color:rgb(159, 161, 255);">Attribution-Share Alike 4.0 International license.</a>
+				</div>
+				<!-- https://commons.wikimedia.org/wiki/File:3CCD_sensors_and_separation_prism.jpg -->
+			</section>
+
+
+
+
+			<section>
+				<div style="text-align:left;">A digital image is a grid of pixel values, typically with values from 0
+					(none of that color) to 255 (full color).</div>
+
+				<br>
+
+				<table>
+					<tr>
+						<td style="border:0;">
+							<div>
+								<table style="border-collapse:collapse;font-size:40%;">
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:70px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0);width:70px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,0);width:70px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,0,0);width:70px;height:50px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,0);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,0,0);width:60px;height:50px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,0);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,0,0);width:60px;height:50px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,0);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(255,0,0);width:60px;height:50px;">
+											255</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+						<td style="border:0; vertical-align:middle;padding:0;"> + </td>
+
+						<td style="border:0;">
+							<div>
+								<table style="border-collapse:collapse;font-size:40%;">
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:60px;height:50px;">
+											50</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,0);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,0);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,0);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,0);width:60px;height:50px;">
+											100</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,200,0);width:60px;height:50px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,200,0);width:60px;height:50px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,200,0);width:60px;height:50px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,255,0);width:60px;height:50px;">
+											255</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+						<td style="border:0; vertical-align:middle;padding:0;"> + </td>
+						<td style="border:0;">
+							<div>
+								<table style="border-collapse:collapse;font-size:40%;">
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,200);width:60px;height:50px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,50);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,200);width:60px;height:50px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,200);width:60px;height:50px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,200);width:60px;height:50px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,255);width:60px;height:50px;">
+											255</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+						<td style="border:0; vertical-align:middle;padding:0;"> = </td>
+						<td style="border:0;">
+							<div>
+								<table style="border-collapse:collapse;font-size:25%;">
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0,0,0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0);width:60px;height:50px;">
+											50,0,0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,100);width:60px;height:50px;">
+											100,0,100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,0,200);width:60px;height:50px;">
+											200,0,200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:60px;height:50px;">
+											0,50,0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,50,50);width:60px;height:50px;">
+											50,50,50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,50,100);width:60px;height:50px;">
+											100,50,100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,50,0);width:60px;height:50px;">
+											200,50,0</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,100);width:60px;height:50px;">
+											0,100,100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,100,100);width:60px;height:50px;">
+											50,100,100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,100,100);width:60px;height:50px;">
+											100,100,100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,100,200);width:60px;height:50px;">
+											200,100,200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,200,200);width:60px;height:50px;">
+											0,200,200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,200,0);width:60px;height:50px;">
+											50,200,0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,200,200);width:60px;height:50px;">
+											100,200,200</td>
+										<td
+											style="padding:0;border-bottom:1px solid gray;border-right:1px solid gray;color:#555;text-align:center;vertical-align:middle;background-color:rgb(255,255,255);width:60px;height:50px;">
+											255,255,255</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:center;">Red</td>
+						<td style="padding:0;"></td>
+						<td style="text-align:center;">Green</td>
+						<td style="padding:0;"></td>
+						<td style="text-align:center;">Blue</td>
+						<td style="padding:0;"></td>
+						<td style="text-align:center;">Composite</td>
+					</tr>
+				</table>
+			</section>
+
+
+
+			<section data-state="RGBdemo">
+				<style>
+					#colorCanvas {
+						border: 1px solid #ccc;
+						width: 500px;
+						height: 300px;
+						margin: 20px auto;
+					}
+
+					.slider-container {
+						margin: 10px 0;
+					}
+
+					label {
+						display: inline-block;
+						width: 50px;
+						font-weight: bold;
+					}
+
+					input[type=range] {
+						width: 200px;
+					}
+
+					#rgbValue {
+						margin-top: 15px;
+						font-size: 18px;
+						font-weight: bold;
+					}
+				</style>
+
+				<canvas id="colorCanvas" width="500" height="300"></canvas>
+
+				<div style="text-align:left;width:370px; margin:auto;">
+					<div class="slider-container">
+						<label for="rRange">R</label>
+						<input type="range" id="rRange" min="0" max="255" value="0">
+						<span id="rVal">0</span>
+					</div>
+					<div class="slider-container">
+						<label for="gRange">G</label>
+						<input type="range" id="gRange" min="0" max="255" value="0">
+						<span id="gVal">0</span>
+					</div>
+					<div class="slider-container">
+						<label for="bRange">B</label>
+						<input type="range" id="bRange" min="0" max="255" value="0">
+						<span id="bVal">0</span>
+					</div>
+				</div>
+
+				<script>
+					const ccanvas = document.getElementById("colorCanvas");
+					const ctxc = ccanvas.getContext("2d");
+
+					const rSlider = document.getElementById("rRange");
+					const gSlider = document.getElementById("gRange");
+					const bSlider = document.getElementById("bRange");
+
+					const rVal = document.getElementById("rVal");
+					const gVal = document.getElementById("gVal");
+					const bVal = document.getElementById("bVal");
+
+					function updateColor() {
+						const r = parseInt(rSlider.value);
+						const g = parseInt(gSlider.value);
+						const b = parseInt(bSlider.value);
+
+						rVal.textContent = r;
+						gVal.textContent = g;
+						bVal.textContent = b;
+
+						const colorStr = `rgb(${r}, ${g}, ${b})`;
+						console.log(colorStr);
+						ctxc.fillStyle = colorStr;
+						ctxc.fillRect(0, 0, ccanvas.width, ccanvas.height);
+					}
+
+					// Attach event listeners
+					[rSlider, gSlider, bSlider].forEach(slider => {
+						slider.addEventListener("input", updateColor);
+					});
+				</script>
+			</section>
+
+
+			<!-- HSV Demo  -->
+			<section>
+
+				<canvas id="HSVcolorCanvas" width="500" height="300"></canvas>
+
+				<div style="text-align:left; width:370px; margin:auto;">
+					<div>
+						<label for="hRange" style="padding-right:30px;">Hue </label>
+						<input type="range" id="hRange" min="0" max="360" value="35">
+						<span id="hVal">35</span>
+					</div>
+					<div>
+						<label for="sRange" style="padding-right:30px;">Sat </label>
+						<input type="range" id="sRange" min="0" max="100" value="100">
+						<span id="sVal">100</span>
+					</div>
+					<div>
+						<label for="vRange" style="padding-right:30px;">Val </label>
+						<input type="range" id="vRange" min="0" max="100" value="100">
+						<span id="vVal">100</span>
+					</div>
+				</div>
+			</section>
+			<script>
+				const HSVcolorcanvas = document.getElementById("HSVcolorCanvas");
+				const HSVcolorctx = HSVcolorcanvas.getContext("2d");
+
+				const hSlider = document.getElementById("hRange");
+				const sSlider = document.getElementById("sRange");
+				const vSlider = document.getElementById("vRange");
+
+				const hVal = document.getElementById("hVal");
+				const sVal = document.getElementById("sVal");
+				const vVal = document.getElementById("vVal");
+
+				function hsvToRgb(h, s, v) {
+					h = h % 360;
+					s /= 100; v /= 100;
+					let c = v * s;
+					let x = c * (1 - Math.abs((h / 60) % 2 - 1));
+					let m = v - c;
+					let r, g, b;
+					if (h < 60) { [r, g, b] = [c, x, 0]; }
+					else if (h < 120) { [r, g, b] = [x, c, 0]; }
+					else if (h < 180) { [r, g, b] = [0, c, x]; }
+					else if (h < 240) { [r, g, b] = [0, x, c]; }
+					else if (h < 300) { [r, g, b] = [x, 0, c]; }
+					else { [r, g, b] = [c, 0, x]; }
+
+					return [
+						Math.round((r + m) * 255),
+						Math.round((g + m) * 255),
+						Math.round((b + m) * 255)
+					];
+				}
+
+				function updateHSVColor() {
+					const h = parseFloat(hSlider.value);
+					const s = parseFloat(sSlider.value);
+					const v = parseFloat(vSlider.value);
+
+					hVal.textContent = h;
+					sVal.textContent = s;
+					vVal.textContent = v;
+
+					const [r, g, b] = hsvToRgb(h, s, v);
+					const colorStr = `rgb(${r}, ${g}, ${b})`;
+					HSVcolorctx.fillStyle = colorStr;
+					HSVcolorctx.fillRect(0, 0, HSVcolorcanvas.width, HSVcolorcanvas.height);
+				}
+
+				[hSlider, sSlider, vSlider].forEach(slider =>
+					slider.addEventListener("input", updateHSVColor)
+				);
+
+				// initialize
+				updateHSVColor();
+			</script>
+
+
+
+			<section>
+				RGB histogram
+				<table>
+					<tr>
+						<td style="border:0;">
+							<div>
+								<table style="border-collapse:collapse;font-size:40%;">
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);  width:40px;height:40px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0); width:40px;height:40px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,0);width:40px;height:40px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,0,0);width:40px;height:40px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);  width:40px;height:40px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0); width:40px;height:40px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,0);width:40px;height:40px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,0,0);width:40px;height:40px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);  width:40px;height:40px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0); width:40px;height:40px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,0);width:40px;height:40px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,0,0);width:40px;height:40px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);  width:40px;height:40px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0); width:40px;height:40px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,0);width:40px;height:40px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(255,0,0);width:40px;height:40px;">
+											255</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+						<td style="border:0; vertical-align:middle;padding:0;text-align:center;"> + </td>
+
+						<td style="border:0;">
+							<div>
+								<table style="border-collapse:collapse;font-size:40%;">
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:40px;height:40px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:40px;height:40px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:40px;height:40px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:40px;height:40px;">
+											0</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:40px;height:40px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:40px;height:40px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:40px;height:40px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:40px;height:40px;">
+											50</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,0);width:40px;height:40px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,0);width:40px;height:40px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,0);width:40px;height:40px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,0);width:40px;height:40px;">
+											100</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,200,0);width:40px;height:40px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,200,0);width:40px;height:40px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,200,0);width:40px;height:40px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,255,0);width:40px;height:40px;">
+											255</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+						<td style="border:0; vertical-align:middle;padding:0;text-align:center;"> + </td>
+						<td style="border:0;">
+							<div>
+								<table style="border-collapse:collapse;font-size:40%;">
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);  width:40px;height:40px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);  width:40px;height:40px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:40px;height:40px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,200);width:40px;height:40px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);  width:40px;height:40px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,50); width:40px;height:40px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:40px;height:40px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);  width:40px;height:40px;">
+											0</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:40px;height:40px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:40px;height:40px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:40px;height:40px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,200);width:40px;height:40px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,200);width:40px;height:40px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);  width:40px;height:40px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,200);width:40px;height:40px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,255);width:40px;height:40px;">
+											255</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="../img/rgb_red.png">
+						</td>
+						<td></td>
+						<td>
+							<img src="../img/rgb_green.png">
+						</td>
+						<td></td>
+						<td>
+							<img src="../img/rgb_blue.png">
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
+			<section>
+				<div>
+					<img src="../img/cake_original.jpg" style="width:300px;">
+					<img src="../img/rgb_redgreenblue.png">
+				</div>
+			</section>
+
+
+
+
+			<section>
+				<div style="text-align:left;font-size:80%;">
+					"Filters" are functions that take an image as input, operate on the pixel values, and output the new
+					image.
+				</div>
+				<a target="_blank" href="https://commons.wikimedia.org/wiki/File:Instagram_Filters_2011.jpg"><img
+						src="../img/Instagram_Filters_2011.jpg"></a>
+				<!-- https://commons.wikimedia.org/wiki/File:Instagram_Filters_2011.jpg -->
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="cakeTransformWarmer" style="vertical-align:middle;">
+					<img src="../img/cake_original.jpg" style="width:250px;">
+					<div style="display:inline-block; width:200px;">
+						Warmer
+						<br>
+						&longrightarrow;
+						<br> <br>
+					</div>
+					<img src="../img/cake_warmer.jpg" style="width:250px;">
+				</div>
+				<div data-id="cakeTransformCooler" style="vertical-align:middle;">
+					<img src="../img/cake_original.jpg" style="width:250px;">
+					<div style="display:inline-block; width:200px;">
+						Cooler
+						<br>
+						&longrightarrow;
+						<br> <br>
+					</div>
+					<img src="../img/cake_cooler.jpg" style="width:250px;">
+				</div>
+				<div data-id="cakeTransformBlur" style="vertical-align:middle;">
+					<img src="../img/cake_original.jpg" style="width:250px;">
+					<div style="display:inline-block; width:200px;">
+						Blur
+						<br>
+						&longrightarrow;
+						<br> <br>
+					</div>
+					<img src="../img/cake_gaussian_blur.jpg" style="width:250px;">
+				</div>
+			</section>
+
+
+			<section>
+				<style>
+					canvas {
+						border: 1px solid #ccc;
+						margin: 5px;
+					}
+
+					.sliders {
+						margin-top: 10px;
+						font-size: 50%;
+						width: 290px;
+						text-align: left;
+						margin: auto;
+					}
+
+					input[type=range] {
+						width: 200px;
+					}
+
+					.hist-container {
+						display: flex;
+						justify-content: center;
+						gap: 20px;
+						margin-top: 20px;
+					}
+				</style>
+
+				<div style="vertical-align:top;">
+					<div style="display:inline-block;margin:0;padding:0;"><canvas id="originalCanvas" width="250"
+							height="190"></canvas></div>
+					<div style="display:inline-block;margin:0;padding:0;">
+						<span style="font-size:40%;">\(+\Delta RGB\)</span><br>&longrightarrow;<br><br>
+					</div>
+					<div style="display:inline-block;margin:0;padding:0;"><canvas id="transformedCanvas" width="250"
+							height="190"></canvas></div>
+				</div>
+
+				<div class="sliders">
+					<div>\(\Delta\)R: <input type="range" id="rSlider" min="-50" max="50" value="0"> <span
+							id="rValoffset">0</span></div>
+					<div>\(\Delta\)G: <input type="range" id="gSlider" min="-50" max="50" value="0"> <span
+							id="gValoffset">0</span></div>
+					<div>\(\Delta\)B: <input type="range" id="bSlider" min="-50" max="50" value="0"> <span
+							id="bValoffset">0</span></div>
+				</div>
+
+				<div class="hist-container">
+					<div>
+						<div style="font-size:50%;">Original RGB Histogram</div>
+						<canvas id="histOriginal" style="width:500px;" height="250"></canvas>
+					</div>
+					<div>
+						<div style="font-size:50%;">Transformed RGB Histogram</div>
+						<canvas id="histTransformed" style="width:500px;" height="250"></canvas>
+					</div>
+				</div>
+
+				<script>
+					const img = new Image();
+					img.src = "../img/cake_original.jpg";
+
+					const originalCanvas = document.getElementById('originalCanvas');
+					const transformedCanvas = document.getElementById('transformedCanvas');
+					const ctxOrig = originalCanvas.getContext('2d');
+					const ctxTrans = transformedCanvas.getContext('2d');
+
+					let imageDataOrig, imageDataTrans;
+
+					img.onload = function () {
+						ctxOrig.drawImage(img, 0, 0, originalCanvas.width, originalCanvas.height);
+						imageDataOrig = ctxOrig.getImageData(0, 0, originalCanvas.width, originalCanvas.height);
+						updateTransformed();
+					};
+
+					// Sliders
+					const sliders = [
+						{ el: document.getElementById('rSlider'), valEl: document.getElementById('rValoffset') },
+						{ el: document.getElementById('gSlider'), valEl: document.getElementById('gValoffset') },
+						{ el: document.getElementById('bSlider'), valEl: document.getElementById('bValoffset') }
+					];
+					sliders.forEach((s, i) => {
+						s.el.addEventListener('input', () => {
+							s.valEl.textContent = s.el.value;
+							updateTransformed();
+						});
+					});
+
+					// Histograms
+					const histConfig = (label) => ({
+						type: 'line',
+						data: {
+							labels: Array.from({ length: 256 }, (_, i) => i),
+							datasets: [
+								{ label: 'Red', borderColor: 'red', fill: true, backgroundColor: 'rgba(255,0,0,0.3)', data: [], tension: 0.1 },
+								{ label: 'Green', borderColor: 'green', fill: true, backgroundColor: 'rgba(0,255,0,0.3)', data: [], tension: 0.1 },
+								{ label: 'Blue', borderColor: 'blue', fill: true, backgroundColor: 'rgba(0,0,255,0.3)', data: [], tension: 0.1 }
+							]
+						},
+						options: {
+							responsive: false,
+							plugins: { legend: { display: false } },
+							scales: {
+								x: { title: { display: true, text: 'Intensity' } }, y: {
+									title: { display: true, text: 'Frequency' },
+									min: 0, max: 1000
+								}
+							},
+							elements: {
+								point: {
+									radius: 0,
+								}
+							}
+						}
+					});
+
+					const chartOriginal = new Chart(document.getElementById('histOriginal'), histConfig("Original"));
+					const chartTransformed = new Chart(document.getElementById('histTransformed'), histConfig("Transformed"));
+
+					function calcHistogram(imageData) {
+						let rHist = Array(256).fill(0);
+						let gHist = Array(256).fill(0);
+						let bHist = Array(256).fill(0);
+
+						const data = imageData.data;
+						for (let i = 0; i < data.length; i += 4) {
+							rHist[data[i]]++;
+							gHist[data[i + 1]]++;
+							bHist[data[i + 2]]++;
+						}
+						return [rHist, gHist, bHist];
+					}
+
+					function updateTransformed() {
+						if (!imageDataOrig) return;
+
+						const rAdd = parseInt(sliders[0].el.value);
+						const gAdd = parseInt(sliders[1].el.value);
+						const bAdd = parseInt(sliders[2].el.value);
+
+						imageDataTrans = new ImageData(imageDataOrig.width, imageDataOrig.height);
+
+						for (let i = 0; i < imageDataOrig.data.length; i += 4) {
+							imageDataTrans.data[i] = clamp(imageDataOrig.data[i] + rAdd);
+							imageDataTrans.data[i + 1] = clamp(imageDataOrig.data[i + 1] + gAdd);
+							imageDataTrans.data[i + 2] = clamp(imageDataOrig.data[i + 2] + bAdd);
+							imageDataTrans.data[i + 3] = imageDataOrig.data[i + 3]; // alpha
+						}
+
+						ctxOrig.putImageData(imageDataOrig, 0, 0);
+						ctxTrans.putImageData(imageDataTrans, 0, 0);
+
+						// Update histograms
+						const [rO, gO, bO] = calcHistogram(imageDataOrig);
+						const [rT, gT, bT] = calcHistogram(imageDataTrans);
+
+						chartOriginal.data.datasets[0].data = rO;
+						chartOriginal.data.datasets[1].data = gO;
+						chartOriginal.data.datasets[2].data = bO;
+						chartOriginal.update();
+
+						chartTransformed.data.datasets[0].data = rT;
+						chartTransformed.data.datasets[1].data = gT;
+						chartTransformed.data.datasets[2].data = bT;
+						chartTransformed.update();
+					}
+
+					function clamp(value) {
+						return Math.max(0, Math.min(255, value));
+					}
+				</script>
+			</section>
+
+
+
+			<!-- Object Detection -->
+			<section>
+				<a href="https://commons.wikimedia.org/wiki/File:Detected-with-YOLO--Schreibtisch-mit-Objekten.jpg"><img
+						src="../img/object_detection.jpg"></a>
+			</section>
+
+			<section data-background="#000">
+				<iframe style="width:100%;" height="600"
+					src="https://www.youtube.com/embed/rqyfA9o2c-c?si=csMHs-HqDsHsyII-&autoplay=1&mute=1"
+					title="YouTube video player" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</section>
+			<section>
+				<table>
+					<tr>
+						<td style="width:65%;padding:0;">
+							<img src="../img/landers_with_excavator_large.jpg">
+						</td>
+						<td style="vertical-align:top;font-size:70%;padding:0;">
+							<p>A first attempt at <strong>object detection</strong> might utilize color. </p>
+						</td>
+					</tr>
+				</table>
+
+			</section>
+
+
+			<section>
+				<span style="font-size:60%;">Try isolating different objects with the filter</span>
+
+				<div>
+					<canvas id="preFilteredCanvas" width="300" height="300"></canvas>
+					<canvas id="filteredCanvas" width="300" height="300"></canvas>
+				</div>
+
+				<div style="display:flex;align-items:center;">
+					<div
+						style="display:inline-block; vertical-align: middle;font-size:80%;padding-right:80px;padding-left:50px;">
+						RGB Filter:
+					</div>
+					<div style="display:inline-block;">
+
+						<div
+							style="font-size:40%;margin-top: 20px; display: grid; grid-template-columns: auto 1fr auto; gap: 6px 12px; max-width: 480px;">
+							<label style="width:80px;">Red Min</label> <input type="range" id="rMin" min="0" max="255"
+								value="0"> <span id="rMinVal">0</span>
+							<label style="width:80px;">Red Max</label> <input type="range" id="rMax" min="0" max="255"
+								value="255"> <span id="rMaxVal">255</span>
+							<label style="width:80px;">Green Min</label> <input type="range" id="gMin" min="0" max="255"
+								value="0"> <span id="gMinVal">0</span>
+							<label style="width:80px;">Green Max</label> <input type="range" id="gMax" min="0" max="255"
+								value="255"> <span id="gMaxVal">255</span>
+							<label style="width:80px;">Blue Min</label> <input type="range" id="bMin" min="0" max="255"
+								value="0"> <span id="bMinVal">0</span>
+							<label style="width:80px;">Blue Max</label> <input type="range" id="bMax" min="0" max="255"
+								value="255"> <span id="bMaxVal">255</span>
+						</div>
+					</div>
+				</div>
+
+				<script>
+					const preFilterCanvas = document.getElementById("preFilteredCanvas");
+					const filtCanvas = document.getElementById("filteredCanvas");
+					const pfCtx = preFilterCanvas.getContext("2d");
+					const fCtx = filtCanvas.getContext("2d");
+
+					// sliders
+					const filterSliders = ["rMin", "rMax", "gMin", "gMax", "bMin", "bMax"];
+					filterSliders.forEach(s => {
+						const elem = document.getElementById(s);
+						elem.addEventListener("input", () => {
+							document.getElementById(s + "Val").innerText = elem.value;
+							filter();
+						});
+					});
+
+					// Load the image
+					const filterimg = new Image();
+					//filterimg.src = "../img/cake_original.jpg"; 
+					filterimg.src = "../img/landers_with_excavator.jpg";
+					filterimg.onload = function () {
+						preFilterCanvas.width = filterimg.width;
+						preFilterCanvas.height = filterimg.height;
+						filtCanvas.width = filterimg.width;
+						filtCanvas.height = filterimg.height;
+						pfCtx.drawImage(filterimg, 0, 0);
+						filter();
+					};
+
+					function filter() {
+						const rMin = +document.getElementById("rMin").value;
+						const rMax = +document.getElementById("rMax").value;
+						const gMin = +document.getElementById("gMin").value;
+						const gMax = +document.getElementById("gMax").value;
+						const bMin = +document.getElementById("bMin").value;
+						const bMax = +document.getElementById("bMax").value;
+
+						const imageData = pfCtx.getImageData(0, 0, preFilterCanvas.width, preFilterCanvas.height);
+						const data = imageData.data;
+
+						const outData = fCtx.createImageData(imageData);
+						const o = outData.data;
+
+						for (let i = 0; i < data.length; i += 4) {
+							const r = data[i], g = data[i + 1], b = data[i + 2], a = data[i + 3];
+							if (r >= rMin && r <= rMax && g >= gMin && g <= gMax && b >= bMin && b <= bMax) {
+								o[i] = r; o[i + 1] = g; o[i + 2] = b; o[i + 3] = a;  // keep pixel
+							} else {
+								o[i] = o[i + 1] = o[i + 2] = 0;  // or make transparent: set alpha=0 instead
+								o[i + 3] = 0;
+							}
+						}
+						fCtx.putImageData(outData, 0, 0);
+					}
+				</script>
+			</section>
+
+
+
+			<!-- HSV filter demo -->
+			<section>
+				<span style="font-size:60%;">HSV is more robust than RGB since it is less sensitive to lighting
+					changes</span>
+				<div class="container">
+					<canvas id="hsvoriginalCanvas" width="300" height="300"></canvas>
+					<canvas id="hsvfilteredCanvas" width="300" height="300"></canvas>
+				</div>
+
+
+				<div style="display:flex;align-items:center;">
+					<div
+						style="display:inline-block; vertical-align: middle;font-size:80%;padding-right:80px;padding-left:50px;">
+						HSV Filter:
+					</div>
+					<div style="display:inline-block;">
+						<div
+							style="font-size:40%;margin-top: 20px; display: grid; grid-template-columns: auto 1fr auto; gap: 6px 12px; max-width: 480px;">
+							<label style="width:80px;">Hue Min</label> <input type="range" id="hMin" min="0" max="360"
+								value="0"> <span id="hMinVal">0</span>
+							<label style="width:80px;">Hue Max</label> <input type="range" id="hMax" min="0" max="360"
+								value="360"> <span id="hMaxVal">360</span>
+							<label style="width:80px;">Sat Min</label> <input type="range" id="sMin" min="0" max="100"
+								value="0"> <span id="sMinVal">0</span>
+							<label style="width:80px;">Sat Max</label> <input type="range" id="sMax" min="0" max="100"
+								value="100"> <span id="sMaxVal">100</span>
+							<label style="width:80px;">Val Min</label> <input type="range" id="vMin" min="0" max="100"
+								value="0"> <span id="vMinVal">0</span>
+							<label style="width:80px;">Val Max</label> <input type="range" id="vMax" min="0" max="100"
+								value="100"> <span id="vMaxVal">100</span>
+						</div>
+
+					</div>
+				</div>
+
+				<script>
+					const hsvorigCanvas = document.getElementById("hsvoriginalCanvas");
+					const hsvfiltCanvas = document.getElementById("hsvfilteredCanvas");
+					const hsvoCtx = hsvorigCanvas.getContext("2d");
+					const hsvfCtx = hsvfiltCanvas.getContext("2d");
+
+					// sliders
+					const hsvsliders = ["hMin", "hMax", "sMin", "sMax", "vMin", "vMax"];
+					hsvsliders.forEach(s => {
+						const elem = document.getElementById(s);
+						elem.addEventListener("input", () => {
+							document.getElementById(s + "Val").innerText = elem.value;
+							hsvfilter();
+						});
+					});
+
+					// Load the image
+					const hsvimg = new Image();
+					// hsvimg.src = "../img/cake_original.jpg"; 
+					hsvimg.src = "../img/landers_with_excavator.jpg";
+					hsvimg.onload = function () {
+						hsvorigCanvas.width = hsvimg.width;
+						hsvorigCanvas.height = hsvimg.height;
+						hsvfiltCanvas.width = hsvimg.width;
+						hsvfiltCanvas.height = hsvimg.height;
+						hsvoCtx.drawImage(hsvimg, 0, 0);
+						hsvfilter();
+					};
+
+					function rgbToHsv(r, g, b) {
+						r /= 255; g /= 255; b /= 255;
+						const max = Math.max(r, g, b), min = Math.min(r, g, b);
+						let h, s, v = max;
+						const d = max - min;
+						s = max === 0 ? 0 : d / max;
+						if (max === min) { h = 0; }
+						else {
+							switch (max) {
+								case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+								case g: h = (b - r) / d + 2; break;
+								case b: h = (r - g) / d + 4; break;
+							}
+							h *= 60;
+						}
+						return [h, s * 100, v * 100];
+					}
+					function hsvfilter() {
+						const hMin = +document.getElementById("hMin").value;
+						const hMax = +document.getElementById("hMax").value;
+						const sMin = +document.getElementById("sMin").value;
+						const sMax = +document.getElementById("sMax").value;
+						const vMin = +document.getElementById("vMin").value;
+						const vMax = +document.getElementById("vMax").value;
+						const imageData = hsvoCtx.getImageData(0, 0, hsvorigCanvas.width, hsvorigCanvas.height);
+						const data = imageData.data;
+						const outData = fCtx.createImageData(imageData);
+						const o = outData.data;
+						for (let i = 0; i < data.length; i += 4) {
+							const r = data[i], g = data[i + 1], b = data[i + 2], a = data[i + 3];
+							const [h, s, v] = rgbToHsv(r, g, b);
+							// handle wrap-around hue
+							const hueInRange = hMin <= hMax ? (h >= hMin && h <= hMax) : (h >= hMin || h <= hMax);
+							if (hueInRange && s >= sMin && s <= sMax && v >= vMin && v <= vMax && s >= sMin && s <= sMax && v >= vMin && v <= vMax) {
+								o[i] = r; o[i + 1] = g; o[i + 2] = b; o[i + 3] = a;
+							} else { o[i] = o[i + 1] = o[i + 2] = 255; o[i + 3] = 0; }
+						}
+						hsvfCtx.putImageData(outData, 0, 0);
+					}
+					// (outData,0,0);
+
+				</script>
+			</section>
+
+			<section>
+				<table>
+					<tr>
+						<td style="border:0;">
+				<div>					
+					<canvas id="appleCanvas" width="300" height="300" style="display:none;"></canvas>
+					<canvas id="fruitTrainingCanvas" width="300" height="300"></canvas>
+				</div>
+						</td>
+</tr><tr>
+						<td style="padding-left:100px;">
+
+				<div style="display:flex;align-items:center;">
+					<div style="display:inline-block;">
+
+						<div
+							style="font-size:30%;margin-top: 20px; display: grid; grid-template-columns: auto 1fr auto; gap: 6px 12px; max-width: 480px;">
+							<label style="width:80px;">Red Min</label>   <input type="range" id="fruitrMin" min="0" max="255" value="0">   <span id="fruitrMinVal">0</span>
+							<label style="width:80px;">Red Max</label>   <input type="range" id="fruitrMax" min="0" max="255" value="255"> <span id="fruitrMaxVal">255</span>
+							<label style="width:80px;">Green Min</label> <input type="range" id="fruitgMin" min="0" max="255" value="0">   <span id="fruitgMinVal">0</span>
+							<label style="width:80px;">Green Max</label> <input type="range" id="fruitgMax" min="0" max="255" value="255"> <span id="fruitgMaxVal">255</span>
+							<label style="width:80px;">Blue Min</label>  <input type="range" id="fruitbMin" min="0" max="255" value="0">   <span id="fruitbMinVal">0</span>
+							<label style="width:80px;">Blue Max</label>  <input type="range" id="fruitbMax" min="0" max="255" value="255"> <span id="fruitbMaxVal">255</span>
+						</div>
+					</div>
+				</div>
+						</td>
+					</tr>
+				</table>
+
+
+				<script>
+					const appleCanvas = document.getElementById("appleCanvas");
+					const fruitFilterCanvas = document.getElementById("fruitTrainingCanvas");
+					const appleCtx = appleCanvas.getContext("2d");
+					const fruitCtx = fruitFilterCanvas.getContext("2d");
+
+					// sliders
+					const fruitFilterSliders = ["fruitrMin", "fruitrMax", "fruitgMin", "fruitgMax", "fruitbMin", "fruitbMax"];
+					fruitFilterSliders.forEach(s => {
+						const elem = document.getElementById(s);
+						elem.addEventListener("input", () => {
+							document.getElementById(s + "Val").innerText = elem.value;
+							fruitFilter();
+						});
+					});
+
+					// Load the image
+					const fruitImg = new Image();
+					fruitImg.src = "../img/fruits.png";
+					fruitImg.onload = function () {
+						appleCanvas.width = fruitImg.width;
+						appleCanvas.height = fruitImg.height;
+						fruitFilterCanvas.width = fruitImg.width;
+						fruitFilterCanvas.height = fruitImg.height;
+						appleCtx.drawImage(fruitImg, 0, 0); 
+						fruitCtx.drawImage(fruitImg, 0, 0);
+						fruitFilter();
+					};
+
+					function fruitFilter() {
+						const rMin = +document.getElementById("fruitrMin").value;
+						const rMax = +document.getElementById("fruitrMax").value;
+						const gMin = +document.getElementById("fruitgMin").value;
+						const gMax = +document.getElementById("fruitgMax").value;
+						const bMin = +document.getElementById("fruitbMin").value;
+						const bMax = +document.getElementById("fruitbMax").value;
+
+						const imageData = appleCtx.getImageData(0, 0, appleCanvas.width, appleCanvas.height);
+						const data = imageData.data;
+
+						const outData = fruitCtx.createImageData(imageData);
+						const o = outData.data;
+
+						for (let i = 0; i < data.length; i += 4) {
+							const r = data[i], g = data[i + 1], b = data[i + 2], a = data[i + 3];
+							if (r >= rMin && r <= rMax && g >= gMin && g <= gMax && b >= bMin && b <= bMax) {
+								o[i] = r; o[i + 1] = g; o[i + 2] = b; o[i + 3] = a;  // keep pixel
+							} else {
+								o[i] = o[i + 1] = o[i + 2] = 0;  // or make transparent: set alpha=0 instead
+								o[i + 3] = 0;
+							}
+						}
+						fruitCtx.putImageData(outData, 0, 0);
+					}
+				</script>
+			</section>
+
+
+			<section>
+				<h4>A Classification Problem</h4>
+				<p style="margin:60px;">
+					We are given an image and want to classify it as "Apple", "Orange", "Banana", or "Blueberry"
+				</p>
+				<table>
+					<tr>
+						<td style="text-align:center;vertical-align:middle;">							
+							<img src="../img/apple.jpg" style="border:1px solid gray;">
+						</td>
+						<td>&longrightarrow;</td>
+						<td>
+							<div style="border:1px solid gray;width:180px;vertical-align:middle;padding-top:35px;padding-bottom:40px;text-align:center;border-radius:7px;background-color:#def;">Classifier</div>
+						</td>
+						<td>&longrightarrow;</td>
+						<td>
+							"Apple"
+						</td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>
+				<div>
+					Gather all of the "Apple" images. For each image, add up the total R values, G values, and B values. 
+				</div>
+				<div>
+					<img src="../img/apples.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>
+				<div>
+					Gather all of the "Apple" images. For each image, add up the total R values, G values, and B values. 
+				</div>
+				<div>
+					<img src="../img/fruit_rgb_apple.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>
+				<br> 
+				<div>
+					<img src="../img/fruit_feature_box.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>
+				<br> 
+				<div>
+					<img src="../img/fruit_feature_box.png">
+				</div>
+				<br> 
+				<div>
+					RGB sum = (2.15, 2.21, 1.8) Million &longrightarrow; ? 
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>				
+				<div>
+					<img src="../img/fruit_feature_box.png">
+				</div>
+				<div>
+					<span style="font-size:80%;">Given an input image, our Classifier Algorithm is:</span>
+					<br> 
+					<ol>
+						<li>Add up all of the R, G, and B values</li>
+						<li>If ...</li>
+						<li>Else if ...</li>
+						<li>Else if ...</li>
+						<li>Else ...</li>
+					</ol>
+				</div>
+			</section>
+
+			<section>
+				<h4>MNIST</h4>
+				<img src="../img/mnist_spaced.png">
+			</section>
+			<section>
+				<div>Grayscale has one channel</div>
+				<div>0 = Black</div>
+				<div>255 = White</div>
+				<img src="../img/eight.png">
+			</section>
+			<section>
+				<img src="../img/data_zero.png">
+			</section>
+			<section>
+				<img src="../img/data_one.png">
+			</section>
+			<section>
+				<img src="../img/cut1.jpg">
+			</section>
+			<section>
+				<img src="../img/cut3.jpg">
+			</section>
+			<section>
+				<img src="../img/cut4.jpg">
+			</section>
+
+
+			<section>
+				<img src="../img/mnist_spreadsheet.png">
+			</section>
+
+
+			<section>
+				<p style="color: #888;font-size:50%;">
+					©2025 Jedediyah Williams
+					<br>
+					This work is licensed under the Creative Commons <br>Attribution-NonCommercial-ShareAlike 4.0
+					International License.
+					<br>
+					<img src="../img/by-nc-sa.svg">
+					<br>
+					To view a copy of this license, visit <a
+						href="https://creativecommons.org/licenses/by-nc-sa/4.0/">https://creativecommons.org/licenses/by-nc-sa/4.0/</a>.
+				</p>
+			</section>
+
+
+
+
+		</div>
+	</div>
+
+	<script src="reveal.js-master/dist/reveal.js"></script>
+	<script src="reveal.js-master/plugin/notes/notes.js"></script>
+	<script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+	<script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+	<script src="reveal.js-master/plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		}).then(() => {
+
+			// Force update on slide focus
+			Reveal.on('RGBdemo', () => {
+				updateColor();
+			})
+
+
+		});
+	</script>
+</body>
+
+</html>

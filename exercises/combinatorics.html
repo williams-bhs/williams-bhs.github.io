@@ -39,14 +39,25 @@
     </section>
 
     <section class="exercises">
+      <p>
+        Sign in to <a target="_blank" href="https://www.overleaf.com/">Overleaf</a> and use <a target="_blank" href="problem_set_combinatorics.tex.txt">this template</a> to write your solutions. 
+      </p>
       <ol>
 
         <li> 
-          How many subsets with cardinality \(3\) can be made from \(S = \{a,b,c,d,e,f\}\text{?} \)
+          How many subsets with cardinality \(3\) can be made from \(S = \{a,b,c,d,e,f\}\text{?} \)  List the subsets in an ordered way. 
         </li>
 
         <li>
           Given red, green, and blue beeds, how many different ways can we arrange a bracelet with \(12\) beeds? 
+        </li>
+
+        <li>
+          How many outcomes are possible when rolling a die followed by flipping a coin? Draw a tree diagram of the possibilities. 
+        </li>
+
+        <li>
+          How many license plates are possible using three letters followed by three numbers? 
         </li>
 
         <li>
@@ -74,7 +85,7 @@
             &ndash; &#x2022; &#x2022; &nbsp;&nbsp;&nbsp;&nbsp;
           </div>          
           <p>
-          We will say that 'B' has a length \(4\) encoding: &nbsp; &ndash; &#x2022; &#x2022; &#x2022;, 'A' has a length \(2\) encoding &#x2022; &ndash;, etc. 
+          We will say that 'B' has a length \(4\) encoding: &nbsp; &ndash; &#x2022; &#x2022; &#x2022;, 'A' has a length \(2\) encoding: &#x2022; &ndash;, etc. 
           If we used only a length \(1\) encoding, there are just two possibilities for representing information: &#x2022; and &ndash;. 
           <ol type="a">
             <li>How many different characters could be represented using up to length \(2\) encodings?   </li>
@@ -105,7 +116,7 @@
           <ol type ="a">
             <li>Why is the optimal strategy to guess in the middle?</li>
             <li>What is the least number of guesses required?</li>
-            <li>What is the most number of guesses required?</li>
+            <li>What is the most number of guesses required when using the optimal strategy?</li>
             <li>If you are the thinker, and you want the guesser who is using the optimal strategy to take a long time to guess your number, what number should you pick? </li>
           </ol>
         </li>
@@ -158,9 +169,10 @@
               <td style="border:1px solid black;width:30px;height:30px;text-align:center;">X</td>
             </tr>
           </table>
-          Player 2 cannot move, so Player 1 wins! 
+          Player 2 cannot move without playing adjacent to an existing \(X\), so Player 1 wins! 
           <ol type="a">
             <li>Create a game tree for all the possible games with \(n=6\).</li>
+            <li>For \(n=6\), what is the shortest and what is the longest game possible? </li>
             <li>With optimal play, which player has the advantage for \(n=1, 2, 3, 4, ...\)?</li>
           </ol>
         </li>
