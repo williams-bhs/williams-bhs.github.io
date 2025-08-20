@@ -1,0 +1,43 @@
+%
+% Computing and Data Science 
+% Belmont High School 
+% Problem Set Template. 
+% Copy and paste this into your favorite Tex editor. 
+%
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+% Header 
+\noindent \textbf{\Large Dynamical Systems} \hfill \textbf{YOUR NAME} \\  % REPLACE WITH YOUR NAME
+\emph{Computing and Data Science} \hfill \today \hrule \vspace{1cm}
+
+% Exercise solutions
+\begin{enumerate}
+
+    \item  \item Let $F(x) = x^2 + 1$.            
+        \begin{enumerate}
+            \item Given $x_0 = 0$, the first five points in the orbit of $x_0$ are: 
+
+            \item For any initial condition $x_0$, ..., as you can see in this graph...
+        \end{enumerate}
+
+    \item Let $F(x) = x^2 - 2$.
+        \begin{enumerate}
+            \item 
+            \item 
+            \item 
+            \item 
+        \end{enumerate}
+
+    \item 
+
+    
+\end{enumerate}
+
+\end{document}
+

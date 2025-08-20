@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+	<title>CDS</title>
+
+	<link rel="stylesheet" href="reveal.js-master/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
+	<link rel="stylesheet" href="slides.css">
+	<link rel="stylesheet" href="../boxes.css">
+
+	<style>
+		.reveal img {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- TITLE SLIDE -->
+			<section>
+				<h2>Cryptography &amp; Security</h2>
+				<a href="https://www.washingtonpost.com/world/a-map-showing-the-users-of-fitness-devices-lets-the-world-see-where-us-soldiers-are-and-what-they-are-doing/2018/01/28/86915662-0441-11e8-aa61-f3391373867e_story.html"><img src="../img/watchdata.jpg" style="width:300px;"></a>
+				<div class="slides-subtitle">Computing and Data Science</div>
+			</section>
+
+			<section>
+				<div style="text-align:left;">
+					<strong>Cryptography</strong> is the study of secret communication. 
+				</div>
+				<div style="text-align:left;">
+					Applications of <strong>cryptographic systems</strong> include:					
+					<ul style="font-size:90%;padding-left:50px;padding-top:30px;">
+						<li><span style="color:#d66;">Confidentiality</span> &mdash; Only intended recipients can access private information</li>
+						<li><span style="color:#d66;">Data Integrity</span> &mdash; Transmitted information has not been altered or synthesized </li>
+						<li><span style="color:#d66;">Authentication</span> &mdash; Confirmed origin and destination of information as well as identity of a user</li>
+					</ul>
+					<span style="font-size:80%;float:right;">(<a href="https://www.ibm.com/think/topics/cryptography">IBM</a>)</span>
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="cipherdef" style="text-align:left;font-size:80%;">
+					A <strong>cipher</strong> is an algorithm (or set of algorithms) for translating between <strong>plain text</strong> and <strong>cipher text</strong>. Ideally, cipher text is meaningless to all but the intended recipient. 
+				</div>
+				<br> 
+				<div data-id="encryptdiv">
+					<div style="display:inline-block;"><img src="../img/alice.png"></div>
+					<div style="border:1px solid #ddd; display:inline-block;width:200px;font-size:80%;color:#25D;border-radius:7px;background-color:#fafaff;">
+						Meet me at the library at noon.
+					</div>
+					<div style="vertical-align:top;display:inline-block;font-size:80%;padding-left:20px;padding-right:20px;padding-top:20px;"> 	
+						<br> 					
+						 &rarr; &nbsp;
+						<div style="display:inline-block;border:1px solid black;padding:20px;">Encrypt</div> 
+						 &nbsp; &rarr;						
+					</div> 					
+					<div style="border:1px solid #ddd; display:inline-block;width:200px;font-size:80%;color:#D52;border-radius:7px;background-color:#fffafa;">
+						0lltC0lCht<br>CtolCspi5h<br>5yChtC1221
+					</div>
+				</div> 
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<div data-id="encryptdiv">
+					<div style="display:inline-block;"><img src="../img/alice.png"></div>
+					<div style="border:1px solid #ddd; display:inline-block;width:200px;font-size:80%;color:#25D;border-radius:7px;background-color:#fafaff;">
+						Meet me at the library at noon.
+					</div>
+					<div style="vertical-align:top;display:inline-block;font-size:80%;padding-left:20px;padding-right:20px;padding-top:20px;"> 	
+						<br> 					
+						 &rarr; &nbsp;
+						<div style="display:inline-block;border:1px solid black;padding:20px;">Encrypt</div> 
+						 &nbsp; &rarr;						
+					</div> 					
+					<div style="border:1px solid #ddd; display:inline-block;width:200px;font-size:80%;color:#D52;border-radius:7px;background-color:#fffafa;">
+						0lltC0lCht<br>CtolCspi5h<br>5yChtC1221
+					</div>
+				</div>
+				<div>
+					<div style="padding-top:50px;padding-bottom:25px;font-size:100%;color:#2A5;text-align:center;margin:auto;width:270px;">
+						<div style="transform:rotate(90deg);display:inline-block;">&longrightarrow;</div>
+					</div> 
+					<div style="border:1px solid #ddd; display:inline-block;width:200px;font-size:80%;color:#D52;border-radius:7px;background-color:#fffafa;">
+						0lltC0lCht<br>CtolCspi5h<br>5yChtC1221
+					</div>					
+					<div style="vertical-align:top;display:inline-block;font-size:80%;padding-left:20px;padding-right:20px;padding-top:20px;"> 						
+						<br>  
+						&rarr; &nbsp;
+						<div style="display:inline-block;border:1px solid black;padding:20px;">Decrypt</div> 
+						 &nbsp; &rarr;						
+					</div> 	
+					<div style="border:1px solid #ddd; display:inline-block;width:200px;font-size:80%;color:#25D;border-radius:7px;background-color:#fafaff;">
+						Meet me at the library at noon.
+					</div>
+					<div style="display:inline-block;"><img src="../img/bob.png"></div>
+				</div>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<div data-id="encryptdiv">
+					<div style="display:inline-block;"><img src="../img/alice.png"></div>
+					<div style="border:1px solid #ddd; display:inline-block;width:200px;font-size:80%;color:#25D;border-radius:7px;background-color:#fafaff;">
+						Meet me at the library at noon.
+					</div>
+					<div style="vertical-align:top;display:inline-block;font-size:80%;padding-left:20px;padding-right:20px;padding-top:20px;"> 	
+						<br> 					
+						 &rarr; &nbsp;
+						<div style="display:inline-block;border:1px solid black;padding:20px;">Encrypt</div> 
+						 &nbsp; &rarr;						
+					</div> 					
+					<div style="border:1px solid #ddd; display:inline-block;width:200px;font-size:80%;color:#D52;border-radius:7px;background-color:#fffafa;">
+						0lltC0lCht<br>CtolCspi5h<br>5yChtC1221
+					</div>
+				</div>
+				<div>
+					<div style="padding-top:15px;padding-bottom:0px;font-size:100%;color:#2A5;text-align:center;margin:auto;width:100%;vertical-align:middle;">
+						<table>
+							<tr>
+								<td>
+						<div style="transform:rotate(90deg);display:inline-block;">&longrightarrow;<br><br></div>			
+								</td>
+								<td style="padding:0;">
+										<div style="display:inline-block;">
+							<img src="../img/eve.png">							
+						</div>
+								</td>
+								<td style="vertical-align:middle;padding:0;">
+									
+						<div style="border:1px solid #ddd; display:inline-block;width:90px;font-size:30%;color:#D52;border-radius:7px;text-align:center;background-color:#fffafa;">
+							0lltC0lCht<br>CtolCspi5h<br>5yChtC1221
+						</div>
+								</td>
+							</tr>
+						</table>
+						
+					</div> 
+					<div style="border:1px solid #ddd; display:inline-block;width:200px;font-size:80%;color:#D52;border-radius:7px;background-color:#fffafa;">
+						0lltC0lCht<br>CtolCspi5h<br>5yChtC1221
+					</div>					
+					<div style="vertical-align:top;display:inline-block;font-size:80%;padding-left:20px;padding-right:20px;padding-top:20px;"> 						
+						<br>  
+						&rarr; &nbsp;
+						<div style="display:inline-block;border:1px solid black;padding:20px;">Decrypt</div> 
+						 &nbsp; &rarr;						
+					</div> 	
+					<div style="border:1px solid #ddd; display:inline-block;width:200px;font-size:80%;color:#25D;border-radius:7px;background-color:#fafaff;">
+						Meet me at the library at noon.
+					</div>
+					<div style="display:inline-block;"><img src="../img/bob.png"></div>
+				</div>
+			</section>
+
+
+			<section>
+				<h4>Cryptographic systems by Level of Difficulty (to crack)</h4>				
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Rotation Cipher</h4>
+				<br>
+				<div style="text-align:left;padding-bottom:15px;color:#25d;">
+					Plain Text
+				</div>
+				<div>
+					<img src="../img/cipher_shift.svg" style="width:100%;">
+				</div>
+				<div style="text-align:left;color:#bd4646;">
+					Cipher Text
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Rotation Cipher</h4>
+				<br>
+				<div style="text-align:left;padding-bottom:15px;color:#25d;">
+					hello world!
+				</div>
+				<div>
+					<img src="../img/cipher_shift.svg" style="width:100%;">
+				</div>
+				<div style="text-align:left;color:#bd4646;">
+					KHOOR ZRUOG!
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Rotation Cipher</h4>
+				<br>
+				<div>
+					<img src="../img/cipher_shift.svg" style="width:100%;">
+				</div>
+				<br> 
+				<div>
+					<!-- <span style="color:#25d;">hello world!</span> &longrightarrow; <span style="color:#bd4646;">KHOOR ZRUOG!</span> -->
+					 <ol>
+						<li>How many possible encryptions? </li>
+						<li>How do you decrypt a message?</li>
+						<li>What are the weaknesses? </li>
+					 </ol>
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Rotation Cipher</h4>
+				<br> 
+				<div>
+					<span style="color:#bd4646;">A VGF'L LZAFC QGM USF TJWSC EQ WFUJQHLAGF. LGG ESFQ HWGHDW ZSNW LJAWV SFV XSADWV. S DGL ZSNW LJAWV SFV XSADWV. </span>
+				</div>
+			</section>
+
+			
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Substitution Cipher</h4>
+				<br>
+				<div style="text-align:left;padding-bottom:15px;color:#25d;">
+					 
+				</div>
+				<div>
+					<img src="../img/cipher_substitution.svg" style="width:100%;">
+				</div>
+				<div style="text-align:left;color:#bd4646;">
+					 
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Substitution Cipher</h4>
+				<br>
+				<div>
+					<img src="../img/cipher_substitution.svg" style="width:100%;">
+				</div>
+				<br> 
+				<div>
+					<!-- <span style="color:#25d;">hello world!</span> &longrightarrow; <span style="color:#bd4646;">KHOOR ZRUOG!</span> -->
+					 <ol>
+						<li>How many possible encryptions? </li>
+						<li>How do you decrypt a message?</li>
+						<li>What are the weaknesses? </li>
+					 </ol>
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Substitution Cipher</h4>
+				<br> 
+				<div>
+					<span style="color:#bd4646;">    
+						NK N ZQH AHZMVA Q FAZTAC GAFFQUA, CBAH RMO ZQH VAZMVA GR FAZTAC GAFFQUA. BMIAXAT, N INSS CTR CM GQYA NC ZBQSSAHUNHU KMT RMO!
+					</span>
+				</div>
+			</section>
+
+
+			
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Vigenère cipher</h4>	
+				<div>
+					<img src="../img/vigenere_square.svg" style="width:50%;">
+					<!-- https://commons.wikimedia.org/wiki/File:Vigen%C3%A8re_square_shading.svg -->
+				</div>
+			</section>
+
+
+			<!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Vigenère cipher</h4>
+				<table>
+					<tr>
+						<td style="text-align:center;">
+							<div style="font-size:70%;">Key: BELMONT</div>	
+							<div>
+								<img src="../img/vigenere_belmont.png">
+							</div>
+						</td>
+						<td style="width:200px;text-align:left;vertical-align:top;padding-top:120px;">						
+							<span style="text-align:left;color:#25d;">
+								m<br> 
+								e<br> 
+								s<br> 
+								s<br> 
+								a<br> 
+								g<br> 
+								e
+							</span>							
+						</td>
+					</tr>
+				</table>
+			</section> -->
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Vigenère cipher</h4>
+				<table>
+					<tr>
+						<td style="text-align:center;">
+							<div style="font-size:70%;">Key: BELMONT</div>	
+							<div data-id="viamge">
+								<img src="../img/vigenere_belmont_masked.png">
+							</div>
+						</td>
+						<td style="width:200px;text-align:left;vertical-align:top;padding-top:50px;">
+							<table>
+								<tr><td style="color:#25d;padding:0;">m</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">a</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">g</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+							</table>						
+						</td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Vigenère cipher</h4>
+				<table>
+					<tr>
+						<td style="text-align:center;">
+							<div style="font-size:70%;">Key: <span style="color:#bd4646;">B</span>ELMONT</div>	
+							<div data-id="viamge">
+								<img src="../img/vigenere_belmont_masked_B.png">
+							</div>
+						</td>
+						<td style="width:200px;text-align:left;vertical-align:top;padding-top:50px;">													
+							<table>
+								<tr><td style="color:#25d;padding:0;">m</td><td style="padding:10px;">&rarr;</td><td style="color:#bd4646;padding:0;">N</td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">a</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">g</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+							</table>					
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Vigenère cipher</h4>
+				<table>
+					<tr>
+						<td style="text-align:center;">
+							<div style="font-size:70%;">Key: B<span style="color:#bd4646;">E</span>LMONT</div>	
+							<div data-id="viamge">
+								<img src="../img/vigenere_belmont_masked_E.png">
+							</div>
+						</td>
+						<td style="width:200px;text-align:left;vertical-align:top;padding-top:50px;">						
+							<table>
+								<tr><td style="color:#25d;padding:0;">m</td><td style="padding:10px;">&rarr;</td><td style="color:#bd4646;padding:0;">N</td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">I</td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">a</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">g</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+							</table>							
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Vigenère cipher</h4>
+				<table>
+					<tr>
+						<td style="text-align:center;">
+							<div style="font-size:70%;">Key: BE<span style="color:#bd4646;">L</span>MONT</div>	
+							<div data-id="viamge">
+								<img src="../img/vigenere_belmont_masked_L.png">
+							</div>
+						</td>
+						<td style="width:200px;text-align:left;vertical-align:top;padding-top:50px;">						
+							<table>
+								<tr><td style="color:#25d;padding:0;">m</td><td style="padding:10px;">&rarr;</td><td style="color:#bd4646;padding:0;">N</td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">I</td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">D </td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">a</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">g</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+							</table>							
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Vigenère cipher</h4>
+				<table>
+					<tr>
+						<td style="text-align:center;">
+							<div style="font-size:70%;">Key: BEL<span style="color:#bd4646;">M</span>ONT</div>	
+							<div data-id="viamge">
+								<img src="../img/vigenere_belmont_masked_M.png">
+							</div>
+						</td>
+						<td style="width:200px;text-align:left;vertical-align:top;padding-top:50px;">						
+							<table>
+								<tr><td style="color:#25d;padding:0;">m</td><td style="padding:10px;">&rarr;</td><td style="color:#bd4646;padding:0;">N</td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">I</td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">D </td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">E </td></tr>
+								<tr><td style="color:#25d;padding:0;">a</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">g</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+							</table>							
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Vigenère cipher</h4>
+				<table>
+					<tr>
+						<td style="text-align:center;">
+							<div style="font-size:70%;">Key: BELM<span style="color:#bd4646;">O</span>NT</div>	
+							<div data-id="viamge">
+								<img src="../img/vigenere_belmont_masked_O.png">
+							</div>
+						</td>
+						<td style="width:200px;text-align:left;vertical-align:top;padding-top:50px;">						
+							<table>
+								<tr><td style="color:#25d;padding:0;">m</td><td style="padding:10px;">&rarr;</td><td style="color:#bd4646;padding:0;">N</td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">I</td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">D </td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">E </td></tr>
+								<tr><td style="color:#25d;padding:0;">a</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">O </td></tr>
+								<tr><td style="color:#25d;padding:0;">g</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+							</table>							
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Vigenère cipher</h4>
+				<table>
+					<tr>
+						<td style="text-align:center;">
+							<div style="font-size:70%;">Key: BELMO<span style="color:#bd4646;">N</span>T</div>	
+							<div data-id="viamge">
+								<img src="../img/vigenere_belmont_masked_N.png">
+							</div>
+						</td>
+						<td style="width:200px;text-align:left;vertical-align:top;padding-top:50px;">						
+							<table>
+								<tr><td style="color:#25d;padding:0;">m</td><td style="padding:10px;">&rarr;</td><td style="color:#bd4646;padding:0;">N</td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">I</td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">D </td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">E </td></tr>
+								<tr><td style="color:#25d;padding:0;">a</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">O </td></tr>
+								<tr><td style="color:#25d;padding:0;">g</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">T </td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;"> </td><td style="color:#bd4646;padding:0;"> </td></tr>
+							</table>							
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Vigenère cipher</h4>
+				<table>
+					<tr>
+						<td style="text-align:center;">
+							<div style="font-size:70%;">Key: BELMON<span style="color:#bd4646;">T</span> </div>	
+							<div data-id="viamge">
+								<img src="../img/vigenere_belmont_masked_T.png">
+							</div>
+						</td>
+						<td style="width:200px;text-align:left;vertical-align:top;padding-top:50px;">						
+							<table>
+								<tr><td style="color:#25d;padding:0;">m</td><td style="padding:10px;">&rarr;</td><td style="color:#bd4646;padding:0;">N</td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">I</td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">D </td></tr>
+								<tr><td style="color:#25d;padding:0;">s</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">E </td></tr>
+								<tr><td style="color:#25d;padding:0;">a</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">O </td></tr>
+								<tr><td style="color:#25d;padding:0;">g</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">T </td></tr>
+								<tr><td style="color:#25d;padding:0;">e</td><td style="padding:10px;">&rarr; </td><td style="color:#bd4646;padding:0;">X </td></tr>
+							</table>							
+						</td>
+					</tr>
+				</table>
+			</section>
+		
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Vigenère cipher</h4>
+				<table>
+					<tr>
+						<td style="text-align:center;vertical-align:top;">
+							<div>
+								<img src="../img/vigenere_square.svg" style="width:95%;">
+							</div>
+						</td>
+						<td style="width:50%;text-align:left;vertical-align:middle;font-size:90%;">											
+							<ol>
+								<li>How many possible encryptions? </li>
+								<li>How do you decrypt a message?</li>
+								<li>What are the weaknesses? </li>
+							</ol>
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<h4>Enigma Machine</h4>	
+				<table>
+					<tr>
+						<td style="width:50%;vertical-align:top;">
+							<div>
+					<img src="../img/enigma.jpg" style="width:100%;border-radius:13px;"> 
+					<!-- https://commons.wikimedia.org/wiki/File:Enigma_(crittografia)_-_Museo_scienza_e_tecnologia_Milano.jpg -->
+				</div>
+						</td>
+						<td style="width:50%;vertical-align:middle;font-size:90%;">
+							Vigenère is a polyalphabetic cipher. Think of Enigma as a compound polyalphabetic cipher where each character gets multiple substitutions from multiple alphabets which change with every keystroke.
+						</td>
+					</tr>
+				</table>
+				
+				<!--   -->
+				 <!-- https://www.youtube.com/watch?v=ybkkiGtJmkM -->
+			</section>
+			
+			<section>
+				<img src="../img/Enigma_keylist_3_rotor.jpg" style="border-radius:13px;">
+				<!-- https://en.wikipedia.org/wiki/File:Enigma_keylist_3_rotor.jpg -->
+			</section>
+
+
+			<section>
+				<table>
+					<tr>
+						<td>
+				<img src="../img/Bletchley_Park_Bombe4.jpg" style="border-radius:13px;">
+			<!-- https://en.wikipedia.org/wiki/File:Bletchley_Park_Bombe4.jpg -->
+							
+						</td>
+						<td>
+
+				<img src="../img/Alan_Turing_(1951).jpg" style="border-radius:13px;">
+			<!-- https://commons.wikimedia.org/wiki/File:Alan_Turing_(1951).jpg -->
+							
+						</td>
+					</tr>
+				</table>
+				
+			</section>
+
+
+
+
+
+			<section>
+				<div style="text-align:left;">
+					Modern cryptographic systems are math-based, and primarily built around <strong>computational complexity</strong>. 					
+				</div>
+				<br> 
+				<div style="text-align:left;">
+					One strategy is to leverage <strong>one-way functions</strong>, operations which are computationally easy in one direction, and exceedingly difficult to reverse. 
+				</div>
+			</section>
+			<section style="font-size:90%;">				
+				<div style="text-align:left;">
+					The classic example of a <strong>one-way function</strong> is multiplication. 
+				</div>
+				<br> 
+				<div style="text-align:left;">
+					It took me 0.00034 seconds to multiply two (prime) numbers together to get: <br> 
+					<div style="margin:auto;max-width:500px;font-size:80%;font-family:'Courier New';padding-bottom:10px;word-break:break-all;overflow-wrap:anywhere;">
+25400496152197968726069309778268949288246846207825351781412320795364369009011394253863307907325504274886438651152265338552397690369938370774031355003154660318291 
+</div>
+				</div>
+				<div style="text-align:left;">
+					What are the two numbers? 
+				</div>
+			</section>
+
+			<section>
+				<h4>Public-Key Cryptography</h4> 
+				<div style="text-align:left;">
+					<ol>
+						<li>Alice creates two keys: a PUBLIC for encrypting messages, and a PRIVATE for decrypting.</li>
+						<li>Alice shares her PUBLIC key. </li>
+						<li>Bob encrypts a message using Alice's PUBLIC key and sends the encrypted message. </li>
+						<li>Alice decrypts the message using her PRIVATE key.</li>
+					</ol>
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Public-Key Cryptography</h4> 
+				<div style="font-size:90%;">Alice makes 2 keys: a PUBLIC and a PRIVATE</div>
+				<div style="padding-top:30px;padding-bottom:30px;">
+					<img src="../img/alice.png">
+					<img data-id="publickey" src="../img/public-key.png"  style="width:120px;">
+					<img data-id="privatekey" src="../img/private-key.png" style="width:120px;">
+				</div>				
+				<div style="font-size:90%;">
+					The PUBLIC key is for ENCRYPTING <br>
+					The PRIVATE key is for DECRYPTING
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Public-Key Cryptography</h4> 
+				
+				<table>
+					<tr>
+						<td style="vertical-align:middle;border-right:2px solid gray;padding-right:70px;">
+							<img src="../img/alice.png">					
+							<img data-id="privatekey" src="../img/private-key.png" style="width:120px;">
+						</td>
+						<td style="padding-left:70px;">
+							<img src="../img/bob.png">
+							<img data-id="publickey" src="../img/public-key.png"  style="width:120px;">
+							<div style="border:1px solid #ddd; display:inline-block;width:100px;font-size:45%;color:#D52;border-radius:7px;background-color:#fffafa;visibility:hidden;padding:5px;">						
+					</div>	
+							<br>
+							<img src="../img/eve.png">
+							<img data-id="publickeyb" src="../img/public-key.png"  style="width:120px;">
+
+							<br>
+							<img src="../img/charlie.png">
+							<img data-id="publickeyc" src="../img/public-key.png"  style="width:120px;">
+						</td>
+					</tr>
+				</table>			
+				<div style="font-size:90%;">
+					Everyone has access to Alice's PUBLIC key
+				</div>
+					<br> 
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Public-Key Cryptography</h4> 
+				
+				<table>
+					<tr>
+						<td style="vertical-align:middle;border-right:2px solid gray;padding-right:70px;">
+							<img src="../img/alice.png">					
+							<img data-id="privatekey" src="../img/private-key.png" style="width:120px;">
+						</td>
+						<td style="padding-left:70px;">
+							<img src="../img/bob.png">
+							<img data-id="publickey" src="../img/public-key.png"  style="width:120px;">
+
+					<div style="border:1px solid #ddd; display:inline-block;width:100px;font-size:45%;color:#D52;border-radius:7px;background-color:#fffafa;padding:5px;">
+						QIJWLJSDF<br>DRPJOSHE<br>IXHWULSG
+					</div>	
+							<br>
+							<img src="../img/eve.png">
+							<img data-id="publickey" src="../img/public-key.png"  style="width:120px;">
+							<br>
+							<img src="../img/charlie.png">
+							<img data-id="publickeyc" src="../img/public-key.png"  style="width:120px;">
+						</td>
+					</tr>
+				</table>			
+				<div style="font-size:90%;">
+					When Bob encrypts a message using Alice's PUBLIC key, <br>
+					only Alice has the key that can decrypt it!
+				</div>
+			</section>
+
+
+			<section>
+				<h4>RSA</h4>
+				<ol style="font-size:95%;">
+					<li>Choose two large prime numbers \(p\) and \(q\)</li>
+					<li>Compute \(n = pq\)</li>
+					<li>Compute \(\lambda = \text{lcm}(p-1, q-1) \) </li>
+					<li>Choose \(e\) such that \(1 \lt e \lt \lambda \) and \( \gcd(e, \lambda)=1 \)</li>
+					<li>Compute \(d\) where \(de \equiv 1 \mod \lambda \)</li>
+				</ol>
+				<br> <br> 
+				<div>
+					Then 
+					\( c \equiv m^{e} \mod n \),  and \(c^{d} \equiv m \mod n\)
+				</div>
+			</section>
+			<section>
+				<a href="http://www.cypherspace.org/adam/rsa/uk-shirt.html"><img src="../img/ukfront.jpg" style="width:50%;"></a>
+				Crypto wars
+			</section>
+
+			<section>
+				<h4>Diffie-Hellman Key Exchange</h4>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/NmM9HA2MQGI?si=VSEiTFzzQCkAmQty" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</section>
+			<section>
+				<h4>AES </h4>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/O4xNJsjtN6E?si=5qH7YLyO8CN-luNr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</section>
+			<section>
+				<h4>Elliptic Curve Crypto </h4>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/NF1pwjL9-DE?si=-FAtD_0f6ioA_0s-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/nybVFJVXbww?si=YrN57Rf4nJTDNbbs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</section>
+
+			<section>
+				<a href="https://www.pcmag.com/news/how-the-nsa-is-turning-your-apps-against-you">
+					<img src="../img/pcmag_nsa_apps.png">
+				</a>
+			</section>			
+			<section>
+				<a href="https://www.businessinsider.com/fbi-vs-apple-history-of-apples-fight-over-the-locked-san-bernardino-shooters-iphone?op=1#september-2014-almost-immediately-law-enforcement-officials-react-fbi-director-james-comey-and-manhattan-district-attorney-cyrus-vance-criticize-apple-within-weeks-of-the-ios-8-update-those-two-officials-remain-among-the-most-outspoken-apple-critics-on-the-topic-of-encryption-2">
+					<img src="../img/apple-fbi.png">
+				</a>
+			</section>
+			<section>
+				<a href="https://lifehacker.com/tech/the-viral-tea-app-just-had-another-data-breach">
+					<img src="../img/lifehacker_tea_app.png">
+				</a>
+			</section>
+			<section>
+				<a href="https://www.npr.org/2025/08/16/nx-s1-5504196/trump-putin-summit-documents-left-behind">
+					<img src="../img/npr_printer_docs.png">
+				</a>
+			</section>
+			<section>
+				<a href="https://www.techspot.com/news/108911-thousands-private-chatgpt-conversations-found-google-search-after.html">
+					<img src="../img/techspot_chatgpt_leaks.png">
+				</a>
+			</section>
+
+
+			<section>
+				<div style="font-size:50%;">
+					Recommended reading: "Crypto" by Steven Levy <br><img src="../img/crypto.jpg" style="width:250px;">
+				</div>
+				<div>
+					<a href="https://en.wikipedia.org/wiki/Venona_project">https://en.wikipedia.org/wiki/Venona_project</a>
+				</div>
+			</section>	
+
+
+
+			<section>
+				<p style="color: #888;font-size:50%;">
+					©2025 Jedediyah Williams
+					<br> 
+					This work is licensed under the Creative Commons <br>Attribution-NonCommercial-ShareAlike 4.0 International License.
+					<br>
+					<img src="../img/by-nc-sa.svg">
+					<br> 
+					To view a copy of this license, visit <a
+					  href="https://creativecommons.org/licenses/by-nc-sa/4.0/">https://creativecommons.org/licenses/by-nc-sa/4.0/</a>.
+				  </p>
+			</section>
+
+
+		</div>
+	</div>
+
+	<script src="reveal.js-master/dist/reveal.js"></script>
+	<script src="reveal.js-master/plugin/notes/notes.js"></script>
+	<script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+	<script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+	<script src="reveal.js-master/plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		});
+	</script>
+</body>
+
+</html>
