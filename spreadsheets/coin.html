@@ -13,7 +13,7 @@
   <div id="leftpanel" class="left-panel">
     <h2>Heads or Tails</h2>
     <p>
-      In A1, write the formula <code>=if(rand()<0.5,"H","T")</code>, and expand for 20 rows.       
+      In A1, write the formula <code>=if(rand()&lt;0.5,"H","T")</code>, and expand for 20 rows.       
     </p>
     <p>
       
@@ -22,13 +22,13 @@
       It can be helpful to break this formula down: 
 <pre>
    if ( 
-     rand() < 0.5, 
+     rand() &lt; 0.5, 
      "H", 
      "T"
    )</pre>
 This <code>if</code> has three inputs inside its parentheses. 
 <ul>
-  <li><code>rand()<0.5</code> is an expression that is either true or false.</li>
+  <li><code>rand()&lt;0.5</code> is an expression that is either true or false.</li>
   <li><code>"H"</code> will be written IF the expression is TRUE. </li>
   <li><code>"T"</code> will be written if the expression is FALSE. </li>
 </ul>
