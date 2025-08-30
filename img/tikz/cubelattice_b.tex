@@ -1,0 +1,32 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{tikz}
+
+\begin{document}
+	
+\begin{tikzpicture}
+
+\pgfmathsetmacro{\N}{3}
+\foreach \x in{0,...,\N}
+{   \draw (0,\x ,\N) -- (\N,\x ,\N);
+	\draw (\x ,0,\N) -- (\x ,\N,\N);
+	\draw (\N,\x ,\N) -- (\N,\x ,0);
+	\draw (\x ,\N,\N) -- (\x ,\N,0);
+	\draw (\N,0,\x ) -- (\N,\N,\x);
+	\draw (0,\N,\x ) -- (\N,\N,\x );
+}
+	
+\node[circle, fill=red, inner sep=1.5pt,label=right:{\small Goal}] (start) at (3,3,0) {};
+\draw [blue,ultra thick, ->] (0,0,3) -- (0,1,3);
+\draw [blue,ultra thick, ->] (0,1,3) -- (0,2,3);
+\draw [blue,ultra thick, ->] (0,2,3) -- (1,2,3);
+\draw [blue,ultra thick, ->] (1,2,3) -- (1,3,3);
+\draw [blue,ultra thick, ->] (1,3,3) -- (1,3,2);
+\draw [blue,ultra thick, ->] (1,3,2) -- (2,3,2);
+\draw [blue,ultra thick, ->] (2,3,2) -- (2,3,1);
+\draw [blue,ultra thick, ->] (2,3,1) -- (2,3,0);
+\draw [blue,ultra thick, ->] (2,3,0) -- (3,3,0);
+\node[circle, fill=red, inner sep=1.5pt,label=left:{\small Start}] (start) at (0,0,3) {};	
+
+\end{tikzpicture}
+\end{document}

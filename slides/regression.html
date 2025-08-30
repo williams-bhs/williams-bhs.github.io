@@ -731,14 +731,277 @@
 			</section>
 
 			<section>
-				[more exmaples of multiple linear regression]
+				<div>
+					Consider a possible data set on final exam grades. 
+				</div>
+				<br> 
+				<div>
+				<table style="font-size:70%;">
+					<tr>
+						<th>Final Ex. Grade</th><th>Hours Studied</th><th>Days Missed</th><th>Visits B/A School</th><th>Questions Asked</th><th>Homeworks Done</th>						
+					</tr>
+					<tr>
+						<td>A-</td>
+						<td>4</td>
+						<td>7</td>
+						<td>2</td>
+						<td>57</td>
+						<td>130</td>
+					</tr>
+					<tr>
+						<td>D+</td>
+						<td>1</td>
+						<td>13</td>
+						<td>0</td>
+						<td>4</td>
+						<td>71</td>
+					</tr>
+					<tr>
+						<td>B-</td>
+						<td>4</td>
+						<td>2</td>
+						<td>0</td>
+						<td>34</td>
+						<td>112</td>
+					</tr>
+					<tr>
+						<td>A</td>
+						<td>6</td>
+						<td>4</td>
+						<td>5</td>
+						<td>30</td>
+						<td>130</td>
+					</tr>
+					<tr>
+						<td>C+</td>
+						<td>0</td>
+						<td>14</td>
+						<td>0</td>
+						<td>16</td>
+						<td>88</td>
+					</tr>
+					<tr>
+						<td>B-</td>
+						<td>1</td>
+						<td>10</td>
+						<td>1</td>
+						<td>49</td>
+						<td>122</td>
+					</tr>
+				</table>
+				</div>
+				<!-- [more exmaples of multiple linear regression]
 				house prices 
 				car prices 
 				grade based on attendence, study time, number of visits after school, 
 
 				What would it mean for a coefficient to be small (close to zero) or negative? 
 
-				What does an intercept mean? 
+				What does an intercept mean?  -->
+			</section>
+
+
+			<section>
+				<div>
+					Consider a possible data set on final exam grades. 
+				</div>
+				<br> 
+				<div>
+				<table style="font-size:70%;">
+					<tr>	
+						<th>\(Y\)</th>		
+						<th>\(X_1\)</th>		
+						<th>\(X_2\)</th>		
+						<th>\(X_3\)</th>		
+						<th>\(X_4\)</th>		
+						<th>\(X_5\)</th>		
+					</tr>
+					<tr>
+						<td>A-</td>
+						<td>4</td>
+						<td>7</td>
+						<td>2</td>
+						<td>57</td>
+						<td>130</td>
+					</tr>
+					<tr>
+						<td>D+</td>
+						<td>1</td>
+						<td>13</td>
+						<td>0</td>
+						<td>4</td>
+						<td>71</td>
+					</tr>
+					<tr>
+						<td>B-</td>
+						<td>4</td>
+						<td>2</td>
+						<td>0</td>
+						<td>34</td>
+						<td>112</td>
+					</tr>
+					<tr>
+						<td>A</td>
+						<td>6</td>
+						<td>4</td>
+						<td>5</td>
+						<td>30</td>
+						<td>130</td>
+					</tr>
+					<tr>
+						<td>C+</td>
+						<td>0</td>
+						<td>14</td>
+						<td>0</td>
+						<td>16</td>
+						<td>88</td>
+					</tr>
+					<tr>
+						<td>B-</td>
+						<td>1</td>
+						<td>10</td>
+						<td>1</td>
+						<td>49</td>
+						<td>122</td>
+					</tr>
+				</table>
+				</div>
+			</section>
+
+
+			<section>
+				<div>
+					Consider a possible data set on final exam grades. 
+				</div>
+				<br> 
+				<div>
+				<table style="font-size:70%;">
+					<tr>	
+						<th>\(Y\)</th>		
+						<th>\(X_1\)</th>		
+						<th>\(X_2\)</th>		
+						<th>\(X_3\)</th>		
+						<th>\(X_4\)</th>		
+						<th>\(X_5\)</th>		
+					</tr>
+					<tr>
+						<td>3.7</td>
+						<td>4</td>
+						<td>7</td>
+						<td>2</td>
+						<td>57</td>
+						<td>130</td>
+					</tr>
+					<tr>
+						<td>1.3</td>
+						<td>1</td>
+						<td>13</td>
+						<td>0</td>
+						<td>4</td>
+						<td>71</td>
+					</tr>
+					<tr>
+						<td>2.7</td>
+						<td>4</td>
+						<td>2</td>
+						<td>0</td>
+						<td>34</td>
+						<td>112</td>
+					</tr>
+					<tr>
+						<td>4.0</td>
+						<td>6</td>
+						<td>4</td>
+						<td>5</td>
+						<td>30</td>
+						<td>130</td>
+					</tr>
+					<tr>
+						<td>2.3</td>
+						<td>0</td>
+						<td>14</td>
+						<td>0</td>
+						<td>16</td>
+						<td>88</td>
+					</tr>
+					<tr>
+						<td>2.7</td>
+						<td>1</td>
+						<td>10</td>
+						<td>1</td>
+						<td>49</td>
+						<td>122</td>
+					</tr>
+				</table>
+				</div>
+			</section>
+
+
+			<section>
+				<div style="font-size:70%;">
+					\(\hat{Y} = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \beta_4 X_4 + \beta_5 X_5  \)
+				</div>
+				<br> 
+				<div>
+				<table style="font-size:70%;">
+					<tr>	
+						<th>\(Y\)</th>		
+						<th>\(X_1\)</th>		
+						<th>\(X_2\)</th>		
+						<th>\(X_3\)</th>		
+						<th>\(X_4\)</th>		
+						<th>\(X_5\)</th>		
+					</tr>
+					<tr>
+						<td>3.7</td>
+						<td>4</td>
+						<td>7</td>
+						<td>2</td>
+						<td>57</td>
+						<td>130</td>
+					</tr>
+					<tr>
+						<td>1.3</td>
+						<td>1</td>
+						<td>13</td>
+						<td>0</td>
+						<td>4</td>
+						<td>71</td>
+					</tr>
+					<tr>
+						<td>2.7</td>
+						<td>4</td>
+						<td>2</td>
+						<td>0</td>
+						<td>34</td>
+						<td>112</td>
+					</tr>
+					<tr>
+						<td>4.0</td>
+						<td>6</td>
+						<td>4</td>
+						<td>5</td>
+						<td>30</td>
+						<td>130</td>
+					</tr>
+					<tr>
+						<td>2.3</td>
+						<td>0</td>
+						<td>14</td>
+						<td>0</td>
+						<td>16</td>
+						<td>88</td>
+					</tr>
+					<tr>
+						<td>2.7</td>
+						<td>1</td>
+						<td>10</td>
+						<td>1</td>
+						<td>49</td>
+						<td>122</td>
+					</tr>
+				</table>
+				</div>
 			</section>
 
 
