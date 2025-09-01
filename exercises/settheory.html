@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing and Data Science</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../header.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../exercises.css" />
+  <style>
+    ol ol li {padding-left:10px;}
+  </style>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+</head>
+
+<body>
+  <header>
+    <a href="../index.html" class="header-title">
+      <svg class="header-img" viewBox="0 0 1024 1024" fill="currentColor" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m 712,294 a 56,56 0 1 0 112,0 56,56 0 1 0 -112,0 z" id="path5" />
+        <path d="m 564,608 a 96,96 0 1 0 192,0 96,96 0 1 0 -192,0 z" id="path4" />
+        <path d="m 406,380 a 48,48 0 1 0 96,0 48,48 0 1 0 -96,0 z" id="path3" />
+        <path d="m 288,604 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z" id="path2" />
+        <path
+          d="M 888,792 H 200 V 168 c 0,-4.4 -3.6,-8 -8,-8 h -56 c -4.4,0 -8,3.6 -8,8 v 688 c 0,4.4 3.6,8 8,8 h 752 c 4.4,0 8,-3.6 8,-8 v -56 c 0,-4.4 -3.6,-8 -8,-8 z"
+          id="path1" />
+      </svg>
+      <span>Computing and Data Science</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Set Theory
+        <hr>
+      </h1>
+    </section>
+
+
+    <section class="exercises">
+      <p>
+        Sign in to <a target="_blank" href="https://www.overleaf.com/">Overleaf</a> and use <a target="_blank" href="problem_set_sum.tex.txt">this template</a> to write your solutions. 
+      </p>
+      <p>
+        There are some notation rendering issues... you will sometimes see "not" as a bar, \(\bar{A}\), and sometimes as an apostrophe, \(A'\). That's notation for you!
+      </p>
+
+      <ol>
+
+
+        <li>
+          Find the power set of \(A = \{x,y,z\}\). The power set is the set of all possible subsets. 
+        </li>
+
+        <li> 
+          Given the diagram below: 
+          <div class="tikz-container" style="display:flex; justify-content: center;margin-top:2em;margin-bottom:2em;">
+            <script type="text/tikz">
+          \begin{tikzpicture}
+            % Draw circles
+            \begin{scope}
+              \fill[blue!20, draw=black, opacity=0.5] (0,-1.5) circle (2cm);
+              \fill[red!20, draw=black, opacity=0.5] (-1,0) circle (2cm);
+              \fill[green!20, draw=black, opacity=0.5] (1,0) circle (2cm);
+            \end{scope}
+          
+            % Set labels
+            \node at (-2.7,1.5) {$A$};
+            \node at (2.7,1.5) {$B$};
+            \node at (-1.5,-3.3) {$C$};
+          
+            % Position the elements 
+            \node at (-2.0,0.6) {3};             
+            \node at (1.9,0.6) {5}; 
+            \node at (0.1,-2.5) {8};  
+            \node at (-1.3,-1.0) {1};         
+            \node at (-0.1,0.9) {2};
+            \node at (0.3,-.5) {4};
+            \node at (-1.0,-1.4) {6};
+            \node at (-0.2,-0.6) {7};        
+          \end{tikzpicture}
+            </script>
+          </div>
+            <ol type="a">
+              <li>Write the three sets by listing their elements. </li>
+              <!-- <li>Write all of the possible expressions for unions and intersections on these three sets.</li> -->
+               <li>Write as many true statements as you can about the element 6.</li>
+            </ol>
+        </li>
+
+        <li>
+          Given that \(|A|=10\) and \(|B|=7\), what is the largest and smallest possible size for \(|A \cup B|\)?
+        </li>
+
+        <li>
+          Given: 
+          \[A = {2,4,6,8}\]
+          \[B = {1,2,3,4} \]
+          \[C = {0,3,6,9} \]
+          Assume that every element in the universal set is an element of at least one these sets. 
+          Write the expression and draw the Venn diagram for each of: 
+          <ol type="a">
+            <li>\( A \cup C \)</li>
+            <li>\( A \cap B \)</li>
+            <li>\( A \cup B \cup C \)</li>
+            <li>\( \bar{B} \)</li>
+            <li>\( A \cap (B \cup C) \)</li>
+          </ol>
+        </li>
+
+        <li>
+          Given: 
+          \[ \mathcal{U} = \{ a,b,c,d,e,f,g,h\} \]
+          <ol type="a">
+            <li>Assign elements to sets \(A\) and \(B\) such that:
+              \[|A| = 3\]
+              \[|B| = 6\]
+              \[|A \cap B| = 2\]
+            </li>
+            <li>
+              Find \(|A \cup B|\).
+            </li>
+            <li>
+              Find \(| (A \cup B)'|\).    <!-- There is a bug (in firefox?) where the overline does not always render... -->
+            </li>
+            <li>
+              Compare your answers from parts b and c with others. Is it possible for these answers to be different? Explain why or why not. 
+            </li>
+          </ol>
+        </li>
+
+<br>
+          Exercises from <a href="https://discrete.openmathbooks.org/dmoi3/sec_intro-sets.html">Levin 3rd Edition</a>.
+
+
+        <li>
+          \(A=\{3,5,6,7,8\}\) and \(B=\{3,6,7,9,12\}\). Find each of the following sets. 
+          <ol type="a">
+            <li>\(A \cup B \)</li>
+            <li>\(A \cap B \)</li>
+            <li>\(A \setminus B \)</li>
+            <li>\(B \setminus A \)</li>
+          </ol>
+        </li>
+
+        <li>
+          Find the following cardinalities: 
+          <ol type="a">
+            <li>\(|A|\) when \(A=\{5,6,7,8,...,35\}\)</li>
+            <li>\(|A|\) when \(A=\{x \in \mathbb{Z}: -2 \leq x \leq 97\}\)</li>
+            <li>\(|A \cap B|\) when \(A = \{x \in \mathbb{Z}: x \leq 37\}\) and \(B = \{x \in \mathbb{Z}: x \text{ is prime }\}\)</li>
+          </ol>
+        </li>
+
+        <li>
+          Let \(A = \{9,11,12,13,14\}\) and \(B = \{9, 18, 19, 27, 36\}\). Find a set of largest possible size that is a subset of both \(A\) and \(B\).  
+        </li>
+        <li>
+          Find a set of smallest possible size that has both \(\{2,3,7,9,10\}\) and \(\{4,8,9,10\}\) as subsets. 
+        </li>
+        <li>
+          Let \(A=\{2,3,9,13,15 \}\) and \(B=\{3,9,13 \}\). How many sets \(C\) have the property that \(C \subseteq A\) and \(B \subseteq C\)? 
+        </li>
+        <li>
+          Let \(A=\{3,4,5,6,7\}\), \(B=\{5,6,7,8,9\}\), and \(C=\{4,7,9\}\). 
+          <ol type="a">
+            <li>Find \(A \cap B\)</li>
+            <li>Find \(A \cup B\)</li>
+            <li>Find \(A \setminus B\)</li>
+            <li>Find \(A \cap (B \cup C)'\)</li>
+          </ol>
+        </li>
+        <li>
+          The set of integers is \(\mathbb{Z} = \{..., -2, -1, 0 , 1, 2, ...\}\). Let \(\mathbb{Z}^{+}=\{1,2,3,...\}\) be the positive integers. Let \(2\mathbb{Z}\) be the even integers, \(3\mathbb{Z}\) be the muliples of 3, and so on. 
+          <ol type="a">
+            <li>Is \(\mathbb{Z}^{+} \subseteq 2\mathbb{Z}\)? Explain.  </li>
+            <li>Is \(2\mathbb{Z} \subseteq \mathbb{Z}^{+}\)? Explain.  </li>
+            <li>Find \(2\mathbb{Z} \cap 3\mathbb{Z}\). Describe the set in words, and using set notation.   </li>
+          </ol>
+        </li>
+        <li>
+          Let \(A_2\) be the set of all multiples of \(2\) except for \(2\). Let \(A_3\) be the set of all multiples of \(3\) except for \(3\). And so on, so that \(A_n\) is the set of all multiples of \(n\) except for \(n\), for any \(n\geq 2\). Describe (in words) the set \((A_2 \cup A_3 \cup A_4 \cup \dots )'\text{.}\)
+        </li>
+        <li>
+          Draw a Venn diagram to represent each of the following: 
+          <ol type="a">
+            <li>\( A \cup B' \)</li>
+            <li>\( (A \cup B)'  \)</li>
+            <li>\( A \cap (B \cup C) \)</li>
+            <li>\( (A \cap B) \cup C \)</li>
+            <li>\( A' \cap B \cap C' \)</li>
+            <li>\( (A \cup B) \setminus C \)</li>
+          </ol>
+        </li>
+
+        <li>
+          Consider the sets \(A\) and \(B\), where \(A=\{3, |B|\}\) and \(B=\{1,|A|,|B|\}\). What are the sets? 
+        </li>
+        <li>
+          Explain why no set \(A\) exists which satisfies \(A=\{2,|A|\}\).
+        </li>
+        <li>
+          Find all sets \(A\), \(B\), and \(C\) which satisfy the following:
+          \[ A = \{ 1, |B|, |C| \} \]
+          \[B = \{ 2, |A|, |C| \}\]
+          \[C = \{ 1, 2, |A|, |B| \}\]
+        </li>
+
+
+      </ol>
+
+    </section>
+
+  </main>
+</body>
+
+</html>

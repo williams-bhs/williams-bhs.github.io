@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing and Data Science</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../header.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../exercises.css" />
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+</head>
+
+<body>
+  <header>
+    <a href="../index.html" class="header-title">
+      <svg class="header-img" viewBox="0 0 1024 1024" fill="currentColor" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m 712,294 a 56,56 0 1 0 112,0 56,56 0 1 0 -112,0 z" id="path5" />
+        <path d="m 564,608 a 96,96 0 1 0 192,0 96,96 0 1 0 -192,0 z" id="path4" />
+        <path d="m 406,380 a 48,48 0 1 0 96,0 48,48 0 1 0 -96,0 z" id="path3" />
+        <path d="m 288,604 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z" id="path2" />
+        <path
+          d="M 888,792 H 200 V 168 c 0,-4.4 -3.6,-8 -8,-8 h -56 c -4.4,0 -8,3.6 -8,8 v 688 c 0,4.4 3.6,8 8,8 h 752 c 4.4,0 8,-3.6 8,-8 v -56 c 0,-4.4 -3.6,-8 -8,-8 z"
+          id="path1" />
+      </svg>
+      <span>Computing and Data Science</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Machine Learning
+        <hr>
+      </h1>
+    </section>
+
+    <section class="exercises">
+      <ol>
+
+        <li>
+          Hexapawn is a turn-based game using six chess pawns on a \(3 \times 3\) board. White moves first. A piece can
+          either move forward if the space in front of it is empty, or capture an opponent's piece diagonally.
+          <div style="text-align: center;">
+            <table style="width:100%;">
+              <tr>
+                <td style="width:33%;margin:auto;"><img src="../img/hex.png"> </td>
+                <td style="width:33%;margin:auto;"><img src="../img/move_forward.png"> </td>
+                <td style="width:33%;margin:auto;"><img src="../img/move_diagonal.png"> </td>
+              </tr>
+            </table>
+          </div>
+          A player can win in 3 ways:
+          <div style="width:80%;margin:auto;padding:15px;">
+            &bull; One of their pawns reaches the other side <br>
+            &bull; All of their opponent's pieces are captured <br>
+            &bull; It is their opponent's turn and there is no legal move
+          </div>
+          Hexapawn is a <em>solved game</em>, meaning we can calculate an optimal move from any position. Start by
+          playing several games to get familiar, and see if you can "solve" the game before attempting the questions
+          below.
+
+          <ol type="a">
+            <li>Is it possible to draw (tie) in hexapawn?</li>
+            <li>Does one side have the advantage?</li>
+            <li>What is the shortest game possible (fewest moves)?</li>
+            <li>What is the longest game possible (most moves)?</li>
+            <li>How many unique positions are possible after the first move (only white moves)?</li>
+            <li>How many unique positions are possible after the first two moves (white moves then black moves)?</li>
+            <li>Give an example of a position that is impossible to reach.</li>
+            <li>If white's first move is to move their left-most pawn forward, then what is black's best response? What
+              is black's worst response?</li>
+            <li>If white's first move is to move their center pawn forward, then what is black's best response? What is
+              black's worst response?</li>
+            <li>How many unique games are possible? Here, a game is represented by a sequence of moves.</li>
+          </ol>
+        </li>
+
+        <li>
+          <p>
+            Browse to <a href="https://jedediyah.github.io/hexapawn/">https://jedediyah.github.io/hexapawn/</a>. Try
+            playing a few games. Experiment with letting the machine play itself until it solves the game.
+          </p>
+          <p>
+            As the tree grows, there is more information recorded about the possible game outcomes. The
+            machine is programmed to follow a path of least resistance when it moves. That is, it will make the
+            move that leads to the least bad result in the tree at the time. The more games played, the more information
+            is available so presumably the better the moves become.
+          </p>
+          <ol type="a">
+
+            <li>As the machine plays itself, how do you know when the game has been solved?</li>
+            <li>What is the shortest game in the tree? What is the longest game in the tree?</li>
+            <li>After letting the machine play itself until one side always wins, there are still several games in the
+              tree where each side has won. So how is it that one side will always win now? In other words, why are some
+              previously reachable results now un-reachable?</li>
+            <li>Why doesn't the tree expand completely? In other words, why won't every possible game get played?</li>
+            <li>Find a game that hasn't yet been recorded in the tree, and play it into the tree.</li>
+            <li>Refresh the website, and start the machine playing itself again. Does it generate the same tree each
+              time? What might it say about the algorithm if the tree is the same or different?</li>
+            <li>Refresh the website. Running one Machine vs. Machine game at a time, use the blank chart to keep track
+              of the machine's score after each game. Each time black wins, the score increases by one. Each time white
+              wins, the score decreases by one. Play enough games to solve Hexapawn.
+              <ol>
+                <li>How many games did it take before black always won?</li>
+                <li>On average how many games does it take before black always wins? What was the fewest number of games
+                  required? The most? It might be useful to ask your classmates to share their data.</li>
+                <li>How many wins total did white have?</li>
+                <li>On average how many wins did white have? What was the fewest number of wins for white? The most?
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+
+        <li>
+          Read chapter 3, "Arms Race: Going to College", in <em>Weapons of Math Destruction</em> by Cathy O'Neil. 
+          <!-- <ol type="a">
+            <li></li>
+          </ol> -->
+        </li>
+
+
+
+      </ol>
+
+    </section>
+
+  </main>
+</body>
+
+</html>
