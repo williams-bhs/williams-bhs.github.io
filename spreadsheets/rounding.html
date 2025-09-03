@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spreadsheet Formula Practice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="style.css" /> 
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <div class="left-panel">
+    <h2>Rounding</h2>
+    <p>
+      Column A has several decimal numbers. 
+    </p>
+    <p>
+      <ol>
+        <li>In column B, use the <code>round</code> function to round these to the nearest tenth. 
+            In B1, start with <code>=ROUND(A1,0)</code>. That 0 says to leave 0 decimal places.
+        </li>
+
+          <li>
+            In column C, round the A column to the nearest tenth (1 decimal).
+          </li>
+          <li>
+            In column D, round the A column to the nearest hundredth (2 decimals).
+          </li>
+          <li>
+            In column E, use the <code>roundup</code> function to round up (0 decimals).  
+          </li>
+          <li>
+            In column F, use the <code>rounddown</code> function to round down (0 decimals).  
+          </li>
+      </ol>
+      
+    </p>
+    
+   
+
+    <button id="check-button">Check It</button>
+    <div id="feedback-box"></div>
+  </div>
+  <div class="right-panel">
+    <div id="luckysheet"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="sheets.js"></script>
+  <script>
+
+    let cell_data = [ {r:0,c:0,v:{v:"Numbers"}}, 
+                      {r:0,c:1,v:{v:"Whole"}}, 
+                      {r:0,c:2,v:{v:"Tenth"}}, 
+                      {r:0,c:3,v:{v:"Hundredth"}}, 
+                      {r:0,c:4,v:{v:"RoundUp"}}, 
+                      {r:0,c:5,v:{v:"RoundDown"}}, 
+                      {r:1,c:0,v:{v:3.141}}, 
+                      {r:2,c:0,v:{v:5.735}},
+                      {r:3,c:0,v:{v:2.228}},
+                      {r:4,c:0,v:{v:9.808}},
+                      {r:5,c:0,v:{v:8.333}},
+                      {r:6,c:0,v:{v:4.111}},
+                      {r:7,c:0,v:{v:5.828}},
+                      {r:8,c:0,v:{v:3.789}},
+                      {r:9,c:0,v:{v:6.867}},
+                      {r:10,c:0,v:{v:7.649}},
+                      {r:11,c:0,v:{v:4.001}},
+    ]; 
+
+    luckysheet.create({
+      container: 'luckysheet',
+      data: [
+        {
+          name: "Sheet1",
+          color: "",
+          status: "1",
+          order: "0",
+          celldata: cell_data,
+          config: {},
+          index: 0
+        }
+      ],
+      lang: 'en',
+      allowEdit: true,
+      showtoolbar: false,
+      showinfobar: false,
+      showsheetbar: false,
+      showstatbar: false, 
+    });
+
+    document.getElementById("check-button").addEventListener("click", () => {  
+        // Check for expected values in the sheet
+        checkSheet(
+            checkCellFunction("A1","=40+10*rand()") && 
+            checkCellFunction("A19","=40+10*rand()") && 
+            checkCellFunction("A20","=40+10*rand()") && 
+            (checkCellFunction("B1","=100+50*rand()") || checkCellFunction("B1","=100+rand()*50")) &&
+            (checkCellFunction("B20","=100+50*rand()") || checkCellFunction("B20","=100+rand()*50")),
+            "somemath.html"
+        ); 
+      });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

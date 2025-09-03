@@ -993,6 +993,8 @@
 						</td>
 						<td style="vertical-align:top;font-size:70%;padding:0;">
 							<p>A first attempt at <strong>object detection</strong> might utilize color. </p>
+							<p>Filtering pixels by RGB or HSV values can help localize objects within the image.  </p>
+							<p>What colors could you isolate here?</p>
 						</td>
 					</tr>
 				</table>
@@ -1094,7 +1096,7 @@
 
 			<!-- HSV filter demo -->
 			<section>
-				<span style="font-size:60%;">HSV is more robust than RGB since it is less sensitive to lighting
+				<span style="font-size:60%;">HSV can be more robust since it is less sensitive to lighting
 					changes</span>
 				<div class="container">
 					<canvas id="hsvoriginalCanvas" width="300" height="300"></canvas>
@@ -1354,15 +1356,16 @@
 					<img src="../img/fruit_feature_box.png">
 				</div>
 				<div>
-					<span style="font-size:80%;">Given an input image, our Classifier Algorithm is:</span>
-					<br> 
+					<span style="font-size:80%;">Given an input image, our Fruit Classifier Algorithm is:</span>					
+					<div style="padding:10px;background-color:#cfc;border-radius:13px;">
 					<ol>
 						<li>Add up all of the R, G, and B values</li>
-						<li>If ...</li>
-						<li>Else if ...</li>
-						<li>Else if ...</li>
+						<li>If ... then ...</li>
+						<li>Else if ... then ...</li>
+						<li>Else if ... then ...</li>
 						<li>Else ...</li>
 					</ol>
+					</div>
 				</div>
 			</section>
 

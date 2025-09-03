@@ -10,32 +10,24 @@
 </head>
 
 <body>
-  <div id="leftpanel" class="left-panel">
-    <h2>Heads or Tails</h2>
+  <div class="left-panel">
+    <h2>Randomness with Whole Numbers</h2>
     <p>
-      In A1, write the formula <code>=if(rand()&lt;0.5,"H","T")</code>, and expand for 20 rows.       
+      I want a random number from 1 and 10, and I want it to be a whole number. 
     </p>
     <p>
-      
+      In column A, generate a random number from 0 to 9 with decimals <code>10*rand()</code>, but wrap that in the <code>CEILING</code> function to round it up!
     </p>
     <p>
-      It can be helpful to break this formula down: 
-<pre>
-   if ( 
-     rand() &lt; 0.5, 
-     "H", 
-     "T"
-   )</pre>
-This <code>if</code> has three inputs inside its parentheses. 
-<ul>
-  <li><code>rand()&lt;0.5</code> is an expression that is either true or false.</li>
-  <li><code>"H"</code> will be written IF the expression is TRUE. </li>
-  <li><code>"T"</code> will be written if the expression is FALSE. </li>
-</ul>
+      Remember that the <code>CEILING(N,1)</code> function takes two inputs. 
     </p>
+    <p>
+      Make sure you get only whole number outputs from 1 to 10. 
+    </p>
+   
 
-
-
+    <button id="check-button">Check It</button>
+    <div id="feedback-box"></div>
   </div>
   <div class="right-panel">
     <div id="luckysheet"></div>
@@ -45,7 +37,9 @@ This <code>if</code> has three inputs inside its parentheses.
   <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
   <script src="sheets.js"></script>
   <script>
-    let cell_data = []; 
+
+    let cell_data = [  ]; 
+
     luckysheet.create({
       container: 'luckysheet',
       data: [
@@ -67,32 +61,25 @@ This <code>if</code> has three inputs inside its parentheses.
       showstatbar: false, 
     });
 
-    let updated = false; 
-    function checkForUpdate() {      
-      if (checkCellFunction("A1",'=if(rand()<0.5,"H","T")') && 
-          checkCellFunction("A20",'=if(rand()<0.5,"H","T")')  ) {
-            updated = true; 
-            document.getElementById("leftpanel").innerHTML += `
-    <p>
-      Make the coin flip unfair by making the result "H" 70% of the time. Make sure to update all 20 rows. 
-    </p>    
-    <button id="check-button">Check It</button>
-    <div id="feedback-box"></div>
-    `; 
     document.getElementById("check-button").addEventListener("click", () => {  
         // Check for expected values in the sheet
         checkSheet(
-            checkCellFunction("A1",'=if(rand()<0.7,"H","T")') && 
-            checkCellFunction("A20",'=if(rand()<0.7,"H","T")') , 
-            "randommuch.html"
+            checkCellFunction("A1","=40+10*rand()") && 
+            checkCellFunction("A19","=40+10*rand()") && 
+            checkCellFunction("A20","=40+10*rand()") && 
+            (checkCellFunction("B1","=100+50*rand()") || checkCellFunction("B1","=100+rand()*50")) &&
+            (checkCellFunction("B20","=100+50*rand()") || checkCellFunction("B20","=100+rand()*50")),
+            "randommuchmore.html"
         ); 
       });
-
-      } else {
-        setTimeout(checkForUpdate, 2000);
-      }
-    }
-    setTimeout(checkForUpdate, 3000);
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
