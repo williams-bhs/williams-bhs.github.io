@@ -16,10 +16,10 @@
       I want a random number from 1 and 10, and I want it to be a whole number. 
     </p>
     <p>
-      In column A, generate a random number from 0 to 9 with decimals <code>10*rand()</code>, but wrap that in the <code>CEILING</code> function to round it up!
+      In column A, generate a random number from 0 to 9 with decimals <code>10*rand()</code>, but wrap that in the <code>ROUNDUP</code> function to round it up!
     </p>
     <p>
-      Remember that the <code>CEILING(N,1)</code> function takes two inputs. 
+      Remember that the <code>ROUNDUP(N,1)</code> function takes two inputs. 
     </p>
     <p>
       Make sure you get only whole number outputs from 1 to 10. 
@@ -64,11 +64,7 @@
     document.getElementById("check-button").addEventListener("click", () => {  
         // Check for expected values in the sheet
         checkSheet(
-            checkCellFunction("A1","=40+10*rand()") && 
-            checkCellFunction("A19","=40+10*rand()") && 
-            checkCellFunction("A20","=40+10*rand()") && 
-            (checkCellFunction("B1","=100+50*rand()") || checkCellFunction("B1","=100+rand()*50")) &&
-            (checkCellFunction("B20","=100+50*rand()") || checkCellFunction("B20","=100+rand()*50")),
+            checkCellFunction("A1","=ROUNDUP(10*rand(),1"),
             "randommuchmore.html"
         ); 
       });
