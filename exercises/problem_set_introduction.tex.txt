@@ -17,19 +17,15 @@
 % Exercise solutions
 \begin{enumerate}
     
-    \item  First problem 
-        \begin{enumerate}
-            \item First part 
-            \item Second part
-            \item 3rd part
-            \item 4th part
-        \end{enumerate}
+    \item  Rubiks Cube update. Have you found one yet? 
 
 
     \item Second problem
         \begin{enumerate}
             \item First part 
             \item Second part
+            \item Third part
+            \item Fourth part
         \end{enumerate}
     
 \end{enumerate}
