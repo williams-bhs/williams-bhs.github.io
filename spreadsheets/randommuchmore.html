@@ -64,7 +64,7 @@
     document.getElementById("check-button").addEventListener("click", () => {  
         // Check for expected values in the sheet
         checkSheet(
-            checkCellFunction("A1","=ROUNDUP(10*rand(),1"),
+            checkCellFunction("A1","=ROUNDUP(10*rand(),0)"),
             "randommuchmore.html"
         ); 
       });
