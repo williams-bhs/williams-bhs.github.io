@@ -6,19 +6,18 @@
   <title>Spreadsheet Formula Practice</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
   <link rel="stylesheet" href="style.css" /> 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
   <div class="left-panel">
-    <h2>Rounding</h2>
+        <h2>Rounding</h2>
     <p>
       Column A has several decimal numbers. 
     </p>
     <p>
       <ol>
-        <li>In column B, use the <code>round</code> function to round these to the nearest tenth. 
-            In B1, start with <code>=ROUND(A1,0)</code>. That 0 says to leave 0 decimal places.
+        <li>In column B, use the <code>round</code> function to round these to the nearest whole number. 
+            In B1, start with <code>=ROUND(A2,0)</code>. That 0 says to leave 0 decimal places.
         </li>
 
           <li>
@@ -33,11 +32,8 @@
           <li>
             In column F, use the <code>rounddown</code> function to round down (0 decimals).  
           </li>
-      </ol>
-      
+      </ol>      
     </p>
-    
-   
 
     <button id="check-button">Check It</button>
     <div id="feedback-box"></div>
@@ -50,7 +46,6 @@
   <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
   <script src="sheets.js"></script>
   <script>
-
     let cell_data = [ {r:0,c:0,v:{v:"Numbers"}}, 
                       {r:0,c:1,v:{v:"Whole"}}, 
                       {r:0,c:2,v:{v:"Tenth"}}, 
@@ -69,7 +64,6 @@
                       {r:10,c:0,v:{v:7.649}},
                       {r:11,c:0,v:{v:4.001}},
     ]; 
-
     luckysheet.create({
       container: 'luckysheet',
       data: [
@@ -94,22 +88,17 @@
     document.getElementById("check-button").addEventListener("click", () => {  
         // Check for expected values in the sheet
         checkSheet(
-            checkCellFunction("A1","=40+10*rand()") && 
-            checkCellFunction("A19","=40+10*rand()") && 
-            checkCellFunction("A20","=40+10*rand()") && 
-            (checkCellFunction("B1","=100+50*rand()") || checkCellFunction("B1","=100+rand()*50")) &&
-            (checkCellFunction("B20","=100+50*rand()") || checkCellFunction("B20","=100+rand()*50")),
+            checkCell("B2",3) &&
+            checkCell("B11",8) &&
+            checkCell("C2",3.1) &&
+            checkCell("C12",4) &&
+            checkCell("D10",6.87) &&
+            checkCell("E10",7)&&
+            checkCell("F6",8),
             "somemath.html"
         ); 
       });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
 

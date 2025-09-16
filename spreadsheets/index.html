@@ -4,47 +4,95 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spreadsheet Formula Practice</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
-  <link rel="stylesheet" href="style.css" /> 
+  <style>
+    body {
+      font-family:'Courier New', Courier, monospace; 
+    }
+    table, tr, td {
+      border: 1px solid gray; 
+      border-collapse: collapse; padding:10px;
+      font-size:96%;
+    }
+    a {
+      color: rgb(117, 175, 151); 
+      text-decoration: none; 
+      font-weight:bold;
+    }
+    a:hover {
+      text-decoration: underline; 
+    }
+  </style>
 </head>
 
 <body>
-  <div class="left-panel">
-    <h2>Welcome to a Spreadsheets Tutorial!</h2>
-    <p>Notice that every row is numbered and every column has a letter. This provides a way to reference each cell. Click on C3. </p>
-    <p>Use the keyboard arrows to move around the spreadsheet. Hold Shift while using the arrows. Experiment with the Tab and Enter keys. Try entering values into some cells. </p>
-    <p>As you work, use the keyboard as much as you can. </p>
+
+  <div style="margin:auto;max-width:600px;">
+    <h2>Welcome to a Spreadsheet Tutorial!</h2>
+    <p>
+      Below you'll find exercises introducing the basic functionality of spreadsheets, humanity's most powerful tool. 
+    </p>
+    <p>
+      Start at the beginning and work your way through. When you have some skills, give yourself some projects!
+    </p>
     
-    <p>Try the following:</p>
-    <ul>
-      <li>Put a 3 into D4</li>
-      <li>Put cat into B7</li>
-      <li>Put 5/7 into A2</li>
-    </ul>
-    <p>Once you're done, check your work.</p>
-    <button id="check-button">Check It</button>
-    <div id="feedback-box"></div>
-  </div>
-  <div class="right-panel">
-    <div id="luckysheet"></div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
-  <script src="sheets.js"></script>
-  <script>
-    initBlankSheet(); 
-
-    document.getElementById("check-button").addEventListener("click", () => {  
-        // Check for expected values in the sheet
-        checkSheet(
-            checkCell("D4",3) && 
-            checkCell("B7","cat") && 
-            checkCell("A2","5/7"), 
-            "bluebox.html"
-        ); 
-      });
-  </script>
+    <br> 
+    <table style="margin:auto;">
+      <tr>
+        <td><a href="intro.html">Introduction</a></td><td>First steps. Start here!</td>
+      </tr>
+      <tr>
+        <td><a href="bluebox.html">Blue Box</a></td><td>It's better than AI</td>
+      </tr>
+      <tr>
+        <td><a href="patterns.html">Patterns</a></td><td>Predictive dragging</td>
+      </tr>
+      <tr>
+        <td><a href="formulas.html">Formulas</a></td><td>Always start with =</td>
+      </tr>
+      <tr>
+        <td><a href="formulascolumns.html">Multiple Formulas</a></td><td>This is where the power is</td>
+      </tr>
+      <tr>
+        <td><a href="formulaslinear.html">Function</a></td><td>Formulas are functions</td>
+      </tr>
+      <tr>
+        <td><a href="formulascircumference.html">Absolute Reference</a></td><td>$ changes everything (or nothing)</td>
+      </tr>
+      <tr>
+        <td><a href="formulaselection.html">Built-in Formulas</a></td><td>It's all already there already</td>
+      </tr>
+      <tr>
+        <td><a href="formulasstats.html">Statistics</a></td><td>You're a data scientist!</td>
+      </tr>
+      <tr>
+        <td><a href="rounding.html">Rounding</a></td><td>Floor, ceiling, numbers</td>
+      </tr>
+      <tr>
+        <td><a href="somemath.html">Math</a></td><td>Where it all started</td>
+      </tr>
+      <tr>
+        <td><a href="functions.html">More Functions</a></td><td>Absolute value! You betcha  </td>
+      </tr>
+      <tr>
+        <td><a href="fibonacci.html">Fibonacci</a></td><td>This website is a golden ratio</td>
+      </tr>
+      <tr>
+        <td><a href="pythagorean.html">Pythagorean</a></td><td>I have a great joke about Pythagoras</td>
+      </tr>
+      <tr>
+        <td><a href="random.html">Random</a></td><td>Well, technically pseudorandom</td>
+      </tr>
+      <tr>
+        <td><a href="coin.html">Coin</a></td><td>Heads or Eagle</td>
+      </tr>
+      <tr>
+        <td><a href="randommuch.html">Random Ranges</a></td><td>I'm thinking of a number</td>
+      </tr>
+      <tr>
+        <td><a href="randommuchmore.html">Random Rounded</a></td><td>I'm thinking of a different number</td>
+      </tr>
+    </table>
+    </div>
 </body>
 </html>
 
