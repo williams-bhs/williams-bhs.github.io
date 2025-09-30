@@ -7,6 +7,7 @@
 \documentclass{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 \pagenumbering{gobble}
 
@@ -27,8 +28,9 @@
             \item Given $a_n = 2n^3$ for $n \geq 0$, the first five terms are: 
         \end{enumerate}
 
-    \item Here is a sum: 
-    \[ \sum_{k=6}^{\infty} \frac{A^{\pi}}{\sqrt{\phi}}  \]
+    \item 
+        Here is a sum: 
+        \[ \sum_{k=6}^{\infty} \frac{A^{\pi}}{\sqrt{\phi}}  \]
     
 \end{enumerate}
 

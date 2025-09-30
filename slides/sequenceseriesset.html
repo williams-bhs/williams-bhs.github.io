@@ -254,7 +254,7 @@
 					\[ 1 + 2 + 4 + 8 + 16 + 32 + ... \]
 				</div>
 				<div data-id="sequence-sum2">
-					\[ \sum_{n=1}^{\infty} 2^n \]
+					\[ \sum_{n=0}^{\infty} 2^n \]
 				</div>
 			</section>
 			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
@@ -266,10 +266,82 @@
 					\[ \sum_{n=0}^{\infty} 2^n = 2^{(0)} + 2^{(1)} + 2^{(2)} + 2^{(3)} + ... \]
 				</div>
 			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>\(\Sigma\)-notation</h4>
+				<div data-id="sequence-sum">
+					\[ \frac{1}{2} +  \frac{1}{4} +  \frac{1}{8} +  \frac{1}{16} + ... \]
+				</div>
+				<div data-id="sequence-sum2">
+					\[ \sum_{n=1}^{\infty} \frac{1}{2^n} =  \frac{1}{ 2^{(1)}} +  \frac{1}{ 2^{(2)}} +  \frac{1}{ 2^{(3)}} +  ... \]
+				</div>
+			</section>
+
 
 			<section>
 				<!-- https://commons.wikimedia.org/wiki/File:Sigma_summation_notation.svg -->
 				<img src="../img/Sigma_summation_notation.svg">
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div>
+					Why summation notation? 
+				</div>
+				<div>
+					It is a compact notation for repeated sums. 
+				</div>
+				<br> 
+				<div>
+					Consider calculating the mean of a large dataset:
+				</div>
+				<div style="background-color:#ded; border-radius:7px;padding-top:0.5em;padding-bottom:0.5em;">
+					\(x = 5.2, \quad 3.8,  \quad  4.2,  \quad  3.7,  \quad  6.8, ... \)
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div>
+					Consider calculating the mean of a large dataset:
+				</div>
+				<div style="background-color:#ded; border-radius:7px;padding-top:10px;padding-bottom:10px;">
+					\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i\]
+				</div>
+			</section>
+			<section  style="font-size:50%;">
+				<style>
+					#example_sums tr td {
+						padding:25px;
+					}
+				</style>
+				<table id="example_sums">
+					<tr>
+						<td>Mean</td>
+						<td>\(\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i\)</td>
+					</tr>
+					<tr>
+						<td>Sum of Squared Errors</td>
+						<td>\(SSE = \sum_{i=1}^n (x_i - \bar{x})^2\)</td>
+					</tr>
+					<tr>
+						<td>Variance</td>
+						<td>\(\sigma^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2\)</td>
+					</tr>
+					<tr>
+						<td>Standard Deviation</td>
+						<td>\(\sigma = \sqrt{\frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2}\)</td>
+					</tr>
+					<tr>
+						<td>Covariance</td>
+						<td>\(\text{Cov}(X, Y) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})\)</td>
+					</tr>
+					<tr>
+						<td>Correlation</td>
+						<td>\(r = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2} \, \sqrt{\sum_{i=1}^n (y_i - \bar{y})^2}}\)</td>
+					</tr>
+					<tr>
+						<td>Expected Value</td>
+						<td>\(E[X] = \sum_{i=1}^n x_i p_i\)</td>
+					</tr>
+				</table>				
 			</section>
 
 			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
