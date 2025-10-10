@@ -62,7 +62,7 @@
     // 
     let updated = false; 
     function checkForUpdate() {      
-      if (checkCellFunction("B2","=A2*2") && 
+      if (  (checkCellFunction("B2","=2*A2") || checkCellFunction("B2","=A2*2")) && 
             checkCellFunction("B15","=A15*2") && 
             checkCellFunction("B21","=A21*2") && 
             checkCell("B2",2) && 
