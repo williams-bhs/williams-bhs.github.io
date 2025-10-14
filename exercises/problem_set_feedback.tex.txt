@@ -6,6 +6,7 @@
 %
 \documentclass{article}
 \usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
 \usepackage{amsmath}
 
 \pagenumbering{gobble}
