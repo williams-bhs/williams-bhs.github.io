@@ -83,19 +83,6 @@
           </ol>
         </li>
 
-        <li>
-          In terms of \(n\) and \(m\), how many vertices and edges does each graph below have? In other words, find an
-          expression for \(|V|\) and \(|E|\) for each graph type. <em>Suggestion:</em> start with small examples and
-          make a table.
-          <p>
-          <ol type="a" style="column-count:4;">
-            <li>\(K_{n}\)</li>
-            <li>\(K_{n,m}\)</li>
-            <li>\(C_{n}\)</li>
-            <li>\(P_{n}\)</li>
-          </ol>
-          </p>
-        </li>
 
         <li>
           Draw all of the (non-isomorphic) trees with \(|V|=6\). 
@@ -210,6 +197,7 @@
           </div>
         </li>
 
+
         <li>
           The graph \(H\) below represents towns and the the distance in km between neighboring towns.
           <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">
@@ -233,96 +221,21 @@
           </ol>
         </li>
 
-
+		  
         <li>
-          A school district is planning the location of a single bus stop.
-          In the graph below, vertices represent neighborhoods with students.
-          The large vertex labeled \(S\) is the school.
-          Edges represent routes between neighborhoods.
-          The weight on each route is the time it takes in minutes to walk that route.
-          <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">            
-            <script type="text/tikz">
-              \begin{tikzpicture}[scale=2.2]
-              \definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
-              \definecolor{nred}{rgb}{0.8, 0.45, 0.475} 	
-              \node[circle, fill=nred, inner sep=2pt,label={a}] (a) at (0,0) {};	
-              \node[circle, fill=nred, inner sep=2pt,label={b}] (b) at (1,0) {};	
-              \node[circle, fill=nred, inner sep=2pt,label={c}] (c) at (2,0) {};	
-              \node[circle, fill=nred, inner sep=2pt,label={d}] (d) at (3,0) {};	
-              \node[circle, fill=nred, inner sep=2pt,label={e}] (e) at (4,0) {};	
-              \node[circle, fill=black, inner sep=4pt, label={S}] (s) at (5,0) {};	
-              \draw[draw=nblue,thick] (a) -- (b) node[midway, below] {$9$};
-              \draw[draw=nblue,thick] (b) -- (c) node[midway, below] {$6$};
-              \draw[draw=nblue,thick] (c) -- (d) node[midway, below] {$3$};
-              \draw[draw=nblue,thick] (d) -- (e) node[midway, below] {$6$};
-              \draw[draw=nblue,thick] (e) -- (s) node[midway, below] {$3$};
-              \end{tikzpicture}
-            </script>
-          </div>
-          If there were no bus stop at all, then the average travel time (per neighborhood) would be
-          \[ \frac{27+18+12+9+3}{5} = 13.8 \text{ minutes}\]
-          The bus is three times faster than walking.
-          <!-- <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">
-            <span style="padding-right:25px;">Busing:</span>
-            <script type="text/tikz">
-                \begin{tikzpicture}[scale=2.2]
-                \definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
-                \definecolor{nred}{rgb}{0.8, 0.45, 0.475} 	
-                \node[circle, fill=nred, inner sep=2pt,label={a}] (a) at (0,0) {};	
-                \node[circle, fill=nred, inner sep=2pt,label={b}] (b) at (1,0) {};	
-                \node[circle, fill=nred, inner sep=2pt,label={c}] (c) at (2,0) {};	
-                \node[circle, fill=nred, inner sep=2pt,label={d}] (d) at (3,0) {};	
-                \node[circle, fill=nred, inner sep=2pt,label={e}] (e) at (4,0) {};	
-                \node[circle, fill=black, inner sep=4pt, label={S}] (s) at (5,0) {};	
-                \draw[draw=nblue,thick] (a) -- (b) node[midway, below] {$3$};
-                \draw[draw=nblue,thick] (b) -- (c) node[midway, below] {$2$};
-                \draw[draw=nblue,thick] (c) -- (d) node[midway, below] {$1$};
-                \draw[draw=nblue,thick] (d) -- (e) node[midway, below] {$2$};
-                \draw[draw=nblue,thick] (e) -- (s) node[midway, below] {$1$};
-                \end{tikzpicture}
-            </script>
-          </div> -->          
-          Because there is only one bus stop, students will need to walk either to the bus stop or to school.
-          <ol type="a">
-            <li>Determine the average travel time from each location when the bus stop is placed at a. Repeat this for placing the stop at b through e.
-            </li>
-            <li>Which location is the optimal bus stop to minimize the average travel time? </li>
-            <li>How big would the weight on the a&mdash;b edge need to become to change the location that minimizes the
-              average travel time? </li>
+          In terms of \(n\) and \(m\), how many vertices and edges does each graph below have? In other words, find an
+          expression for \(|V|\) and \(|E|\) for each graph type. <em>Suggestion:</em> start with small examples and
+          make a table.
+          <p>
+          <ol type="a" style="column-count:4;">
+            <li>\(K_{n}\)</li>
+            <li>\(K_{n,m}\)</li>
+            <li>\(C_{n}\)</li>
+            <li>\(P_{n}\)</li>
           </ol>
-
+          </p>
         </li>
-        <!-- 
-            <li>
-              Where are the best locations for three bus stops in the grid below? 
-          <div class="tikz-container" style="display:flex; justify-content: center;margin-top:1em;margin-bottom: 1em;">
-            <script type="text/tikz">
-              \begin{tikzpicture}[scale=2]
-              \definecolor{nblue}{rgb}{0.40, 0.598, 0.73}
-              \definecolor{nred}{rgb}{0.8, 0.45, 0.475} 
-              \foreach \i in {0,1,2,3,4,5} {
-                \foreach \j in {0,1,2,3} {
-                \node[circle, fill=nred, inner sep=2pt] (v\i\j) at (\i, \j) {};	
-                  }
-              }
-              \foreach \i in {0,1,2,3,4,5} {
-                \draw[draw=nblue,thick] (v\i0) -- (v\i1) node[midway, right] {\small $3$};
-                \draw[draw=nblue,thick] (v\i1) -- (v\i2) node[midway, right] {\small $2$};
-                \draw[draw=nblue,thick] (v\i2) -- (v\i3) node[midway, right] {\small $1$};
-              }
-              \foreach \i in {0,1,2,3} {
-                \draw[draw=nblue,thick] (v0\i) -- (v1\i) node[midway, above] {$3$};
-                \draw[draw=nblue,thick] (v1\i) -- (v2\i) node[midway, above] {$2$};
-                \draw[draw=nblue,thick] (v2\i) -- (v3\i) node[midway, above] {$1$};
-                \draw[draw=nblue,thick] (v3\i) -- (v4\i) node[midway, above] {$3$};
-                \draw[draw=nblue,thick] (v4\i) -- (v5\i) node[midway, above] {$2$};
-              }
-              \node[circle, fill=black, inner sep=4pt,label={70:\textbf{S}}] (S) at (3, 1) {};	
-              \end{tikzpicture}
-						</script>
-          </div>
-          </li>
-        </li> -->
+		  
 
         <li>
           Exercises from <a href="https://discrete.openmathbooks.org/dmoi3/sec_gt-intro.html">Levin 4.1</a>.
