@@ -57,6 +57,26 @@
         </li>
 
         <li>
+          Given the following connections on a social media platform: <br> 
+            Alice is friends with Ben and Cara  <br> 
+            Ben is friends with Alice, Dana, and Evan  <br> 
+            Cara is friends with Alice, Fiona, and George  <br> 
+            Dana is friends with Ben and Henry  <br> 
+            Evan is friends with Ben and Isla  <br> 
+            Fiona is friends with Cara and George  <br> 
+            George is friends with Cara, Fiona, and Henry  <br> 
+            Henry is friends with Dana, George, and Julia  <br> 
+            Isla is friends with Evan and Julia  <br> 
+            Julia is friends with Henry and Isla  <br> 
+          <ol type="a">
+            <li>Draw a network (graph) of the relationships.</li>
+            <li>How many connections away is Alice from Julia?</li>
+            <li>What is the minimum number of connections that can be removed so there is no way to connection from Alice to Julia? </li>
+          </ol>
+        </li>
+
+
+        <li>
           A group of five people (Alejandro, Ben, Camille, Dalia, and Elias) all want to join three clubs (Xylophone,
           Yodeling, and Zoology).
           <ol type="a">
@@ -81,6 +101,26 @@
               Find \(\bar{W}\), the complement of \(W\). What does \(\bar{W}\) represent?
             </li>
           </ol>
+        </li>
+
+
+        <li>
+          <p>
+            Consider a standard four-way intersection with stop lights pointing in all four directions. 
+            </p>
+            <p style="text-align:center;">
+              <img src="../img/stoplights_four.png" style="width:50%;">
+            </p>
+            <p>
+            There are twelve total lights that can be On (\(1\)) or Off (\(0\)), and we can represent the current state of those lights with a \(12\)-bit binary word: 
+            \[R_1Y_1G_1R_2Y_2G_2R_3Y_3G_3R_4Y_4G_4\]
+            For example, with green lights both On in one direction while the other direction has red lights, we can write:
+            \[001100001100\]
+            which means that \(G_1\) and \(G_3\) are On while \(R_2\) and \(R_4\) are on. 
+          </p>
+          <p>
+            Create a directed graph to represent the behavior of the stop lights as the state transitions from one state to the next (don't worry about timing). 
+          </p>
         </li>
 
 
