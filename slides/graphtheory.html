@@ -159,17 +159,17 @@
 								A <strong>vertex</strong> does not require an edge.
 							</p>
 							<p>
-								There can be any number of edges between vertices.
+								There can be multiple edges between vertices.
 							</p>
 							<p>
-								No loose edges allowed, but you can <strong>loop</strong>.
+								No loose edges allowed.
 							</p>
 							<p>
 								The picture is just a picture.
 							</p>
 						</td>
 						<td style="vertical-align:top;text-align: center;">
-							<div data-id="graph-example"  style="vertical-align: top;">
+							<div data-id="graph-example"  style="vertical-align: top;padding-top:50px;">
 								<img src="../img/graph_example.svg">
 							</div>
 						</td>
@@ -193,7 +193,7 @@
 					<img src="../img/graph_example.svg">
 				</div>
 				<div data-id="agraphdefinition">
-					\[ G = ( \{a,b,c,d\}, \{ \{b,c\},\{b,c\},\{c,d\},\{d,d\} \} ) \]
+					\[ G = ( \{a,b,c,d\}, \{ \{b,c\},\{b,c\},\{c,d\} \} ) \]
 				</div>
 			</section>
 			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
@@ -201,7 +201,7 @@
 				<table>
 					<tr>
 						<td style="width:50%;vertical-align: top;text-align: center;">
-								<img src="../img/graph_example.svg">
+								<img src="../img/graph_example.svg" style="padding-top:100px;">
 							<br>
 						</td>
 						<td>
@@ -210,7 +210,7 @@
 	<tr><td style="border-right:1px solid rgb(205, 115, 122);color: rgb(205, 115, 122);">\(a\)</td><td></td></tr>
 	<tr><td style="border-right:1px solid rgb(205, 115, 122);color: rgb(205, 115, 122);">\(b\)</td><td>\(c\), \(c\)</td></tr>
 	<tr><td style="border-right:1px solid rgb(205, 115, 122);color: rgb(205, 115, 122);">\(c\)</td><td>\(b\), \(b\), \(d\)</td></tr>
-	<tr><td style="border-right:1px solid rgb(205, 115, 122);color: rgb(205, 115, 122);">\(d\)</td><td>\(c\), \(d\), \(d\)</td></tr>
+	<tr><td style="border-right:1px solid rgb(205, 115, 122);color: rgb(205, 115, 122);">\(d\)</td><td>\(c\)</td></tr>
 </table>
 							
 						</td>
@@ -224,7 +224,7 @@
 					<tr>
 						<td style="width:50%;vertical-align: top;">
 							<div data-id="graph-example" class="tikz-container"	style="display:flex; justify-content: center; width:400px;margin:auto;">
-								<img src="../img/graph_example.svg">
+								<img src="../img/graph_example.svg" style="padding-top:150px;">
 							</div>
 							<br>
 						</td>
@@ -381,6 +381,92 @@
 			</section>
 			
 
+			<section>
+				<h4>Fundamental Graphs</h4>
+				<table>
+					<tr style="color:rgb(84, 176, 97);font-size:80%;">
+						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Complete</td>
+						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Complete<br>Bipartite</td>
+						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Cycle</td>
+						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Path</td>
+					</tr>
+					<tr>
+						<td style="border-bottom:0;text-align:center;">
+							<img src="../img/K6.svg" style="height:300px;">
+						</td>
+						<td style="border-bottom:0;text-align:center;">
+							<img src="../img/K43.svg" style="height:300px;">
+						</td>
+						<td style="border-bottom:0;text-align:center;">
+							<img src="../img/C6.svg" style="height:300px;">
+						</td>
+						<td style="border-bottom:0;text-align:center;">
+							<img src="../img/P5.svg" style="height:300px;">
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:center;font-size:80%;">
+							\(K_6\)
+						</td>
+						<td style="text-align:center;font-size:80%;">
+							\(K_{4,3}\)
+						</td>
+						<td style="text-align:center;font-size:80%;">
+							\(C_6\)
+						</td>
+						<td style="text-align:center;font-size:80%;">
+							\(P_6\)   <!-- I have gone back and forth on which convention to use for P_{n}. This is where I'm currently at. -->
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Fundamental Graphs</h4>
+				<table>
+					<tr style="color:rgb(84, 176, 97);font-size:80%;">
+						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Star</td>
+					</tr>
+					<tr>
+						<td style="border-bottom:0;text-align:center;">
+							<img src="../img/S6a.svg" style="height:300px;">
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:center;font-size:80%;">
+							\(S_6\)
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Fundamental Graphs</h4>
+				<table>
+					<tr style="color:rgb(84, 176, 97);font-size:80%;">
+						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Star</td>
+						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Star</td>
+					</tr>
+					<tr>
+						<td style="border-bottom:0;text-align:center;">
+							<img src="../img/S6a.svg" style="height:300px;">
+						</td>
+						<td style="border-bottom:0;text-align:center;">
+							<img src="../img/S6b.svg" style="height:300px;">
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:center;font-size:80%;">
+							\(S_6\)
+						</td>
+						<td style="text-align:center;font-size:80%;">
+							\(S_6 = K_{1,5}\)
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
 			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
 				<table>
 					<tr>
@@ -512,24 +598,6 @@
 				</table>
 			</section>
 
-			<section>
-				<table>
-					<tr>
-						<td data-id="walkgraph" style="vertical-align: middle;width:50%;">
-							<img src="../img/graph_walk_empty.svg">
-						</td>
-						<td style="text-align: left;vertical-align: top;font-size:80%;">									
-							<div data-id="gwalk-path"style="color:#000;">
-								An <span style="text-decoration: underline;font-weight: bold;">Eulerian trail</span> is a trail that uses each edge exactly once. 
-							</div>
-							<br>
-							<div data-id="gwalk-cycle">
-								A <span style="text-decoration: underline;font-weight: bold;">Hamiltonian path</span> is one that visits every vertex exactly once. 
-							</div>					
-						</td>
-					</tr>
-				</table>
-			</section>
 
 
 			<section> 
@@ -554,91 +622,25 @@
 				<br> 
 			</section>
 
+
 			<section>
-				<h4>Fundamental Graphs</h4>
 				<table>
-					<tr style="color:rgb(84, 176, 97);font-size:80%;">
-						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Complete</td>
-						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Complete<br>Bipartite</td>
-						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Cycle</td>
-						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Path</td>
-					</tr>
 					<tr>
-						<td style="border-bottom:0;text-align:center;">
-							<img src="../img/K6.svg" style="height:300px;">
+						<td data-id="walkgraph" style="vertical-align: middle;width:50%;">
+							<img src="../img/graph_walk_empty.svg">
 						</td>
-						<td style="border-bottom:0;text-align:center;">
-							<img src="../img/K43.svg" style="height:300px;">
-						</td>
-						<td style="border-bottom:0;text-align:center;">
-							<img src="../img/C6.svg" style="height:300px;">
-						</td>
-						<td style="border-bottom:0;text-align:center;">
-							<img src="../img/P5.svg" style="height:300px;">
-						</td>
-					</tr>
-					<tr>
-						<td style="text-align:center;font-size:80%;">
-							\(K_6\)
-						</td>
-						<td style="text-align:center;font-size:80%;">
-							\(K_{4,3}\)
-						</td>
-						<td style="text-align:center;font-size:80%;">
-							\(C_6\)
-						</td>
-						<td style="text-align:center;font-size:80%;">
-							\(P_6\)   <!-- I have gone back and forth on which convention to use for P_{n}. This is where I'm currently at. -->
+						<td style="text-align: left;vertical-align: top;font-size:80%;">									
+							<div data-id="gwalk-path"style="color:#000;">
+								An <span style="text-decoration: underline;font-weight: bold;">Eulerian trail</span> is a trail that uses each edge exactly once. 
+							</div>
+							<br>
+							<div data-id="gwalk-cycle">
+								A <span style="text-decoration: underline;font-weight: bold;">Hamiltonian path</span> is one that visits every vertex exactly once. 
+							</div>					
 						</td>
 					</tr>
 				</table>
 			</section>
-
-
-			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-				<h4>Fundamental Graphs</h4>
-				<table>
-					<tr style="color:rgb(84, 176, 97);font-size:80%;">
-						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Star</td>
-					</tr>
-					<tr>
-						<td style="border-bottom:0;text-align:center;">
-							<img src="../img/S6a.svg" style="height:300px;">
-						</td>
-					</tr>
-					<tr>
-						<td style="text-align:center;font-size:80%;">
-							\(S_6\)
-						</td>
-					</tr>
-				</table>
-			</section>
-			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-				<h4>Fundamental Graphs</h4>
-				<table>
-					<tr style="color:rgb(84, 176, 97);font-size:80%;">
-						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Star</td>
-						<td style="border-bottom:0;vertical-align:bottom;text-align:center;">Star</td>
-					</tr>
-					<tr>
-						<td style="border-bottom:0;text-align:center;">
-							<img src="../img/S6a.svg" style="height:300px;">
-						</td>
-						<td style="border-bottom:0;text-align:center;">
-							<img src="../img/S6b.svg" style="height:300px;">
-						</td>
-					</tr>
-					<tr>
-						<td style="text-align:center;font-size:80%;">
-							\(S_6\)
-						</td>
-						<td style="text-align:center;font-size:80%;">
-							\(S_6 = K_{1,5}\)
-						</td>
-					</tr>
-				</table>
-			</section>
-
 
 
 			<section> 
@@ -754,9 +756,9 @@
 						<tr><td style="text-align:right;font-weight:bold;">Trail</td><td>A walk that does not repeat edges.    </td></tr>
 						<tr><td style="text-align:right;font-weight:bold;">Path</td><td>A walk that does not repeat vertices.    </td></tr>
 						<tr><td style="text-align:right;font-weight:bold;">Cycle</td><td>A path that starts and ends at the same vertex.   </td></tr>
-						<tr><td style="text-align:right;font-weight:bold;">Complete</td><td>Every vertex is connected to every other verts.    </td></tr>
+						<tr><td style="text-align:right;font-weight:bold;">Complete</td><td>Every vertex is connected to every other vertex.    </td></tr>
 						<tr><td style="text-align:right;font-weight:bold;">Connected</td><td>Every vertex is reachable from every other vertex.   </td></tr>
-						<tr><td style="text-align:right;font-weight:bold;">Bipartite</td><td>Vertices are seperable into two sets such that no two vertices from the same set are connected.   </td></tr>
+						<tr><td style="text-align:right;font-weight:bold;">Bipartite</td><td>Vertices are separable into two sets such that no two vertices from the same set are connected.   </td></tr>
 						<tr><td style="text-align:right;font-weight:bold;">Tree</td><td>A connected graph with no cycles.   </td></tr>
 						<tr><td style="text-align:right;font-weight:bold;">Eulerian trail</td><td>A trail where every edge is used exactly once.   </td></tr>
 						<tr><td style="text-align:right;font-weight:bold;">Hamiltonian path</td><td>A path where every vertex is used exactly once.    </td></tr>
