@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>War Simulation</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #chartContainer {
+            width: 600px;
+            height: 300px;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body style="text-align:center;">
+    <h4>Monte Carlo Card Compare &nbsp;&nbsp;&nbsp;<button id="btn_regular">Regular</button> <button
+            id="btn_aces">Aces</button> <button id="btn_aceskings">Aces+Kings</button> <input id="autoplaybox"
+            type="checkbox" checked="true">Autoplay</input></h4>
+    <div id="chartContainer" style="margin:auto;">
+        <canvas id="p1Chart"></canvas>
+    </div>
+    <div style="margin:auto;">
+        <div id="winner-div"></div>
+    </div>
+    <div id="data-div" style="margin:auto;">
+        <table id="data-table" style="margin:auto;">
+            <tr>
+                <th>Winner</th>
+                <th>Rounds</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // Game variables 
+        let step = 0;
+        let deck = buildDeck();
+        let p1 = deck.slice(0, 26);
+        let p2 = deck.slice(26);
+        let p1_discard = [];
+        let p2_discard = [];
+        let p1_wins = 0;
+        let p2_wins = 0;
+        let run_again = false;
+
+        let mode;
+        //mode = "aces"; 
+        mode = "acesANDkings";
+
+        function shuffle(a) {
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+        }
+
+        function getCard1() {
+            if (p1.length <= 0) {
+                p1 = p1_discard;
+                p1_discard = [];
+                shuffle(p1);
+            }
+            return p1.shift();
+        }
+
+        function getCard2() {
+            if (p2.length <= 0) {
+                p2 = p2_discard;
+                p2_discard = [];
+                shuffle(p2);
+            }
+            return p2.shift();
+        }
+
+        function buildDeck() {
+            const deck = [];
+            for (let r = 2; r <= 14; r++) {
+                for (let s = 0; s < 4; s++) deck.push(r);
+            }
+            shuffle(deck);
+            console.log(deck); 
+            return deck;
+        }
+
+        const ctx = document.getElementById('p1Chart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{ label: "Player 1's # of Cards", data: [], borderWidth: 1 }]
+            },
+            options: {
+                animation: false,
+                scales: { y: { beginAtZero: true, max: 53 } }
+            }
+        });
+
+        function updateChart() {
+            chart.data.labels.push(step);
+            chart.data.datasets[0].data.push(p1.length + p1_discard.length);
+            chart.update();
+        }
+
+        function playCardCompare() {
+            if (p1.length + p1_discard.length == 0 || p2.length + p2_discard.length == 0) {
+                const table = document.getElementById("data-table").querySelector("tbody");
+                const row = table.insertRow();
+                const cell = row.insertCell();
+                const cell2 = row.insertCell();
+                cell2.textContent = step;
+                if (p2.length + p2_discard.length == 0) {
+                    p1_wins++;
+                    cell.textContent = "1";
+                }
+                else {
+                    p2_wins++;
+                    cell.textContent = "2";
+                }
+                document.getElementById("winner-div").textContent = "Player 1 win rate: " + (p1_wins / (p1_wins + p2_wins));
+                console.log("Wins: ", [p1_wins, p2_wins], p1_wins / (p1_wins + p2_wins));
+                if (document.getElementById("autoplaybox").checked) {
+                    setTimeout(start_new_game, 1);
+                }
+                return;
+            }
+            step++;
+            // console.log([p1.length, p1_discard.length, p2.length, p2_discard.length]);
+
+            let pile1 = [getCard1()];
+            let pile2 = [getCard2()];
+
+            while (pile1[pile1.length - 1] == pile2[pile2.length - 1]) {
+                // Player who does not have enough cards loses this hand
+                if (p1.length + p1_discard.length < 2) {
+                    // Player 2 wins
+                    console.log("Player 2 is winning during war...");
+                    const c1 = pile1[pile1.length - 1];
+                    const c2 = pile2[pile2.length - 1];
+                    const all = pile1.concat(pile2);
+                    for (const c of all) {
+                        p2_discard.push(c);
+                    }
+                    for (const c of p1) {
+                        p2_discard.push(c);
+                    }
+                    p1 = [];
+                    for (const c of p1_discard) {
+                        p2_discard.push(c);
+                    }
+                    p1_discard = [];
+                    updateChart();
+                    setTimeout(playCardCompare, 1);
+                    return;
+                } else if (p2.length + p2_discard.length < 2) {
+                    // Player 1 wins
+                    console.log("Player 1 is winning during war...");
+                    const c1 = pile1[pile1.length - 1];
+                    const c2 = pile2[pile2.length - 1];
+                    const all = pile1.concat(pile2);
+                    for (const c of all) {
+                        p1_discard.push(c);
+                    }
+                    for (const c of p2) {
+                        p1_discard.push(c);
+                    }
+                    p2 = [];
+                    for (const c of p2_discard) {
+                        p1_discard.push(c);
+                    }
+                    p2_discard = [];
+                    updateChart();
+                    setTimeout(playCardCompare, 1);
+                    return;
+                }
+                pile1.push(getCard1());
+                pile1.push(getCard1());
+                pile2.push(getCard2());
+                pile2.push(getCard2());
+            }
+
+            const c1 = pile1[pile1.length - 1];
+            const c2 = pile2[pile2.length - 1];
+            const all = pile1.concat(pile2);
+
+            if (c1 > c2) {
+                for (const c of all) {
+                    p1_discard.push(c);
+                }
+            } else {
+                for (const c of all) {
+                    p2_discard.push(c);
+                }
+            }
+            updateChart();
+            setTimeout(playCardCompare, 1);
+        }
+
+        function start_new_game() {
+            // Clear graph data
+            chart.data.labels = [];
+            chart.data.datasets[0].data = [];
+            step = 0;
+            // Get deck 
+            deck = buildDeck();
+
+            if (mode == "aces") {
+                p1 = [14, 14, 14, 14];
+                p2 = deck;
+                while (p2.indexOf(14) > -1) {
+                    p2.splice(p2.indexOf(14), 1);
+                }
+            } else if (mode == "acesANDkings") {
+                p1 = [14, 14, 14, 14, 13, 13, 13, 13];
+                shuffle(p1);
+                p2 = deck;
+                while (p2.indexOf(14) > -1) { p2.splice(p2.indexOf(14), 1); }
+                while (p2.indexOf(13) > -1) { p2.splice(p2.indexOf(13), 1); }
+            }
+            else {
+                p1 = deck.slice(0, 26);
+                p2 = deck.slice(26);
+            }
+            p1_discard = [];
+            p2_discard = [];
+
+            // Play 
+            playCardCompare();
+        }
+
+        document.getElementById('btn_regular').addEventListener('click', () => {
+            mode = "regular";
+            start_new_game();
+        });
+        document.getElementById('btn_aces').addEventListener('click', () => {
+            mode = "aces";
+            start_new_game();
+        });
+        document.getElementById('btn_aceskings').addEventListener('click', () => {
+            mode = "acesANDkings";
+            start_new_game();
+        });
+    </script>
+</body>
+
+</html>
