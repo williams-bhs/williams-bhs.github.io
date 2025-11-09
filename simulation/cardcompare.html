@@ -47,11 +47,7 @@
         let p2_discard = [];
         let p1_wins = 0;
         let p2_wins = 0;
-        let run_again = false;
-
         let mode;
-        //mode = "aces"; 
-        mode = "acesANDkings";
 
         function shuffle(a) {
             for (let i = a.length - 1; i > 0; i--) {
@@ -180,6 +176,10 @@
                 }
                 pile1.push(getCard1());
                 pile1.push(getCard1());
+                pile1.push(getCard1());
+                pile1.push(getCard1());
+                pile2.push(getCard2());
+                pile2.push(getCard2());
                 pile2.push(getCard2());
                 pile2.push(getCard2());
             }
