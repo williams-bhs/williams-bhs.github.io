@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+	<title>CDS</title>
+
+	<link rel="stylesheet" href="reveal.js-master/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
+	<link rel="stylesheet" href="slides.css">
+	<link rel="stylesheet" href="../boxes.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<style>
+		.reveal img {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- TITLE SLIDE -->
+			<section>
+				<h2>Statistic &amp; Probability</h2>
+				<img src="../img/n4.png" style="width:300px;">
+				<div class="slides-subtitle">Computing and Data Science</div>
+			</section>
+
+			<section>
+				<div style="background-color:var(--dsp-blue);border-radius:11px;padding:18px;">
+					A <strong>statistic</strong> is a quantity calculated from a sample.
+				</div>
+				<br>
+				<div>
+					<div style="background-color:var(--dsp-green);border-radius:11px;">
+						The <strong>probability</strong> of an event \(E\) is:  						
+							\[P(E) \in \left[0,1\right] \]
+					</div>
+					<div>
+						<ul>
+							<li> Probability of \(0\) means no chance of happening </li>
+							<li> Probability of \(1\) means guarenteed to happen</li>
+						</ul>
+					</div>
+				</div>
+
+
+			</section>
+
+
+			<section data-state="monteCoin">
+				<!-- https://en.wikipedia.org/wiki/File:2022_Washington_quarter_obverse.jpeg -->
+				<h4><img src="../img/2022_Washington_quarter_obverse.jpeg" style="width:45px;"> Monte Carlo Coin Flip
+					&nbsp;&nbsp;&nbsp;<button id="MC_flip_toggle">Start</button></h4>
+				<canvas id="coinChart"></canvas>
+				<p>Flips: <span id="flipCount">0</span></p>
+
+				<script>
+					let flipping = false;
+					const counts = { H: 0, T: 0 };
+					let flipCount = 0;
+					const ctx = document.getElementById('coinChart').getContext('2d');
+					const chart = new Chart(ctx, {
+						type: 'bar',
+						data: {
+							labels: ['Heads', 'Tails'],
+							datasets: [{
+								data: [counts.H, counts.T],
+								backgroundColor: ['rgba(255, 0, 0, 0.55)', 'rgba(0, 0, 255, 0.55)']
+							}]
+						},
+						options: {
+							responsive: true,
+							plugins: {
+								legend: { display: false }
+							}
+						}
+					});
+
+					function flipCoin() {
+						const result = Math.random() < 0.5 ? 'H' : 'T';
+						counts[result]++;
+						
+						// Update other slides...
+						let pH = counts.H/(counts.H+counts.T);
+						let pT = counts.T/(counts.H+counts.T);
+						normalizedchart.data.datasets[0].data = [counts.H / flipCount, counts.T / flipCount];
+						normalizedchart.update();
+						document.getElementById("coinprobability").innerHTML = `<u>Experimental</u>: <br> P(H) = ${pH.toFixed(5)}<br>P(T) = ${pT.toFixed(5)}`; 
+						document.getElementById("coinstats").textContent = `Heads:  ${counts.H}, Tails:  ${counts.T}`; 
+
+						flipCount++;
+						document.getElementById('flipCount').textContent = flipCount;
+						document.getElementById('normalizedflipCount').textContent = flipCount;
+						updateChart();
+					}
+
+					function updateChart() {
+						chart.data.datasets[0].data = [counts.H, counts.T];
+						chart.update();
+					}
+
+					document.getElementById('MC_flip_toggle').addEventListener('click', () => {
+						flipping = !flipping;
+						if (flipping) {
+							intervalRollId = setInterval(flipCoin, 50);
+							document.getElementById('MC_flip_toggle').textContent = 'Stop';
+						} else {
+							clearInterval(intervalRollId);
+							document.getElementById('MC_flip_toggle').textContent = 'Start';
+						}
+					});
+				</script>
+			</section>
+			<section data-state="monteCoin">
+				<!-- https://en.wikipedia.org/wiki/File:2022_Washington_quarter_obverse.jpeg -->
+				<h4><img src="../img/2022_Washington_quarter_obverse.jpeg" style="width:45px;"> Monte Carlo Coin Flip,
+					Normalized &nbsp;&nbsp;&nbsp;
+					<!-- <button id="normalizedMC_flip_toggle">Start</button> -->
+				</h4>
+				<canvas id="normalizedcoinChart"></canvas>
+				<p>Flips: <span id="normalizedflipCount">0</span></p>
+
+				<script>
+					let normalizedflipping = false;
+					const normalizedcounts = { H: 0, T: 0 };
+					let normalizedflipCount = 0;
+					const normalizedctx = document.getElementById('normalizedcoinChart').getContext('2d');
+					const normalizedchart = new Chart(normalizedctx, {
+						type: 'bar',
+						data: {
+							labels: ['Heads', 'Tails'],
+							datasets: [{
+								data: [normalizedcounts.H, normalizedcounts.T],
+								backgroundColor: ['rgba(255, 0, 0, 0.55)', 'rgba(0, 0, 255, 0.55)']
+							}]
+						},
+						options: {
+							responsive: true,
+							plugins: {
+								legend: { display: false }
+							}
+						}
+					});
+
+					function normalizedflipCoin() {
+						const result = Math.random() < 0.5 ? 'H' : 'T';
+						normalizedcounts[result]++;
+						normalizedflipCount++;
+						document.getElementById('normalizedflipCount').textContent = normalizedflipCount;
+						normalizedupdateChart();
+					}
+
+					function normalizedupdateChart() {
+						normalizedchart.data.datasets[0].data = [normalizedcounts.H / normalizedflipCount, normalizedcounts.T / normalizedflipCount];
+						normalizedchart.update();
+					}
+
+					document.getElementById('normalizedMC_flip_toggle').addEventListener('click', () => {
+						normalizedflipping = !normalizedflipping;
+						if (normalizedflipping) {
+							intervalRollId = setInterval(normalizedflipCoin, 50);
+							document.getElementById('normalizedMC_flip_toggle').textContent = 'Stop';
+						} else {
+							clearInterval(intervalRollId);
+							document.getElementById('normalizedMC_flip_toggle').textContent = 'Start';
+						}
+					});
+				</script>
+			</section>
+
+			<section>
+				<div style="background-color:var(--dsp-blue);border-radius:11px;padding:18px;">
+						<h4>Statistics</h4>
+					<div>
+						<div id="coinstats"></div>
+					</div>	
+				</div>
+				<br> 
+				<div style="background-color:var(--dsp-green);border-radius:11px;padding:18px;">
+				<h4>Probability</h4>
+				<div>
+					<table>
+						<tr>
+							<td id="coinprobability" style="text-align:center;width:48%;"> </td>
+							<td style="text-align:center;width:48%;">
+								<u>Theoretical</u>: <br>
+					P(H) = 0.5<br> 
+					P(T) = 0.5
+							</td>
+						</tr>
+					</table>
+				</div>
+				</div>
+			</section>
+
+			<section>
+				The probability of event E occuring is 
+				\[P(E) = \frac{\text{Number of ways E can occur}}{\text{Total possible outcomes}}\]
+			</section>
+
+			<section data-state="monteDie">
+
+				<h4>&#127922; Monte Carlo Die Roll &nbsp;&nbsp;&nbsp;<button id="MC_roll_toggle">Start</button></h4>
+				<canvas id="dieChart"></canvas>
+				<p>Rolls: <span id="rollCount">0</span></p>
+
+				<script>
+					let rolling = false;
+					const dieCounts = [0, 0, 0, 0, 0, 0];
+					let rollCount = 0;
+
+					const diectx = document.getElementById('dieChart').getContext('2d');
+					const dieChart = new Chart(diectx, {
+						type: 'bar',
+						data: {
+							labels: ['1 \u2680', '2 \u2681', '3 \u2682', '4 \u2683', '5 \u2684', '6 \u2685'],
+							datasets: [{
+								label: '# of Rolls',
+								data: dieCounts,
+								backgroundColor: 'rgba(50,50,250,0.55)'
+							}]
+						},
+						options: {
+							responsive: true,
+							plugins: {
+								legend: { display: false }
+							}
+						}
+					});
+
+					function rollDie() {
+						const result = Math.floor(Math.random() * 6);
+						dieCounts[result]++;
+						rollCount++;
+						document.getElementById('rollCount').textContent = rollCount;
+						updateDieChart();
+					}
+
+					function updateDieChart() {
+						dieChart.data.datasets[0].data = dieCounts;
+						dieChart.update();
+					}
+
+					document.getElementById('MC_roll_toggle').addEventListener('click', () => {
+						rolling = !rolling;
+						if (rolling) {
+							intervalDieId = setInterval(rollDie, 50);
+							document.getElementById('MC_roll_toggle').textContent = 'Stop';
+						} else {
+							clearInterval(intervalDieId);
+							document.getElementById('MC_roll_toggle').textContent = 'Start';
+						}
+					});
+				</script>
+			</section>
+
+			<section data-state="monteDie">
+
+				<h4>&#127922; Monte Carlo Die Roll, Normalized &nbsp;&nbsp;&nbsp;<button
+						id="normalizedMC_roll_toggle">Start</button></h4>
+				<canvas id="normalizeddieChart"></canvas>
+				<p>Rolls: <span id="normalizedrollCount">0</span></p>
+
+				<script>
+					let normalizedrolling = false;
+					const normalizeddieCounts = [0, 0, 0, 0, 0, 0];
+					let normalizedrollCount = 0;
+
+					const normalizeddiectx = document.getElementById('normalizeddieChart').getContext('2d');
+					const normalizeddieChart = new Chart(normalizeddiectx, {
+						type: 'bar',
+						data: {
+							labels: ['1 \u2680', '2 \u2681', '3 \u2682', '4 \u2683', '5 \u2684', '6 \u2685'],
+							datasets: [{
+								label: '# of Rolls',
+								data: normalizeddieCounts,
+								backgroundColor: 'rgba(50,50,250,0.55)'
+							}]
+						},
+						options: {
+							responsive: true,
+							plugins: {
+								legend: { display: false }
+							}
+						}
+					});
+
+					function normalizedrollDie() {
+						const result = Math.floor(Math.random() * 6);
+						normalizeddieCounts[result]++;
+						normalizedrollCount++;
+						document.getElementById('normalizedrollCount').textContent = normalizedrollCount;
+						normalizedupdateDieChart();
+					}
+
+					function normalizedupdateDieChart() {
+						//normalizedchart.data.datasets[0].data = [normalizedcounts.H/normalizedflipCount, normalizedcounts.T/normalizedflipCount];						
+						normalizeddieChart.data.datasets[0].data = [normalizeddieCounts[0] / normalizedrollCount,
+						normalizeddieCounts[1] / normalizedrollCount,
+						normalizeddieCounts[2] / normalizedrollCount,
+						normalizeddieCounts[3] / normalizedrollCount,
+						normalizeddieCounts[4] / normalizedrollCount,
+						normalizeddieCounts[5] / normalizedrollCount];
+						normalizeddieChart.update();
+					}
+
+					document.getElementById('normalizedMC_roll_toggle').addEventListener('click', () => {
+						normalizedrolling = !normalizedrolling;
+						if (normalizedrolling) {
+							intervalDieId = setInterval(normalizedrollDie, 50);
+							document.getElementById('normalizedMC_roll_toggle').textContent = 'Stop';
+						} else {
+							clearInterval(intervalDieId);
+							document.getElementById('normalizedMC_roll_toggle').textContent = 'Start';
+						}
+					});
+				</script>
+			</section>
+
+
+			<style>
+				.petPics {
+					width: 50%;
+				}
+			</style>
+			<script>
+				let Pcat = Math.round(100 * (0.15 + Math.random() * (0.85 - 0.15))) / 100;
+				while (Pcat > 0.45 && Pcat < 0.55) {
+					Pcat = Math.round(100 * (0.15 + Math.random() * (0.85 - 0.15))) / 100;
+				}
+				let petCount = 0;
+				function runCatMachine() {
+					if (petCount >= 50) {
+						alert("Simmer down!");
+						return;
+					}
+					let img;
+					Math.random() < Pcat ? img = "../img/cat.jpg" : img = "../img/dog.jpg";
+					document.getElementById('cat-machine-div').innerHTML += `<img src="${img}" class="petPics">`;
+					petCount += 1;
+					let petPics = document.querySelectorAll('.petPics');
+
+					let newWidth = Math.round(10 + (40) / (1 + Math.exp(0.2 * (petCount - 2))));
+					petPics.forEach(pic => {
+						pic.style.width = `${newWidth}%`;
+					});
+				}
+				function makeCatGuess() {
+					let catDiv = document.getElementById('cat-machine-div');
+					let userGuess = Number(document.getElementById("catProbabilityGuess").value);
+					let err = Math.round(100 * (userGuess - Pcat)) / 100;
+
+					document.getElementById('guess-button-div').style.display = "none";
+					catDiv.innerHTML = `<br><div style="padding:20px;border-radius:11px;background-color:#dde;">The actual P(cat) was: ${Pcat}<br><br>You guessed: ${userGuess}</div><br>Your error was: ${err}<br><br>`;
+
+					if (Math.abs(userGuess - Pcat) < 0.1) {
+						catDiv.innerHTML += "Well done!!";
+					} else {
+						catDiv.innerHTML += "Good try";
+					}
+				}
+				function resetCatMachine() {
+
+				}
+			</script>
+			<section
+				style="display: flex; justify-content: flex-start; align-items: flex-start; flex-direction: column; height:100%;">
+				<div style="font-size:80%;padding-bottom:15px;">
+					The Cat Machine has a random probability of generating a cat.
+					<br>
+					Try the machine and then guess \(P(\text{cat})\)!
+				</div>
+				<div id="cat-machine-div">
+					<button onclick="runCatMachine();"
+						style="border-radius:0px;vertical-align: middle;height:80px;background-color:rgb(255, 175, 255);font-weight:bold;font-size:100%;">Cat
+						Machine</button> &rarr; <br><br>
+				</div>
+				<div id="guess-button-div">
+					<span style="font-size:70%;">P(cat) = </span><input type="text" id="catProbabilityGuess"><button
+						onclick="makeCatGuess();">Guess</button>
+				</div>
+			</section>
+
+			<section>
+				<div style="font-size:80%;text-align:left;">
+					<div style="background-color:var(--dsp-orange);padding:12px;border-radius:11px;">Create a \(6 \times 6\) grid with both the rows and columns labeled 1 through 6. 	</div>
+					<ol>
+		<li>In each cell, write the sum of the row and column. For example, row2-col5 should have a \(7\) in it.</li>
+		<li>How many unique sums are possible?</li>
+		<li>How many times does each sum appear in the grid? Make a normalized histogram.</li>
+		<li>Experimentally collect as much data as you can by rolling two dice and recording their sum. Create a histogram of your data and compare it to the theoretical distribution. </li>
+		<li>Determine a function to fit the distribution from your experimental data. </li>
+					</ol>
+					
+				</div>
+			</section>
+
+			<section>
+				<h4>Discrete v. Continuous</h4>
+				<table>
+					<tr>
+						<th>Discrete</th>
+						<th>Continuous</th>
+					</tr>
+					<tr>
+						<td><img src="../img/coin.svg" style="height:35px;"> Flipping a coin</td>
+						<td><img src="../img/stopwatch.svg"> Time a trip takes</td>
+					</tr>
+					<tr>
+						<td><img src="../img/die.svg"> Rolling a die</td>
+						<td><img src="../img/stick.svg" style="height:35px;"> Length of a broken stick</td>
+					</tr>
+					<tr>
+						<td><img src="../img/cards.svg" style="height:35px;"> Drawing a card</td>
+						<td><img src="../img/thermometer.svg"> Temperature on Dec 19</td>
+					</tr>
+					<tr>
+						<td><img src="../img/people.svg"> Choosing a person</td>
+						<td><img src="../img/person.svg"> Height of a person</td>
+					</tr>
+				</table>
+			</section>
+<!-- 
+			<section>
+				<h4>Probability Distributions</h4>
+				<table>
+					<tr>
+						<td>Discrete</td><td>Continuous</td>
+					</tr>
+					<tr>
+						
+					</tr>
+				</table>
+
+			</section>
+			<section>
+				Classic types of distributions
+			</section>
+			<section>
+				Probability as integral area 
+			</section>
+			<section>
+				Broken stick problem!
+			</section>
+
+
+			<section>
+				Independent v. dependent
+			</section>
+			<section>
+				Addition and multiplication rules
+			</section>
+			<section>
+				Conditional Probability
+			</section>
+
+			<section>
+				Probability that a sample is from a population.
+			</section>
+
+			<section>
+				Central Limit Theorem
+			</section>
+
+			<section>
+				Tie probability to set theory, graph theory, combinatorics!
+			</section> -->
+
+
+			<section>
+				<p style="color: #888;font-size:50%;">
+					©2025 Jedediyah Williams
+					<br>
+					This work is licensed under the Creative Commons <br>Attribution-NonCommercial-ShareAlike 4.0
+					International License.
+					<br>
+					<img src="../img/by-nc-sa.svg">
+					<br>
+					To view a copy of this license, visit <a
+						href="https://creativecommons.org/licenses/by-nc-sa/4.0/">https://creativecommons.org/licenses/by-nc-sa/4.0/</a>.
+				</p>
+			</section>
+
+
+
+
+		</div>
+	</div>
+
+	<script src="reveal.js-master/dist/reveal.js"></script>
+	<script src="reveal.js-master/plugin/notes/notes.js"></script>
+	<script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+	<script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+	<script src="reveal.js-master/plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		}).then(() => {
+
+
+			// Force graphs to update on slide focus
+			Reveal.on('monteCoin', () => {
+				updateChart();
+			})
+			Reveal.on('monteDie', () => {
+				updateDieChart();
+			})
+
+
+		});
+	</script>
+</body>
+
+</html>
