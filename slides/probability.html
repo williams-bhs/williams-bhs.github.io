@@ -163,16 +163,16 @@
 						normalizedchart.update();
 					}
 
-					document.getElementById('normalizedMC_flip_toggle').addEventListener('click', () => {
-						normalizedflipping = !normalizedflipping;
-						if (normalizedflipping) {
-							intervalRollId = setInterval(normalizedflipCoin, 50);
-							document.getElementById('normalizedMC_flip_toggle').textContent = 'Stop';
-						} else {
-							clearInterval(intervalRollId);
-							document.getElementById('normalizedMC_flip_toggle').textContent = 'Start';
-						}
-					});
+					// document.getElementById('normalizedMC_flip_toggle').addEventListener('click', () => {
+					// 	normalizedflipping = !normalizedflipping;
+					// 	if (normalizedflipping) {
+					// 		intervalRollId = setInterval(normalizedflipCoin, 50);
+					// 		document.getElementById('normalizedMC_flip_toggle').textContent = 'Stop';
+					// 	} else {
+					// 		clearInterval(intervalRollId);
+					// 		document.getElementById('normalizedMC_flip_toggle').textContent = 'Start';
+					// 	}
+					// });
 				</script>
 			</section>
 
@@ -390,10 +390,11 @@
 			</section>
 
 			<section>
-				<div style="font-size:80%;text-align:left;">
-					<div style="background-color:var(--dsp-orange);padding:12px;border-radius:11px;">Create a \(6 \times 6\) grid with both the rows and columns labeled 1 through 6. 	</div>
+				<div style="font-size:70%;text-align:left;">
+					<div style="background-color:var(--dsp-orange);padding:12px;border-radius:11px;text-align:center;">Create a  6x6 grid with both the rows and columns labeled 1 through 6. 	</div>
+					<br> 
 					<ol>
-		<li>In each cell, write the sum of the row and column. For example, row2-col5 should have a \(7\) in it.</li>
+		<li>In each cell, write the sum of the row and column. For example, row2-col5 should have a 7 in it.</li>
 		<li>How many unique sums are possible?</li>
 		<li>How many times does each sum appear in the grid? Make a normalized histogram.</li>
 		<li>Experimentally collect as much data as you can by rolling two dice and recording their sum. Create a histogram of your data and compare it to the theoretical distribution. </li>
@@ -428,30 +429,131 @@
 					</tr>
 				</table>
 			</section>
-<!-- 
+
 			<section>
-				<h4>Probability Distributions</h4>
+				<!-- <h4>Probability Distributions</h4> -->
 				<table>
 					<tr>
-						<td>Discrete</td><td>Continuous</td>
+						<td style="text-align:center;">Discrete</td><td style="text-align:center;">Continuous</td>
 					</tr>
 					<tr>
-						
+						<td style="text-align:center;border:0;padding:0;margin:0;"><img style="height:180px;" src="../img/dist_uniform.png"></td>
+						<td style="text-align:center;border:0;padding:0;margin:0;"><img style="height:180px;" src="../img/dist_uniform_continuous.png"></td>
+					</tr>
+					<tr>
+						<td style="text-align:center;border:0;padding:0;margin:0;"><img style="height:180px;" src="../img/dist_binomial.png"></td>
+						<td style="text-align:center;border:0;padding:0;margin:0;"><img style="height:180px;" src="../img/dist_exponential.png"></td>
+					</tr>
+					<tr>
+						<td style="text-align:center;border:0;padding:0;margin:0;"><img style="height:180px;" src="../img/dist_poisson.png"></td>
+						<td style="text-align:center;border:0;padding:0;margin:0;"><img style="height:180px;" src="../img/dist_normal.png"></td>
 					</tr>
 				</table>
-
-			</section>
-			<section>
-				Classic types of distributions
-			</section>
-			<section>
-				Probability as integral area 
-			</section>
-			<section>
-				Broken stick problem!
 			</section>
 
+			<section>
+				<img style="width:70%;" src="../img/dist_uniform.png">
+				<br><br>
+				Probability of rolling an even number = \(\frac{1}{6}+\frac{1}{6}+\frac{1}{6}\)
+				<br> <br><br>
+			</section>
+			<section> 
+				<img style="width:70%;" src="../img/dist_normal_13.png"><br>
+				Probability of value between 0 and 2 = \[ \int_{0}^{2} f(x) \ dx \]
+			</section>
 
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img style="width:60%;" src="../img/dist_linear.png"><br>
+				Probability of value between 1 and 2 = 
+				<br><br><br><br><br>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img style="width:60%;" src="../img/dist_linear12.png"><br>
+				Probability of value between 1 and 2 = \[ \int_{1}^{2} f(x) \ dx = \]
+			</section>
+
+			
+
+			<section>
+				<h4>Broken Stick Problem</h4>
+				<div>
+					Given a stick broken at two random places, what is the probability that the three pieces can form a triangle? 
+				</div>
+<canvas id="stickCanvas" width="800" height="200"></canvas>
+<div style="width:100%; text-align:left; ">
+<span id="trianglePossible" style="font-size:70%;"></span>
+<button id="breakBtn" style="padding: 10px 15px; font-size:16px;float:right;">Break</button>
+</div>
+
+<script>
+const canvas = document.getElementById("stickCanvas");
+const ctxStick = canvas.getContext("2d");
+
+function breakStick() {
+ctxStick.clearRect(0, 0, canvas.width, canvas.height);
+  const y = canvas.height / 2;
+  const x0 = 20;             
+  const x1 = canvas.width - 20; 
+
+  ctxStick.lineWidth = 4;
+  ctxStick.strokeStyle = "black";
+  ctxStick.beginPath();
+  ctxStick.moveTo(x0, y);
+  ctxStick.lineTo(x1, y);
+  ctxStick.stroke();
+
+  drawCircle(x0, y, 5);
+  drawCircle(x1, y, 5);
+
+  // Generate two random break points between x0 and x1
+  const b1 = x0 + Math.random() * (x1 - x0);
+  const b2 = x0 + Math.random() * (x1 - x0);
+
+  drawX(b1, y);
+  drawX(b2, y);
+  let left = Math.min(b1,b2);
+  let right = Math.max(b1,b2);
+  let p1 = left-x0; 
+  let p2 = right-left;
+  let p3 = x1-right;
+  console.log(p1,p2,p3)
+  if ( p1+p2>p3 && p1+p3>p2 && p2+p3>p1) {
+	document.getElementById("trianglePossible").textContent = "Triangle possible";
+  } else {
+	document.getElementById("trianglePossible").textContent = "No triangle...";
+  }
+  
+}
+
+document.getElementById("breakBtn").onclick = () => {
+  breakStick();
+};
+function drawCircle(x, y, r) {
+  ctxStick.beginPath();
+  ctxStick.arc(x, y, r, 0, Math.PI * 2);
+  ctxStick.fillStyle = "black";
+  ctxStick.fill();
+  ctxStick.strokeStyle = "black";
+  ctxStick.lineWidth = 2;
+  ctxStick.stroke();
+}
+function drawX(x, y) {
+  const size = 8;
+  ctxStick.strokeStyle = "red";
+  ctxStick.lineWidth = 3;
+
+  ctxStick.beginPath();
+  ctxStick.moveTo(x - size, y - size);
+  ctxStick.lineTo(x + size, y + size);
+  ctxStick.moveTo(x - size, y + size);
+  ctxStick.lineTo(x + size, y - size);
+  ctxStick.stroke();
+}
+breakStick(); 
+setTimeout(breakStick,1000); 
+</script>
+			</section>
+<!-- 
 			<section>
 				Independent v. dependent
 			</section>
@@ -472,7 +574,7 @@
 
 			<section>
 				Tie probability to set theory, graph theory, combinatorics!
-			</section> -->
+			</section>  -->
 
 
 			<section>
