@@ -1,1 +1,1 @@
-[Introduction to Computer Science](https://williams-bhs.github.io/compsci/)
+[Computing and Data Sciences](https://williams-bhs.github.io/compsci/)
