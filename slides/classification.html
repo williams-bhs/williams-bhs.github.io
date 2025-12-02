@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+	<title>CDS</title>
+
+	<link rel="stylesheet" href="reveal.js-master/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
+	<link rel="stylesheet" href="slides.css">
+	<link rel="stylesheet" href="../boxes.css">
+
+	<style>
+		.reveal img {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- TITLE SLIDE -->
+			<section>
+				<h2>Classification</h2>
+				<img src="../img/fruit.png" style="width:600px;">
+				<div class="slides-subtitle">Computing and Data Science</div>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="classifierIntro"><strong>Classification</strong> is the problem of categorizing an input from among two or more populations.</div>
+				<br> 
+				<div data-id="classifyImage" style="vertical-align:top;">
+					<div style="display:inline-block;font-size:30%;text-align:left;vertical-align:middle;border: 1px solid #daa;padding:10px; border-radius:11px;">						
+To: You<br>
+From: br3nda@compny.suspicious.com<br><br> 
+Hi person,  <br>
+We charged you much money. <br>
+To review, click <a href="https://www.google.com/search?q=Don't+just+click+links!">this link!</a> <br> 
+Sincerely, totally legit company
+					</div>
+					<div style="display:inline-block;"> &longrightarrow; </div>
+					<div style="display:inline-block;border:1px solid black;text-align:center;vertical-align:middle;font-size:80%;padding-left:15px;padding-right:15px;"> Spam<br>Classifier </div>
+					<div style="display:inline-block;"> &longrightarrow; </div>
+					<div style="display:inline-block;"> "Spam" </div>
+				</div>
+
+				<br> 
+
+				<div data-id="classifyImage" style="vertical-align:top;">
+					<div style="display:inline-block;font-size:60%;text-align:left;vertical-align:middle;border: 1px solid #daa;padding:10px; border-radius:11px;">						
+Bank Transaction &mdash; <br>$1500 worth of Doritos
+					</div>
+					<div style="display:inline-block;"> &longrightarrow; </div>
+					<div style="display:inline-block;border:1px solid black;text-align:center;vertical-align:middle;font-size:80%;padding-left:15px;padding-right:15px;"> Fraud<br>Classifier </div>
+					<div style="display:inline-block;"> &longrightarrow; </div>
+					<div style="display:inline-block;"> "Fraud" </div>
+				</div>
+
+				<br> 
+
+				<div data-id="classifyImage" style="vertical-align:top;">
+					<div style="display:inline-block;font-size:60%;text-align:left;vertical-align:middle;border: 1px solid #daa;padding:10px; border-radius:11px;">						
+<img src="../img/cat.jpg" style="width:200px;">
+					</div>
+					<div style="display:inline-block;"> &longrightarrow; </div>
+					<div style="display:inline-block;border:1px solid black;text-align:center;vertical-align:middle;font-size:80%;padding-left:15px;padding-right:15px;"> Image<br>Classifier </div>
+					<div style="display:inline-block;"> &longrightarrow; </div>
+					<div style="display:inline-block;"> "Cat" </div>
+				</div>
+			</section>		
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img src="../img/student_height_distributions.png" style="margin:0;padding:0;width:80%;">
+				<div style="font-size:80%;margin:0;padding:0;">
+					<p>
+					Give an example of a height that:
+					<ol>
+						<li>Is almost definitely a middle school student.</li>
+						<li>Is almost definitely a high school student.</li>
+						<li>Could be from either population with roughly equal probability.</li>
+					</ol>
+				</p>
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+
+				<img src="../img/student_height_distributions.png" style="width:50%;"><br> 
+<table style="font-size:70%;">
+<tr><th>School_Level</th><th>    StudentID</th><th>   Height_cm</th></tr>  
+<tr><td>Middle School   </td><td>103154</td><td>      149</td></tr>   <!-- Arggg, I have to go back and make these studentIDs match the next slides... -->
+<tr><td>Middle School   </td><td>102917</td><td>      161</td></tr>
+<tr><td>High School     </td><td>100662</td><td>      165</td></tr>
+<tr><td>High School     </td><td>100341</td><td>      177</td></tr>
+<tr><td>Middle School   </td><td>103509</td><td>      155</td></tr>
+<tr><td>High School     </td><td>101802</td><td>      172</td></tr>
+<tr><td>Middle School   </td><td>103193</td><td>      159</td></tr>			
+<tr><td>High School     </td><td>102286</td><td>      160</td></tr>
+<tr><td>High School     </td><td>100775</td><td>      181</td></tr>
+<tr><td>Middle School   </td><td>103564</td><td>      152</td></tr>
+</table>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img src="../img/student_height_distributions.png" style="width:50%;">
+							<table>
+								<tr>
+									<td style="vertical-align:top;margin:0;padding:0;">
+										<span style="color:#c88;padding-right:100px;font-size:60%;">
+											<ul>
+											<li>Output  </li>
+											<li>Dependent Variable   </li>
+											<li>Response Variable  </li>
+											<li>Label   </li>
+											<li>Target</li>
+											<li>Class</li>
+											</ul>
+										</span>
+									</td>
+									<td style="vertical-align:top;margin:0;padding:0;">
+										<img src="../img/student_height_tableb.png" style="width:550px;padding:0;margin:0;">
+									</td>
+									<td style="vertical-align:top;margin:0;padding:0;">
+										<span style="padding-left:10px;padding-right:50px;color:#66c;font-size:60%;">
+											<ul>
+											<li>Input  </li>
+											<li>Independent Variables   </li>
+											<li>Explanatory Variable  </li>
+											<li>Attributes </li>
+											<li>Predictors  </li>
+											<li>Features  </li>
+											</ul>
+										</span>
+									</td>
+								</tr>
+							</table>
+			</section>
+
+			<section>
+				<img src="../img/student_height_distributions_v_ID.png">
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img src="../img/classification_ex_data.png">
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img src="../img/classification_ex_linear.png">
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img src="../img/classification_ex_nonlinear.png">
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img style="width:40%;" src="../img/classification_knn1.png">
+				<img style="width:40%;" src="../img/classification_knn_3.png">
+				<img style="width:40%;" src="../img/classification_knn_5.png">
+				<img style="width:40%;" src="../img/classification_knn_7.png">
+			</section>
+
+			<section>
+				<img style="width:48%;" src="../img/classification_3da.png">
+				<img style="width:48%;" src="../img/classification_3db.png">
+			</section>
+
+
+			<section>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/aYQ_5c6m8Is?si=pcYn4qmwDCirTSf7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</section>
+
+
+			<section>
+				<h4>Some of the well known harms</h4>
+				<table>
+					<tr style="padding:0;margin:0;">
+						<td style="width:30%;padding:0;margin:0;"><a target="_blank" href="https://academic.oup.com/view-large/figure/515758162/oso-9780192889898-graphic-017-color.jpg"><img src="../img/fig134.jpeg" style="width:100;"></a> </td>
+						<td style="vertical-align:top;padding:0;margin:0;">  
+							<a target="_blank" href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing"><img src="../img/propublicabias.png" style="width:48%;"></a>
+							<a target="_blank" href="https://www.media.mit.edu/projects/gender-shades/overview/"><img src="../img/gendershades.png" style="width:48%;"></a>
+							<a target="_blank" href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G"><img src="../img/amazonrecruiting.png" style="width:50%;"></a>
+							<a target="_blank" href="https://www.washingtonpost.com/news/morning-mix/wp/2017/09/12/researchers-use-facial-recognition-tools-to-predict-sexuality-lgbt-groups-arent-happy/"><img src="../img/sexualityai.png" style="width:48%;"></a>				
+						</td>
+					</tr>
+				</table>
+				
+			</section>
+<!-- 
+			<section>
+				<a target="_blank" href="https://www.nature.com/articles/s41586-025-08972-6"><img src="../img/compvisionsurveillance.png"></a>
+			</section> -->
+	
+
+			<section>
+				<img src="../img/mapachievementnorms.jpg">
+			</section>
+
+			<section>
+				<p style="color: #888;font-size:50%;">
+					©2025 Jedediyah Williams
+					<br> 
+					This work is licensed under the Creative Commons <br>Attribution-NonCommercial-ShareAlike 4.0 International License.
+					<br>
+					<img src="../img/by-nc-sa.svg">
+					<br> 
+					To view a copy of this license, visit <a
+					  href="https://creativecommons.org/licenses/by-nc-sa/4.0/">https://creativecommons.org/licenses/by-nc-sa/4.0/</a>.
+				  </p>
+			</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<script src="reveal.js-master/dist/reveal.js"></script>
+	<script src="reveal.js-master/plugin/notes/notes.js"></script>
+	<script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+	<script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+	<script src="reveal.js-master/plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		});
+	</script>
+</body>
+
+</html>
