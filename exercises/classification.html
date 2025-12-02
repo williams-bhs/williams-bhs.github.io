@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing and Data Science</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../header.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../exercises.css" />
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+</head>
+
+<body>
+  <header>
+    <a href="../index.html" class="header-title">
+      <svg class="header-img" viewBox="0 0 1024 1024" fill="currentColor" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m 712,294 a 56,56 0 1 0 112,0 56,56 0 1 0 -112,0 z" id="path5" />
+        <path d="m 564,608 a 96,96 0 1 0 192,0 96,96 0 1 0 -192,0 z" id="path4" />
+        <path d="m 406,380 a 48,48 0 1 0 96,0 48,48 0 1 0 -96,0 z" id="path3" />
+        <path d="m 288,604 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z" id="path2" />
+        <path
+          d="M 888,792 H 200 V 168 c 0,-4.4 -3.6,-8 -8,-8 h -56 c -4.4,0 -8,3.6 -8,8 v 688 c 0,4.4 3.6,8 8,8 h 752 c 4.4,0 8,-3.6 8,-8 v -56 c 0,-4.4 -3.6,-8 -8,-8 z"
+          id="path1" />
+      </svg>
+      <span>Computing and Data Science</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Classification
+        <hr>
+      </h1>
+    </section>
+
+    <section class="exercises">
+      <ol>
+
+        <li>
+          
+The iris flower data is available <a target="_blank" href="https://docs.google.com/spreadsheets/d/1EQgug9IpZ26LZVWRSkVMzYDHmhBwMsBOk5ZRd6nDxKA/edit?usp=sharing">in a spreadsheet</a>.
+The spreadsheet is most useful for manipulating the data and creating sets to be plotted. You can create the histograms in the spreadsheet, but most of the data visualization will be easier with Desmos. You can copy-paste columns or pairs of columns into Desmos. 
+          <ol type="a">
+    <li>Split your data into <em>training</em> and <em>testing</em> sets by randomly choosing five samples from each iris species to set aside in second sheet. </li>
+    <li>For each of the four features, create a histogram to get a sense of the distributions. How distinguishing is each feature? </li>
+    <li>Choose two of the most distinguishing features and create a scatter plot where the axes are the two features. In Desmos, the three species should be in three separate tables so that you can distinguish them. </li>
+    <li>Using your scatter plot, define classification boundaries. These boundaries should be equations that partition the points into their respective classes (as much as possible).  </li>
+    <li>Define a classifier (with your equations and possibly if/else statements). Your classifier should take four values corresponding to the four features, and return a species of iris.</li>
+    <li>Only after you are confident in your final classifier, validate your classifier by tesing it on the testing data that was set aside at the start. </li>
+          </ol>
+        </li>
+<!--         
+        <li>
+          Read https://nautil.us/how-eugenics-shaped-statistics-238014/ 
+        </li>
+        <li>
+          https://academic.oup.com/book/55103/chapter/423910713?login=false 
+        </li>
+
+        <li> 
+          Choose a set of music genres, i.e., {jazz, country, hip hop, rock}. 
+        </li> -->
+
+      </ol>
+
+    </section>
+
+  </main>
+</body>
+
+</html>
