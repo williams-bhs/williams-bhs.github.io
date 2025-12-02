@@ -170,6 +170,86 @@ Bank Transaction &mdash; <br>$1500 worth of Doritos
 			</section>
 
 
+			
+			<section>
+				<h4>A Classification Problem</h4>
+				<p style="margin:60px;">
+					We are given an image and want to classify it as "Apple", "Orange", "Banana", or "Blueberry"
+				</p>
+				<table>
+					<tr>
+						<td style="text-align:center;vertical-align:middle;">							
+							<img src="../img/apple.jpg" style="border:1px solid gray;">
+						</td>
+						<td>&longrightarrow;</td>
+						<td>
+							<div style="border:1px solid gray;width:180px;vertical-align:middle;padding-top:35px;padding-bottom:40px;text-align:center;border-radius:7px;background-color:#def;">Classifier</div>
+						</td>
+						<td>&longrightarrow;</td>
+						<td>
+							"Apple"
+						</td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>
+				<div>
+					Gather all of the "Apple" images. For each image, add up the total R values, G values, and B values. 
+				</div>
+				<div>
+					<img src="../img/apples.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>
+				<div>
+					Gather all of the "Apple" images. For each image, add up the total R values, G values, and B values. 
+				</div>
+				<div>
+					<img src="../img/fruit_rgb_apple.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>
+				<br> 
+				<div>
+					<img src="../img/fruit_feature_box.png">
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>
+				<br> 
+				<div>
+					<img src="../img/fruit_feature_box.png">
+				</div>
+				<br> 
+				<div>
+					RGB sum = (2.15, 2.21, 1.8) Million &longrightarrow; ? 
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>				
+				<div>
+					<img src="../img/fruit_feature_box.png">
+				</div>
+				<div>
+					<span style="font-size:80%;">Given an input image, our Fruit Classifier Algorithm is:</span>					
+					<div style="padding:10px;background-color:#cfc;border-radius:13px;">
+					<ol>
+						<li>Add up all of the R, G, and B values</li>
+						<li>If ... then ...</li>
+						<li>Else if ... then ...</li>
+						<li>Else if ... then ...</li>
+						<li>Else ...</li>
+					</ol>
+					</div>
+				</div>
+			</section>
+
+
 			<section>
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/aYQ_5c6m8Is?si=pcYn4qmwDCirTSf7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 			</section>
