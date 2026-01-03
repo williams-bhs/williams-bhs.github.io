@@ -1,14 +1,28 @@
-
 .exercises ol li {
-  margin-top: 25px; 
-}.exercises ol li ol li {
-  margin-top: 5px; 
+  margin-top: 25px;
+}
+
+.exercises ol li ol li {
+  margin-top: 5px;
+}
+
+/* Displaying Python */
+code {
+  background: #f5f5f5;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+pre {
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 6px;
 }
 
 @media (max-width: 600px) {
-  
+
   .exercises ol {
-    padding-left: 22px; 
+    padding-left: 22px;
   }
 
 }
