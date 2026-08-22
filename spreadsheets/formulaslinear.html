@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spreadsheet Formula Practice</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="vendor/luckysheet/css/luckysheet.css" />
   <link rel="stylesheet" href="style.css" /> 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script id="MathJax-script" async src="vendor/mathjax/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -30,8 +30,8 @@
     <div id="luckysheet"></div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="vendor/luckysheet/plugins/js/plugin.js"></script>
+  <script src="vendor/luckysheet/luckysheet.umd.js"></script>
   <script src="sheets.js"></script>
   <script>
 
@@ -65,8 +65,12 @@
             checkCell("A2","1") && 
             checkCell("A11","10") && 
             checkCell("B2","2") && 
-            checkCell("B11","65") && 
-            checkCell("B7","37"),
+            checkCell("B3","9") && 
+            checkCell("B4","16") && 
+            checkCell("B5","23") && 
+            checkCell("B6","30") && 
+            checkCell("B7","37") && 
+            checkCell("B11","65"), 
             "formulascircumference.html"
         ); 
       });

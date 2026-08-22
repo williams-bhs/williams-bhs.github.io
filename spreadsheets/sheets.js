@@ -60,10 +60,12 @@ function initBlankSheet() {
 
     console.log( `Checking function at row ${numberIndex}, column ${letterIndex}` );
 
-    let sheet = luckysheet.getluckysheetfile()[0];  // Get the sheet    
-    if (!sheet.data[numberIndex][letterIndex]) { return false; }
-    let function_in_cell = sheet.data[numberIndex][letterIndex].f; 
-    return function_in_cell.toLowerCase() == function_expression.toLowerCase(); 
+    let sheet = luckysheet.getluckysheetfile()[0];  // Get the sheet
+    let cell = sheet.data[numberIndex][letterIndex];
+    if (!cell || !cell.f) { return false; }
+    let function_in_cell = cell.f;
+    const normalize = (s) => s.toLowerCase().replace(/\s+/g, "");
+    return normalize(function_in_cell) == normalize(function_expression);
   }
   
   function checkSheet(expression, next_url) {

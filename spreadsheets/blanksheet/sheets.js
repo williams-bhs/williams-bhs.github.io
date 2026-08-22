@@ -15,9 +15,9 @@ function initBlankSheet() {
       ],
       lang: 'en',
       allowEdit: true,
-      showtoolbar: false,
+      showtoolbar: true,
       showinfobar: false,
-      showsheetbar: false,
-      showstatbar: false
+      showsheetbar: true,
+      showstatbar: true
     });
 }

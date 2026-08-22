@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spreadsheet Formula Practice</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="vendor/luckysheet/css/luckysheet.css" />
   <link rel="stylesheet" href="style.css" /> 
 </head>
 
@@ -29,8 +29,8 @@
     <div id="luckysheet"></div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="vendor/luckysheet/plugins/js/plugin.js"></script>
+  <script src="vendor/luckysheet/luckysheet.umd.js"></script>
   <script src="sheets.js"></script>
   <script>
     let cell_data = [ {r:0,c:0,v:{v:"Values"}}, 
@@ -63,8 +63,7 @@
     let updated = false; 
     function checkForUpdate() {      
       if (  (checkCellFunction("B2","=2*A2") || checkCellFunction("B2","=A2*2")) && 
-            checkCellFunction("B15","=A15*2") && 
-            checkCellFunction("B21","=A21*2") && 
+            checkCellFunction("B15","=A15*2") || checkCellFunction("B15","=2*A15") && 
             checkCell("B2",2) && 
             checkCell("B3",4) && 
             checkCell("B4",6) && 
@@ -77,24 +76,9 @@
     <p>
       Not only did we use the blue square for efficiency, but every cell was automatically updated. Click on B5 and you'll see in the bar at the top that the formula there is not <code>=A2*2</code>, but <code>=A5*2</code>
     </p>
-    <p style="text-align: center;"><img src="img/formulab5.png"></p>    
-    <button id="check-button">Check It</button>
-    <div id="feedback-box"></div>
+    <p style="text-align: center;"><img src="img/formulab5.png"></p>        
+    <div id="feedback-box" style="color:#BB0064;">Well done!<br><button onclick='document.location.href="formulascolumns.html"'>Next Level</button></div>
     `; 
-    document.getElementById("check-button").addEventListener("click", () => {  
-        // Check for expected values in the sheet
-        checkSheet(
-            checkCellFunction("B2","=A2*2") && 
-            checkCellFunction("B15","=A15*2") && 
-            checkCellFunction("B21","=A21*2") && 
-            checkCell("B2",2) && 
-            checkCell("B3",4) && 
-            checkCell("B4",6) && 
-            checkCell("B11",20) && 
-            checkCell("B21",40) , 
-            "formulascolumns.html"
-        ); 
-      });
 
       } else {
         setTimeout(checkForUpdate, 1000);

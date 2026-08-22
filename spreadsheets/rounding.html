@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spreadsheet Formula Practice</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="vendor/luckysheet/css/luckysheet.css" />
   <link rel="stylesheet" href="style.css" /> 
 </head>
 
@@ -16,8 +16,8 @@
     </p>
     <p>
       <ol>
-        <li>In column B, use the <code>round</code> function to round these to the nearest whole number. 
-            In B1, start with <code>=ROUND(A2,0)</code>. That 0 says to leave 0 decimal places.
+        <li>In column B, use the <code>round</code> function to round these to the nearest whole number.
+            In B2, start with <code>=ROUND(A2,0)</code>. That 0 says to leave 0 decimal places.
         </li>
 
           <li>
@@ -42,8 +42,8 @@
     <div id="luckysheet"></div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="vendor/luckysheet/plugins/js/plugin.js"></script>
+  <script src="vendor/luckysheet/luckysheet.umd.js"></script>
   <script src="sheets.js"></script>
   <script>
     let cell_data = [ {r:0,c:0,v:{v:"Numbers"}}, 
